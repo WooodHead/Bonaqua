@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import './css/style.css'
+// import './css/test.css'
+import BoxModel from './components/BoxModel'
 import Main from './components/Main'
+import Mouse from './components/Mouse'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <Main />
+      <Mouse />
     </div>
   )
 }
