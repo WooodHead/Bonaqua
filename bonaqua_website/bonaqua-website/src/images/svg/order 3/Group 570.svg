@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="634.184" height="45" viewBox="0 0 634.184 45">
+  <g id="Group_570" data-name="Group 570" transform="translate(-1059.391 -341.74)">
+    <g id="button_confirm_price" data-name="button confirm &amp; price" transform="translate(1059.391 341.74)">
+      <g id="total_price" data-name="total price" transform="translate(0)">
+        <g id="bg" fill="#f9fafd" stroke="#32c5ff" stroke-width="1">
+          <rect width="634.184" height="45" rx="6" stroke="none"/>
+          <rect x="0.5" y="0.5" width="633.184" height="44" rx="5.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <path id="Devider" d="M0,0H43.146" transform="translate(1287.459 342.74) rotate(90)" fill="none" stroke="#2fb8fb" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Devider-2" data-name="Devider" d="M0,0H43.146" transform="translate(1479.716 342.74) rotate(90)" fill="none" stroke="#2fb8fb" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <text id="Төлөх_дүн" data-name="Төлөх дүн" transform="translate(1552.012 356.971)" fill="#676767" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="-51.08" y="0">Төлөх дүн</tspan></text>
+    <text id="Тоо_хэмжээ" data-name="Тоо хэмжээ" transform="translate(1351.18 356.971)" fill="#676767" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="-58.58" y="0">Тоо хэмжээ</tspan></text>
+    <text id="Хэмжээ" transform="translate(1121.853 356.971)" fill="#676767" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="-39.09" y="0">Хэмжээ</tspan></text>
+  </g>
+</svg>

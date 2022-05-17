@@ -1,0 +1,10 @@
+<svg id="name" xmlns="http://www.w3.org/2000/svg" width="642" height="57" viewBox="0 0 642 57">
+  <g id="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+    <rect width="642" height="50" rx="6" stroke="none"/>
+    <rect x="0.5" y="0.5" width="641" height="49" rx="5.5" fill="none"/>
+  </g>
+  <g id="label" transform="translate(12)">
+    <rect id="Rectangle_68" data-name="Rectangle 68" width="98" height="17" fill="#fff"/>
+    <text id="Нэмэлт_мэдээлэл" data-name="Нэмэлт мэдээлэл" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Нэмэлт мэдээлэл</tspan></text>
+  </g>
+</svg>

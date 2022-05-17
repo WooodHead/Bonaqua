@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="635.912" height="57" viewBox="0 0 635.912 57">
+  <g id="Group_558" data-name="Group 558" transform="translate(-1059 -446.865)">
+    <g id="name" transform="translate(1059 446.865)">
+      <g id="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="201.912" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="200.912" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label" transform="translate(12)">
+        <rect id="Rectangle_68" data-name="Rectangle 68" width="29" height="17" fill="#fff"/>
+        <text id="Нэр" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Нэр</tspan></text>
+      </g>
+    </g>
+    <g id="name-2" data-name="name" transform="translate(1276 446.865)">
+      <g id="bg-2" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="201.912" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="200.912" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-2" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-2" data-name="Rectangle 68" width="83" height="17" fill="#fff"/>
+        <text id="Утасны_дугаар" data-name="Утасны дугаар" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Утасны дугаар</tspan></text>
+      </g>
+    </g>
+    <g id="name-3" data-name="name" transform="translate(1493 446.865)">
+      <g id="bg-3" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="201.912" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="200.912" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-3" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-3" data-name="Rectangle 68" width="102" height="17" fill="#fff"/>
+        <text id="Захиалгын_дугаар" data-name="Захиалгын дугаар" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Захиалгын дугаар</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="305.879" height="305.879" viewBox="0 0 305.879 305.879">
+  <defs>
+    <filter id="Rectangle_6701" x="0" y="0" width="305.879" height="305.879" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="14" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-opacity="0.059"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="ml_toirog" data-name="ml toirog" transform="translate(-664.373 -630.725)">
+    <g id="Group_547" data-name="Group 547" transform="translate(-65.764 30.242)">
+      <g id="Group_47852" data-name="Group 47852" transform="translate(795.137 661.483)">
+        <g transform="matrix(1, 0, 0, 1, -65, -61)" filter="url(#Rectangle_6701)">
+          <rect id="Rectangle_6701-2" data-name="Rectangle 6701" width="125.879" height="125.879" rx="62.94" transform="translate(80 76)" fill="#fff"/>
+        </g>
+        <g id="Group_47847" data-name="Group 47847" transform="translate(22.268 22.268)">
+          <circle id="Ellipse_1518" data-name="Ellipse 1518" cx="55.671" cy="55.671" r="55.671" fill="#3dbee3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

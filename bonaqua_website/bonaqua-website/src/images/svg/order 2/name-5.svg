@@ -1,0 +1,10 @@
+<svg id="name" xmlns="http://www.w3.org/2000/svg" width="314" height="57" viewBox="0 0 314 57">
+  <g id="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+    <rect width="314" height="50" rx="6" stroke="none"/>
+    <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+  </g>
+  <g id="label" transform="translate(12)">
+    <rect id="Rectangle_68" data-name="Rectangle 68" width="127" height="17" fill="#fff"/>
+    <text id="Хаалганы_дугаар_тоот_" data-name="Хаалганы дугаар /тоот/" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Хаалганы дугаар /тоот/</tspan></text>
+  </g>
+</svg>

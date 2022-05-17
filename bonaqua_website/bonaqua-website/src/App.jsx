@@ -1,15 +1,24 @@
+import React from 'react';
 import './css/style.css'
-import './css/test.css'
-import BoxModel from './components/BoxModel'
-import Main from './components/Main'
-import Mouse from './components/Mouse'
-import PageTransition from './components/PageTransition'
+import Header from './components/Header';
+import Content from './components/Content';
+import Order from './components/Order/Order';
+import Footer from './components/Footer';
+import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 
 function App() {
-
   return (
-    <div className="App">
-      <PageTransition />
+    <div className="contain flex flex-col">
+      <Header />
+      <Routes>
+        <Switch>
+          <div className='content'>
+            <Route exact path="/" component={Content} />
+            <Route path="/order" component={Order} />
+          </div>
+        </Switch>
+      </Routes>
+      <Footer />
     </div>
   )
 }

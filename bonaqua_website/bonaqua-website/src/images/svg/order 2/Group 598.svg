@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664.417" height="330" viewBox="0 0 664.417 330">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_96" data-name="Rectangle 96" width="19.443" height="21.196" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_598" data-name="Group 598" transform="translate(-1058 -513.503)">
+    <g id="Group_593" data-name="Group 593">
+      <g id="Group_551" data-name="Group 551" transform="translate(-52.394 148.165)">
+        <g id="Group_549" data-name="Group 549" transform="translate(1755.368 366.142)">
+          <g id="Group_496" data-name="Group 496" clip-path="url(#clip-path)">
+            <path id="Path_16" data-name="Path 16" d="M21.444,8.454C20.761,6.34,18.606,5.5,18.119,3.307a2.717,2.717,0,0,1,5.3-1.178c.487,2.192-.582,4.685-1.98,6.325" transform="translate(-10.942 0)" fill="#3dbee3"/>
+            <path id="Path_17" data-name="Path 17" d="M29.913,16.908c1.584-1.557,1.372-3.861,3.115-5.277a2.717,2.717,0,0,1,3.428,4.216c-1.742,1.417-4.45,1.577-6.542,1.061" transform="translate(-18.129 -6.68)" fill="#3dbee3"/>
+            <path id="Path_18" data-name="Path 18" d="M28.525,31.045c2.2.267,3.873-1.336,6.067-.858A2.717,2.717,0,0,1,33.435,35.5c-2.194-.478-4.008-2.494-4.91-4.451" transform="translate(-17.288 -18.241)" fill="#3dbee3"/>
+            <path id="Path_19" data-name="Path 19" d="M19.467,32.347c.683,2.114,2.838,2.955,3.325,5.147a2.717,2.717,0,0,1-5.3,1.178c-.487-2.192.582-4.685,1.98-6.325" transform="translate(-10.526 -19.604)" fill="#3dbee3"/>
+            <path id="Path_20" data-name="Path 20" d="M7.834,27.429C6.25,28.986,6.462,31.29,4.72,32.706A2.717,2.717,0,0,1,1.292,28.49c1.742-1.417,4.45-1.577,6.542-1.061" transform="translate(-0.175 -16.46)" fill="#3dbee3"/>
+            <path id="Path_21" data-name="Path 21" d="M8.206,14.359c-2.2-.267-3.873,1.336-6.067.858A2.717,2.717,0,0,1,3.3,9.907c2.194.478,4.008,2.494,4.91,4.452" transform="translate(0 -5.966)" fill="#3dbee3"/>
+          </g>
+        </g>
+        <path id="Devider" d="M0,0H403.746" transform="translate(1753.394 376.74) rotate(180)" fill="none" stroke="#3cbde2" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+      </g>
+      <g id="Header" transform="translate(1061.026 517.503)">
+        <text id="Cart" transform="translate(95.974 13)" font-size="18" font-family="Montserrat-Regular, Montserrat"><tspan x="-98.19" y="0">Байршлын мэдээлэл</tspan></text>
+      </g>
+    </g>
+    <g id="name" transform="translate(1059 555.503)">
+      <g id="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label" transform="translate(12)">
+        <rect id="Rectangle_68" data-name="Rectangle 68" width="44" height="17" fill="#fff"/>
+        <text id="Дүүрэг" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Дүүрэг</tspan></text>
+      </g>
+    </g>
+    <g id="name-2" data-name="name" transform="translate(1387 555.503)">
+      <g id="bg-2" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-2" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-2" data-name="Rectangle 68" width="40" height="17" fill="#fff"/>
+        <text id="Хороо" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Хороо</tspan></text>
+      </g>
+    </g>
+    <g id="name-3" data-name="name" transform="translate(1059 632.503)">
+      <g id="bg-3" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-3" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-3" data-name="Rectangle 68" width="35" height="17" fill="#fff"/>
+        <text id="Байр" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Байр</tspan></text>
+      </g>
+    </g>
+    <g id="name-4" data-name="name" transform="translate(1387 632.503)">
+      <g id="bg-4" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-4" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-4" data-name="Rectangle 68" width="30" height="17" fill="#fff"/>
+        <text id="Орц" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Орц</tspan></text>
+      </g>
+    </g>
+    <g id="name-5" data-name="name" transform="translate(1059 709.503)">
+      <g id="bg-5" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-5" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-5" data-name="Rectangle 68" width="66" height="17" fill="#fff"/>
+        <text id="Орцны_код" data-name="Орцны код" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Орцны код</tspan></text>
+      </g>
+    </g>
+    <g id="name-6" data-name="name" transform="translate(1059 786.503)">
+      <g id="bg-6" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="642" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="641" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-6" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-6" data-name="Rectangle 68" width="98" height="17" fill="#fff"/>
+        <text id="Нэмэлт_мэдээлэл" data-name="Нэмэлт мэдээлэл" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Нэмэлт мэдээлэл</tspan></text>
+      </g>
+    </g>
+    <g id="name-7" data-name="name" transform="translate(1387 709.503)">
+      <g id="bg-7" data-name="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+        <rect width="314" height="50" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="313" height="49" rx="5.5" fill="none"/>
+      </g>
+      <g id="label-7" data-name="label" transform="translate(12)">
+        <rect id="Rectangle_68-7" data-name="Rectangle 68" width="127" height="17" fill="#fff"/>
+        <text id="Хаалганы_дугаар_тоот_" data-name="Хаалганы дугаар /тоот/" transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Хаалганы дугаар /тоот/</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

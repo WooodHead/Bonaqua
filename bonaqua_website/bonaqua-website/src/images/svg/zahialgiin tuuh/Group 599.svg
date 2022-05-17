@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="840.227" height="182.26" viewBox="0 0 840.227 182.26">
+  <defs>
+    <filter id="bg" x="0" y="0" width="840.227" height="182.26" filterUnits="userSpaceOnUse">
+      <feOffset dx="0.977" dy="13.966" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="13.5" result="blur"/>
+      <feFlood flood-color="#4d519e" flood-opacity="0.11"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_599" data-name="Group 599" transform="translate(-910.357 -375.206)">
+    <g transform="matrix(1, 0, 0, 1, 910.36, 375.21)" filter="url(#bg)">
+      <g id="bg-2" data-name="bg" transform="translate(39.52 26.53)" fill="#f9fafd" stroke="#3dbee3" stroke-width="1">
+        <rect width="759.227" height="101.26" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="758.227" height="100.26" rx="3.5" fill="none"/>
+      </g>
+    </g>
+    <text id="Chandelier" transform="translate(1078 434.067)" fill="#6d7278" font-size="16" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Огноо</tspan></text>
+    <text id="Chandelier-2" data-name="Chandelier" transform="translate(1384 434.067)" fill="#6d7278" font-size="16" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Захиалгын дугаар</tspan></text>
+    <text id="Chandelier-3" data-name="Chandelier" transform="translate(1231 434.067)" fill="#6d7278" font-size="16" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Төлөв</tspan></text>
+    <text id="Chandelier-4" data-name="Chandelier" transform="translate(1602 434.067)" fill="#6d7278" font-size="16" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Дүн</tspan></text>
+  </g>
+</svg>

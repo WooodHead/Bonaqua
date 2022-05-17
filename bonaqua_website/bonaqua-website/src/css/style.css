@@ -2,16 +2,68 @@
 * {
   box-sizing: border-box;
 }
-  
 html {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-                                            /* Responsive css */
+.header {
+  height: 18vh;
+}
+
+.footer {
+  height: 10vh;
+}
+.footer1flower {
+  width: 90%;
+}
+.ProductC {
+  font-family: 'Montserrat', sans-serif;
+  height: 8rem;
+}
+.contain {
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bona::before {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nav-link {
+  padding: 0 !important;
+  color: #807e7e !important;
+  font-weight: 500;
+}
+.link .nav-link.active {
+  color: #3dbee3;
+}
+
+:root {
+  --blue-color: #3dbee3;
+}
+
+
+
+
+
+
+                                     /* Responsive css */
 
                    /* (max-width: 640px) */
 @media (max-width: 640px) {
@@ -27,53 +79,298 @@ html {
 
                   /* (min-width: 1025px) and (max-width: 1536px) */
 @media (min-width: 1025px) and (max-width: 1536px) {
-  body {
-    color: black;
-    width: 100%;
-    height: 100vh;
-    /* background-color: #f2f5f8; */
-    /* background: linear-gradient(90deg, var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center, linear-gradient(var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center, var(--dot-color); */
-    /* background-size: var(--dot-space) var(--dot-space); */
-    /* cursor: none; */
+          /* Header */
+  .logo img {
+    width: 10rem;
+    height: 6rem;
   }
-/* 
-  .custom-pointer {
-    position: fixed;
-    left: calc(var(--cursor-size) / -2);
-    width: var(--cursor-size);
-    height: var(--cursor-size);
-    transition: 500ms, transform 100ms;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    pointer-events: none;
-  } */
+  .ProductAndOrder{
+    width: 23rem;
+    height: 50%;
+    border: 1px solid var(--blue-color);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+  }
+  .line {
+    height: 3rem;
+    border-right: 1px solid var(--blue-color);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .busket, .order {
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+  }
+  .busket img, .order img {
+    width: 20rem;
+    height: 100%;
+  }
+  .busket p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 2.8rem;
+    margin-top: 0.2rem;
+  }
+  .order p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 1.8rem;
+    margin-top: 0.2rem;
+  }
 
-  .custom-pointer {
-      cursor: url('../images/svg/flower.svg'), auto;
+      /* Content */
+
+  .water {
+    width: 80%;
   }
-  .text-section {
+  .water img {
+    height: 20vh;
+  }
+  .social img{
+    padding: 0.5rem 0;
+  }
+  .productInfo {
+    width: 80%;
+  }
+  .tableImg {
+    width: 70%;
+  }
+  .buttonImg {
+    width: 100%;
+  }
+  .link {
+    width: 85%;
+  }
+  .nav-link {
+    color: #c4c4c4 !important;
+  }
+
+
+
+  /* Content */
+
+  .sc {
+    margin: 1rem 0;
+  }
+  .choosing {
+    margin-right: 3rem;
+  }
+
+  .bona {
+    width: 70%;
+    height: 56vh;
+    border: 1px solid #c4c4c4;
+  }
+  .bona img {
+    height: 95%;
+    z-index: 1;
+  }
+
+  .bona::before {
+    content: url('../images/svg/home/tsetseg tom.svg');
     position: absolute;
-    /* left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+    left: 10rem;
+    bottom: 10rem;
+  }
+  
+  .choose {
+    width: 20%;
+  }
+  .white {
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 12rem;
+    bottom: 2rem;
+  }
+  .circle {
+    width: 7rem;
+    height: 7rem;
+    background-color: #3dbee3;
+    border-radius: 50%;
   }
 
 }
 
                   /* (min-width: 1537px) and (max-width: 2560px) */
 @media (min-width: 1537px) and (max-width: 2560px) {
- 
+        /* Header */
+  .logo img {
+    /* width: 18rem; */
+    height: 8rem;
+  }
+  .ProductAndOrder{
+    width: 35rem;
+    height: 50%;
+    border: 1px solid var(--blue-color);
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  .line {
+    height: 4rem;
+    border: 1px solid var(--blue-color);
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+  .busket, .order {
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+  }
+  .busket img, .order img {
+    width: 15rem;
+    height: 100%;
+  }
+  .busket p, .order p {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 4rem;
+    /* margin-top: 0.2rem; */
+  }
+
+  .water img {
+    height: 25vh;
+  }
+  
+        /* Content  */
+  .sc {
+    margin: 1rem 0;
+  }
+  .choosing {
+    margin-right: 3rem;
+  }
+
+  .bona {
+    width: 70%;
+    height: 56vh;
+    border: 1px solid #c4c4c4;
+  }
+  .bona img {
+    height: 95%;
+    z-index: 1;
+  }
+  .footer1 {
+    margin-top: 3rem;
+  }
+  .bona::before {
+    content: url('../images/svg/home/tsetseg tom.svg');
+    position: absolute;
+    left: 15rem;
+    bottom: 18rem;
+  }
+  
+  .choose {
+    width: 20%;
+  }
+  .white {
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 12rem;
+    bottom: 2rem;
+  }
+  .circle {
+    width: 7rem;
+    height: 7rem;
+    background-color: #3dbee3;
+    border-radius: 50%;
+  }
+  
+
+  /* Zahialgiin medeelel */
+  .slideContent {
+    height: 70vh;
+    /* margin-right: 3rem; */
+  }
+  .slider {
+    height: 50vh;
+    border: 2px solid black;
+  }
+  .carousel-indicators button {
+    background-color: #3dbee3 !important;
+    margin-top: 80rem !important;
+    border-radius: 50%;
+    width: 2rem !important;
+  }
+
 }
 
 
                   /* (min-width: 2561px) */
 @media (min-width: 2561px) {
- 
+            /* Header */
+  .logo img {
+    /* width: 18rem; */
+    height: 8rem;
+  }
+  .ProductAndOrder{
+     width: 35rem;
+     height: 50%;
+     border: 1px solid var(--blue-color);
+     border-radius: 10px;
+     margin-top: 3rem;
+  }
+  .line {
+     height: 4rem;
+      border: 1px solid var(--blue-color);
+      margin-right: 2rem;
+      margin-left: 1rem;
+  }
+  .busket, .order {
+      display: flex;
+      align-items: center;
+      color: var(--blue-color);
+  }
+  .busket img, .order img {
+      width: 15rem;
+      height: 100%;
+  }
+  .busket p, .order p {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-left: 4rem;
+      /* margin-top: 0.2rem; */
+  }
+                /* Content  */
+  .sc {
+      margin: 1rem 0;
+  }
+  .choosing {
+      margin-right: 3rem;
+  }
+        
+  .bona {
+      width: 70%;
+      height: 56vh;
+      border: 1px solid #c4c4c4;
+  }
+  .bona img {
+      height: 95%;
+      z-index: 1;
+  }
+        
+  .bona::before {
+      content: url('../images/svg/home/tsetseg tom.svg');
+      position: absolute;
+      left: 15rem;
+      bottom: 18rem;
+  }
+  .choose {
+       width: 20%;
+  }
+        
+  .toirog img{
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      top: 18rem;
+      left: -5rem;
+      z-index: 1;
+  }
 }
 

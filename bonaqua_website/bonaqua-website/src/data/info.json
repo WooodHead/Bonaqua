@@ -1,0 +1,178 @@
+[
+    {
+      "price": 6800,
+      "sales": true,
+      "name": "Өглөөний хоол",
+      "discountPrice": "",
+      "discountPercentage": 20,
+      "stock": "",
+      "category": "үндсэн хоол хямдралтай",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": true,
+      "name": "Зайрмаг",
+      "discountPrice": "",
+      "discountPercentage": 30,
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": true,
+      "name": "Панкейк",
+      "discountPrice": "",
+      "discountPercentage": 20,
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": false,
+      "name": "Макарон",
+      "discountPrice": "",
+      "discountPercentage": 20,
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": true,
+      "name": "Банана сэндвич",
+      "discountPrice": "",
+      "discountPercentage": 20,
+      "stock": false,
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 14800,
+      "sales": false,
+      "name": "Бөөрөнхий мах",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "үндсэн хоол",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 11800,
+      "sales": false,
+      "name": "Салмон загас",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "үндсэн хоол",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": false,
+      "name": "Детокс салат",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "салад ба зууш",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": false,
+      "name": "Кобб салад",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "салад ба зууш",
+      "portion": "2",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": false,
+      "name": "Авокадо салад",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "салад ба зууш",
+      "portion": "2",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 4800,
+      "sales": false,
+      "name": "Сендвич",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "салад ба зууш",
+      "portion": "2",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 5800,
+      "sales": false,
+      "name": "Донатс",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 7800,
+      "sales": false,
+      "name": "Орео дессерт",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 5800,
+      "sales": false,
+      "name": "Вафли",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "амттан",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 6800,
+      "sales": false,
+      "name": "Хулууны зутан",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "үндсэн хоол",
+      "portion": "1",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    },
+    {
+      "price": 24000,
+      "sales": false,
+      "name": "Итали пицца",
+      "discountPrice": "",
+      "discountPercentage": "",
+      "stock": "",
+      "category": "үндсэн хоол",
+      "portion": "3",
+      "ingredients": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor ipsum eu malesuada fermentum. Maecenas lacus sapien, tempus sed convallis sed, imperdiet in arcu. Vestibulum "
+    }
+]

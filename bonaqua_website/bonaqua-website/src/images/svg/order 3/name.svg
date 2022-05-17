@@ -1,0 +1,10 @@
+<svg id="name" xmlns="http://www.w3.org/2000/svg" width="635.912" height="64.167" viewBox="0 0 635.912 64.167">
+  <g id="bg" transform="translate(0 7)" fill="#fff" stroke="#a6a5a4" stroke-width="1" opacity="0.4">
+    <rect width="635.912" height="57.167" rx="6" stroke="none"/>
+    <rect x="0.5" y="0.5" width="634.912" height="56.167" rx="5.5" fill="none"/>
+  </g>
+  <g id="label" transform="translate(12)">
+    <rect id="Rectangle_68" data-name="Rectangle 68" width="73" height="17" fill="#fff"/>
+    <text id="Банк_сонгох_" data-name="Банк сонгох " transform="translate(4 12)" fill="#6d7278" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Банк сонгох </tspan></text>
+  </g>
+</svg>

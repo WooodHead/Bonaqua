@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="22" viewBox="0 0 44 22">
+  <g id="Header" transform="translate(-3 4)">
+    <text id="Cart" transform="translate(25 13)" fill="#1c1c1c" font-size="18" font-family="Montserrat-Regular, Montserrat"><tspan x="-21.285" y="0">Бүгд</tspan></text>
+  </g>
+</svg>

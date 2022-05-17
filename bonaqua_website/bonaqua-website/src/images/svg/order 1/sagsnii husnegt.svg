@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394" height="151" viewBox="0 0 394 151">
+  <defs>
+    <filter id="sagsnii_husnegt" x="0" y="0" width="394" height="151" filterUnits="userSpaceOnUse">
+      <feOffset dx="0.977" dy="13.966" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="13.5" result="blur"/>
+      <feFlood flood-color="#4d519e" flood-opacity="0.11"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#sagsnii_husnegt)">
+    <g id="sagsnii_husnegt-2" data-name="sagsnii husnegt" transform="translate(39.52 26.53)" fill="#f9fafd" stroke="#3dbee3" stroke-width="1">
+      <rect width="313" height="70" rx="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="312" height="69" rx="3.5" fill="none"/>
+    </g>
+  </g>
+</svg>

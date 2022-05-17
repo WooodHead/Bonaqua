@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="443" height="174" viewBox="0 0 443 174">
+  <defs>
+    <filter id="bg" x="0" y="0" width="443" height="174" filterUnits="userSpaceOnUse">
+      <feOffset dx="0.977" dy="13.966" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="21.5" result="blur"/>
+      <feFlood flood-color="#4d519e" flood-opacity="0.169"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="button_confirm_price" data-name="button confirm &amp; price" transform="translate(-255.613 50.902)">
+    <g id="button_confirm" data-name="button confirm" transform="translate(319.136)">
+      <g transform="matrix(1, 0, 0, 1, -63.52, -50.9)" filter="url(#bg)">
+        <rect id="bg-2" data-name="bg" width="314" height="45" rx="6" transform="translate(63.52 50.53)" fill="#3dbee3"/>
+      </g>
+      <text id="Төлбөрийн_нөхцөл_сонгох" data-name="Төлбөрийн нөхцөл сонгох" transform="matrix(1, 0, 0, 1, 157, 27.632)" fill="#fff" font-size="16" font-family="Montserrat-Regular, Montserrat"><tspan x="-108.96" y="0">Төлбөрийн нөхцөл сонгох</tspan></text>
+    </g>
+  </g>
+</svg>

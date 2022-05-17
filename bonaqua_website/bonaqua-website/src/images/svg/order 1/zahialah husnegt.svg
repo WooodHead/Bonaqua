@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="485.162" height="45" viewBox="0 0 485.162 45">
+  <g id="zahialah_husnegt" data-name="zahialah husnegt" transform="translate(-1059.391 -585.74)">
+    <g id="total_price" data-name="total price" transform="translate(1059.391 585.74)">
+      <g id="bg" fill="#f9fafd" stroke="#32c5ff" stroke-width="1">
+        <path d="M6,0H479.162a6,6,0,0,1,6,6V45a0,0,0,0,1,0,0H6a6,6,0,0,1-6-6V6A6,6,0,0,1,6,0Z" stroke="none"/>
+        <path d="M6,.5H479.162a5.5,5.5,0,0,1,5.5,5.5V44.5a0,0,0,0,1,0,0H6A5.5,5.5,0,0,1,.5,39V6A5.5,5.5,0,0,1,6,.5Z" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_548" data-name="Group 548" transform="translate(13.389 -93.52)">
+      <path id="Devider" d="M0,0H43.146" transform="translate(1284.443 680.26) rotate(90)" fill="none" stroke="#2fb8fb" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+      <text id="Нийт_үнэ" data-name="Нийт үнэ" transform="translate(1348.464 694.491)" fill="#676767" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="-47.26" y="0">Нийт үнэ</tspan></text>
+      <text id="Хэмжээ" transform="translate(1108.464 694.491)" fill="#676767" font-size="10" font-family="Montserrat-Regular, Montserrat"><tspan x="-39.09" y="0">Хэмжээ</tspan></text>
+    </g>
+  </g>
+</svg>

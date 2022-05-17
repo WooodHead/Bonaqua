@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="448.07" height="81.498" viewBox="0 0 448.07 81.498">
+  <g id="sagslag_husnegt" data-name="sagslag husnegt" transform="translate(-1101.553 -567.251)">
+    <path id="Line-top" d="M0,1H447.07" transform="translate(1102.053 566.751)" fill="none" stroke="#b8b8b8" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Line-bottom" d="M0,1H447.07" transform="translate(1102.053 647.249)" fill="none" stroke="#b8b8b8" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Devider" d="M0,0H80.5" transform="translate(1250.763 567.751) rotate(90)" fill="none" stroke="#b8b8b8" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Devider-2" data-name="Devider" d="M0,0H80.5" transform="translate(1399.896 567.751) rotate(90)" fill="none" stroke="#b8b8b8" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <text id="Хэмжээ" transform="translate(1156.542 588.19)" fill="#676767" font-size="9" font-family="Montserrat-Regular, Montserrat"><tspan x="-35.181" y="0">Хэмжээ</tspan></text>
+    <text id="Багц" transform="translate(1294.37 590.389)" fill="#676767" font-size="9" font-family="Montserrat-Regular, Montserrat"><tspan x="-22.221" y="0">Багц</tspan></text>
+    <text id="Нийт_үнэ" data-name="Нийт үнэ" transform="translate(1466.198 588.19)" fill="#676767" font-size="9" font-family="Montserrat-Regular, Montserrat"><tspan x="-42.534" y="0">Нийт үнэ</tspan></text>
+  </g>
+</svg>
