@@ -44,7 +44,7 @@ export default function Content() {
 
           </div>
 
-          <div className='info w-1/2 flex flex-col justify-between pl-4'>
+          <div className='info w-1/2 pl-4'>
             <div className='water'>
               <img src={water} alt="" />
             </div>
@@ -53,7 +53,7 @@ export default function Content() {
 
               <div className='flex w-full justify-between'>
                 <div className='sagslah'>
-                  <p className='font-semibold text-xl mb-5'>Bonaqua 500ml - 1.500₮</p>
+                  <p className='font-semibold text-xl mb-4'>Bonaqua 500ml - 1.500₮</p>
                   <div className='flex busketButton'>
                     <img src={table} alt="" className='tableImg' />
                     <Link className='nav-link' to="/order">
@@ -63,18 +63,12 @@ export default function Content() {
                   </div>
                 </div>
 
-                <div className='social flex flex-col items-center'>
-                  <img src={insta} alt="" className='sc' />
-                  <img src={fb} alt="" className='sc' />
-                  <img src={twitter} alt="" className='sc' />
-                </div>
-
               </div>
-              <div className='productInfo mb-3'>
+              <div className='productInfo'>
                 <img src={productInfo} alt="" />
               </div>
 
-              <div className='ChangeInfo py-3'>
+              <div className='ChangeInfo'>
                 <div className='link flex justify-around py-3'>
                   <Link className="nav-link" activeClassName="active" to="/">
                     Бүтээгдэхүүний тайлбар 
@@ -97,6 +91,11 @@ export default function Content() {
             </div>
 
           </div>
+            <div className='social flex flex-col justify-center items-center'>
+                  <img src={insta} alt="" className='sc' />
+                  <img src={fb} alt="" className='sc' />
+                  <img src={twitter} alt="" className='sc' />
+                </div>
         </div>
         {/* <Footer /> */}
       </div>

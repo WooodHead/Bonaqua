@@ -8,8 +8,9 @@ import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="contain flex flex-col">
+    <div className="contain">
       <Header />
+      <div className='routes'>
       <Routes>
         <Switch>
           <div className='content'>
@@ -18,6 +19,7 @@ function App() {
           </div>
         </Switch>
       </Routes>
+      </div>
       <Footer />
     </div>
   )

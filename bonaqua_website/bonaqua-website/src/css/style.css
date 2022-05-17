@@ -3,20 +3,22 @@
   box-sizing: border-box;
 }
 html {
-  width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
-
+.contain {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .header {
   height: 18vh;
 }
 
-.footer {
-  height: 10vh;
-}
 .footer1flower {
   width: 90%;
 }
@@ -24,13 +26,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   height: 8rem;
 }
-.contain {
-  width: 80%;
-  margin: 0 auto;
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-}
+
 @media (prefers-reduced-motion: no-preference) {
   .bona::before {
     animation: logo-spin infinite 20s linear;
@@ -127,17 +123,16 @@ html {
   .water img {
     height: 20vh;
   }
-  .social img{
-    padding: 0.5rem 0;
-  }
+
   .productInfo {
-    width: 80%;
+    width: 85%;
+    margin-top: 1rem;
   }
   .tableImg {
-    width: 70%;
+    width: 60%;
   }
   .buttonImg {
-    width: 100%;
+    width: 80%;
   }
   .link {
     width: 85%;
@@ -228,7 +223,6 @@ html {
     font-size: 2rem;
     font-weight: 600;
     margin-left: 4rem;
-    /* margin-top: 0.2rem; */
   }
 
   .water img {
@@ -242,11 +236,14 @@ html {
   .choosing {
     margin-right: 3rem;
   }
-
+  .info {
+    height: 50vh !important;
+    border: 2px solid blue;
+  }
   .bona {
-    width: 70%;
-    height: 56vh;
-    border: 1px solid #c4c4c4;
+    width: 70rem;
+    height: 60vh;
+    border: 1px solid black;
   }
   .bona img {
     height: 95%;
