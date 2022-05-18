@@ -5,6 +5,8 @@ import Content from './components/Content';
 import Order from './components/Order/Order';
 import Footer from './components/Footer';
 import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
+import OrderInfo from './components/Order/OrderInfo';
+import Payment from './components/Order/Payment';
 
 function App() {
   return (
@@ -13,10 +15,10 @@ function App() {
       <div className='routes'>
       <Routes>
         <Switch>
-          <div className='content'>
             <Route exact path="/" component={Content} />
-            <Route path="/order" component={Order} />
-          </div>
+            <Route path="/order" component={Order}/>
+            <Route path="/orderToPayment" component={OrderInfo} />
+            <Route path="/payment" component={Payment} />
         </Switch>
       </Routes>
       </div>

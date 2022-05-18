@@ -7,10 +7,13 @@ import sags from '../images/svg/home/tanii sags.svg';
 
 export default function Header() {
   return (
+    
     <div className=''>
         <div className='header flex'>
             <div className='logo w-1/2 flex items-end ml-6'>
-                <img src={logo} alt="" />
+                <a className='nav-link' href='/'>
+                    <img src={logo} alt="" />
+                </a>
             </div>
             <div className='w-1/2 flex justify-end'>
                 <div className='ProductAndOrder flex p-2'>
