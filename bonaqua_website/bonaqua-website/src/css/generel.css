@@ -1,0 +1,1000 @@
+                                            /* General css */
+* {
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.contain {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  height: 18vh;
+}
+
+.footer1flower {
+  width: 90%;
+}
+.ProductC {
+  font-family: 'Montserrat', sans-serif;
+  height: 8rem;
+}
+a {
+  text-decoration: none !important;
+}
+
+.routes {
+  height: 70vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bona::before {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-link {
+  padding: 0 !important;
+  color: #807e7e !important;
+  font-weight: 500;
+}
+.link .nav-link {
+  position: relative;
+  margin-left: 2rem;
+}
+.active {
+  color: var(--blue-color) !important;
+  font-weight: 500;
+  margin-left: 1.5rem;
+  position: relative;
+}
+.active::before {
+  content: url('../images/svg/order 1/tsetseg jijig.svg');
+  position: absolute;
+  left: -1.5rem;
+  top: 0.2rem;
+}
+:root {
+  --blue-color: #3dbee3;
+}
+
+
+
+
+
+                                     /* Responsive css */
+
+                   /* (max-width: 640px) */
+@media (max-width: 640px) {
+
+}
+
+
+                  /* (min-width: 641px) and (max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  
+}
+
+
+                  /* (min-width: 1025px) and (max-width: 1536px) */
+@media (min-width: 1025px) and (max-width: 1536px) {
+          /* Header */
+  .logo img {
+    width: 10rem;
+    height: 6rem;
+  }
+  .ProductAndOrder{
+    width: 23rem;
+    height: 50%;
+    border: 1px solid var(--blue-color);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+  }
+  .line {
+    height: 3rem;
+    border-right: 1px solid var(--blue-color);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .busket, .order {
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+  }
+  .busket img, .order img {
+    width: 20rem;
+    height: 100%;
+  }
+  .busket p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 2.8rem;
+    margin-top: 0.2rem;
+  }
+  .order p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 1.8rem;
+    margin-top: 0.2rem;
+  }
+
+      /* Content */
+
+  .water {
+    width: 80%;
+  }
+  .water img {
+    height: 20vh;
+  }
+
+  .productInfo {
+    width: 85%;
+    margin-top: 1rem;
+  }
+  .tableImg {
+    width: 60%;
+  }
+  .buttonImg {
+    width: 80%;
+  }
+  .link {
+    width: 85%;
+  }
+  .nav-link {
+    color: #c4c4c4 !important;
+  }
+
+
+
+  /* Content */
+
+  .sc {
+    margin: 1rem 0;
+  }
+  .choosing {
+    margin-right: 3rem;
+  }
+
+  .bona {
+    width: 70%;
+    height: 56vh;
+    border: 1px solid #c4c4c4;
+  }
+  .bona img {
+    height: 95%;
+    z-index: 1;
+  }
+
+  .bona::before {
+    content: url('../images/svg/home/tsetseg tom.svg');
+    position: absolute;
+    left: 10rem;
+    bottom: 10rem;
+  }
+  
+  .choose {
+    width: 20%;
+  }
+  .white {
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 12rem;
+    bottom: 2rem;
+  }
+  .circle {
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--blue-color);
+    border-radius: 50%;
+  }
+
+  .chooseList {
+    height: 10rem;
+  }
+  .link {
+    width: 85%;
+  }
+  .productInfo {
+    width: 85%;
+    margin-top: 1rem;
+  }
+  .addOrdertitle {
+    width: 85%;
+  }
+  .orderInfo {
+    height: 40vh;
+  }
+  .tableImg {
+    width: 66%;
+  }
+  .buttonImg {
+    width: 9rem;
+    height: 3.8rem;
+  }
+
+  .select {
+    width: 7.5rem;
+    height: 3.8rem;
+    border-top: 1px solid #d6d1d1;
+    border-bottom: 1px solid #d6d1d1;
+    border-right: 1px solid #d6d1d1;
+    font-size: 1.3rem;
+    padding-top: 0.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url('../images/svg/home/Arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px) center;
+
+  }
+
+  select:focus-visible {
+    background-repeat: no-repeat;
+    background-position: calc(100% - 3px) center;
+    border: 2px solid var(--blue-color);
+  }
+  
+  .selectTotal {
+    width: 7rem;
+    border-top: 1px solid #d6d1d1;
+    border-bottom: 1px solid #d6d1d1;
+    font-size: 1.3rem;
+    padding-top: 0.1rem;
+    font-weight: 500;
+    text-align: center;
+    height: 3.8rem;
+  }
+  .order1Content .selectTotal, .order1Content .buttonImg {
+   height: 3.8rem;
+  }
+  .tablenames {
+    margin-left: 2rem;
+    width: 22rem;
+    color: #807e7e;
+  }
+  .tablename1 {
+    width: 13rem;
+    height: 1rem;
+  }
+  .tablename2 {
+    width: 13rem;
+    height: 1rem;
+  }
+  .tablename3 {
+    width: 11rem;
+    height: 1rem;
+  }
+ 
+  .choose {
+    width: 20%;
+  }
+  .white {
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 12rem;
+    bottom: 2rem;
+  }
+  .circle {
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--blue-color);
+    border-radius: 50%;
+  }
+  
+
+  /* Zahialgiin medeelel */
+  .slideContent {
+    height: 70vh;
+  }
+  .slider {
+    height: 50vh;
+    border: 2px solid black;
+  }
+  .carousel-indicators button {
+    background-color: var(--blue-color) !important;
+    margin-top: 80rem !important;
+    border-radius: 50%;
+    width: 2rem !important;
+  }
+  .carousel-item img {
+    height: 25rem;
+  }
+  .addOrder p {
+    width: 85%;
+  }
+      /* Minii sags */
+  .zahialahHusnegt {
+    width: 85%;
+    height: 5rem;
+  }
+  .zahialga {
+    width: 85%;
+  }
+  .zahialsanHeseg {
+    width: 15rem;
+    height: 6rem;
+    border: 1px solid var(--blue-color);
+    border-radius: 0.5rem;
+  }
+
+  .order1Img {
+    border-right: 1px solid var(--blue-color);
+    width: 30%;
+    height: 6rem;
+    border-radius: 0.5rem;
+  }
+  .order1Img img {
+    width: 2rem;
+  }
+  .order1Button {
+    width: 5rem;
+  }
+  .order1Button p {
+    margin-top: 1rem;
+  }
+  .order1Price {
+    width: 10rem;
+    height: 5rem;
+  }
+  .orderName {
+    height: 2rem;
+  }
+  .orderName img {
+    width: 0.8rem;
+  }
+  .orderName p {
+    color: #807e7e;
+    line-height: 10px;
+  }
+  .order1Info {
+    margin: 0 0.5rem;
+  }
+  h3 {
+    font-size: 1.3rem !important;
+  }
+      /* Захиалгын мэдээлэл */
+.userImg {
+  width: 28%;
+}
+.userInfo {
+  width: 100%;
+  
+}
+.order2Content {
+  width: 85%;
+  margin-right: 4rem;
+}
+/* Хэрэглэгчийн мэдээлэл */
+.group{
+  position:relative;
+}
+.group>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.group>input{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+}
+/* Байршлын мэдээлэл */
+.groupL{
+  position:relative;
+}
+.groupL>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupL>input{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+}
+
+.back, .choosePayment {
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 0.5em;
+  color: white;
+  height: 2.5rem;
+  font-size: 1.1rem;
+}
+.back {
+  background-color: #e01f20;
+}
+.choosePayment {
+  background-color: #3dbfe3;
+}
+.groupS{
+  position:relative;
+}
+.groupS>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupS>select{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+}
+.locate {
+  height: 16rem;
+}
+.locationInfo {
+  width: 100%;
+}
+/* Төлбөр төлөх */
+.warning p {
+  line-height: 18px;
+  color: #807e7e;
+}
+.dansMedeelel p{
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 8px;
+  color: #807e7e;
+}
+.paymentInstruction {
+  border-right: 2px solid #a1a0a0;
+}
+.groupPay{
+  position:relative;
+}
+.groupPay>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupPay>select{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+  height: 3.5rem;
+}
+
+}
+
+                  /* (min-width: 1537px) and (max-width: 2560px) */
+@media (min-width: 1537px) and (max-width: 2560px) {
+        /* Header */
+  .logo img {
+    /* width: 18rem; */
+    height: 8rem;
+  }
+  .ProductAndOrder {
+    width: 35rem;
+    height: 50%;
+    border: 1px solid var(--blue-color);
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  .line {
+    height: 4rem;
+    border: 1px solid var(--blue-color);
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+  .busket, .order {
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+  }
+  .busket img, .order img {
+    width: 15rem;
+    height: 100%;
+  }
+  .busket p, .order p {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 4rem;
+  }
+
+  .water img {
+    height: 25vh;
+  }
+
+        /* Content  */
+  .sc {
+    margin: 1rem 0;
+  }
+  .choosing {
+    margin-right: 3rem;
+  }
+  .chooseList {
+    height: 10rem;
+  }
+  .link {
+    width: 85%;
+  }
+  .productInfo {
+    width: 85%;
+    margin-top: 1rem;
+  }
+  .addOrdertitle {
+    width: 85%;
+  }
+  .orderInfo {
+    height: 40vh;
+  }
+  .tableImg {
+    width: 66%;
+  }
+  .buttonImg {
+    width: 11.5rem;
+    height: 4.8rem;
+  }
+
+  .select {
+    width: 11rem;
+    height: 4.8rem;
+    border-top: 1px solid #d6d1d1;
+    border-bottom: 1px solid #d6d1d1;
+    border-right: 1px solid #d6d1d1;
+    font-size: 1.2rem;
+    padding-top: 0.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url('../images/svg/home/Arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px) center;
+  }
+  .locate form .select {
+    height: 2.7rem;
+  }
+  select:focus-visible {
+    background-repeat: no-repeat;
+    background-position: calc(100% - 3px) center;
+    border: 2px solid var(--blue-color);
+  }
+  
+  .selectTotal {
+    width: 10rem;
+    border-top: 1px solid #d6d1d1;
+    border-bottom: 1px solid #d6d1d1;
+    font-size: 1.7rem;
+    padding-top: 0.1rem;
+    font-weight: 500;
+    text-align: center;
+    height: 4.8rem;
+  }
+  .order1Content .selectTotal, .order1Content .buttonImg {
+   height: 4.8rem;
+  }
+  .tablenames {
+    margin-left: 2rem;
+    width: 31rem;
+    color: #807e7e;
+  }
+  .tablename1 {
+    width: 13rem;
+    height: 1rem;
+  }
+  .tablename2 {
+    width: 13rem;
+    height: 1rem;
+  }
+  .tablename3 {
+    width: 11rem;
+    height: 1rem;
+  }
+  .bona {
+    width: 70%;
+    height: 56vh;
+    border: 1px solid #807e7e;
+  }
+  .bona img {
+    height: 95%;
+    z-index: 1;
+  }
+ 
+  .bona::before {
+    content: url('../images/svg/home/tsetseg tom.svg');
+    position: absolute;
+    left: 15rem;
+    bottom: 18rem;
+  }
+  
+  .choose {
+    width: 20%;
+  }
+  .white {
+    width: 8rem;
+    height: 8rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 12rem;
+    bottom: 2rem;
+  }
+  .circle {
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--blue-color);
+    border-radius: 50%;
+  }
+  
+
+  /* Zahialgiin medeelel */
+  .slideContent {
+    height: 70vh;
+  }
+  .locate a {
+    color: white !important;
+  }
+  .slider {
+    height: 50vh;
+    border: 2px solid black;
+  }
+  .carousel-indicators button {
+    background-color: var(--blue-color) !important;
+    margin-top: 80rem !important;
+    border-radius: 50%;
+    width: 2rem !important;
+  }
+  .carousel-item img {
+    height: 32rem;
+  }
+  .addOrder p {
+    width: 85%;
+  }
+      /* Minii sags */
+  .zahialahHusnegt {
+    width: 85%;
+    height: 5rem;
+  }
+  .zahialga {
+    width: 85%;
+  }
+  .zahialsanHeseg {
+    width: 21rem;
+    height: 6rem;
+    border: 1px solid var(--blue-color);
+    border-radius: 0.5rem;
+  }
+
+  .order1Img {
+    border-right: 1px solid var(--blue-color);
+    width: 30%;
+    height: 6rem;
+    border-radius: 0.5rem;
+  }
+  .order1Img img {
+    width: 2rem;
+  }
+  .order1Button {
+    width: 6rem;
+  }
+  .order1Button p {
+    margin-top: 1rem;
+  }
+  .order1Price {
+    width: 13rem;
+    height: 5rem;
+  }
+  .orderName {
+    height: 2rem;
+  }
+  .orderName img {
+    width: 0.8rem;
+  }
+  .orderName p {
+    color: #807e7e;
+    line-height: 5px;
+  }
+  .order1Info {
+    margin-left: 1rem;
+  }
+  .order1selectTotal {
+    border: 1px solid var(--blue-color);
+    width: 16rem;
+    height: 3rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+  .order1selectTotal1 {
+    border-top: 1px solid var(--blue-color);
+    border-bottom: 1px solid var(--blue-color);
+    width: 16rem;
+    height: 3rem;
+  }
+  .order1zahialahButton {
+    background-color: var(--blue-color);
+    color: white;
+    width: 13rem;
+    height: 3.1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .order1tablenames {
+    height: 1rem;
+    width: 20rem;
+    padding-left: 1rem;
+  }
+  .seeTotalInfo {
+    text-align: center;
+  }
+  .order2TotalInfo .order1selectTotal {
+    border: 1px solid var(--blue-color);
+    width: 15.5rem;
+    height: 3rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+  .order2TotalInfo .order1selectTotal1 {
+    border: 1px solid var(--blue-color);
+    width: 16rem;
+    height: 3rem;
+  }
+  .order2TotalInfo .order1selectTotal2 {
+    border: 1px solid var(--blue-color);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    width: 12rem;
+    height: 3rem;
+  }
+  .order2TotalInfo .order1tablenames {
+    height: 1rem;
+    width: 36rem;
+    /* padding-left: 1rem; */
+  }
+/* Захиалгын мэдээлэл */
+.userInfo {
+  width: 85%;
+}
+.payP {
+  width: 20rem;
+}
+.userImg {
+  width: 28%;
+}
+/* Хэрэглэгчийн мэдээлэл */
+.group{
+  position:relative;
+}
+.group>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.group>input{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+  width: 14rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+/* Байршлын мэдээлэл */
+.groupL{
+  position:relative;
+}
+.groupL>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupL>input{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.back, .choosePayment {
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 0.5em;
+  height: 2.5rem;
+  font-size: 1.1rem;
+}
+.back {
+  background-color: #e01f20;
+  margin-right: 0.5em;
+}
+
+.choosePayment {
+  background-color: #3dbfe3;
+}
+.choosePayment button {
+  color: white;
+}
+.groupS{
+  position:relative;
+}
+.groupS>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupS>select{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+}
+.locate {
+  height: 20rem;
+}
+.locationInfo {
+  width: 100%;
+}
+/* Төлбөр төлөх */
+.warning p {
+  line-height: 18px;
+  color: #807e7e;
+}
+.dansMedeelel p{
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 8px;
+  color: #807e7e;
+}
+.paymentInstruction {
+  border-right: 2px solid #a1a0a0;
+}
+.groupPay{
+  position:relative;
+}
+.groupPay>label{
+  padding:0 0.2em;
+  position:absolute;
+  top:-0.6em;
+  left:1em;
+  background-color:white;
+  color: #807e7e;
+}
+
+.groupPay>select{
+  padding:0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #e7e7e7;
+  outline:none;
+  height: 3.5rem;
+}
+
+}
+
+
+                  /* (min-width: 2561px) */
+@media (min-width: 2561px) {
+            /* Header */
+  .logo img {
+    /* width: 18rem; */
+    height: 8rem;
+  }
+  .ProductAndOrder{
+     width: 35rem;
+     height: 50%;
+     border: 1px solid var(--blue-color);
+     border-radius: 10px;
+     margin-top: 3rem;
+  }
+  .line {
+     height: 4rem;
+      border: 1px solid var(--blue-color);
+      margin-right: 2rem;
+      margin-left: 1rem;
+  }
+  .busket, .order {
+      display: flex;
+      align-items: center;
+      color: var(--blue-color);
+  }
+  .busket img, .order img {
+      width: 15rem;
+      height: 100%;
+  }
+  .busket p, .order p {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-left: 4rem;
+      /* margin-top: 0.2rem; */
+  }
+                /* Content  */
+  .sc {
+      margin: 1rem 0;
+  }
+  .choosing {
+      margin-right: 3rem;
+  }
+        
+  .bona {
+      width: 70%;
+      height: 56vh;
+      border: 1px solid #c4c4c4;
+  }
+  .bona img {
+      height: 95%;
+      z-index: 1;
+  }
+        
+  .bona::before {
+      content: url('../images/svg/home/tsetseg tom.svg');
+      position: absolute;
+      left: 15rem;
+      bottom: 18rem;
+  }
+  .choose {
+       width: 20%;
+  }
+        
+  .toirog img{
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      top: 18rem;
+      left: -5rem;
+      z-index: 1;
+  }
+}
+

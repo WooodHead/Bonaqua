@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Instruction from './ProductInformation/Instruction';
 import Nutrition from './ProductInformation/Nutrition';
 import Product from './ProductInformation/Product';
@@ -13,21 +14,54 @@ import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 
 export default function Content() {
-  function show330() {
-    var ml330 = document.getElementById("ml330");
-    ml330.innerHTML = "330ml";
+
+  const [capacity, setCapacity] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetch('http://localhost:8080/api/bonaqua', {
+          headers: {
+            "Content-Type": "application/json"
+          },
+        });
+
+        const resData = await data.json();
+
+        setCapacity(resData);
+
+        return resData;
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, [])
+
+  const datas = [];
+  for(let i=0; i < capacity.length; i++) {
+    datas.push(capacity[i].Capacity);
   }
-  function show500() {
-    var ml500 = document.getElementById("ml500");
-    ml500.innerHTML = "500ml"
-  }
+  var Incase = {
+        "one" : {
+          "case": 12,
+          "price": 950
+        },
+        "two" : {
+          "case": 6,
+          "price": 1480
+        },
+        "three" : {
+          "case": 4,
+          "price": 3130
+        },
+  };
+  console.log(Incase.one.case);
 
   return (
       <div className='mx-auto flex flex-col justify-between'>
-        <div className='flex'>
-
-          <div className='choosing w-1/2 flex items-center relative'>
-
+        <div className='flex flex-col md:flex-row'>
+          <div className='choosing w-full md:w-1/2 flex items-center relative'>
             <div className='choose flex justify-center self-center'>
               <ul className='chooseList flex flex-col justify-between cursor-pointer' id="ml">
                 <li id='ml330'>
@@ -62,12 +96,10 @@ export default function Content() {
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
 
-          <div className='info w-1/2 pl-4'>
+          <div className='info w-full md:w-1/2 pl-4'>
             <div className='water'>
               <img src={water} alt="" />
             </div>
@@ -80,21 +112,23 @@ export default function Content() {
                   <div className='flex busketButton'>
                     {/* <img src={table} alt="" className='tableImg' /> */}
 
-                    <form action="" className='flex relative'>
-                      <select name="" id="" className='select'>
-                        <option value="330" className='option'>330 мл</option>
-                        <option value="500">500 мл</option>
-                        <option value="800">800 мл</option>
-                        <option value="1.5">1.5 л</option>
+                    <form action="" id="mlform" className='flex relative'>
+                      <select name="ml" id="mlselect" className='select'>
+                          <option id='quantity' value={datas[0]}>{datas[0]}</option> 
+                          <option id='quantity' value={datas[1]}>{datas[1]}</option>
+                          <option id='quantity' value={datas[2]}>{datas[2]}</option>
+                          <option id='quantity' value={datas[3]}>{datas[3]}</option>
+                          <option id='quantity' value={datas[4]}>{datas[4]}</option>
+                          <option id='quantity' value={datas[5]}>{datas[5]}</option> 
+                          <option id='quantity' value={datas[6]}>{datas[6]}</option> 
                       </select>
-                      <select name="" id="" className='select'>
-                        <option value="330">24.600₮</option>
-                        <option value="500">24.600₮</option>
-                        <option value="800">24.600₮</option>
-                        <option value="1.5">24.600₮</option>
+                      <select name="avdar" id="avdar" className='select'>
+                          <option value={Incase.one.case}>{Incase.one.case * Incase.one.price}₮</option>
+                          <option value={Incase.two.case}>{Incase.two.case * Incase.two.price}₮</option>
+                          <option value={Incase.two.case}>{Incase.three.case * Incase.three.price}₮</option>
                       </select>
                       <div className='selectTotal'>
-                        <p className='total pt-3 text-red-700'>24.600₮</p>
+                        <p className='total pt-3 text-red-700'>₮</p>
                       </div>
                       <div className='tablenames absolute flex text-xs mt-2'>
                         <div className='tablename1'>
@@ -108,9 +142,10 @@ export default function Content() {
                         </div>
                       </div>
 
-                      <Link className='nav-link' to="/order">
-                        <img src={button} alt="" className='buttonImg' />
+                      <Link className='nav-link' to="/order" id='submit'>
+                          <img src={button} alt="" className='buttonImg' />
                       </Link>
+                      {/* <button type='submit' >button</button> */}
                     </form>
 
                   </div>
@@ -123,15 +158,15 @@ export default function Content() {
               <Router>
               <div className='ChangeInfo'>
                 <div className='link flex justify-between py-3'>
-                  <Link className="nav-link" activeClassName="active" to="/">
+                  <NavLink className={isActive => isActive ? "active" : "nav-link"} to="/">
                     Бүтээгдэхүүний тайлбар
-                  </Link>
-                  <Link className="nav-link" to="/instruction">
+                  </NavLink>
+                  <NavLink className={isActive => isActive ? "active" : "nav-link"} to="/instruction">
                     Хадгалах заавар
-                  </Link>
-                  <Link className="nav-link" to="/nutrition">
+                  </NavLink>
+                  <NavLink className={isActive => isActive ? "active" : "nav-link"} to="/nutrition">
                     Тэжээллэг чанар
-                  </Link>
+                  </NavLink>
                 </div>
                 <div className=''>
                   
