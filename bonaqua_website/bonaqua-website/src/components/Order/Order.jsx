@@ -119,72 +119,84 @@ export default function Order() {
 
 
             <div className="flex zahialahHusnegt">
-              <div className="seeTotalInfo flex">
+
+              <div className="seeTotalInfo flex relative">
                 <div className='order1selectTotal'>
-                  <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <p className='text-gray-500 flex ml-3 text-sm'>Хэмжээ</p>
+                  <p className='total text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                 </div>
-                <div className='order1selectTotal1'>
-                  <p className='total pt-2 text-red-700 text-3xl font-semibold'>24.600₮</p>
+
+                <div className='order1selectTotal1 flex flex-col'>
+                  <p className='text-gray-500 flex ml-3 text-sm'>Нийт үнэ</p>
+                  <p className='total text-red-700 text-3xl font-semibold'>214.600₮</p>
+                  
                 </div>
-                <div>
-                <Link className="nav-link" to="/orderToPayment">
-                {/* <img src={order} alt="" className="zahialahButton" /> */}
-                <button className="order1zahialahButton">
-                  Захиалах
-                </button>
-                </Link>
-                </div>
-                <div className='order1tablenames absolute flex justify-between text-xs mt-2'>
-                  <div className='tablename4'>
+                
+                {/* <div className='order1tablenames absolute flex text-xs mt-1 w-1/2'>
+                  <div className='flex'>
                     <p className=''>Хэмжээ</p>
                   </div>
-                  <div className='tablename5'>
+                  <div className='flex'>
                     <p className=''>Нийт үнэ</p>
                   </div>
-                </div>
+                </div> */}
+
+           
+                <Link className="nav-link cursor-pointer" to="/orderToPayment" id='submit'>
+                    <button className="sagslahButton text-2xl">
+                      Захиалах
+                    </button>
+                </Link>
+           
+               
               </div>
              
             </div>
 
           </div>
+          
           <div className="addOrder">
             <div className='flex flex-col busketButton'>
               <div className="addOrdertitle my-3">
                 <img src={add} alt="" className="w-full" />
               </div>
-              <form action="" className='flex relative'>
-                <select name="" id="" className='select'>
-                  <option value="330" className='option'>330 мл</option>
-                  <option value="500">500 мл</option>
-                  <option value="800">800 мл</option>
-                  <option value="1.5">1.5 л</option>
-                </select>
-                <select name="" id="" className='select'>
-                  <option value="330">24.600₮</option>
-                  <option value="500">24.600₮</option>
-                  <option value="800">24.600₮</option>
-                  <option value="1.5">24.600₮</option>
-                </select>
-                <div className='selectTotal'>
-                  <p className='total pt-3 text-red-700'>24.600₮</p>
-                </div>
-                <div className='tablenames absolute flex text-xs mt-2'>
-                  <div className='tablename1'>
-                    <p className=''>Хэмжээ</p>
-                  </div>
-                  <div className='tablename2'>
-                    <p className=''>Багц</p>
-                  </div>
-                  <div className='tablename3'>
-                    <p className=''>Нийт үнэ</p>
-                  </div>
-                </div>
+         
+              <div className='flex'>
 
-                <Link className='nav-link' to="/order">
-                  <img src={addOrder} alt="" className='buttonImg' />
-                </Link>
-              </form>
+                <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
+                  <select name="ml" id="mlselect" className='select'>
+                  
+                  
+                  </select>
+                  <select name="avdar" id="avdar" className='select'>
+                    <option value="">₮</option>
+                    <option value="">₮</option>
+                    <option value="">₮</option>
+                  </select>
+                  <div className='selectTotal'>
+                    <p className='total pt-3 text-red-700'>₮</p>
+                  </div>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-xs mt-1'>
+                    <div className='tablename1'>
+                      <p className=''>Хэмжээ</p>
+                    </div>
+                    <div className='tablename2'>
+                      <p className=''>Багц</p>
+                    </div>
+                    <div className='tablename3'>
+                      <p className=''>Нийт үнэ</p>
+                    </div>
+                  </div>
 
+                  <Link className="nav-link" to="/order" id='submit'>
+                    <button className="sagslahButton text-xl">
+                      Захиалга нэмэх
+                    </button>
+                  </Link>
+
+                </form>
+
+              </div>
             </div>
             <p className="font-semibold flex justify-end">Захиалгын доод хэмжээ: 100,000₮</p>
           </div>

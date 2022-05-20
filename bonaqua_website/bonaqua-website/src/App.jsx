@@ -1,12 +1,12 @@
 import React from 'react';
-import './css/style.css'
+import './css/style.css';
 import Header from './components/Header';
-import Content from './components/Content';
 import Order from './components/Order/Order';
 import Footer from './components/Footer';
 import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 import OrderInfo from './components/Order/OrderInfo';
 import Payment from './components/Order/Payment';
+import Content from './components/Content';
 
 function App() {
   return (

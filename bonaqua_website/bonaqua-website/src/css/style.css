@@ -10,28 +10,29 @@ html {
 .contain {
   width: 90%;
   margin: 0 auto;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .header {
-  height: 18vh;
+  height: auto;
+}
+.footer {
+  /* position: absolute; */
+  bottom: 0;
 }
 
-.footer1flower {
-  width: 90%;
-}
-.ProductC {
-  font-family: 'Montserrat', sans-serif;
-  height: 8rem;
+.back a.backButton {
+  color: white;
 }
 a {
   text-decoration: none !important;
 }
 
 .routes {
-  height: 70vh;
+  /* height: 70vh; */
+  height: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -58,13 +59,16 @@ a {
   position: relative;
   margin-left: 2rem;
 }
+.link {
+  width: 90%;
+}
 .active {
   color: var(--blue-color) !important;
   font-weight: 500;
   margin-left: 1.5rem;
   position: relative;
 }
-.active::before {
+.is-active::before {
   content: url('../images/svg/order 1/tsetseg jijig.svg');
   position: absolute;
   left: -1.5rem;
@@ -74,898 +78,128 @@ a {
   --blue-color: #3dbee3;
 }
 
+.line {
+    height: 80%;
+    border: 1px solid var(--blue-color);
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  #mlform {
+      width: 100%;
+  }
+ #mlform > * {
+     min-width: 25%;
+     height: auto;
+ }
+ #userform {
+     width: 100%;
+ }
+ .tablenames {
+     width: 100% !important;
+ }
 
-    /* Header */
-        .logo img {
-          /* width: 18rem; */
-          height: 8rem;
-        }
-        .ProductAndOrder {
-          width: 35rem;
-          height: 50%;
-          border: 1px solid var(--blue-color);
-          border-radius: 10px;
-          margin-top: 3rem;
-        }
-        .line {
-          height: 4rem;
-          border: 1px solid var(--blue-color);
-          margin-right: 2rem;
-          margin-left: 1rem;
-        }
-        .busket, .order {
-          display: flex;
-          align-items: center;
-          color: var(--blue-color);
-        }
-        .busket img, .order img {
-          width: 15rem;
-          height: 100%;
-        }
-        .busket p, .order p {
-          font-size: 2rem;
-          font-weight: 600;
-          margin-left: 4rem;
-        }
-      
-        .water img {
-          height: 25vh;
-        }
-      
-              /* Content  */
-        .sc {
-          margin: 1rem 0;
-        }
-        .choosing {
-          margin-right: 3rem;
-        }
-        .chooseList {
-          height: 10rem;
-        }
-        .link {
-          width: 85%;
-        }
-        .productInfo {
-          width: 85%;
-          margin-top: 1rem;
-        }
-        .addOrdertitle {
-          width: 85%;
-        }
-        .orderInfo {
-          height: 40vh;
-        }
-        .tableImg {
-          width: 66%;
-        }
-        .buttonImg {
-          width: 11.5rem;
-          height: 4.8rem;
-        }
-      
-        .select {
-          width: 11rem;
-          height: 4.8rem;
-          border-top: 1px solid #d6d1d1;
-          border-bottom: 1px solid #d6d1d1;
-          border-right: 1px solid #d6d1d1;
-          font-size: 1.2rem;
-          padding-top: 0.4rem;
-          font-weight: 500;
-          cursor: pointer;
-          text-align: center;
-          appearance: none;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-          background-image: url('../images/svg/home/Arrow-down.svg');
-          background-repeat: no-repeat;
-          background-position: calc(100% - 6px) center;
-        }
-        .locate form .select {
-          height: 2.7rem;
-        }
-        select:focus-visible {
-          background-repeat: no-repeat;
-          background-position: calc(100% - 3px) center;
-          border: 2px solid var(--blue-color);
-        }
-        
-        .selectTotal {
-          width: 10rem;
-          border-top: 1px solid #d6d1d1;
-          border-bottom: 1px solid #d6d1d1;
-          font-size: 1.7rem;
-          padding-top: 0.1rem;
-          font-weight: 500;
-          text-align: center;
-          height: 4.8rem;
-        }
-        .order1Content .selectTotal, .order1Content .buttonImg {
-         height: 4.8rem;
-        }
-        .tablenames {
-          margin-left: 2rem;
-          width: 31rem;
-          color: #807e7e;
-        }
-        .tablename1 {
-          width: 13rem;
-          height: 1rem;
-        }
-        .tablename2 {
-          width: 13rem;
-          height: 1rem;
-        }
-        .tablename3 {
-          width: 11rem;
-          height: 1rem;
-        }
-        .bona {
-          width: 70%;
-          height: 56vh;
-          border: 1px solid #807e7e;
-        }
-        .bona img {
-          height: 95%;
-          z-index: 1;
-        }
-       
-        .bona::before {
-          content: url('../images/svg/home/tsetseg tom.svg');
-          position: absolute;
-          left: 15rem;
-          bottom: 18rem;
-        }
-        
-        .choose {
-          width: 20%;
-        }
-        .white {
-          width: 8rem;
-          height: 8rem;
-          background-color: #fff;
-          position: relative;
-          border-radius: 50%;
-          right: 12rem;
-          bottom: 2rem;
-        }
-        .circle {
-          width: 7rem;
-          height: 7rem;
-          background-color: var(--blue-color);
-          border-radius: 50%;
-        }
-        
-      
-        /* Zahialgiin medeelel */
-        .slideContent {
-          height: 70vh;
-        }
-        .locate a {
-          color: white !important;
-        }
-        .slider {
-          height: 50vh;
-          border: 2px solid black;
-        }
-        .carousel-indicators button {
-          background-color: var(--blue-color) !important;
-          margin-top: 80rem !important;
-          border-radius: 50%;
-          width: 2rem !important;
-        }
-        .carousel-item img {
-          height: 32rem;
-        }
-        .addOrder p {
-          width: 85%;
-        }
-            /* Minii sags */
-        .zahialahHusnegt {
-          width: 85%;
-          height: 5rem;
-        }
-        .zahialga {
-          width: 85%;
-        }
-        .zahialsanHeseg {
-          width: 21rem;
-          height: 6rem;
-          border: 1px solid var(--blue-color);
-          border-radius: 0.5rem;
-        }
-      
-        .order1Img {
-          border-right: 1px solid var(--blue-color);
-          width: 30%;
-          height: 6rem;
-          border-radius: 0.5rem;
-        }
-        .order1Img img {
-          width: 2rem;
-        }
-        .order1Button {
-          width: 6rem;
-        }
-        .order1Button p {
-          margin-top: 1rem;
-        }
-        .order1Price {
-          width: 13rem;
-          height: 5rem;
-        }
-        .orderName {
-          height: 2rem;
-        }
-        .orderName img {
-          width: 0.8rem;
-        }
-        .orderName p {
-          color: #807e7e;
-          line-height: 5px;
-        }
-        .order1Info {
-          margin-left: 1rem;
-        }
-        .order1selectTotal {
-          border: 1px solid var(--blue-color);
-          width: 16rem;
-          height: 3rem;
-          border-top-left-radius: 0.5rem;
-          border-bottom-left-radius: 0.5rem;
-        }
-        .order1selectTotal1 {
-          border-top: 1px solid var(--blue-color);
-          border-bottom: 1px solid var(--blue-color);
-          width: 16rem;
-          height: 3rem;
-        }
-        .order1zahialahButton {
-          background-color: var(--blue-color);
-          color: white;
-          width: 13rem;
-          height: 3.1rem;
-          border-radius: 0.5rem;
-          font-size: 1.2rem;
-        }
-        .order1tablenames {
-          height: 1rem;
-          width: 20rem;
-          padding-left: 1rem;
-        }
-        .seeTotalInfo {
-          text-align: center;
-        }
-        .order2TotalInfo .order1selectTotal {
-          border: 1px solid var(--blue-color);
-          width: 15.5rem;
-          height: 3rem;
-          border-top-left-radius: 0.5rem;
-          border-bottom-left-radius: 0.5rem;
-        }
-        .order2TotalInfo .order1selectTotal1 {
-          border: 1px solid var(--blue-color);
-          width: 16rem;
-          height: 3rem;
-        }
-        .order2TotalInfo .order1selectTotal2 {
-          border: 1px solid var(--blue-color);
-          border-top-right-radius: 0.5rem;
-          border-bottom-right-radius: 0.5rem;
-          width: 12rem;
-          height: 3rem;
-        }
-        .order2TotalInfo .order1tablenames {
-          height: 1rem;
-          width: 36rem;
-          /* padding-left: 1rem; */
-        }
-      /* Захиалгын мэдээлэл */
-      .userInfo {
-        width: 85%;
-      }
-      .payP {
-        width: 20rem;
-      }
-      .userImg {
-        width: 28%;
-      }
-      /* Хэрэглэгчийн мэдээлэл */
-      .group{
-        position:relative;
-      }
-      .group>label{
-        padding:0 0.2em;
-        position:absolute;
-        top:-0.6em;
-        left:1em;
-        background-color:white;
-        color: #807e7e;
-      }
-      
-      .group>input{
-        padding:0.5em;
-        border-radius: 0.5em;
-        border: 2px solid #e7e7e7;
-        outline:none;
-        width: 14rem;
-        font-size: 1rem;
-        font-weight: 600;
-        text-align: center;
-      }
-      /* Байршлын мэдээлэл */
-      .groupL{
-        position:relative;
-      }
-      .groupL>label{
-        padding:0 0.2em;
-        position:absolute;
-        top:-0.6em;
-        left:1em;
-        background-color:white;
-        color: #807e7e;
-      }
-      
-      .groupL>input{
-        padding:0.5em;
-        border-radius: 0.5em;
-        border: 2px solid #e7e7e7;
-        outline:none;
-        font-size: 1rem;
-        font-weight: 600;
-        text-align: center;
-      }
-      
-      .back, .choosePayment {
-        text-align: center;
-        padding: 0.6rem;
-        border-radius: 0.5em;
-        height: 2.5rem;
-        font-size: 1.1rem;
-      }
-      .back {
-        background-color: #e01f20;
-        margin-right: 0.5em;
-      }
-      
-      .choosePayment {
-        background-color: #3dbfe3;
-      }
-      .choosePayment button {
-        color: white;
-      }
-      .groupS{
-        position:relative;
-      }
-      .groupS>label{
-        padding:0 0.2em;
-        position:absolute;
-        top:-0.6em;
-        left:1em;
-        background-color:white;
-        color: #807e7e;
-      }
-      
-      .groupS>select{
-        padding:0.5em;
-        border-radius: 0.5em;
-        border: 2px solid #e7e7e7;
-        outline:none;
-      }
-      .locate {
-        height: 20rem;
-      }
-      .locationInfo {
-        width: 100%;
-      }
-      /* Төлбөр төлөх */
-      .warning p {
-        line-height: 18px;
-        color: #807e7e;
-      }
-      .dansMedeelel p{
-        font-size: 1.1rem;
-        font-weight: 500;
-        line-height: 8px;
-        color: #807e7e;
-      }
-      .paymentInstruction {
-        border-right: 2px solid #a1a0a0;
-      }
-      .groupPay{
-        position:relative;
-      }
-      .groupPay>label{
-        padding:0 0.2em;
-        position:absolute;
-        top:-0.6em;
-        left:1em;
-        background-color:white;
-        color: #807e7e;
-      }
-      
-      .groupPay>select{
-        padding:0.5em;
-        border-radius: 0.5em;
-        border: 2px solid #e7e7e7;
-        outline:none;
-        height: 3.5rem;
-      }
-    
-@media (max-width: 512px) {
-  
-    /* Header */
-    .logo img {
-      /* width: 18rem; */
-      height: 8rem;
-    }
-    .ProductAndOrder {
-      width: 35rem;
-      height: 50%;
-      border: 1px solid var(--blue-color);
-      border-radius: 10px;
-      margin-top: 3rem;
-    }
-    .line {
-      height: 4rem;
-      border: 1px solid var(--blue-color);
-      margin-right: 2rem;
-      margin-left: 1rem;
-    }
-    .busket, .order {
-      display: flex;
-      align-items: center;
-      color: var(--blue-color);
-    }
-    .busket img, .order img {
-      width: 15rem;
-      height: 100%;
-    }
-    .busket p, .order p {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-left: 4rem;
-    }
-  
-    .water img {
-      height: 25vh;
-    }
-  
-          /* Content  */
-    .sc {
-      margin: 1rem 0;
-    }
-    .chooseList {
-      height: 10rem;
-    }
-    .link {
-      width: 85%;
-    }
-    .productInfo {
-      width: 100%;
-      margin-top: 1rem;
-    }
-    .addOrdertitle {
-      width: 85%;
-    }
-    .orderInfo {
-      height: 40vh;
-    }
-    .tableImg {
-      width: 66%;
-    }
-    .buttonImg {
-      width: 11.5rem;
-      height: 4.8rem;
-    }
-  
-    .select {
-      width: 11rem;
-      height: 4.8rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      border-right: 1px solid #d6d1d1;
-      font-size: 1.2rem;
-      padding-top: 0.4rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: center;
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      background-image: url('../images/svg/home/Arrow-down.svg');
-      background-repeat: no-repeat;
-      background-position: calc(100% - 6px) center;
-    }
-    .locate form .select {
-      height: 2.7rem;
-    }
-    select:focus-visible {
-      background-repeat: no-repeat;
-      background-position: calc(100% - 3px) center;
-      border: 2px solid var(--blue-color);
-    }
-    
-    .selectTotal {
-      width: 10rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      font-size: 1.7rem;
-      padding-top: 0.1rem;
-      font-weight: 500;
-      text-align: center;
-      height: 4.8rem;
-    }
-    .order1Content .selectTotal, .order1Content .buttonImg {
-     height: 4.8rem;
-    }
-    .tablenames {
-      margin-left: 2rem;
-      width: 31rem;
-      color: #807e7e;
-    }
-    .tablename1 {
-      width: 13rem;
-      height: 1rem;
-    }
-    .tablename2 {
-      width: 13rem;
-      height: 1rem;
-    }
-    .tablename3 {
-      width: 11rem;
-      height: 1rem;
-    }
-    .bona {
-      width: 100%;
-      height: 38vh;
-      border: 1px solid #807e7e;
-    }
-    .bona img {
-      height: 95%;
-      z-index: 1;
-    }
-   
-    .bona::before {
-      content: url('../images/svg/home/tsetseg tom.svg');
-      position: absolute;
-      left: 15rem;
-      bottom: 18rem;
-    }
-    
-    .choose {
-      width: 20%;
-    }
-    .white {
-      width: 8rem;
-      height: 8rem;
-      background-color: #fff;
-      position: relative;
-      border-radius: 50%;
-      right: 12rem;
-      bottom: 2rem;
-    }
-    .circle {
-      width: 7rem;
-      height: 7rem;
-      background-color: var(--blue-color);
-      border-radius: 50%;
-    }
-    
-  
-    /* Zahialgiin medeelel */
-    .slideContent {
-      height: 70vh;
-    }
-    .locate a {
-      color: white !important;
-    }
-    .slider {
-      height: 50vh;
-      border: 2px solid black;
-    }
-    .carousel-indicators button {
-      background-color: var(--blue-color) !important;
-      margin-top: 80rem !important;
-      border-radius: 50%;
-      width: 2rem !important;
-    }
-    .carousel-item img {
-      height: 32rem;
-    }
-    .addOrder p {
-      width: 85%;
-    }
-        /* Minii sags */
-    .zahialahHusnegt {
-      width: 85%;
-      height: 5rem;
-    }
-    .zahialga {
-      width: 85%;
-    }
-    .zahialsanHeseg {
-      width: 21rem;
-      height: 6rem;
-      border: 1px solid var(--blue-color);
-      border-radius: 0.5rem;
-    }
-  
-    .order1Img {
-      border-right: 1px solid var(--blue-color);
-      width: 30%;
-      height: 6rem;
-      border-radius: 0.5rem;
-    }
-    .order1Img img {
-      width: 2rem;
-    }
-    .order1Button {
-      width: 6rem;
-    }
-    .order1Button p {
-      margin-top: 1rem;
-    }
-    .order1Price {
-      width: 13rem;
-      height: 5rem;
-    }
-    .orderName {
-      height: 2rem;
-    }
-    .orderName img {
-      width: 0.8rem;
-    }
-    .orderName p {
-      color: #807e7e;
-      line-height: 5px;
-    }
-    .order1Info {
-      margin-left: 1rem;
-    }
-    .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order1selectTotal1 {
-      border-top: 1px solid var(--blue-color);
-      border-bottom: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-    }
-    .order1zahialahButton {
-      background-color: var(--blue-color);
-      color: white;
-      width: 13rem;
-      height: 3.1rem;
-      border-radius: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .order1tablenames {
-      height: 1rem;
-      width: 20rem;
-      padding-left: 1rem;
-    }
-    .seeTotalInfo {
-      text-align: center;
-    }
-    .order2TotalInfo .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 15.5rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order2TotalInfo .order1selectTotal1 {
-      border: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1selectTotal2 {
-      border: 1px solid var(--blue-color);
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-      width: 12rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1tablenames {
-      height: 1rem;
-      width: 36rem;
-      /* padding-left: 1rem; */
-    }
-  /* Захиалгын мэдээлэл */
-  .userInfo {
-    width: 85%;
-  }
-  .payP {
-    width: 20rem;
-  }
-  .userImg {
-    width: 28%;
-  }
-  /* Хэрэглэгчийн мэдээлэл */
-  .group{
-    position:relative;
-  }
-  .group>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .group>input{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    width: 14rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  /* Байршлын мэдээлэл */
-  .groupL{
-    position:relative;
-  }
-  .groupL>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .groupL>input{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .back, .choosePayment {
-    text-align: center;
-    padding: 0.6rem;
-    border-radius: 0.5em;
-    height: 2.5rem;
-    font-size: 1.1rem;
-  }
-  .back {
-    background-color: #e01f20;
-    margin-right: 0.5em;
-  }
-  
-  .choosePayment {
-    background-color: #3dbfe3;
-  }
-  .choosePayment button {
+ .order1tablenames > * {
+    width: 50%;
+    height: 1rem;
+}
+.order2tablenames > * {
+    width: 25%;
+}
+ .tablenames > * {
+     width: 28%;
+ }
+ .sagslahButton {
+    height: 100%;
+    background-color: var(--blue-color);
+    width: 100%;
     color: white;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
   }
-  .groupS{
-    position:relative;
+  .white {
+    width: 7rem;
+    height: 7rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    right: 140%;
   }
-  .groupS>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
+  .circle {
+    width: 6rem !important;
+    height: 6rem;
+    background-color: var(--blue-color);
+    border-radius: 50%;
   }
-  
-  .groupS>select{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
+  .sagslah {
+      margin-right: 10%;
   }
-  .locate {
-    height: 20rem;
-  }
-  .locationInfo {
+
+ .seeTotalInfo {
     width: 100%;
   }
-  /* Төлбөр төлөх */
-  .warning p {
-    line-height: 18px;
-    color: #807e7e;
-  }
-  .dansMedeelel p{
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 8px;
-    color: #807e7e;
-  }
-  .paymentInstruction {
-    border-right: 2px solid #a1a0a0;
-  }
-  .groupPay{
-    position:relative;
-  }
-  .groupPay>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .groupPay>select{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    height: 3.5rem;
-  }
-}  
-
-@media (min-width: 512px) and (max-width: 768px) {
-  
+ .seeTotalInfo > * {
+    width: 100%;
+    height: auto;
+}
+.order1Content {
+    margin-right: 5%;
 }
 
 
-                        /* (min-width: 641px) and (max-width: 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
       /* Header */
       .logo img {
-        /* width: 18rem; */
-        height: 8rem;
+        height: auto;
+        margin-top: 1rem;
       }
       .ProductAndOrder {
-        width: 35rem;
+        width: 60%;
         height: 50%;
         border: 1px solid var(--blue-color);
         border-radius: 10px;
         margin-top: 3rem;
       }
-      .line {
-        height: 3rem;
-        border: 1px solid var(--blue-color);
-        margin-right: 2rem;
-        margin-left: 1rem;
+      .ProductAndOrder p {
+        margin-bottom: 0;
       }
       .busket, .order {
         display: flex;
         align-items: center;
         color: var(--blue-color);
+        height: auto;
       }
       .busket img, .order img {
-        width: 12rem;
+        width: 25%;
         height: 100%;
+        padding: 0.3rem;
+        margin-right: 0.6rem;
       }
-      .busket p, .order p {
-        font-size: 1.5rem;
+      
+      p.busket, .order p {
+        font-size: 2rem;
         font-weight: 600;
-        margin-left: 4rem;
+        height: auto;
+      }
+      p.yourBusket {
+        font-size: 1.4rem;
+        color: #8a8888;
+        font-weight: 400;
       }
     
       .water img {
-        height: 25vh;
+        height: auto;
       }
-    
+      .footer1flower {
+        width: 85%;
+      }
             /* Content  */
       .sc {
         margin: 1rem 0;
       }
       .choosing {
         margin-right: 3rem;
+        height: 70vh;
       }
-      .chooseList {
-        height: 10rem;
-      }
-      .link {
-        width: 85%;
-      }
+    
       .productInfo {
         width: 85%;
         margin-top: 1rem;
@@ -973,20 +207,13 @@ a {
       .addOrdertitle {
         width: 85%;
       }
-      .orderInfo {
-        height: 40vh;
-      }
+     
       .tableImg {
         width: 66%;
       }
-      .buttonImg {
-        width: 6rem;
-        /* height: 8rem; */
-      }
+    
     
       .select {
-        width: 8rem;
-        height: 4rem;
         border-top: 1px solid #d6d1d1;
         border-bottom: 1px solid #d6d1d1;
         border-right: 1px solid #d6d1d1;
@@ -1003,7 +230,7 @@ a {
         background-position: calc(100% - 6px) center;
       }
       .locate form .select {
-        height: 2.7rem;
+        height: auto;
       }
       select:focus-visible {
         background-repeat: no-repeat;
@@ -1012,38 +239,19 @@ a {
       }
       
       .selectTotal {
-        width: 8rem;
+        width: 10rem;
         border-top: 1px solid #d6d1d1;
         border-bottom: 1px solid #d6d1d1;
         font-size: 1.7rem;
         padding-top: 0.1rem;
         font-weight: 500;
         text-align: center;
-        height: 4rem;
+        height: auto;
       }
-      .order1Content .selectTotal, .order1Content .buttonImg {
-       height: 4.8rem;
-      }
-      .tablenames {
-        margin-left: 2rem;
-        width: 31rem;
-        color: #807e7e;
-      }
-      .tablename1 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename2 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename3 {
-        width: 11rem;
-        height: 1rem;
-      }
+    
       .bona {
         width: 70%;
-        height: 40vh;
+        height: 80%;
         border: 1px solid #807e7e;
       }
       .bona img {
@@ -1054,30 +262,14 @@ a {
       .bona::before {
         content: url('../images/svg/home/tsetseg tom.svg');
         position: absolute;
-        left: 2rem;
-        bottom: 5rem;
+        left: 55%;
+        bottom: 55%;
       }
       
       .choose {
         width: 20%;
       }
-      .white {
-        width: 5rem;
-        height: 5rem;
-        background-color: #fff;
-        position: relative;
-        border-radius: 50%;
-        right: 7rem;
-        bottom: 0.5rem;
-      }
-      .circle {
-        width: 4rem;
-        height: 4rem;
-        background-color: var(--blue-color);
-        border-radius: 50%;
-      }
-      
-    
+ 
       /* Zahialgiin medeelel */
       .slideContent {
         height: 70vh;
@@ -1085,33 +277,17 @@ a {
       .locate a {
         color: white !important;
       }
-      .slider {
-        height: 50vh;
-        border: 2px solid black;
-      }
-      .carousel-indicators button {
-        background-color: var(--blue-color) !important;
-        margin-top: 80rem !important;
-        border-radius: 50%;
-        width: 2rem !important;
-      }
-      .carousel-item img {
-        height: 32rem;
-      }
-      .addOrder p {
-        width: 85%;
+
+      .addOrder {
+        width: 100% !important;
       }
           /* Minii sags */
-      .zahialahHusnegt {
-        width: 85%;
-        height: 5rem;
-      }
+  
       .zahialga {
         width: 85%;
       }
       .zahialsanHeseg {
-        width: 21rem;
-        height: 6rem;
+        width: 50%;
         border: 1px solid var(--blue-color);
         border-radius: 0.5rem;
       }
@@ -1119,27 +295,24 @@ a {
       .order1Img {
         border-right: 1px solid var(--blue-color);
         width: 30%;
-        height: 6rem;
         border-radius: 0.5rem;
       }
       .order1Img img {
-        width: 2rem;
+        width: 40%;
       }
       .order1Button {
-        width: 6rem;
+        width: 45%;
       }
       .order1Button p {
         margin-top: 1rem;
       }
       .order1Price {
-        width: 13rem;
-        height: 5rem;
+        width: 100%;
+        height: auto;
       }
-      .orderName {
-        height: 2rem;
-      }
+     
       .orderName img {
-        width: 0.8rem;
+        width: 6%;
       }
       .orderName p {
         color: #807e7e;
@@ -1147,64 +320,41 @@ a {
       }
       .order1Info {
         margin-left: 1rem;
+        width: 100%;
       }
       .order1selectTotal {
         border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
       }
       .order1selectTotal1 {
         border-top: 1px solid var(--blue-color);
         border-bottom: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
       }
-      .order1zahialahButton {
-        background-color: var(--blue-color);
-        color: white;
-        width: 13rem;
-        height: 3.1rem;
-        border-radius: 0.5rem;
-        font-size: 1.2rem;
-      }
-      .order1tablenames {
-        height: 1rem;
-        width: 20rem;
-        padding-left: 1rem;
-      }
+ 
       .seeTotalInfo {
         text-align: center;
       }
+   
       .order2TotalInfo .order1selectTotal {
         border: 1px solid var(--blue-color);
-        width: 15.5rem;
-        height: 3rem;
+        height: auto;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
       }
       .order2TotalInfo .order1selectTotal1 {
         border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
+        height: auto;
       }
       .order2TotalInfo .order1selectTotal2 {
         border: 1px solid var(--blue-color);
         border-top-right-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
-        width: 12rem;
-        height: 3rem;
+        height: auto;
       }
-      .order2TotalInfo .order1tablenames {
-        height: 1rem;
-        width: 36rem;
-        /* padding-left: 1rem; */
-      }
+     
     /* Захиалгын мэдээлэл */
-    .userInfo {
-      width: 85%;
-    }
+    
     .payP {
       width: 20rem;
     }
@@ -1229,7 +379,7 @@ a {
       border-radius: 0.5em;
       border: 2px solid #e7e7e7;
       outline:none;
-      width: 14rem;
+      width: 100%;
       font-size: 1rem;
       font-weight: 600;
       text-align: center;
@@ -1256,12 +406,36 @@ a {
       font-weight: 600;
       text-align: center;
     }
+    .groupLa{
+      position:relative;
+    }
+    .groupLa>label{
+      padding:0 0.2em;
+      position:absolute;
+      top:-0.6em;
+      left:1em;
+      background-color:white;
+      color: #807e7e;
+    }
+    .district, .house, .door {
+        width: 100%;
+    }
+    .groupLa>input{
+      padding:0.5em;
+      border-radius: 0.5em;
+      border: 2px solid #e7e7e7;
+      outline:none;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
     
     .back, .choosePayment {
-      text-align: center;
-      padding: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 0.5em;
-      height: 2.5rem;
+      height: auto;
       font-size: 1.1rem;
     }
     .back {
@@ -1270,10 +444,17 @@ a {
     }
     
     .choosePayment {
-      background-color: #3dbfe3;
+      background-color: var(--blue-color);
     }
-    .choosePayment button {
-      color: white;
+    .removeOrder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5em;
+        padding: 0.7rem;
+        height: auto;
+        font-size: 1.1rem;
+        background-color: var(--blue-color);
     }
     .groupS{
       position:relative;
@@ -1296,18 +477,16 @@ a {
     .locate {
       height: 20rem;
     }
-    .locationInfo {
-      width: 100%;
-    }
     /* Төлбөр төлөх */
     .warning p {
       line-height: 18px;
       color: #807e7e;
+      margin-bottom: 1rem;
     }
     .dansMedeelel p{
       font-size: 1.1rem;
       font-weight: 500;
-      line-height: 8px;
+      line-height: 28px;
       color: #807e7e;
     }
     .paymentInstruction {
@@ -1330,28 +509,116 @@ a {
       border-radius: 0.5em;
       border: 2px solid #e7e7e7;
       outline:none;
-      height: 3.5rem;
+      height: auto;
     }
-  
-}
 
-                  /* (min-width: 641px) and (max-width: 1024px) */
-@media (min-width: 1025px) and (max-width: 1280px) {
-  
-}
+    .instructionPayment {
+        margin: 2rem 0 !important;
+    }
+    .qrCode {
+        width: 15%;
+    }
+    
 
-@media (min-width: 1281px) and (max-width: 1536px) {
-  
-}
 
-@media (min-width: 1537px) and (max-width: 1793px) {
-  
-}
 
-@media (min-width: 1793px) and (max-width: 2048px) {
-  
-}
+    @media (min-width: 1024px) and (max-width: 1440px) {
+      .ProductAndOrder {
+        width: 70%;
+        height: 45%;
+      }
+     .busket img {
+       padding: 0;
+     }
+      p.busket {
+        font-size: 1.3rem;
+      }
+      p.yourBusket {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #666363;
+      }
+     p.total {
+       font-size: 1.3rem;
+     }
+      .bona {
+        height: 40%;
+      }
+      .bona::before {
+        left: 15%;
+        bottom: 40%;
+      }
+      .info {
+        margin-top: 4%;
+      }
+      .white {
+        width: 6rem;
+        height: 6rem;
+       
+      }
+      .circle {
+        width: 5rem !important;
+        height: 5rem;
+      }
+      .order1selectTotal1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .order1selectTotal2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .orderName p {
+        line-height: 10px;
+      }
+      .order1Img img {
+        width: 70%;
+      }
+      .order1tablenames {
+        width: 22rem !important;
+        margin-left: 0.5rem;
+      }
+      .order2tablenames > * {
+        width: 50%;
+        margin-left: 0.5rem;
+      }
+      
+    }
 
-@media (min-width: 2049px) {
-  
-}
+    @media (min-width: 1441px) and (max-width: 1919px) {
+      p.busket {
+        font-size: 1.6rem;
+      }
+      p.yourBusket {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #666363;
+      }
+      p.total {
+        font-size: 1.6rem;
+      }
+      .bona {
+        height: 55%;
+      }
+      .bona::before {
+        left: 40%;
+        bottom: 40%;
+      }
+      .info {
+        margin-top: 3%;
+      }
+      .orderInfo {
+        height: 50vh;
+      }
+      .order1tablenames {
+        width: 24rem !important;
+        margin-left: 0.5rem;
+      }
+      .order2tablenames > * {
+        width: 50%;
+        margin-left: 0.5rem;
+      }
+      
+    }

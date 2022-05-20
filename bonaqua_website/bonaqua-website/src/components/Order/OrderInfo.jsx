@@ -15,7 +15,7 @@ export default function OrderInfo() {
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
-        <div className="orderInfoHeight w-1/2 flex items-center relative choosing">
+        <div className="w-1/2 flex items-center relative choosing">
           <div className="slideContent choosing flex items-center">
             <div
               id="carouselExampleCaptions"
@@ -71,58 +71,56 @@ export default function OrderInfo() {
           </div>
         </div>
 
-        <div className="order2Content w-1/2 flex flex-col justify-between">
+        <div className=" w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-3">Захиалгын мэдээлэл</h1>
 
             {/* Захиалгын мэдээлэл*/}
-            <div className="order2Info">
-              <div className="flex productInfo justify-between">
+            <div className="">
+              <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
                 <img src={sags} alt="" className="w-full pl-5" />
               </div>
               <div className="order2TotalInfo">
-              <div className="seeTotalInfo flex">
-                <div className='order1selectTotal'>
-                  <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
-                </div>
-                <div className='order1selectTotal1'>
-                  <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
-                </div>
-                <div className='order1selectTotal2'>
-                  <p className='total pt-2 pl-16 text-red-700 text-3xl font-semibold'>24.600₮</p>
-                </div>
-                <div>
-                
-                </div>
-                <div className='order1tablenames absolute flex justify-between text-xs mt-2'>
-                  <div className='tablename4'>
-                    <p className=''>Хэмжээ</p>
+                <div className="seeTotalInfo flex relative">
+                  <div className='order1selectTotal'>
+                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                   </div>
-                  <div className='tablename4'>
-                    <p className=''>Хэмжээ</p>
+                  <div className='order1selectTotal1'>
+                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                   </div>
-                  <div className='tablename5'>
-                    <p className=''>Нийт үнэ</p>
+                  <div className='order1selectTotal2'>
+                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
+                  </div>
+                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs'>
+                    <div className='flex p'>
+                      <p className=''>Хэмжээ</p>
+                    </div>
+                    <div className='flex p'>
+                      <p className=''>Багц</p>
+                    </div>
+                    <div className='flex p'>
+                      <p className=''>Нийт үнэ</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+               
               </div>
             </div>
 
             {/* Хэрэглэгчийн мэдээлэл */}
-            <div className="userInfo">
+            <div className="userInfo w-full">
               <div className="flex w-full justify-between my-3">
                 <img src={user} alt="" className="userImg" />
                 <img src={sags} alt="" className="w-full" />
               </div>
               <div className="">
-                <form className="flex justify-between text-sm">
-                  <div class="group">
+                <form className="flex justify-between text-sm" id="userform">
+                  <div class="group mr-1">
                     <label>Нэр</label>
                     <input type="text" />
                   </div>
-                  <div class="group">
+                  <div class="group mr-1">
                     <label>Утасны дугаар</label>
                     <input type="text" />
                   </div>
@@ -135,58 +133,66 @@ export default function OrderInfo() {
             </div>
 
             {/* Байршлын мэдээлэл */}
-            <div className="locationInfo">
-              <div className="userInfo">
+            <div className="locationInfo w-full">
+              <div className="userInfo w-full">
                 <div className="flex w-full justify-between my-3">
                   <img src={location} alt="" className="userImg" />
                   <img src={sags} alt="" className="w-full" />
                 </div>
                 <div className="locate flex justify-between w-full">
                   <form className="flex justify-between flex-wrap text-sm">
-                    <div className="groupS w-1/2">
-                    <label htmlFor="">Дүүрэг</label>
-                    <select name="" id="" className='select w-full'>
-                      <option value="330" className='option'></option>
-                      <option value="500">Баянгол</option>
-                      <option value="800">Баянзүрх</option>
-                      <option value="1.5">Хан-Уул</option>
-                    </select>
+                    <div className="flex district justify-between">
+                      <div className="groupS mr-3 w-1/2">
+                        <label htmlFor="">Дүүрэг</label>
+                        <select name="" id="" className='select w-full'>
+                          <option value="330" className='option'></option>
+                          <option value="500">Баянгол</option>
+                          <option value="800">Баянзүрх</option>
+                          <option value="1.5">Хан-Уул</option>
+                        </select>
+                      </div>
+                      <div className="groupS w-1/2">
+                        <label htmlFor="">Хороо</label>
+                        <select name="" id="" className='select w-full'>
+                          <option value="330" className='option'></option>
+                          <option value="500">500 мл</option>
+                          <option value="800">800 мл</option>
+                          <option value="1.5">1.5 л</option>
+                        </select>
+                      </div>
                     </div>
-                   <div className="groupS w-1/2">
-                    <label htmlFor="">Хороо</label>
-                    <select name="" id="" className='select w-full'>
-                      <option value="330" className='option'></option>
-                      <option value="500">500 мл</option>
-                      <option value="800">800 мл</option>
-                      <option value="1.5">1.5 л</option>
-                    </select>
-                   </div>
-                   
-                    <div class="groupL w-1/2">
-                      <label>Байр</label>
-                      <input type="text" className="w-full" />
+
+
+                    <div className="flex house">
+                      <div class="groupL mr-3 w-1/2">
+                        <label>Байр</label>
+                        <input type="text" className="w-full" />
+                      </div>
+                      <div class="groupL w-1/2">
+                        <label>Орц</label>
+                        <input type="text" className="w-full" />
+                      </div>
                     </div>
-                    <div class="groupL w-1/2">
-                      <label>Орц</label>
-                      <input type="text" className="w-full" />
+                    <div className="flex door">
+                      <div class="groupL mr-3 w-1/2">
+                        <label>Орцны код</label>
+                        <input type="text" className="w-full" />
+                      </div>
+                      <div class="groupL w-1/2">
+                        <label>Хаалганы дугаар /тоот/</label>
+                        <input type="text" className="w-full" />
+                      </div>
                     </div>
-                    <div class="groupL w-1/2">
-                      <label>Орцны код</label>
-                      <input type="text" className="w-full" />
-                    </div>
-                    <div class="groupL w-1/2">
-                      <label>Хаалганы дугаар /тоот/</label>
-                      <input type="text" className="w-full" />
-                    </div>
-                    <div class="groupL w-full">
+
+                    <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
                       <input type="text" className="w-full" />
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
-                          <a className="backButton" href="/order">
-                            Буцах
-                          </a>
+                        <a className="backButton" href="/order">
+                          Буцах
+                        </a>
                       </div>
 
                       <div className="choosePayment w-1/2">
@@ -194,7 +200,7 @@ export default function OrderInfo() {
                           <button className="choosePaymentButton">
                             Төлбөрийн нөхцөл сонгох
                           </button>
-                          </Link>
+                        </Link>
                       </div>
                     </div>
 

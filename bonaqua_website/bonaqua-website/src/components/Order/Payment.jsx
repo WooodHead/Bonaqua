@@ -15,7 +15,7 @@ export default function Payment() {
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
-        <div className="orderInfoHeight w-1/2 flex items-center relative choosing">
+        <div className="w-1/2 flex items-center relative choosing">
           <div className="slideContent choosing flex items-center">
             <div
               id="carouselExampleCaptions"
@@ -71,7 +71,7 @@ export default function Payment() {
           </div>
         </div>
 
-        <div className="order2Content w-1/2 flex flex-col justify-between">
+        <div className="order2Content w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-3">Төлбөр төлөх</h1>
 
@@ -82,31 +82,29 @@ export default function Payment() {
                 <img src={sags} alt="" className="w-full pl-5" />
               </div>
               <div className="order2TotalInfo">
-              <div className="seeTotalInfo flex">
-                <div className='order1selectTotal'>
-                  <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
-                </div>
-                <div className='order1selectTotal1'>
-                  <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
-                </div>
-                <div className='order1selectTotal2'>
-                  <p className='total pt-2 pl-16 text-red-700 text-3xl font-semibold'>24.600₮</p>
-                </div>
-                <div>
-                
-                </div>
-                <div className='order1tablenames absolute flex justify-between text-xs mt-2'>
-                  <div className='tablename4'>
-                    <p className=''>Хэмжээ</p>
+                <div className="seeTotalInfo flex relative">
+                  <div className='order1selectTotal'>
+                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                   </div>
-                  <div className='tablename4'>
-                    <p className=''>Хэмжээ</p>
+                  <div className='order1selectTotal1'>
+                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                   </div>
-                  <div className='tablename5'>
-                    <p className=''>Нийт үнэ</p>
+                  <div className='order1selectTotal2'>
+                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
+                  </div>
+                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs'>
+                    <div className='flex'>
+                      <p className=''>Хэмжээ</p>
+                    </div>
+                    <div className='flex'>
+                      <p className=''>Багц</p>
+                    </div>
+                    <div className='flex'>
+                      <p className=''>Нийт үнэ</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+               
               </div>
             </div>
 
@@ -117,7 +115,7 @@ export default function Payment() {
                 <img src={dans} alt="" />
                 <img src={sags} alt="" className="w-full" />
               </div>
-              <form className="flex justify-between flex-wrap text-sm">
+              <form className="flex flex-wrap text-sm">
                 <div className="groupPay w-full">
                   <label htmlFor="">Банк сонгох</label>
                   <select name="" id="" className='select w-full'>
@@ -137,16 +135,16 @@ export default function Payment() {
                       <img src={instruction} alt="" className="" />
                       <img src={sags} alt="" className="w-full" />
                     </div>
-                    <div className="mb-2 flex w-full justify-around">
-                      <p className="text-2xl text-gray-900">Дансаар шилжүүлэх</p>
-                      <p className="text-2xl text-gray-900">QR код уншуулах</p>
+                    <div className="2xl:mb-2 flex w-full justify-around">
+                      <p className="text-lg 2xl:text-2xl text-gray-900">Дансаар шилжүүлэх</p>
+                      <p className="text-lg 2xl:text-2xl text-gray-900">QR код уншуулах</p>
                     </div>
-                    <div className="flex justify-around w-full mb-6">
+                    <div className="flex justify-around instructionPayment">
 
                       <div className="paymentInstruction flex flex-col justify-center w-1/2">
 
                         <div className="dansMedeelel flex">
-                          <div className="mr-5 text-base">
+                          <div className="mr-5 2xl:text-base">
                             <p>Хүлээн авагч</p>
                             <p>Хаан банк</p>
                             <p>Гүйлгээний утга</p>
@@ -161,13 +159,13 @@ export default function Payment() {
 
                       <div className="qrCode flex flex-col justify-center items-center">
 
-                        <img src={insta} alt="" className="" width={140} />
+                        <img src={insta} alt="" className="w-full"  />
                       </div>
 
                     </div>
 
                     <div className="warning">
-                      <p className="font-semibold text-base">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
+                      <p className="font-semibold 2xl:text-base">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
                     </div>
 
                     <div className="flex w-full">
@@ -177,9 +175,9 @@ export default function Payment() {
                         </a>
                       </div>
 
-                      <div className="choosePayment w-1/2">
+                      <div className="removeOrder w-1/2">
                         <Link className="nav-link" to="/">
-                          <button className="choosePaymentButton">
+                          <button className="removeOrderButton text-white">
                             Захиалга цуцлах
                           </button>
                         </Link>
