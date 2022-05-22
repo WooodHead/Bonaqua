@@ -17,7 +17,7 @@ export default function Header() {
                 </a>
             </div>
             <div className='w-1/2 flex justify-end'>
-                <div className='ProductAndOrder flex'>
+                <div className='ProductAndOrder flex justify-center'>
 
                     <div className='busket flex relative'>
                     <img src={sagsicon} alt="" />

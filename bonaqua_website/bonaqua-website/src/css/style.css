@@ -15,9 +15,10 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
-.header {
-  height: auto;
-}
+/* .header {
+  height: 18vh;
+  border: 2px solid black;
+} */
 .footer {
   /* position: absolute; */
   bottom: 0;
@@ -31,8 +32,7 @@ a {
 }
 
 .routes {
-  /* height: 70vh; */
-  height: auto;
+  height: 70vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -136,6 +136,7 @@ a {
 
  .seeTotalInfo {
     width: 100%;
+    height: auto;
   }
  .seeTotalInfo > * {
     width: 100%;
@@ -148,15 +149,15 @@ a {
 
       /* Header */
       .logo img {
-        height: auto;
-        margin-top: 1rem;
+        height: 8rem;
+        padding-top: 1rem;
       }
       .ProductAndOrder {
         width: 60%;
-        height: 50%;
+        height: auto;
         border: 1px solid var(--blue-color);
         border-radius: 10px;
-        margin-top: 3rem;
+        margin: auto 0;
       }
       .ProductAndOrder p {
         margin-bottom: 0;
@@ -186,7 +187,8 @@ a {
       }
     
       .water img {
-        height: auto;
+        /* height: 8rem; */
+        width: 20rem;
       }
       .footer1flower {
         width: 85%;
@@ -251,19 +253,25 @@ a {
     
       .bona {
         width: 70%;
-        height: 80%;
+        border-radius: 50%;
         border: 1px solid #807e7e;
       }
+      .bona::after {
+        content: "";
+        padding-bottom: 100%;
+        display: block;
+      }
       .bona img {
-        height: 95%;
+        width: 38%;
         z-index: 1;
       }
      
       .bona::before {
         content: url('../images/svg/home/tsetseg tom.svg');
         position: absolute;
-        left: 55%;
-        bottom: 55%;
+        /* left: 85%; */
+        /* bottom: 85%; */
+        border: 2px solid black;
       }
       
       .choose {
@@ -520,12 +528,25 @@ a {
     }
     
 
-
+    @media (max-width: 1023px) {
+      .ProductAndOrder {
+        width: auto;
+        height: auto;
+      }
+      p.yourBusket {
+        font-size: 1.2rem;
+      }
+      p.busket {
+        font-size: 1.5rem;
+      }
+      .orderName p {
+        line-height: 12px;
+      }
+    }
 
     @media (min-width: 1024px) and (max-width: 1440px) {
       .ProductAndOrder {
         width: 70%;
-        height: 45%;
       }
      .busket img {
        padding: 0;
@@ -541,16 +562,11 @@ a {
      p.total {
        font-size: 1.3rem;
      }
-      .bona {
-        height: 40%;
-      }
       .bona::before {
         left: 15%;
         bottom: 40%;
       }
-      .info {
-        margin-top: 4%;
-      }
+      
       .white {
         width: 6rem;
         height: 6rem;
@@ -571,7 +587,7 @@ a {
         justify-content: center;
       }
       .orderName p {
-        line-height: 10px;
+        line-height: 12px;
       }
       .order1Img img {
         width: 70%;
@@ -584,10 +600,20 @@ a {
         width: 50%;
         margin-left: 0.5rem;
       }
+      .order1Button {
+        width: 100%;
+      }
+      .order1Price {
+        display: flex;
+        flex-direction: column;
+      }
       
     }
 
     @media (min-width: 1441px) and (max-width: 1919px) {
+      .ProductAndOrder {
+        width: 60%;
+      } 
       p.busket {
         font-size: 1.6rem;
       }
@@ -597,17 +623,46 @@ a {
         color: #666363;
       }
       p.total {
-        font-size: 1.6rem;
-      }
-      .bona {
-        height: 55%;
+        font-size: 1.2rem;
+        
       }
       .bona::before {
         left: 40%;
         bottom: 40%;
       }
-      .info {
-        margin-top: 3%;
+      .orderInfo {
+        height: 50vh;
+      }
+      .order1tablenames {
+        width: 24rem !important;
+        margin-left: 0.5rem;
+      }
+      .order2tablenames > * {
+        width: 50%;
+        margin-left: 0.5rem;
+      }
+      
+    }
+
+    @media (min-width: 1920px) {
+      .ProductAndOrder {
+        width: 50%;
+      } 
+      p.busket {
+        font-size: 1.6rem;
+      }
+      p.yourBusket {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #666363;
+      }
+      p.total {
+        font-size: 1.2rem;
+        
+      }
+      .bona::before {
+        left: 40%;
+        bottom: 40%;
       }
       .orderInfo {
         height: 50vh;

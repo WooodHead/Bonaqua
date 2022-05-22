@@ -87,7 +87,7 @@ export default function Content() {
             </ul>
           </div>
 
-          <div className='bona flex justify-center items-end  rounded-full relative'>
+          <div className='bona flex justify-center items-end relative'>
             <img src={bonaqua} alt="" className='' />
 
             <div className='toirog absolute'>
