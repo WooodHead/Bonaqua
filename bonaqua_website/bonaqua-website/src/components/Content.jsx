@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import axios from 'axios';
 import Instruction from './ProductInformation/Instruction';
 import Nutrition from './ProductInformation/Nutrition';
 import Product from './ProductInformation/Product';
@@ -9,41 +9,46 @@ import insta from '../images/svg/home/Instagram.svg';
 import fb from '../images/svg/home/Facebook.svg';
 import twitter from '../images/svg/home/Twitter.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
-import button from '../images/svg/home/Button.svg';
 import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 
 export default function Content() {
 
-  const datas = [];
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetch('http://localhost:8080/api/bonaqua', {
-          headers: {
-            "Content-Type": "application/json"
-          },
-        });
-
-        const resData = await data.json();
-
-
-        for (let i = 0; i < data.length; i++) {
-          datas.push(data[i].Capacity);
-        }
-
-        return resData;
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getData();
-  }, [])
-  console.log(datas)
   // const datas = [];
-  // for(let i=0; i < capacity.length; i++) {
-  //   datas.push(capacity[i].Capacity);
-  // }
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const data = await fetch('http://localhost:8080/api/bonaqua', {
+  //         headers: {
+  //           "Content-Type": "application/json"
+  //         },
+  //       });
+
+  //       const resData = await data.json();
+
+  //       for (let i = 0; i < data.length; i++) {
+  //         datas.push(data[i].Capacity);
+  //       }
+
+  //       return resData;
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   getData();
+  // }, [])
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/bonaqua")
+      .then((res) => {
+        // for(i=0; i < data.length; i++) {
+        setData(data);
+        console.log(data)
+        // }
+      })
+  }, [])
+
   var Incase = {
     "one": {
       "case": 12,
@@ -58,15 +63,25 @@ export default function Content() {
       "price": 3130
     },
   };
-  console.log(Incase.one.case);
+
+  const buttonElements = Array.from(document.querySelectorAll('.button'));
+  buttonElements.forEach(buttonElement => {
+    buttonElement.addEventListener('click', () => {
+      const activeElements = Array.from(document.querySelectorAll('.li-active'));
+      activeElements.forEach(activeElement => {
+        activeElement.classList.remove('li-active');
+      });
+      buttonElement.parentElement.classList.add('li-active');
+    });
+  });
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col md:flex-row'>
         <div className='choosing w-full md:w-1/2 flex items-center relative'>
-          <div className='choose flex justify-center self-center'>
-            <ul className='chooseList flex flex-col justify-between cursor-pointer' id="ml">
-              <li id='ml330'>
+          <div className='choose flex justify-center self-center relative'>
+            {/* <ul className='chooseList flex flex-col justify-between cursor-pointer' id="ml"> */}
+            {/* <li id='ml330'>
                 <img src={list} alt="" />
               </li>
               <li id='ml500'>
@@ -83,47 +98,79 @@ export default function Content() {
               </li>
               <li id='ml330' >
                 <img src={list} alt="" />
-              </li>
-            </ul>
+              </li> */}
+            <div class="main">
+              <ul>
+                <li><a href="#" class="button">
+                  <img src={list} alt="" />
+                </a>
+                  <ul>
+                    <li>
+                      <img src={bonaqua} alt="" className='type' />
+                    </li>
+                    <li>330ml</li>
+                  </ul>
+                </li>
+                <li><a href="#" class="button">
+                <img src={list} alt="" />
+                </a>
+                  <ul>
+                    <li>500ml</li>
+                  </ul>
+                </li>
+                <li><a href="#" class="button">
+                <img src={list} alt="" />
+                </a>
+                  <ul>
+                    <li>800ml</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            {/* </ul> */}
           </div>
 
           <div className='bona flex justify-center items-end relative'>
-            <img src={bonaqua} alt="" className='' />
+            {/* <img src={bonaqua} alt="" className='' /> */}
 
             <div className='toirog absolute'>
               {/* <img src={toirog} alt="" className='' /> */}
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold'>500 <span className='text-xs'>мл</span> </p>
+                  <p className='text-white font-semibold 9xl:text-4xl'>500 <span className='text-xs 9xl:text-9xl'>мл</span> </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='info w-full md:w-1/2 pl-4'>
+        <div className='info w-full md:w-1/2 pl-4 flex flex-col justify-around'>
           <div className='water'>
             <img src={water} alt="" />
           </div>
 
-          <div className='pl-3'>
+          <div className='waterfor pl-3 flex flex-col justify-around'>
 
 
             <div className='sagslah'>
-              <p className='font-semibold text-xl'>Bonaqua 500ml - 1.500₮</p>
+              <p className='font-semibold text-xl 9xl:text-6xl 9xl:mb-20'>Bonaqua 500ml - 1.500₮</p>
               <div className='flex'>
                 {/* <img src={table} alt="" className='tableImg' /> */}
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select'>
-                    {/* <option id='quantity' value={datas[0]}>{datas[0]}</option> 
-                          <option id='quantity' value={datas[1]}>{datas[1]}</option>
-                          <option id='quantity' value={datas[2]}>{datas[2]}</option>
-                          <option id='quantity' value={datas[3]}>{datas[3]}</option>
-                          <option id='quantity' value={datas[4]}>{datas[4]}</option>
-                          <option id='quantity' value={datas[5]}>{datas[5]}</option> 
-                          <option id='quantity' value={datas[6]}>{datas[6]}</option>  */}
-                    
+                    {/* <option id='quantity' value={data[0].Capacity}>{data[0].Capacity}</option> 
+                          <option id='quantity' value={data[1].Capacity}>{data[1].Capacity}</option>
+                          <option id='quantity' value={data[2].Capacity}>{data[2].Capacity}</option>
+                          <option id='quantity' value={data[3].Capacity}>{data[3].Capacity}</option>
+                          <option id='quantity' value={data[4].Capacity}>{data[4].Capacity}</option>
+                          <option id='quantity' value={data[5].Capacity}>{data[5].Capacity}</option> 
+                          <option id='quantity' value={data[6].Capacity}>{data[6].Capacity}</option>  */}
+                    <option value="1">{data}</option>
+                    {/* <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option> */}
                   </select>
                   <select name="avdar" id="avdar" className='select'>
                     <option value={Incase.one.case}>{Incase.one.case * Incase.one.price}₮</option>
@@ -133,7 +180,7 @@ export default function Content() {
                   <div className='selectTotal'>
                     <p className='total pt-3 text-red-700'>124.567₮</p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-9xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -146,7 +193,7 @@ export default function Content() {
                   </div>
 
                   <Link className="nav-link" to="/order" id='submit'>
-                    <button className="sagslahButton text-xl">
+                    <button className="sagslahButton text-xl 9xl:text-5xl">
                       Сагслах
                     </button>
                   </Link>

@@ -30,13 +30,14 @@ export default function Header() {
                     <div className='line my-auto'></div>
                     <div className='busket flex relative'>
                     <img src={sagsicon} alt="" />
-                        <div className='dun'>
+                        <div className='dun cursor-pointer'>
                         <p className='busket'>1234-5678</p>
+                        <a href="/orderHistory">
                         <p className='yourBusket'>Захиалгын түүх</p>
+                        </a>
                         </div>
                         
                     </div>
-
                 </div>
             </div>
         </div>

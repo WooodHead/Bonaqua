@@ -73,13 +73,13 @@ export default function OrderInfo() {
 
         <div className=" w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
-            <h1 className="mb-3">Захиалгын мэдээлэл</h1>
+            <h1 className="mb-3 9xl:text-7xl">Захиалгын мэдээлэл</h1>
 
             {/* Захиалгын мэдээлэл*/}
             <div className="">
               <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
-                <img src={sags} alt="" className="w-full pl-5" />
+                <img src={sags} alt="" className="w-full" />
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
@@ -92,7 +92,7 @@ export default function OrderInfo() {
                   <div className='order1selectTotal2'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
                   </div>
-                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs'>
+                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
                     <div className='flex p'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -115,7 +115,7 @@ export default function OrderInfo() {
                 <img src={sags} alt="" className="w-full" />
               </div>
               <div className="">
-                <form className="flex justify-between text-sm" id="userform">
+                <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
                     <label>Нэр</label>
                     <input type="text" />
@@ -140,7 +140,7 @@ export default function OrderInfo() {
                   <img src={sags} alt="" className="w-full" />
                 </div>
                 <div className="locate flex justify-between w-full">
-                  <form className="flex justify-between flex-wrap text-sm">
+                  <form className="flex justify-between flex-wrap text-sm 9xl:text-3xl">
                     <div className="flex district justify-between">
                       <div className="groupS mr-3 w-1/2">
                         <label htmlFor="">Дүүрэг</label>

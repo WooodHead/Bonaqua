@@ -7,8 +7,10 @@ import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 import OrderInfo from './components/Order/OrderInfo';
 import Payment from './components/Order/Payment';
 import Content from './components/Content';
+import OrderHistory from './components/Order/OrderHistory';
 
 function App() {
+
   return (
     <div className="contain">
       <Header />
@@ -19,6 +21,7 @@ function App() {
             <Route path="/order" component={Order}/>
             <Route path="/orderToPayment" component={OrderInfo} />
             <Route path="/payment" component={Payment} />
+            <Route path="/orderHistory" component={OrderHistory} />
         </Switch>
       </Routes>
       </div>

@@ -19,7 +19,7 @@ export default function Order() {
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
         <div className="w-1/2 flex items-center relative choosing">
-          <div className="slideContent choosing flex">
+          <div className="slideContent choosing flex items-center">
             <div
               id="carouselExampleCaptions"
               className="carousel slide relative"
@@ -76,7 +76,7 @@ export default function Order() {
 
         <div className="order1Content w-1/2 flex flex-col justify-between">
           <div className="orderInfo flex flex-col justify-between">
-            <h1 className="mb-4">Миний сагс</h1>
+            <h1 className="mb-4 9xl:text-8xl">Миний сагс</h1>
             <div className="flex productInfo">
               <img src={sags} alt="" className="w-full" />
             </div>
@@ -87,22 +87,22 @@ export default function Order() {
                   <div className="order1Img flex justify-center">
                     <img src={bona} alt="" className="" />
                   </div>
-                  <div className="order1Info">
+                  <div className="order1Info p-1">
                     <div className="orderName">
                       <div className="flex justify-between w-full">
-                        <h6>Bonaqua 500мл</h6>
+                        <h6 className="9xl:text-4xl">Bonaqua 500мл</h6>
                         <img src={deleteButton} alt="" className="cursor-pointer" />
                       </div>
-                      <p className="text-sm">Ширхэгийн тоо: 12 ширхэг</p>
+                      <p className="text-sm 9xl:text-2xl">Ширхэгийн тоо: 12 ширхэг</p>
                     </div>
 
                     <div className="order1Price flex justify-between items-center">
-                      <h3>16.080₮</h3>
+                      <h3 className="9xl:text-5xl">16.080₮</h3>
                       <div className="order1Button flex justify-between">
-                        <button>
+                        <button className="">
                           <img src={removeButton} alt="" />
                         </button>
-                        <p className="font-semibold">2</p>
+                        <p className="font-semibold 9xl:text-5xl">2</p>
                         <button>
                           <img src={addButton} alt="" />
                         </button>
@@ -112,22 +112,18 @@ export default function Order() {
                   </div>
                 </div>
               </div>
-
-
             </div>
-
-
 
             <div className="flex zahialahHusnegt">
 
               <div className="seeTotalInfo flex relative">
                 <div className='order1selectTotal'>
-                  <p className='text-gray-500 flex ml-3 text-sm'>Хэмжээ</p>
+                  <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Хэмжээ</p>
                   <p className='total text-xl font-semibold'>500ml, 800ml, 1.25l</p>
                 </div>
 
                 <div className='order1selectTotal1 flex flex-col'>
-                  <p className='text-gray-500 flex ml-3 text-sm'>Нийт үнэ</p>
+                  <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
                   <p className='total text-red-700 text-3xl font-semibold'>214.600₮</p>
                   
                 </div>
@@ -143,7 +139,7 @@ export default function Order() {
 
            
                 <Link className="nav-link cursor-pointer" to="/orderToPayment" id='submit'>
-                    <button className="sagslahButton text-2xl">
+                    <button className="sagslahButton text-2xl 9xl:text-5xl">
                       Захиалах
                     </button>
                 </Link>
@@ -176,7 +172,7 @@ export default function Order() {
                   <div className='selectTotal'>
                     <p className='total pt-3 text-red-700'>₮</p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-2xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -189,7 +185,7 @@ export default function Order() {
                   </div>
 
                   <Link className="nav-link" to="/order" id='submit'>
-                    <button className="sagslahButton text-xl">
+                    <button className="sagslahButton text-xl 9xl:text-4xl">
                       Захиалга нэмэх
                     </button>
                   </Link>

@@ -15,10 +15,9 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
-/* .header {
-  height: 18vh;
-  border: 2px solid black;
-} */
+.header {
+  height: 16vh;
+}
 .footer {
   /* position: absolute; */
   bottom: 0;
@@ -32,7 +31,8 @@ a {
 }
 
 .routes {
-  height: 70vh;
+  /* height: 70vh; */
+  aspect-ratio: 16/8;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -141,6 +141,11 @@ a {
  .seeTotalInfo > * {
     width: 100%;
     height: auto;
+    background-color: #f9fafe;
+}
+.order2tablenames > * {
+  background-color: #f9fafe;
+  height: 0;
 }
 .order1Content {
     margin-right: 5%;
@@ -154,7 +159,7 @@ a {
       }
       .ProductAndOrder {
         width: 60%;
-        height: auto;
+        height: 50%;
         border: 1px solid var(--blue-color);
         border-radius: 10px;
         margin: auto 0;
@@ -186,10 +191,6 @@ a {
         font-weight: 400;
       }
     
-      .water img {
-        /* height: 8rem; */
-        width: 20rem;
-      }
       .footer1flower {
         width: 85%;
       }
@@ -212,6 +213,9 @@ a {
      
       .tableImg {
         width: 66%;
+      }
+      .tablenames {
+        height: 0 !important;
       }
     
     
@@ -252,7 +256,7 @@ a {
       }
     
       .bona {
-        width: 70%;
+        width: 60%;
         border-radius: 50%;
         border: 1px solid #807e7e;
       }
@@ -271,9 +275,10 @@ a {
         position: absolute;
         /* left: 85%; */
         /* bottom: 85%; */
-        border: 2px solid black;
       }
-      
+      .chooseList li img {
+        margin: 1rem 0;
+      }
       .choose {
         width: 20%;
       }
@@ -293,6 +298,7 @@ a {
   
       .zahialga {
         width: 85%;
+        margin: 1rem 0;
       }
       .zahialsanHeseg {
         width: 50%;
@@ -526,8 +532,32 @@ a {
     .qrCode {
         width: 15%;
     }
-    
-
+    .sort {
+      color: #8a8888;
+    }
+    .sort select {
+      font-size: 1rem;
+      padding: 0 1.5rem;
+      border-radius: 0.5rem;
+    }
+    .orderHistory {
+      width: 100%;
+      border: 1px solid var(--blue-color);
+      border-radius: 0.5rem;
+      background-color: #f9fafe;
+    }
+    .orderHistoryImg img {
+      width: 30%;
+    }
+    .orderHistoryImg {
+      width: 20%;
+      border-right: 1px solid #3dbee3;
+      border-radius: 0.5rem;
+    }
+    .order1 {
+      background-color: #f9fafe;
+    }
+ 
     @media (max-width: 1023px) {
       .ProductAndOrder {
         width: auto;
@@ -552,29 +582,33 @@ a {
        padding: 0;
      }
       p.busket {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       p.yourBusket {
         font-size: 0.8rem;
-        font-weight: 400;
+        font-weight: 500;
         color: #666363;
       }
      p.total {
-       font-size: 1.3rem;
+       font-size: 1.1rem;
+     }
+     .logo img {
+       height: 6rem;
      }
       .bona::before {
         left: 15%;
         bottom: 40%;
       }
-      
+      .choose {
+        margin-right: 2rem;
+      }
       .white {
-        width: 6rem;
-        height: 6rem;
-       
+        width: 5rem;
+        height: 5rem;
       }
       .circle {
-        width: 5rem !important;
-        height: 5rem;
+        width: 4rem !important;
+        height: 4rem;
       }
       .order1selectTotal1 {
         display: flex;
@@ -600,17 +634,21 @@ a {
         width: 50%;
         margin-left: 0.5rem;
       }
-      .order1Button {
-        width: 100%;
+      .order1Price h3 {
+        font-size: 1.3rem;
       }
-      .order1Price {
-        display: flex;
-        flex-direction: column;
+      .carousel-item img {
+        height: 25rem;
+      }
+      
+      .dansMedeelel p {
+        font-size: 0.8rem;
+        line-height: 1rem;
       }
       
     }
 
-    @media (min-width: 1441px) and (max-width: 1919px) {
+    @media (min-width: 1441px) and (max-width: 1920px) {
       .ProductAndOrder {
         width: 60%;
       } 
@@ -644,25 +682,132 @@ a {
       
     }
 
-    @media (min-width: 1920px) {
+    @media (min-width: 1921px) {
+      .logo img {
+        height: 10rem;
+      }
       .ProductAndOrder {
-        width: 50%;
+        width: 60%;
       } 
       p.busket {
-        font-size: 1.6rem;
+        font-size: 2rem;
       }
       p.yourBusket {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         font-weight: 400;
         color: #666363;
       }
       p.total {
-        font-size: 1.2rem;
-        
+        font-size: 1.6rem;
       }
       .bona::before {
-        left: 40%;
-        bottom: 40%;
+        left: 50%;
+        bottom: 50%;
+      }
+      .productInfo img {
+        margin: 3rem 0;
+      }
+      .link {
+        font-size: 1.4rem;
+      }
+      .ProductC h4 {
+        font-size: 1.6rem;
+      }
+      .ProductC ul li {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2rem;
+      }
+      .water img {
+        width: 80%; 
+      }
+      .order1tablenames {
+        width: 24rem !important;
+        margin-left: 0.5rem;
+      }
+      .order2tablenames > * {
+        width: 50%;
+        margin-left: 0.5rem;
+      }
+      .sc {
+        width: 2rem;
+        margin: 2rem 0;
+      }
+     
+      .chooseList li img {
+        width: 1rem !important;
+        margin: 1rem 0;
+      }
+    }
+
+    @media (min-width: 3200px) {
+      .logo img {
+        height: 20rem;
+      }
+      .ProductAndOrder {
+        width: 60%;
+      } 
+      p.busket {
+        font-size: 4rem;
+      }
+      p.yourBusket {
+        font-size: 3rem;
+        font-weight: 400;
+        color: #666363;
+      }
+      p.total {
+        font-size: 4rem;
+        line-height: 5rem;
+      }
+      .select {
+        font-size: 2.5rem;
+        padding: 2rem !important;
+      }
+      .bona::before {
+        left: 60%;
+        bottom: 70%;
+      }
+      .productInfo img {
+        margin: 3rem 0;
+      }
+      .link {
+        font-size: 3.2rem;
+      }
+      .ProductC h4 {
+        font-size: 3.5rem;
+        margin: 2rem 0;
+      }
+      .ProductC ul li {
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 3rem;
+      }
+      .water img {
+        width: 80%; 
+      }
+      .white {
+        width: 13rem;
+        height: 13rem;
+      }
+      .circle {
+        width: 12rem !important;
+        height: 12rem;
+      }
+      .footerwater{
+        width: 15%;
+      }
+      .footer1flower {
+        width: 85%;
+      }
+      .chooseList li img {
+        width: 2rem;
+        margin: 2rem 0;
+      }
+      .order1Button {
+        width: 50%;
+      }
+      .carousel-item img {
+        height: 60rem;
       }
       .orderInfo {
         height: 50vh;
@@ -675,5 +820,66 @@ a {
         width: 50%;
         margin-left: 0.5rem;
       }
-      
+      .sc {
+        width: 3.2rem;
+        margin: 3rem 0;
+      }
+      #userform > * {
+        width: 33%;
+      }
+      .back, .choosePayment {
+        font-size: 3rem;
+        height: 8rem;
+      }
+      .locate {
+        height: 45vh;
+      }
+      .groupL>input {
+        padding: 1rem;
+        font-size: 4rem;
+      }
+      .groupLa>input {
+        padding: 1rem;
+        font-size: 4rem;
+      }
+      .group>input {
+        padding: 1rem;
+        font-size: 4rem;
+      }
+      .locationInfo {
+        width: 100%;
+      }
+      .groupPay>input {
+        padding: 1rem;
+        font-size: 4rem;
+      }
+      .warning p {
+        line-height: 40px;
+      }
+      .dansMedeelel p {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+    }
+
+
+    .main ul ul {
+      display: none;
+    }
+    
+    .main li.li-active ul {
+      display: block;
+    }
+    
+    .main ul ul li {
+      display: block;
+    }
+
+    .type {
+      position: absolute;
+      display: flex;
+      left: 200%;
+      bottom: -160%;
+      width: 20rem !important;
+      border: 2px solid black;
     }

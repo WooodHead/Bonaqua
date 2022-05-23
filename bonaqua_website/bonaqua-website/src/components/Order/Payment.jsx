@@ -73,13 +73,13 @@ export default function Payment() {
 
         <div className="order2Content w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
-            <h1 className="mb-3">Төлбөр төлөх</h1>
+            <h1 className="mb-3 9xl:text-7xl">Төлбөр төлөх</h1>
 
             {/* Захиалгын мэдээлэл*/}
             <div className="order2Info">
               <div className="flex productInfo justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
-                <img src={sags} alt="" className="w-full pl-5" />
+                <img src={sags} alt="" className="w-full" />
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
@@ -92,7 +92,7 @@ export default function Payment() {
                   <div className='order1selectTotal2'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
                   </div>
-                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs'>
+                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
                     <div className='flex'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -115,7 +115,7 @@ export default function Payment() {
                 <img src={dans} alt="" />
                 <img src={sags} alt="" className="w-full" />
               </div>
-              <form className="flex flex-wrap text-sm">
+              <form className="flex flex-wrap text-sm 9xl:text-4xl">
                 <div className="groupPay w-full">
                   <label htmlFor="">Банк сонгох</label>
                   <select name="" id="" className='select w-full'>
@@ -135,16 +135,16 @@ export default function Payment() {
                       <img src={instruction} alt="" className="" />
                       <img src={sags} alt="" className="w-full" />
                     </div>
-                    <div className="2xl:mb-2 flex w-full justify-around">
-                      <p className="text-lg 2xl:text-2xl text-gray-900">Дансаар шилжүүлэх</p>
-                      <p className="text-lg 2xl:text-2xl text-gray-900">QR код уншуулах</p>
+                    <div className="9xl:mb-2 flex w-full justify-around">
+                      <p className="text-lg 9xl:text-4xl text-gray-900">Дансаар шилжүүлэх</p>
+                      <p className="text-lg 9xl:text-4xl text-gray-900">QR код уншуулах</p>
                     </div>
                     <div className="flex justify-around instructionPayment">
 
                       <div className="paymentInstruction flex flex-col justify-center w-1/2">
 
                         <div className="dansMedeelel flex">
-                          <div className="mr-5 2xl:text-base">
+                          <div className="mr-5 9xl:text-2xl">
                             <p>Хүлээн авагч</p>
                             <p>Хаан банк</p>
                             <p>Гүйлгээний утга</p>
@@ -165,7 +165,7 @@ export default function Payment() {
                     </div>
 
                     <div className="warning">
-                      <p className="font-semibold 2xl:text-base">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
+                      <p className="font-semibold 9xl:text-3xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
                     </div>
 
                     <div className="flex w-full">
@@ -177,7 +177,7 @@ export default function Payment() {
 
                       <div className="removeOrder w-1/2">
                         <Link className="nav-link" to="/">
-                          <button className="removeOrderButton text-white">
+                          <button className="removeOrderButton text-white 9xl:text-5xl">
                             Захиалга цуцлах
                           </button>
                         </Link>
