@@ -31,8 +31,8 @@ a {
 }
 
 .routes {
-  /* height: 70vh; */
-  aspect-ratio: 16/8;
+  height: auto;
+  /* aspect-ratio: 16/8; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -116,13 +116,19 @@ a {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
   }
+  .toirog {
+    position: relative;
+    right: 75%;
+    bottom: 4%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 0 #dbd9d9;
+  }
   .white {
-    width: 7rem;
-    height: 7rem;
+    width: 6.8rem;
+    height: 6.8rem;
     background-color: #fff;
     position: relative;
     border-radius: 50%;
-    right: 140%;
   }
   .circle {
     width: 6rem !important;
@@ -192,12 +198,13 @@ a {
       }
     
       .footer1flower {
-        width: 85%;
+        width: 100%;
       }
             /* Content  */
       .sc {
         margin: 1rem 0;
       }
+    
       .choosing {
         margin-right: 3rem;
         height: 70vh;
@@ -256,14 +263,9 @@ a {
       }
     
       .bona {
-        width: 60%;
+        width: 65%;
         border-radius: 50%;
         border: 1px solid #807e7e;
-      }
-      .bona::after {
-        content: "";
-        padding-bottom: 100%;
-        display: block;
       }
       .bona img {
         width: 38%;
@@ -280,7 +282,8 @@ a {
         margin: 1rem 0;
       }
       .choose {
-        width: 20%;
+        width: 20%; 
+        margin-right: 3rem;
       }
  
       /* Zahialgiin medeelel */
@@ -557,6 +560,9 @@ a {
     .order1 {
       background-color: #f9fafe;
     }
+    .ProductC {
+      margin-left: 2rem;
+    }
  
     @media (max-width: 1023px) {
       .ProductAndOrder {
@@ -585,9 +591,8 @@ a {
         font-size: 1.2rem;
       }
       p.yourBusket {
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: #666363;
+        font-size: 1rem;
+        font-weight: 400;
       }
      p.total {
        font-size: 1.1rem;
@@ -595,16 +600,17 @@ a {
      .logo img {
        height: 6rem;
      }
+     .bona {
+       width: 70%;
+     }
       .bona::before {
-        left: 15%;
-        bottom: 40%;
+        left: 35%;
+        bottom: 45%;
       }
-      .choose {
-        margin-right: 2rem;
-      }
+     
       .white {
-        width: 5rem;
-        height: 5rem;
+        width: 4.5rem;
+        height: 4.5rem;
       }
       .circle {
         width: 4rem !important;
@@ -645,10 +651,18 @@ a {
         font-size: 0.8rem;
         line-height: 1rem;
       }
-      
+      .ProductC {
+        height: 9rem;
+      }
+      .link .nav-link {
+        margin-left: 0;
+    }
+    .water {
+      width: 80%;
+    }
     }
 
-    @media (min-width: 1441px) and (max-width: 1920px) {
+    @media (min-width: 1441px) and (max-width: 2048px) {
       .ProductAndOrder {
         width: 60%;
       } 
@@ -665,8 +679,8 @@ a {
         
       }
       .bona::before {
-        left: 40%;
-        bottom: 40%;
+        left: 50%;
+        bottom: 50%;
       }
       .orderInfo {
         height: 50vh;
@@ -682,7 +696,7 @@ a {
       
     }
 
-    @media (min-width: 1921px) {
+    @media (min-width: 2049px) {
       .logo img {
         height: 10rem;
       }
@@ -797,7 +811,7 @@ a {
         width: 15%;
       }
       .footer1flower {
-        width: 85%;
+        width: 100%;
       }
       .chooseList li img {
         width: 2rem;
@@ -860,6 +874,18 @@ a {
         font-size: 3rem;
         line-height: 3rem;
       }
+      .ProductC {
+        height: 25rem;
+        margin-left: 4rem;
+      }
+      .active {
+        margin-left: 0;
+      }
+      .nav-link {
+        font-weight: 400;
+        font-size: 2.8rem;
+      }
+
     }
 
 
@@ -878,8 +904,8 @@ a {
     .type {
       position: absolute;
       display: flex;
-      left: 200%;
-      bottom: -160%;
-      width: 20rem !important;
-      border: 2px solid black;
+      left: 30%;
+      bottom: 10%;
+      width: 10% !important;
     }
+

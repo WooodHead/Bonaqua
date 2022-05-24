@@ -12,6 +12,39 @@ import back from '../../images/svg/order 2/button confirm & price.svg';
 import confirm from '../../images/svg/order 2/button confirm & price-1.svg';
 
 export default function OrderInfo() {
+  const randomON = 12;
+  function getUserData() {
+    const name = document.getElementById("name").value;
+    const number = document.getElementById("number").value;
+    const district = document.getElementById("district").value;
+    const committee = document.getElementById("committee").value;
+    const apartment = document.getElementById("apartment").value;
+    const entrance = document.getElementById("entrance").value;
+    const entrancecode = document.getElementById("entrancecode").value;
+    const doornumber = document.getElementById("doornumber").value;
+    const addinginfo = document.getElementById("addinginfo").value;
+
+    console.log(name, number, district, committee, apartment, entrance, entrancecode, doornumber, addinginfo)
+  }
+
+  // const getUserInfo = (e) => {
+  //   e.preventDefault();
+
+  //   fetch('http://localhost:8080/api/bonaqua', {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       name: e.target[0].value
+  //     })
+  //   })
+  //   .then((res) => {
+  //     res.json()
+  //   })
+  //   .then((data) => setUserInfo(data))
+  // }
+
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
@@ -118,15 +151,15 @@ export default function OrderInfo() {
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
                     <label>Нэр</label>
-                    <input type="text" />
+                    <input type="text" id="name"/>
                   </div>
                   <div class="group mr-1">
                     <label>Утасны дугаар</label>
-                    <input type="text" />
+                    <input type="number" id="number"/>
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
-                    <input type="text" />
+                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={randomON}/>
                   </div>
                 </form>
               </div>
@@ -144,7 +177,7 @@ export default function OrderInfo() {
                     <div className="flex district justify-between">
                       <div className="groupS mr-3 w-1/2">
                         <label htmlFor="">Дүүрэг</label>
-                        <select name="" id="" className='select w-full'>
+                        <select name="" id="district" className='select w-full'>
                           <option value="330" className='option'></option>
                           <option value="500">Баянгол</option>
                           <option value="800">Баянзүрх</option>
@@ -153,11 +186,11 @@ export default function OrderInfo() {
                       </div>
                       <div className="groupS w-1/2">
                         <label htmlFor="">Хороо</label>
-                        <select name="" id="" className='select w-full'>
+                        <select name="" id="committee" className='select w-full'>
                           <option value="330" className='option'></option>
-                          <option value="500">500 мл</option>
-                          <option value="800">800 мл</option>
-                          <option value="1.5">1.5 л</option>
+                          <option value="500">1-р хороо</option>
+                          <option value="800">2-р хороо</option>
+                          <option value="1.5">3-р хороо</option>
                         </select>
                       </div>
                     </div>
@@ -166,27 +199,27 @@ export default function OrderInfo() {
                     <div className="flex house">
                       <div class="groupL mr-3 w-1/2">
                         <label>Байр</label>
-                        <input type="text" className="w-full" />
+                        <input type="text" className="w-full" id="apartment"/>
                       </div>
                       <div class="groupL w-1/2">
                         <label>Орц</label>
-                        <input type="text" className="w-full" />
+                        <input type="text" className="w-full" id="entrance"/>
                       </div>
                     </div>
                     <div className="flex door">
                       <div class="groupL mr-3 w-1/2">
                         <label>Орцны код</label>
-                        <input type="text" className="w-full" />
+                        <input type="text" className="w-full" id="entrancecode"/>
                       </div>
                       <div class="groupL w-1/2">
                         <label>Хаалганы дугаар /тоот/</label>
-                        <input type="text" className="w-full" />
+                        <input type="text" className="w-full" id="doornumber"/>
                       </div>
                     </div>
 
                     <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" />
+                      <input type="text" className="w-full" id="addinginfo"/>
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -197,7 +230,7 @@ export default function OrderInfo() {
 
                       <div className="choosePayment w-1/2">
                         <Link className="nav-link" to="/payment">
-                          <button className="choosePaymentButton">
+                          <button className="choosePaymentButton" onClick={getUserData}>
                             Төлбөрийн нөхцөл сонгох
                           </button>
                         </Link>

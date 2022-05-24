@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import sags from "../../images/svg/order 1/sagsnii medelel.svg";
 import insta from "../../images/svg/home/Instagram.svg";
@@ -13,8 +13,29 @@ import bona from '../../images/bona0.5.png';
 import addButton from '../../images/svg/order 1/+.svg';
 import removeButton from '../../images/svg/order 1/-.svg';
 import deleteButton from '../../images/svg/order 1/x.svg';
+import { AppContext } from "../../App";
+
 
 export default function Order() {
+  window.addEventListener('load', () => {
+    const size = sessionStorage.getItem('SIZE');
+    const incase = sessionStorage.getItem('INCASE');
+
+    document.getElementById('resultO').innerHTML = `${size * incase}₮`;
+  });
+
+  const [count, setCount] = useState(1); 
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount((prevCount) => 
+          prevCount - 1);
+    }
+  };
+  const increment = () =>{
+      setCount((prevCount) => prevCount + 1);
+  } 
+
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
@@ -99,11 +120,11 @@ export default function Order() {
                     <div className="order1Price flex justify-between items-center">
                       <h3 className="9xl:text-5xl">16.080₮</h3>
                       <div className="order1Button flex justify-between">
-                        <button className="">
+                        <button className="" onClick={decrement}>
                           <img src={removeButton} alt="" />
                         </button>
-                        <p className="font-semibold 9xl:text-5xl">2</p>
-                        <button>
+                        <p className="font-semibold 9xl:text-5xl">{count}</p>
+                        <button onClick={increment}>
                           <img src={addButton} alt="" />
                         </button>
                       </div>
@@ -124,7 +145,7 @@ export default function Order() {
 
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
-                  <p className='total text-red-700 text-3xl font-semibold'>214.600₮</p>
+                  <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
                   
                 </div>
                 

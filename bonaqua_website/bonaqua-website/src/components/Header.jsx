@@ -7,6 +7,13 @@ import sags from '../images/svg/home/tanii sags.svg';
 import sagsicon from '../images/icons/busket.svg';
 
 export default function Header() {
+    window.addEventListener('click', () => {
+        const size = sessionStorage.getItem('SIZE');
+        const incase = sessionStorage.getItem('INCASE');
+    
+        document.getElementById('resultH').innerHTML = `${size * incase}₮`;
+      });
+
   return (
     
     <div className=''>
@@ -22,7 +29,7 @@ export default function Header() {
                     <div className='busket flex relative'>
                     <img src={sagsicon} alt="" />
                         <div className='dun'>
-                        <p className='busket'>124,600₮</p>
+                        <p className='busket' id='resultH'>₮</p>
                         <p className='yourBusket'>Таны сагсанд</p>
                         </div>
                         

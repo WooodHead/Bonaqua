@@ -15,7 +15,11 @@ module.exports = {
     '2xl': '1536px',
     '3xl': '1792px',
     '4xl': '2048px',
-    '9xl': '3328px'
+    '5xl': '2304px',
+    '6xl': '2560px',
+    '7xl': '2816px',
+    '8xl': '3072px',
+    '9xl': '3328px',
   },
   plugins: [
     require('tw-elements/dist/plugin')
