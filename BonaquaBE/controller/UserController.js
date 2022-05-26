@@ -3,7 +3,14 @@ const { QueryTypes } = require('sequelize');
 
 exports.getBonaqua = async(req, res) => {
 
-    const bonaqua = await db.sequelize.query(`SELECT DISTINCT Capacity  FROM SMTTerms.dbo.vGoods_Elements WHERE Brand like '%bonaqua%'`, { type: QueryTypes.SELECT });
+    const bonaqua = await db.sequelize.query(`select t.*, p.InCase, pr.BPrice 
+    from SMTTerms.dbo.vGoods_Elements t
+    left join SMTTerms.dbo.t_Products p
+    on t.Article=p.Article
+    left join SMTTerms.dbo.t_Pricelists pr
+    on pr.Article=p.Article
+    and pr.PLTypeId=1
+    where Brand like '%bonaqua%' and FlavorName like '%still%'`, { type: QueryTypes.SELECT });
 
     try {
         if(bonaqua != 0) {

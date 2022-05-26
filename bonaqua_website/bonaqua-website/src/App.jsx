@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import './css/style.css';
 import Header from './components/Header';
 import Order from './components/Order/Order';
@@ -8,16 +8,17 @@ import OrderInfo from './components/Order/OrderInfo';
 import Payment from './components/Order/Payment';
 import OrderHistory from './components/Order/OrderHistory';
 import Content from './components/Content';
-import Footer1 from './components/Footer1';
+import Home from './components/Home';
 
 export const AppContext = createContext(null);
 
 function App() {
-  const [value, setValue] = useState("");
-  const path = window.location.pathname;
-  console.log(path);
+  const [value, setValues] = useState("");
+  const [price, setPrice] = useState("");
+  const [capacity, setCapa] = useState("");
+
   return (
-    <AppContext.Provider value={{value, setValue}}>
+    <AppContext.Provider value={{value, setValues, price, setPrice, capacity, setCapa}}>
     <div className="contain">
       <Header />
       <div className='routes'>
@@ -31,7 +32,7 @@ function App() {
         </Switch>
       </Routes>
       </div>
-      {window.location.pathname == '/' ? <Footer /> : <Footer1 /> }
+      <Footer /> 
     </div>
     </AppContext.Provider>
   )

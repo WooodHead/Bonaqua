@@ -17,6 +17,9 @@ import { AppContext } from "../../App";
 
 
 export default function Order() {
+
+  const { value, setValues } = useContext(AppContext);
+
   window.addEventListener('load', () => {
     const size = sessionStorage.getItem('SIZE');
     const incase = sessionStorage.getItem('INCASE');
@@ -108,7 +111,7 @@ export default function Order() {
                   <div className="order1Img flex justify-center">
                     <img src={bona} alt="" className="" />
                   </div>
-                  <div className="order1Info p-1">
+                  <div className="order1Info p-2">
                     <div className="orderName">
                       <div className="flex justify-between w-full">
                         <h6 className="9xl:text-4xl">Bonaqua 500мл</h6>
@@ -118,7 +121,7 @@ export default function Order() {
                     </div>
 
                     <div className="order1Price flex justify-between items-center">
-                      <h3 className="9xl:text-5xl">16.080₮</h3>
+                      <h3 className="9xl:text-5xl">{value}</h3>
                       <div className="order1Button flex justify-between">
                         <button className="" onClick={decrement}>
                           <img src={removeButton} alt="" />
@@ -145,7 +148,7 @@ export default function Order() {
 
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
-                  <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
+                  <p className='total text-red-700 text-3xl font-semibold' id="resultO">{value}</p>
                   
                 </div>
                 

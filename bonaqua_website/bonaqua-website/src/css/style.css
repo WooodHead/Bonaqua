@@ -37,7 +37,7 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .bona::before {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 50s linear;
   }
 }
 
@@ -284,6 +284,10 @@ a {
       .choose {
         width: 20%; 
         margin-right: 3rem;
+        height: auto;
+      }
+      .bonaquaType {
+        margin: 1rem 0;
       }
  
       /* Zahialgiin medeelel */
@@ -888,24 +892,20 @@ a {
 
     }
 
-
     .main ul ul {
       display: none;
     }
     
     .main li.li-active ul {
       display: block;
+      color: #3dbee3;
+      font-size: 1.5rem;
+      font-weight: 500;
     }
+
     
     .main ul ul li {
       display: block;
     }
 
-    .type {
-      position: absolute;
-      display: flex;
-      left: 30%;
-      bottom: 10%;
-      width: 10% !important;
-    }
-
+    
