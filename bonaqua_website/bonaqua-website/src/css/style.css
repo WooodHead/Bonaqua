@@ -18,10 +18,12 @@ html {
 .header {
   height: 16vh;
 }
-.footer {
-  /* position: absolute; */
+/* .footer {
   bottom: 0;
-}
+  left: 0;
+  right: 0;
+  top: 10%;
+} */
 
 .back a.backButton {
   color: white;
@@ -32,11 +34,11 @@ a {
 
 .routes {
   height: auto;
-  /* aspect-ratio: 16/8; */
+  aspect-ratio: 16/6;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .bona::before {
+  .flower {
     animation: logo-spin infinite 50s linear;
   }
 }
@@ -207,7 +209,6 @@ a {
     
       .choosing {
         margin-right: 3rem;
-        height: 70vh;
       }
     
       .productInfo {
@@ -272,11 +273,25 @@ a {
         z-index: 1;
       }
      
-      .bona::before {
-        content: url('../images/svg/home/tsetseg tom.svg');
+      /* .bona::before {
+        content: "";
         position: absolute;
-        /* left: 85%; */
-        /* bottom: 85%; */
+        background-image: url('../images/svg/order 1/tsetseg jijig.svg');
+        width: 20rem;
+        height: 20rem;
+        border: 2px solid black;
+        background-position:cover ;
+        background-repeat: no-repeat;
+      } */
+      .flower {
+        width: 70%;
+        left: 40%;
+        bottom: 46%;
+        height: 80%;
+      }
+      .bigflower {
+        width: 100% !important;
+        height: 100%;
       }
       .chooseList li img {
         margin: 1rem 0;
@@ -567,11 +582,17 @@ a {
     .ProductC {
       margin-left: 2rem;
     }
+    .footer2flower {
+      width: 85%;
+    }
  
     @media (max-width: 1023px) {
       .ProductAndOrder {
         width: auto;
-        height: auto;
+        height: 90%;
+      }
+      .header {
+        margin-bottom: 10%;
       }
       p.yourBusket {
         font-size: 1.2rem;
@@ -607,11 +628,6 @@ a {
      .bona {
        width: 70%;
      }
-      .bona::before {
-        left: 35%;
-        bottom: 45%;
-      }
-     
       .white {
         width: 4.5rem;
         height: 4.5rem;
@@ -682,10 +698,6 @@ a {
         font-size: 1.2rem;
         
       }
-      .bona::before {
-        left: 50%;
-        bottom: 50%;
-      }
       .orderInfo {
         height: 50vh;
       }
@@ -717,10 +729,6 @@ a {
       }
       p.total {
         font-size: 1.6rem;
-      }
-      .bona::before {
-        left: 50%;
-        bottom: 50%;
       }
       .productInfo img {
         margin: 3rem 0;
@@ -780,10 +788,6 @@ a {
       .select {
         font-size: 2.5rem;
         padding: 2rem !important;
-      }
-      .bona::before {
-        left: 60%;
-        bottom: 70%;
       }
       .productInfo img {
         margin: 3rem 0;

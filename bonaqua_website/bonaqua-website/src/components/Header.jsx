@@ -7,7 +7,7 @@ import { useState, useContext  } from 'react';
 import { AppContext } from '../App';
 
 export default function Header() {
-    const { price, setPrice } = useContext(AppContext);
+    const { price, setPrice, value, total } = useContext(AppContext);
 
       const orderHistory = () => {
         e.preventDefault()
@@ -38,7 +38,7 @@ export default function Header() {
                     <img src={sagsicon} alt="" />
                         <div className='dun'>
                         <a className="nav-link" href='/order' id='submit' onClick={YourBusket}>
-                        <p className='busket' id='resultH'>{price}₮</p>
+                        <p className='busket' id='resultH'>{total}₮</p>
                         <p className='yourBusket'>Таны сагсанд</p>
                         </a>
                         </div>

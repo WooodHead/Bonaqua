@@ -14,11 +14,12 @@ export const AppContext = createContext(null);
 
 function App() {
   const [value, setValues] = useState("");
-  const [price, setPrice] = useState("");
-  const [capacity, setCapa] = useState("");
+  const [price, setPrice] = useState(0);
+  const [capacity, setCapacity] = useState("");
+  const [total, setTotal] = useState("");
 
   return (
-    <AppContext.Provider value={{value, setValues, price, setPrice, capacity, setCapa}}>
+    <AppContext.Provider value={{value, setValues, price, setPrice, capacity, setCapacity, total, setTotal}}>
     <div className="contain">
       <Header />
       <div className='routes'>

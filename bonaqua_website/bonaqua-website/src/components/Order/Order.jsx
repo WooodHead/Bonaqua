@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import sags from "../../images/svg/order 1/sagsnii medelel.svg";
 import insta from "../../images/svg/home/Instagram.svg";
@@ -17,14 +17,43 @@ import { AppContext } from "../../App";
 
 
 export default function Order() {
+  const [data, setData] = useState([]);
 
-  const { value, setValues } = useContext(AppContext);
+  useEffect(() => {
+    var getData = async () => {
+      try {
+        var data = await fetch('http://localhost:8080/api/bonaqua');
+        var resData = await data.json();
+        setData(resData)
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, [])
+  
+  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const { value, setValues, total, setTotal } = useContext(AppContext);
+
+  function setValue() {
+    const incase = document.getElementById('mlselect').value;
+    const number = document.getElementById('avdar').value;
+    const capa = document.getElementById('mlselect')[1].value;
+    const price = document.getElementById('mlselect')[2].value;
+    const result = document.getElementById('result');
+    const title = document.getElementById('title');
+    sessionStorage.setItem('SIZE', incase);
+    sessionStorage.setItem('CAPA', number);
+    console.log(capa)
+    result.innerHTML =  `${incase * number}₮`;
+    title.innerHTML = `Bonaqua ${capa} - ${price}₮`;
+  }
 
   window.addEventListener('load', () => {
-    const size = sessionStorage.getItem('SIZE');
-    const incase = sessionStorage.getItem('INCASE');
+    const price = sessionStorage.getItem('total');
 
-    document.getElementById('resultO').innerHTML = `${size * incase}₮`;
+    document.getElementById('resultO').innerHTML = `${price}₮`;
   });
 
   const [count, setCount] = useState(1); 
@@ -38,6 +67,9 @@ export default function Order() {
   const increment = () =>{
       setCount((prevCount) => prevCount + 1);
   } 
+  function AddOrder() {
+
+  }
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -107,15 +139,17 @@ export default function Order() {
             {/* Zahialsan heseg */}
             <div className="zahialga flex flex-wrap justify-between">
               <div className="zahialsanHeseg" >
+
                 <div className="order1 flex">
                   <div className="order1Img flex justify-center">
                     <img src={bona} alt="" className="" />
                   </div>
+
                   <div className="order1Info p-2">
                     <div className="orderName">
                       <div className="flex justify-between w-full">
                         <h6 className="9xl:text-4xl">Bonaqua 500мл</h6>
-                        <img src={deleteButton} alt="" className="cursor-pointer" />
+                        <img src={deleteButton} alt="" className="cursor-pointer btn-close-white" />
                       </div>
                       <p className="text-sm 9xl:text-2xl">Ширхэгийн тоо: 12 ширхэг</p>
                     </div>
@@ -135,6 +169,7 @@ export default function Order() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -148,7 +183,7 @@ export default function Order() {
 
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
-                  <p className='total text-red-700 text-3xl font-semibold' id="resultO">{value}</p>
+                  <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
                   
                 </div>
                 
@@ -184,17 +219,23 @@ export default function Order() {
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
-                  <select name="ml" id="mlselect" className='select'>
-                  
-                  
+                <select name="ml" id="mlselect" className='select' onChange={setValue}>
+                  {data.map((res) => 
+                  <>
+                   <option id="incase" value={res.BPrice * res.InCase}>{res.Capacity}</option>
+                   <option id="incase" value={res.Capacity} className=''>{res.Capacity}</option>
+                   <option id="incase" value={res.BPrice} className='d-none'>{res.BPrice}</option>
+                  </>
+                  )}
                   </select>
-                  <select name="avdar" id="avdar" className='select'>
-                    <option value="">₮</option>
-                    <option value="">₮</option>
-                    <option value="">₮</option>
+
+                  <select name="avdar" id="avdar" className='select'onChange={setValue}>
+                  {number.map(res =>
+                  <option value={res} id='number'>{res} авдар</option>
+                  )}
                   </select>
                   <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700'>₮</p>
+                    <p className='total pt-3 text-red-700' id="result">₮</p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-2xl mt-1'>
                     <div className='tablename1'>
@@ -209,7 +250,7 @@ export default function Order() {
                   </div>
 
                   <Link className="nav-link" to="/order" id='submit'>
-                    <button className="sagslahButton text-xl 9xl:text-4xl">
+                    <button className="sagslahButton text-xl 9xl:text-4xl" onClick={AddOrder}>
                       Захиалга нэмэх
                     </button>
                   </Link>

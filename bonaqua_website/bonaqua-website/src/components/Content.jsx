@@ -8,12 +8,15 @@ import insta from '../images/svg/home/Instagram.svg';
 import fb from '../images/svg/home/Facebook.svg';
 import twitter from '../images/svg/home/Twitter.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
+import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 
-export default function Content(props) {
+export default function Content() {
   const { price, setPrice } = useContext(AppContext);
+  const { value, setValues } = useContext(AppContext);
+  const { capacity, setCapacity, total, setTotal } = useContext(AppContext);
 
   const [data, setData] = useState([]);
 
@@ -29,10 +32,10 @@ export default function Content(props) {
     }
     getData();
   }, [])
-  
+
   // data.map(x => console.log(x.Capacity))
 
-  
+
   // Link
   const capa = document.getElementById('liCapacity');
   const circlein = document.getElementById('capaInCircle');
@@ -45,35 +48,62 @@ export default function Content(props) {
       });
       buttonElement.parentElement.classList.add('li-active');
       const capacity = capa.dataset.name;
-      console.log(capacity)
       circlein.innerHTML = capacity;
     });
   });
 
 
   function setValue() {
-    const incase = document.getElementById('mlselect').value;
-    const capa = document.getElementById('mlselect')[1].value;
-    const price = document.getElementById('mlselect')[2].value;
+    const size = document.getElementById('mlselect').value.split(',')[0];
+    const price = document.getElementById('mlselect').value.split(',')[1];
+    const incase = document.getElementById('mlselect').value.split(',')[2];
     const number = document.getElementById('avdar').value;
     const result = document.getElementById('result');
     const title = document.getElementById('title');
+    
 
-    console.log(capa)
-    result.innerHTML =  `${incase * number}₮`;
-    title.innerHTML = `Bonaqua ${capa} - ${price}₮`;
+    const totals = (incase * price) * number;
+    sessionStorage.setItem('total', totals);
+    setPrice(totals);
+    title.innerHTML = `Bonaqua ${size} - ${price}₮`;
+    result.innerHTML = `${totals}₮`;
   }
 
   function Busket() {
-    const incase = document.getElementById('mlselect').value;
+    const incase = document.getElementById('mlselect').value.split(',')[2];
+    const prices = document.getElementById('mlselect').value.split(',')[1];
     const number = document.getElementById('avdar').value;
     const result = document.getElementById('result');
 
-    result.innerHTML =  `${incase * number}₮`;
-    setPrice(incase * number);
+    const busketTotal = `${((incase * prices) * number) + price}₮`;
+    result.innerHTML = busketTotal;
+    const total = (busketTotal + price);
+    console.log(total)
+    setTotal(total)
   }
 
   const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const addOrder = async (e) => {
+    e.preventDefault();
+
+    const jsonData = fetch('../data/ml.json', {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        size: "500ml",
+        incase: "12",
+        price: "1234"
+      })
+    })
+      .then(function (res) { console.log(res) })
+      .catch(function (res) { console.log(res) })
+
+    const convertJsonData = await jsonData.json();
+  }
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -82,23 +112,24 @@ export default function Content(props) {
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
-                {data.map(res => 
-                   <li className='bonaquaType'><a href="#" class="button">
-                   <img src={list} alt="" id="lists"/>
-                 </a>
-                   <ul>
-                     <li>
-                       {/* <img src={bonaqua} alt="" className='type' /> */}
-                     </li>
-                     <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
-                   </ul>
-                 </li>
+                {data.map(res =>
+                  <li className='bonaquaType'><a href="#" class="button">
+                    <img src={list} alt="" id="lists" />
+                  </a>
+                    <ul>
+                      <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
+                      <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
+                    </ul>
+                  </li>
                 )}
               </ul>
             </div>
           </div>
 
           <div className='bona flex justify-center items-start relative'>
+            <div className='flower absolute'>
+              <img src={bigflower} alt="" className='bigflower' />
+            </div>
             <img src={bonaqua} alt="" className='' />
 
             <div className='toirog absolute'>
@@ -120,12 +151,12 @@ export default function Content(props) {
 
 
             <div className='sagslah'>
-              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'></p>
+              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'>Bonaqua</p>
               <div className='flex'>
                 {/* <img src={table} alt="" className='tableImg' /> */}
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
-                   {/* <select name="ml" id="mlselect" className='select'>
+                  {/* <select name="ml" id="mlselect" className='select'>
                           {data.map((res, i) => 
                             <option value={res.BPrice} onChange={setPrice(i)}>{res.Capacity} {i}</option>
                           )}
@@ -137,18 +168,19 @@ export default function Content(props) {
                           )}
                   </select>  */}
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
-                  {data.map((res) => 
-                  <>
-                   <option id="incase" value={res.BPrice * res.InCase}>{res.Capacity}</option>
-                   <option id="incase" value={res.Capacity} className='d-none'>{res.Capacity}</option>
-                   <option id="incase" value={res.BPrice} className='d-none'>{res.BPrice}</option>
-                  </>
-                  )}
+                    {data.map((res) =>
+                      <>
+                        <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
+                        {/* <option id="incase" value={res.Capacity} className='d-none'>{res.Capacity}</option>
+                        <option id="incase" value={res.BPrice} className='d-none'>{res.BPrice}</option> */}
+                      </>
+                    )}
                   </select>
-                  <select name="avdar" id="avdar" className='select'onChange={setValue}>
-                  {number.map(res =>
-                  <option value={res} id='number'>{res} авдар</option>
-                  )}
+
+                  <select name="avdar" id="avdar" className='select' onChange={setValue}>
+                    {number.map(res =>
+                      <option value={res} id='number'>{res} авдар</option>
+                    )}
                   </select>
 
                   <div className='selectTotal'>
