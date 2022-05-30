@@ -14,10 +14,7 @@ import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 
 export default function Content() {
-  const { price, setPrice } = useContext(AppContext);
-  const { value, setValues } = useContext(AppContext);
-  const { capacity, setCapacity, total, setTotal } = useContext(AppContext);
-
+  const { price, setPrice, array, setArray, setTotal, value, setValues } = useContext(AppContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -32,9 +29,6 @@ export default function Content() {
     }
     getData();
   }, [])
-
-  // data.map(x => console.log(x.Capacity))
-
 
   // Link
   const capa = document.getElementById('liCapacity');
@@ -51,8 +45,8 @@ export default function Content() {
       circlein.innerHTML = capacity;
     });
   });
-
-
+  // setValues(data)
+  
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const price = document.getElementById('mlselect').value.split(',')[1];
@@ -60,7 +54,6 @@ export default function Content() {
     const number = document.getElementById('avdar').value;
     const result = document.getElementById('result');
     const title = document.getElementById('title');
-    
 
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
@@ -69,41 +62,46 @@ export default function Content() {
     result.innerHTML = `${totals}₮`;
   }
 
-  function Busket() {
-    const incase = document.getElementById('mlselect').value.split(',')[2];
-    const prices = document.getElementById('mlselect').value.split(',')[1];
-    const number = document.getElementById('avdar').value;
-    const result = document.getElementById('result');
-
-    const busketTotal = `${((incase * prices) * number) + price}₮`;
-    result.innerHTML = busketTotal;
-    const total = (busketTotal + price);
-    console.log(total)
-    setTotal(total)
-  }
-
-  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-  const addOrder = async (e) => {
+  
+  function Busket(e) {
     e.preventDefault();
+    const size = document.getElementById('mlselect').value.split(',')[0];
+    const prices = document.getElementById('mlselect').value.split(',')[1];
+    const incase = document.getElementById('mlselect').value.split(',')[2];
 
-    const jsonData = fetch('../data/ml.json', {
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        size: "500ml",
-        incase: "12",
-        price: "1234"
-      })
-    })
-      .then(function (res) { console.log(res) })
-      .catch(function (res) { console.log(res) })
+    const bagts = document.getElementById('avdar').value;
 
-    const convertJsonData = await jsonData.json();
+    // array.push({
+    //   size: size,
+    //   price: prices,
+    //   incase: incase,
+    //   avdar: bagts
+    // })
+    if (!array.includes({size: size})) {
+      array.push({
+        size: size,
+        price: prices,
+        incase: incase,
+        avdar: bagts
+      });
+      console.log(size)
+    }
+
+
+    console.log(array)
+    sessionStorage.setItem("array", JSON.stringify(array));
+
+    var sum = 0;
+    array.forEach(x => {
+      sum += (x.price * x.incase) * x.avdar;
+    });
+    sessionStorage.setItem("sum", sum);
+    setTotal(sum)
   }
+
+  console.log(array);
+  
+  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -149,31 +147,14 @@ export default function Content() {
 
           <div className='waterfor pl-3 flex flex-col justify-around'>
 
-
             <div className='sagslah'>
               <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'>Bonaqua</p>
               <div className='flex'>
-                {/* <img src={table} alt="" className='tableImg' /> */}
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
-                  {/* <select name="ml" id="mlselect" className='select'>
-                          {data.map((res, i) => 
-                            <option value={res.BPrice} onChange={setPrice(i)}>{res.Capacity} {i}</option>
-                          )}
-                       
-                  </select>
-                  <select name="avdar" id="avdar" className='select' onChange={setValue}>
-                          {data.map((res) => 
-                            <option value={res.BPrice * res.InCase}>{res.BPrice * res.InCase}₮</option>
-                          )}
-                  </select>  */}
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
                     {data.map((res) =>
-                      <>
-                        <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
-                        {/* <option id="incase" value={res.Capacity} className='d-none'>{res.Capacity}</option>
-                        <option id="incase" value={res.BPrice} className='d-none'>{res.BPrice}</option> */}
-                      </>
+                      <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
                     )}
                   </select>
 
@@ -184,7 +165,7 @@ export default function Content() {
                   </select>
 
                   <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700' id='result'>₮</p>
+                    <p className='total pt-3 text-red-700' id='result'>{}₮</p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-9xl mt-1'>
                     <div className='tablename1'>
@@ -209,7 +190,7 @@ export default function Content() {
             </div>
 
             <div className='productInfo'>
-              <img src={productInfo} alt="" className='w-full' />
+              <img src={productInfo} alt="" className='productImg' />
             </div>
             <Router>
               <div className='ChangeInfo'>

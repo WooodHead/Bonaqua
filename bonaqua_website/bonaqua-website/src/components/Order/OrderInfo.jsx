@@ -112,7 +112,7 @@ export default function OrderInfo() {
             <div className="">
               <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
-                <img src={sags} alt="" className="w-full" />
+                <img src={sags} alt="" className="flowerImg" />
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
@@ -145,7 +145,7 @@ export default function OrderInfo() {
             <div className="userInfo w-full">
               <div className="flex w-full justify-between my-3">
                 <img src={user} alt="" className="userImg" />
-                <img src={sags} alt="" className="w-full" />
+                <img src={sags} alt="" className="flowerImg" />
               </div>
               <div className="">
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
@@ -170,7 +170,7 @@ export default function OrderInfo() {
               <div className="userInfo w-full">
                 <div className="flex w-full justify-between my-3">
                   <img src={location} alt="" className="userImg" />
-                  <img src={sags} alt="" className="w-full" />
+                  <img src={sags} alt="" className="flowerImg" />
                 </div>
                 <div className="locate flex justify-between w-full">
                   <form className="flex justify-between flex-wrap text-sm 9xl:text-3xl">

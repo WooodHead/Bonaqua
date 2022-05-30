@@ -34,27 +34,11 @@ export default function Order() {
   
   const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const { value, setValues, total, setTotal } = useContext(AppContext);
+  const { value, array } = useContext(AppContext);
 
-  function setValue() {
-    const incase = document.getElementById('mlselect').value;
-    const number = document.getElementById('avdar').value;
-    const capa = document.getElementById('mlselect')[1].value;
-    const price = document.getElementById('mlselect')[2].value;
-    const result = document.getElementById('result');
-    const title = document.getElementById('title');
-    sessionStorage.setItem('SIZE', incase);
-    sessionStorage.setItem('CAPA', number);
-    console.log(capa)
-    result.innerHTML =  `${incase * number}₮`;
-    title.innerHTML = `Bonaqua ${capa} - ${price}₮`;
-  }
-
-  window.addEventListener('load', () => {
-    const price = sessionStorage.getItem('total');
-
-    document.getElementById('resultO').innerHTML = `${price}₮`;
-  });
+  const arrays = sessionStorage.getItem("array");
+  const orderArray = JSON.parse(arrays);
+  const sum = sessionStorage.getItem("sum");
 
   const [count, setCount] = useState(1); 
 
@@ -67,8 +51,10 @@ export default function Order() {
   const increment = () =>{
       setCount((prevCount) => prevCount + 1);
   } 
-  function AddOrder() {
 
+  const removeOrder = (e) => {
+    
+    console.log(e)
   }
 
   return (
@@ -138,9 +124,40 @@ export default function Order() {
             </div>
             {/* Zahialsan heseg */}
             <div className="zahialga flex flex-wrap justify-between">
-              <div className="zahialsanHeseg" >
+            {orderArray.map(data => 
+              <div className="zahialsanHeseg my-1" >
+                
+                    <div className="order1 flex border-4">
+                    <div className="order1Img flex justify-center">
+                      <img src={bona} alt="" className="" />
+                    </div>
+  
+                    <div className="order1Info p-2">
+                      <div className="orderName">
+                        <div className="flex justify-between w-full">
+                          <h6 className="9xl:text-4xl">Bonaqua {data.size} </h6>
+                          <img src={deleteButton} onClick={removeOrder(data.size)} alt="" className="cursor-pointer btn-close-white" />
+                        </div>
+                        <p className="text-sm 9xl:text-2xl">Ширхэгийн тоо: {data.incase * data.avdar} ширхэг</p>
+                      </div>
+  
+                      <div className="order1Price flex justify-between items-center">
+                        <h3 className="9xl:text-5xl">{data.price * data.incase * data.avdar}₮ </h3>
+                        <div className="order1Button flex justify-between">
+                          <button className="" onClick={decrement}>
+                            <img src={removeButton} alt="" />
+                          </button>
+                          <p className="font-semibold 9xl:text-5xl">{data.avdar}</p>
+                          <button onClick={increment}>
+                            <img src={addButton} alt="" />
+                          </button>
+                        </div>
+  
+                      </div>
+                    </div>
+                  </div>
 
-                <div className="order1 flex">
+                {/* <div className="order1 flex">
                   <div className="order1Img flex justify-center">
                     <img src={bona} alt="" className="" />
                   </div>
@@ -168,22 +185,28 @@ export default function Order() {
 
                     </div>
                   </div>
-                </div>
+                </div> */}
 
               </div>
+               )}
             </div>
 
             <div className="flex zahialahHusnegt">
 
               <div className="seeTotalInfo flex relative">
-                <div className='order1selectTotal'>
+                <div className='order1selectTotal flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Хэмжээ</p>
-                  <p className='total text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <div className="flex justify-center">
+                  {orderArray.map(data => 
+                  <p className='total text-xl font-semibold'>{data.size}</p>
+                  )}
+                  </div>
+                  
                 </div>
 
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
-                  <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
+                  <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>
                   
                 </div>
                 
@@ -219,7 +242,7 @@ export default function Order() {
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
-                <select name="ml" id="mlselect" className='select' onChange={setValue}>
+                <select name="ml" id="mlselect" className='select' onChange="">
                   {data.map((res) => 
                   <>
                    <option id="incase" value={res.BPrice * res.InCase}>{res.Capacity}</option>
@@ -229,7 +252,7 @@ export default function Order() {
                   )}
                   </select>
 
-                  <select name="avdar" id="avdar" className='select'onChange={setValue}>
+                  <select name="avdar" id="avdar" className='select'onChange="">
                   {number.map(res =>
                   <option value={res} id='number'>{res} авдар</option>
                   )}
@@ -250,7 +273,7 @@ export default function Order() {
                   </div>
 
                   <Link className="nav-link" to="/order" id='submit'>
-                    <button className="sagslahButton text-xl 9xl:text-4xl" onClick={AddOrder}>
+                    <button className="sagslahButton text-xl 9xl:text-4xl" onClick="">
                       Захиалга нэмэх
                     </button>
                   </Link>

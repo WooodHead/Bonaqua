@@ -79,7 +79,7 @@ export default function Payment() {
             <div className="order2Info">
               <div className="flex productInfo justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
-                <img src={sags} alt="" className="w-full" />
+                <img src={sags} alt="" className="flowerImg" />
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
@@ -112,8 +112,8 @@ export default function Payment() {
             <div className="userInfo">
               <div className="flex w-full justify-between my-3">
                 {/* <p className="userImg">ДАНС эсвэл QR код</p> */}
-                <img src={dans} alt="" />
-                <img src={sags} alt="" className="w-full" />
+                <img src={dans} alt="" className="userImg"/>
+                <img src={sags} alt="" className="flowerImg" />
               </div>
               <form className="flex flex-wrap text-sm 9xl:text-4xl">
                 <div className="groupPay w-full">
@@ -132,8 +132,8 @@ export default function Payment() {
                   <div className="userInfo w-full">
                     <div className="flex w-full justify-between my-3">
                       {/* <p className="payP">Төлбөр төлөх заавар</p> */}
-                      <img src={instruction} alt="" className="" />
-                      <img src={sags} alt="" className="w-full" />
+                      <img src={instruction} alt="" className="userImg" />
+                      <img src={sags} alt="" className="flowerImg" />
                     </div>
                     <div className="9xl:mb-2 flex w-full justify-around">
                       <p className="text-lg 9xl:text-4xl text-gray-900">Дансаар шилжүүлэх</p>

@@ -10,16 +10,18 @@ import OrderHistory from './components/Order/OrderHistory';
 import Content from './components/Content';
 import Home from './components/Home';
 
-export const AppContext = createContext(null);
+export const AppContext = createContext();
 
 function App() {
   const [value, setValues] = useState("");
   const [price, setPrice] = useState(0);
-  const [capacity, setCapacity] = useState("");
-  const [total, setTotal] = useState("");
+  const [array, setArray] = useState([]);
+  const [total, setTotal] = useState(0);
 
   return (
-    <AppContext.Provider value={{value, setValues, price, setPrice, capacity, setCapacity, total, setTotal}}>
+    <AppContext.Provider value={{value, setValues, price, setPrice,
+                                 array, setArray, total, setTotal
+                               }}>
     <div className="contain">
       <Header />
       <div className='routes'>
