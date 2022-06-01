@@ -12,6 +12,11 @@ import instruction from '../../images/svg/order 3/Header-2.svg';
 import khan from '../../images/khan.png';
 
 export default function Payment() {
+
+  const arrays = sessionStorage.getItem("array");
+  const orderArray = JSON.parse(arrays);
+  const sum = sessionStorage.getItem("sum");
+
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
@@ -83,14 +88,22 @@ export default function Payment() {
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
-                  <div className='order1selectTotal'>
-                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <div className='order1selectTotal flex justify-center items-center'>
+                  <div className="min-w-0 flex mx-2">
+                    {orderArray.map(data => 
+                      <p className='total text-xl font-semibold'>{data.size}</p>
+                    )}
+                    </div>
                   </div>
                   <div className='order1selectTotal1'>
-                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <div className="min-w-0 flex mx-2">
+                    {orderArray.map(data =>
+                      <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.incase * data.avdar}</p>
+                    )}
+                    </div>
                   </div>
                   <div className='order1selectTotal2'>
-                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
+                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
                     <div className='flex'>

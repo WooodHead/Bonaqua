@@ -14,7 +14,7 @@ import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 
 export default function Content() {
-  const { price, setPrice, array, setArray, setTotal, value, setValues } = useContext(AppContext);
+  const { price, setPrice, array, setArray, total, setTotal, value, setValues } = useContext(AppContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -31,8 +31,6 @@ export default function Content() {
   }, [])
 
   // Link
-  const capa = document.getElementById('liCapacity');
-  const circlein = document.getElementById('capaInCircle');
   const buttonElements = Array.from(document.querySelectorAll('.button'));
   buttonElements.forEach(buttonElement => {
     buttonElement.addEventListener('click', () => {
@@ -41,12 +39,25 @@ export default function Content() {
         activeElement.classList.remove('li-active');
       });
       buttonElement.parentElement.classList.add('li-active');
-      const capacity = capa.dataset.name;
-      circlein.innerHTML = capacity;
+      const circle = document.getElementById("capaInCircle");
+      const capacity = document.getElementById("liCapacity").value;
+      circle.innerHTML = capacity;
+      console.log(capacity)
     });
   });
-  // setValues(data)
-  
+
+  window.onload = () => {
+    const p = document.getElementById('mlselect').value.split(',')[1];
+    const incase = document.getElementById('mlselect').value.split(',')[2];
+    const size = document.getElementById('mlselect').value.split(',')[0];
+    const n = document.getElementById('avdar').value;
+    const result = document.getElementById('result');
+    const title = document.getElementById('title');
+
+    result.innerHTML = `${p * incase * n}₮`;
+    title.innerHTML = `Bonaqua ${size} - ${p}₮`;
+  }
+
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const price = document.getElementById('mlselect').value.split(',')[1];
@@ -61,45 +72,41 @@ export default function Content() {
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
   }
-
   
   function Busket(e) {
-    e.preventDefault();
     const size = document.getElementById('mlselect').value.split(',')[0];
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
     const bagts = document.getElementById('avdar').value;
 
-    // array.push({
-    //   size: size,
-    //   price: prices,
-    //   incase: incase,
-    //   avdar: bagts
-    // })
-    if (!array.includes({size: size})) {
-      array.push({
-        size: size,
-        price: prices,
-        incase: incase,
-        avdar: bagts
-      });
-      console.log(size)
-    }
+    var index = array.findIndex(x => x.size == size); 
 
-
-    console.log(array)
+    index === -1 ? array.push({
+          size: size,
+          price: prices * incase * bagts, 
+          tincase: incase * bagts,
+          incase: incase, 
+          avdar: bagts
+        }) 
+    : array.forEach(e=> {
+        if(e.size == size) {
+            e.price += (prices * incase) * bagts;
+            e.tincase += (incase * bagts);
+            e.avdar += bagts;
+            console.log(e.avdar)
+        }
+    })
+   
     sessionStorage.setItem("array", JSON.stringify(array));
 
     var sum = 0;
     array.forEach(x => {
-      sum += (x.price * x.incase) * x.avdar;
+      sum += x.price;
     });
-    sessionStorage.setItem("sum", sum);
-    setTotal(sum)
-  }
-
-  console.log(array);
+      sessionStorage.setItem("sum", sum);
+      setTotal(sum)
+    }
   
   const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -148,7 +155,7 @@ export default function Content() {
           <div className='waterfor pl-3 flex flex-col justify-around'>
 
             <div className='sagslah'>
-              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'>Bonaqua</p>
+              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'></p>
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
@@ -164,8 +171,8 @@ export default function Content() {
                     )}
                   </select>
 
-                  <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700' id='result'>{}₮</p>
+                  <div className='selectTotal flex justify-center items-center text-center'>
+                        <p className='total text-red-700 pt-4' id='result'></p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-9xl mt-1'>
                     <div className='tablename1'>

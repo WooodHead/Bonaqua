@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import user from "../../images/svg/order 2/Header-2.svg";
@@ -7,9 +7,7 @@ import sags from "../../images/svg/order 2/Group 550.svg";
 import insta from "../../images/svg/home/Instagram.svg";
 import fb from "../../images/svg/home/Facebook.svg";
 import twitter from "../../images/svg/home/Twitter.svg";
-import table from '../../images/svg/order 2/Group 569.svg';
-import back from '../../images/svg/order 2/button confirm & price.svg';
-import confirm from '../../images/svg/order 2/button confirm & price-1.svg';
+import { AppContext } from "../../App";
 
 export default function OrderInfo() {
   const randomON = 12;
@@ -26,6 +24,12 @@ export default function OrderInfo() {
 
     console.log(name, number, district, committee, apartment, entrance, entrancecode, doornumber, addinginfo)
   }
+
+  const { value, array, setPrice, price, setTotal, total } = useContext(AppContext);
+
+  const arrays = sessionStorage.getItem("array");
+  const orderArray = JSON.parse(arrays);
+  const sum = sessionStorage.getItem("sum");
 
   // const getUserInfo = (e) => {
   //   e.preventDefault();
@@ -116,14 +120,22 @@ export default function OrderInfo() {
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
-                  <div className='order1selectTotal'>
-                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
+                    <div className="min-w-0 flex mx-2">
+                    {orderArray.map(data => 
+                      <p className='total text-xl font-semibold'>{data.size}</p>
+                    )}
+                    </div>
                   </div>
                   <div className='order1selectTotal1'>
-                    <p className='total pt-3 text-xl font-semibold'>500ml, 800ml, 1.25l</p>
+                  <div className="min-w-0 flex mx-2">
+                    {orderArray.map(data =>
+                      <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.incase * data.avdar}</p>
+                    )}
+                    </div>
                   </div>
                   <div className='order1selectTotal2'>
-                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>249.600₮</p>
+                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
                     <div className='flex p'>
