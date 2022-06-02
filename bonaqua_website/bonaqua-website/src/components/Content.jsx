@@ -73,7 +73,8 @@ export default function Content() {
     result.innerHTML = `${totals}₮`;
   }
   
-  function Busket(e) {
+  // Захиалга сагсанд орох
+  function Busket() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
@@ -88,7 +89,7 @@ export default function Content() {
           tincase: incase * bagts,
           incase: incase, 
           avdar: bagts
-        }) 
+    }) 
     : array.forEach(e=> {
         if(e.size == size) {
             e.price += (prices * incase) * bagts;
@@ -108,7 +109,7 @@ export default function Content() {
       setTotal(sum)
     }
   
-  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const number = Array(10).fill(0).map((e,i) => i+1 );
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -186,7 +187,7 @@ export default function Content() {
                     </div>
                   </div>
 
-                  <Link className="nav-link" to="" id='submit' onClick={Busket}>
+                  <Link className="nav-link" to="#" id='submit' onClick={Busket}>
                     <button className="sagslahButton text-xl 9xl:text-5xl">
                       Сагслах
                     </button>

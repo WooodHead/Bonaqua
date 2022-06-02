@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../images/svg/home/logo.svg';
 import sagsicon from '../images/icons/busket.svg';
 import history from '../images/svg/home/Group 560.svg';
+import flower from '../images/svg/order 1/tsetseg jijig.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
@@ -40,7 +41,7 @@ export default function Header() {
             <div className='busket flex relative'>
               <img src={sagsicon} alt="" />
               <div className='dun'>
-                <a className="nav-link" href='/order' id='submit' onClick="">
+                <a className="nav-link" href='/order' id='submit'>
                   <p className='busket' id='resultH'>{sum}₮</p>
                   <p className='yourBusket'>Таны сагсанд</p>
                 </a>
@@ -52,7 +53,7 @@ export default function Header() {
               <img src={history} alt="" />
               <div className='dun cursor-pointer'>
                 <p className='busket'>1234-5678</p>
-                <a href="" onClick={handleShow}>
+                <a href="#" onClick={handleShow}>
                   <p className='yourBusket'>Захиалгын түүх</p>
                 </a>
               </div>
@@ -64,8 +65,9 @@ export default function Header() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="d-flex w-100" >
-            <h2 className="my-2 mx-auto">Захиалгын түүх</h2>
+          <Modal.Title className="d-flex w-100 flex justify-center items-center" >
+            <img src={flower} alt="" className='mx-3'/>
+            <h2 className="my-2">Захиалгын түүх</h2>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -75,8 +77,8 @@ export default function Header() {
               <input className='py-2 px-3 w-100 input my-1 border' type="text" name="" id="" placeholder='Нэр' />
               <input className='py-2 px-3 w-100 input my-1 border' type="text" name="" id="" placeholder='Утасны дугаар' />
             </div>
-            <Button variant="primary" type="submit" className="w-50 mx-auto" onClick={handleClose}>
-              Харах
+            <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose}>
+              Үргэлжлүүлэх
             </Button>
           </form>
         </Modal.Body>

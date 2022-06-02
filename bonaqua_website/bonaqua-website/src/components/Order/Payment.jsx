@@ -95,10 +95,10 @@ export default function Payment() {
                     )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1'>
+                  <div className='order1selectTotal1 flex items-center'>
                   <div className="min-w-0 flex mx-2">
                     {orderArray.map(data =>
-                      <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.incase * data.avdar}</p>
+                      <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.avdar}</p>
                     )}
                     </div>
                   </div>

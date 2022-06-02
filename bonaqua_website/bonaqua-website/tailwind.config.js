@@ -22,6 +22,7 @@ module.exports = {
     '9xl': '3328px',
   },
   plugins: [
-    require('tw-elements/dist/plugin')
+    require('tw-elements/dist/plugin'),
+    require('tailwind-scrollbar-hide')
   ],
 }

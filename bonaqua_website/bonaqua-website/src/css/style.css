@@ -294,6 +294,10 @@ a {
         width: 100% !important;
         height: 100%;
       }
+      .continueButton {
+        background-color: var(--blue-color) !important;
+        border: 1px solid var(--blue-color) !important;
+      }
       .chooseList li img {
         margin: 1rem 0;
       }
@@ -325,7 +329,7 @@ a {
       }
 
       .zahialsanHeseg {
-        width: 50%;
+        width: 49%;
         border: 1px solid var(--blue-color);
         border-radius: 0.5rem;
       }
@@ -363,6 +367,9 @@ a {
         border: 1px solid var(--blue-color);
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
+      }
+      .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar {
+        display: none;
       }
       .order1selectTotal p.total {
         margin-bottom: 0;
@@ -815,12 +822,12 @@ a {
         font-size: 3.2rem;
       }
       .ProductC h4 {
-        font-size: 3.5rem;
+        font-size: 3rem;
         margin: 2rem 0;
       }
       .ProductC ul li {
         font-size: 2.5rem;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 3rem;
       }
       .water img {
@@ -907,7 +914,7 @@ a {
         margin-left: 0;
       }
       .nav-link {
-        font-weight: 400;
+        font-weight: 500;
         font-size: 2.8rem;
       }
 

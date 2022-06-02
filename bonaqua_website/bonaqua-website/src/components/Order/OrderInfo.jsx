@@ -120,17 +120,17 @@ export default function OrderInfo() {
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
-                  <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
+                  <div className='order1selectTotal flex justify-center items-center overflow-auto'>
                     <div className="min-w-0 flex mx-2">
                     {orderArray.map(data => 
                       <p className='total text-xl font-semibold'>{data.size}</p>
                     )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1'>
-                  <div className="min-w-0 flex mx-2">
+                  <div className='order1selectTotal1 flex'>
+                  <div className="min-w-0 flex mx-2 items-center">
                     {orderArray.map(data =>
-                      <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.incase * data.avdar}</p>
+                      <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
                     )}
                     </div>
                   </div>
@@ -242,8 +242,8 @@ export default function OrderInfo() {
 
                       <div className="choosePayment w-1/2">
                         <Link className="nav-link" to="/payment">
-                          <button className="choosePaymentButton" onClick={getUserData}>
-                            Төлбөрийн нөхцөл сонгох
+                          <button className="choosePaymentButton" onClick={getUserData} type="submit">
+                            Баталгаажуулах
                           </button>
                         </Link>
                       </div>
