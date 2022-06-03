@@ -613,6 +613,11 @@ a {
     .footer2flower {
       width: 85%;
     }
+    input.input {
+      border: 1px solid var(--blue-color);
+      border-radius: 0.5rem;
+      background-color: #f9fafe;
+    }
  
     @media (max-width: 1023px) {
       .ProductAndOrder {

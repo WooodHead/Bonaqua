@@ -15,8 +15,10 @@ import { Modal, Button } from 'react-bootstrap';
 export default function Order() {
   const [data, setData] = useState([]);
   const [cases, setCase] = useState();
+  const [show, setShow] = useState(false);
+  const [render, setRender] = useState(false);
 
-  const { value, array, setPrice, price, setTotal, total } = useContext(AppContext);
+  const { value, array, setPrice, price, setTotal, total, count, setCount } = useContext(AppContext);
 
   // Баазаас мэдээлэл авах
   useEffect(() => {
@@ -30,33 +32,45 @@ export default function Order() {
       }
     }
     getData();
-  }, [])
+  }, [render])
 
   const number = Array(10).fill(0).map((e, i) => i + 1);
-
+  console.log(count)
   // Захиалгын мэдээлэл
   const arrays = sessionStorage.getItem("array");
-  const orderArray = JSON.parse(arrays);
+  var orderArray = JSON.parse(arrays);
   let sum = sessionStorage.getItem("sum");
-
 
   window.onload = () => {
     const p = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
     const n = document.getElementById('avdar').value;
     const result = document.getElementById('result');
-    
+
 
     result.innerHTML = `${p * incase * n}₮`;
   }
 
-  const decrement = () => {
+  function decrement() {
+  const c = document.getElementById("count");
+  orderArray.forEach(x => {
+    if( x.avdar > 1) {
+      x.avdar -= 1;
+      console.log(x.avdar)
+      sessionStorage.setItem("array", JSON.stringify(orderArray));
+    }
+  });
   };
 
-  const increment = () => {
+  function increment() {
+    orderArray.forEach(x => {
+      x.avdar += 1;
+      sessionStorage.setItem("array", JSON.stringify(orderArray));
+      setRender(true)
+    })
   }
 
-  // Нэмэлт захиалгын хэсэг
+  // Нэмэлт захиалгын хэсэг /утга авах/
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const price = document.getElementById('mlselect').value.split(',')[1];
@@ -71,12 +85,12 @@ export default function Order() {
   }
 
   // Захиалга нэмэх
-  function addOrder() {
+  function Busket() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
-    const bagts = document.getElementById('avdar').value;
+    const bagts = parseInt(document.getElementById('avdar').value);
 
     var index = orderArray.findIndex(x => x.size == size);
 
@@ -88,14 +102,14 @@ export default function Order() {
       avdar: bagts
     })
       : orderArray.forEach(e => {
-        if (e.size === size) {
+        if (e.size == size) {
           e.price += (prices * incase) * bagts;
           e.tincase += (incase * bagts);
           e.avdar += bagts;
         }
       })
-    console.log(orderArray)
 
+    sessionStorage.setItem("array", JSON.stringify(orderArray));
     var sum = 0;
     orderArray.forEach(x => {
       sum += x.price;
@@ -103,8 +117,6 @@ export default function Order() {
     sessionStorage.setItem("sum", sum);
     setTotal(sum)
   }
-
-  const [show, setShow] = useState(false);
 
   // Захиалгын доод хэмжээ шалгах
   function Ordering() {
@@ -119,11 +131,16 @@ export default function Order() {
   const handleClose = () => setShow(false);
 
   // Захиалга устгах
-  const removeOrder = (element) => {
+  function removeOrder(element) {
     const index = orderArray.indexOf(element);
-    console.log(index)
+
     if (index > -1) {
       orderArray.splice(index, 1);
+      sessionStorage.setItem("array", JSON.stringify(orderArray));
+      setRender(true)
+      sum -= element.price;
+      sessionStorage.setItem("sum", sum);
+      setTotal(sum)
     }
   }
 
@@ -182,7 +199,7 @@ export default function Order() {
             <div className="flex productInfo">
               <img src={sags} alt="" className="w-full" />
             </div>
-            {/* Zahialsan heseg */}
+            {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
               {orderArray.map(data =>
                 <div className="zahialsanHeseg my-1" >
@@ -216,13 +233,11 @@ export default function Order() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               )}
             </div>
 
             <div className="flex zahialahHusnegt">
-
               <div className="seeTotalInfo flex relative">
                 <div className='order1selectTotal flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Хэмжээ</p>
@@ -240,25 +255,13 @@ export default function Order() {
                   <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>
                 </div>
 
-                {/* <div className='order1tablenames absolute flex text-xs mt-1 w-1/2'>
-                  <div className='flex'>
-                    <p className=''>Хэмжээ</p>
-                  </div>
-                  <div className='flex'>
-                    <p className=''>Нийт үнэ</p>
-                  </div>
-                </div> */}
-
                 <Link className="nav-link cursor-pointer" to="#" id='submit' >
                   <button className="sagslahButton text-xl 9xl:text-5xl" onClick={Ordering}>
                     Захиалах
                   </button>
                 </Link>
-
               </div>
-
             </div>
-
           </div>
 
           <div className="addOrder">
@@ -268,14 +271,12 @@ export default function Order() {
               </div>
 
               <div className='flex'>
-
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
                     {data.map((res) =>
                       <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
                     )}
                   </select>
-
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>
                     {number.map(res =>
                       <option value={res} id='number'>{res} авдар</option>
@@ -296,13 +297,12 @@ export default function Order() {
                     </div>
                   </div>
 
-                  <Link className="nav-link" to="#" id='submit'>
-                    <button className="sagslahButton text-lg 9xl:text-4xl" onClick={addOrder}>
+                  <Link className="nav-link" to="#" >
+                    <button className="sagslahButton text-lg 9xl:text-4xl" onClick={Busket} id='submit'>
                       Захиалга нэмэх
                     </button>
                   </Link>
                 </form>
-
               </div>
             </div>
             <p className="font-semibold flex justify-end">Захиалгын доод хэмжээ: 100,000₮</p>
@@ -316,19 +316,17 @@ export default function Order() {
         </div>
       </div>
       <Modal show={show} onHide={handleClose}>
-    <Modal.Header>
-    </Modal.Header>
-    <Modal.Body>
-      <p className='text-gray-900'>Нийт үнийн дүн захиалгын доод хэмжээнд хүрэхгүй байна! Захиалгын доод хэмжээ: 100.000 төгрөг</p>
-    </Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-    </Modal.Footer>
-  </Modal>
-      
+        <Modal.Header>
+        </Modal.Header>
+        <Modal.Body>
+          <p className='text-gray-900'>Нийт үнийн дүн захиалгын доод хэмжээнд хүрэхгүй байна! Захиалгын доод хэмжээ: 100.000 төгрөг</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
-  
   );
 }

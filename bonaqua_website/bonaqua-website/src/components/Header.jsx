@@ -14,9 +14,9 @@ export default function Header() {
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
 
-  const sum = sessionStorage.getItem("sum");
+  let sum = sessionStorage.getItem("sum");
 
-  const orderHistory = () => {
+  const orderHistory = (e) => {
     e.preventDefault()
   }
 
@@ -27,7 +27,6 @@ export default function Header() {
 
 
   return (
-
     <div className=''>
       <div className='header flex'>
         <div className='logo w-1/2 flex items-end ml-6'>
@@ -62,7 +61,6 @@ export default function Header() {
         </div>
       </div>
 
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className="d-flex w-100 flex justify-center items-center" >
@@ -74,8 +72,8 @@ export default function Header() {
           <form className="was-validated d-flex flex-column" id="" onSubmit={orderHistory}>
             <div className="row p-4">
               <p className='text-gray-400'>Захиалга өгсөн нэр болон утасны дугаараа оруулна уу!</p>
-              <input className='py-2 px-3 w-100 input my-1 border' type="text" name="" id="" placeholder='Нэр' />
-              <input className='py-2 px-3 w-100 input my-1 border' type="text" name="" id="" placeholder='Утасны дугаар' />
+              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="" placeholder='Нэр' />
+              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="" placeholder='Утасны дугаар' />
             </div>
             <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose}>
               Үргэлжлүүлэх
@@ -88,7 +86,6 @@ export default function Header() {
           </Button>
         </Modal.Footer>
       </Modal>
-
     </div>
   )
 }

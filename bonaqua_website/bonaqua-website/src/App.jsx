@@ -17,10 +17,12 @@ function App() {
   const [price, setPrice] = useState(0);
   const [array, setArray] = useState([]);
   const [total, setTotal] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
     <AppContext.Provider value={{value, setValues, price, setPrice,
-                                 array, setArray, total, setTotal
+                                 array, setArray, total, setTotal,
+                                 count, setCount
                                }}>
     <div className="contain">
       <Header />

@@ -12,9 +12,10 @@ import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
+import $ from 'jquery';
 
 export default function Content() {
-  const { price, setPrice, array, setArray, total, setTotal, value, setValues } = useContext(AppContext);
+  var { price, setPrice, array, setArray, total, setTotal, value, setValues, count, setCount } = useContext(AppContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function Content() {
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
-    const bagts = document.getElementById('avdar').value;
+    const bagts = parseInt(document.getElementById('avdar').value);
 
     var index = array.findIndex(x => x.size == size); 
 
@@ -96,9 +97,10 @@ export default function Content() {
             e.tincase += (incase * bagts);
             e.avdar += bagts;
             console.log(e.avdar)
+            setCount(e.avdar);
         }
     })
-   
+    
     sessionStorage.setItem("array", JSON.stringify(array));
 
     var sum = 0;
@@ -111,6 +113,15 @@ export default function Content() {
   
   const number = Array(10).fill(0).map((e,i) => i+1 );
 
+  // document.getElementById("avdar").select2({
+  //   placeholder: 'Select an option'
+  // });
+
+  // $("#avdar").select2({
+  //   placeholder: "Select",
+  //   allowClear: true
+  // });
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col md:flex-row'>
@@ -119,9 +130,10 @@ export default function Content() {
             <div class="main">
               <ul>
                 {data.map(res =>
-                  <li className='bonaquaType'><a href="#" class="button">
-                    <img src={list} alt="" id="lists" />
-                  </a>
+                  <li className='bonaquaType'>
+                    <a href="#" class="button">
+                      <img src={list} alt="" id="lists" />
+                    </a>
                     <ul>
                       <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
                       <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
@@ -171,6 +183,15 @@ export default function Content() {
                       <option value={res} id='number'>{res} авдар</option>
                     )}
                   </select>
+
+                  {/* <input type="number" name="example" list="exampleList" id='avdar' className='select' onChange={setValue}/>
+                   <datalist id='exampleList'>
+                  {number.map(res => 
+                  <option value={res} id="number" placeholder='Хэмжээ'>{res}</option>
+                  )}
+                   </datalist> */}
+
+                
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                         <p className='total text-red-700 pt-4' id='result'></p>
