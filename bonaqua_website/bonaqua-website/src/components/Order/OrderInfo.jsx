@@ -7,10 +7,12 @@ import sags from "../../images/svg/order 2/Group 550.svg";
 import insta from "../../images/svg/home/Instagram.svg";
 import fb from "../../images/svg/home/Facebook.svg";
 import twitter from "../../images/svg/home/Twitter.svg";
-import { AppContext } from "../../App";
 
 export default function OrderInfo() {
   const randomON = 12;
+
+  const userArray = [];
+
   function getUserData() {
     const name = document.getElementById("name").value;
     const number = document.getElementById("number").value;
@@ -21,11 +23,26 @@ export default function OrderInfo() {
     const entrancecode = document.getElementById("entrancecode").value;
     const doornumber = document.getElementById("doornumber").value;
     const addinginfo = document.getElementById("addinginfo").value;
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '' ) {
+      alert("buh talbariig buglunu uu")
+    }
+    
+    userArray.push({
+      name: name,
+      phone: number,
+      district: district,
+      committee: committee,
+      apartment: apartment,
+      entrance: entrance,
+      entrancecode: entrancecode,
+      doornumber: doornumber,
+      addinginfo: addinginfo
+    })
 
-    console.log(name, number, district, committee, apartment, entrance, entrancecode, doornumber, addinginfo)
+    window.location.pathname = '/orderToPayment'
+  
+    console.log(userArray)
   }
-
-  const { value, array, setPrice, price, setTotal, total } = useContext(AppContext);
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -241,7 +258,7 @@ export default function OrderInfo() {
                       </div>
 
                       <div className="choosePayment w-1/2">
-                        <Link className="nav-link" to="/payment">
+                        <Link className="nav-link" to="#">
                           <button className="choosePaymentButton" onClick={getUserData} type="submit">
                             Баталгаажуулах
                           </button>

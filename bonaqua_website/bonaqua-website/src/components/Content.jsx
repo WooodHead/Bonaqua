@@ -12,11 +12,11 @@ import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
-import $ from 'jquery';
 
 export default function Content() {
-  var { price, setPrice, array, setArray, total, setTotal, value, setValues, count, setCount } = useContext(AppContext);
+  var {array, setTotal} = useContext(AppContext);
   const [data, setData] = useState([]);
+  const [render, setRender] = useState(false);
 
   useEffect(() => {
     var getData = async () => {
@@ -29,7 +29,7 @@ export default function Content() {
       }
     }
     getData();
-  }, [])
+  }, [render])
 
   // Link
   const buttonElements = Array.from(document.querySelectorAll('.button'));
@@ -43,7 +43,6 @@ export default function Content() {
       const circle = document.getElementById("capaInCircle");
       const capacity = document.getElementById("liCapacity").value;
       circle.innerHTML = capacity;
-      console.log(capacity)
     });
   });
 
@@ -69,7 +68,6 @@ export default function Content() {
 
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
-    setPrice(totals);
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
   }
@@ -81,11 +79,12 @@ export default function Content() {
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
     const bagts = parseInt(document.getElementById('avdar').value);
-
+    
     var index = array.findIndex(x => x.size == size); 
 
     index === -1 ? array.push({
           size: size,
+          sprice: prices,
           price: prices * incase * bagts, 
           tincase: incase * bagts,
           incase: incase, 
@@ -96,8 +95,6 @@ export default function Content() {
             e.price += (prices * incase) * bagts;
             e.tincase += (incase * bagts);
             e.avdar += bagts;
-            console.log(e.avdar)
-            setCount(e.avdar);
         }
     })
     
@@ -109,6 +106,7 @@ export default function Content() {
     });
       sessionStorage.setItem("sum", sum);
       setTotal(sum)
+      setRender(!render)
     }
   
   const number = Array(10).fill(0).map((e,i) => i+1 );

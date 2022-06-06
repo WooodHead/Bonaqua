@@ -14,26 +14,22 @@ export const AppContext = createContext();
 
 function App() {
   const [value, setValues] = useState("");
-  const [price, setPrice] = useState(0);
-  const [array, setArray] = useState([]);
   const [total, setTotal] = useState(0);
-  const [count, setCount] = useState(0);
+  const [array, setArray] = useState([]);
+  const [render, setRender] = useState(false);
 
   return (
-    <AppContext.Provider value={{value, setValues, price, setPrice,
-                                 array, setArray, total, setTotal,
-                                 count, setCount
-                               }}>
+    <AppContext.Provider value={{value, setValues, total, setTotal, array, setArray}}>
     <div className="contain">
       <Header />
       <div className='routes'>
       <Routes>
         <Switch>
-            <Route exact path="/" component={Content} />
-            <Route path="/order" component={Order}/>
-            <Route path="/orderToPayment" component={OrderInfo} />
-            <Route path="/payment" component={Payment} />
-            <Route path="/orderHistory" component={OrderHistory} />
+            <Route exact path="/" component={Content} render = {{render, setRender}}/>
+            <Route path="/order" component={Order} render = {{render, setRender}}/>
+            <Route path="/orderToPayment" component={OrderInfo} render = {{render, setRender}}/>
+            <Route path="/payment" component={Payment} render = {{render, setRender}}/>
+            <Route path="/orderHistory" component={OrderHistory} render = {{render, setRender}}/>
         </Switch>
       </Routes>
       </div>

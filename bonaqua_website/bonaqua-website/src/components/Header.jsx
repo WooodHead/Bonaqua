@@ -3,13 +3,10 @@ import logo from '../images/svg/home/logo.svg';
 import sagsicon from '../images/icons/busket.svg';
 import history from '../images/svg/home/Group 560.svg';
 import flower from '../images/svg/order 1/tsetseg jijig.svg';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap';
-import { useState, useContext } from 'react';
-import { AppContext } from '../App';
+import { useState } from 'react';
 
 export default function Header() {
-  const { price, setPrice, total } = useContext(AppContext);
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);

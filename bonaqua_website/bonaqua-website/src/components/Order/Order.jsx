@@ -14,12 +14,12 @@ import { Modal, Button } from 'react-bootstrap';
 
 export default function Order() {
   const [data, setData] = useState([]);
-  const [cases, setCase] = useState();
   const [show, setShow] = useState(false);
+
   const [render, setRender] = useState(false);
 
-  const { value, array, setPrice, price, setTotal, total, count, setCount } = useContext(AppContext);
-
+  const { setTotal } = useContext(AppContext);
+  
   // Баазаас мэдээлэл авах
   useEffect(() => {
     var getData = async () => {
@@ -32,10 +32,10 @@ export default function Order() {
       }
     }
     getData();
-  }, [render])
+  }, [])
 
   const number = Array(10).fill(0).map((e, i) => i + 1);
-  console.log(count)
+  
   // Захиалгын мэдээлэл
   const arrays = sessionStorage.getItem("array");
   var orderArray = JSON.parse(arrays);
@@ -49,25 +49,7 @@ export default function Order() {
 
 
     result.innerHTML = `${p * incase * n}₮`;
-  }
-
-  function decrement() {
-  const c = document.getElementById("count");
-  orderArray.forEach(x => {
-    if( x.avdar > 1) {
-      x.avdar -= 1;
-      console.log(x.avdar)
-      sessionStorage.setItem("array", JSON.stringify(orderArray));
-    }
-  });
-  };
-
-  function increment() {
-    orderArray.forEach(x => {
-      x.avdar += 1;
-      sessionStorage.setItem("array", JSON.stringify(orderArray));
-      setRender(true)
-    })
+    setRender(!render)
   }
 
   // Нэмэлт захиалгын хэсэг /утга авах/
@@ -80,7 +62,6 @@ export default function Order() {
 
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
-    setPrice(totals);
     result.innerHTML = `${totals}₮`;
   }
 
@@ -96,26 +77,29 @@ export default function Order() {
 
     index === -1 ? orderArray.push({
       size: size,
+      sprice: prices,
       price: prices * incase * bagts,
       tincase: incase * bagts,
       incase: incase,
       avdar: bagts
     })
-      : orderArray.forEach(e => {
-        if (e.size == size) {
-          e.price += (prices * incase) * bagts;
-          e.tincase += (incase * bagts);
-          e.avdar += bagts;
-        }
-      })
+    : orderArray.forEach(e => {
+      if (e.size == size) {
+        e.price += (prices * incase) * bagts;
+        e.tincase += (incase * bagts);
+        e.avdar += bagts;
+      }
+    })
 
     sessionStorage.setItem("array", JSON.stringify(orderArray));
     var sum = 0;
     orderArray.forEach(x => {
       sum += x.price;
     });
+
     sessionStorage.setItem("sum", sum);
     setTotal(sum)
+    setRender(!render)
   }
 
   // Захиалгын доод хэмжээ шалгах
@@ -137,13 +121,13 @@ export default function Order() {
     if (index > -1) {
       orderArray.splice(index, 1);
       sessionStorage.setItem("array", JSON.stringify(orderArray));
-      setRender(true)
       sum -= element.price;
       sessionStorage.setItem("sum", sum);
       setTotal(sum)
     }
+    setRender(!render)
   }
-
+  
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex">
@@ -202,7 +186,7 @@ export default function Order() {
             {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
               {orderArray.map(data =>
-                <div className="zahialsanHeseg my-1" >
+                <div className="zahialsanHeseg my-1">
 
                   <div className="order1 flex">
                     <div className="order1Img flex justify-center">
@@ -221,11 +205,36 @@ export default function Order() {
                       <div className="order1Price flex justify-between items-center">
                         <h3 className="9xl:text-5xl">{data.price}₮ </h3>
                         <div className="order1Button flex justify-between">
-                          <button className="" onClick={decrement}>
+                          <button className="" onClick={ () => {
+                            if (data.avdar > 1 && sum > 0) {
+                              data.avdar -= 1;
+                              data.tincase -= parseInt(data.incase);
+                              data.price -= parseInt(data.incase) * parseInt(data.sprice);
+                              sum -= parseInt(data.incase) * parseInt(data.sprice);
+                            }
+                            sessionStorage.setItem("array", JSON.stringify(orderArray));
+                            sessionStorage.setItem("sum", sum);
+                            setTotal(sum)
+                            setRender(!render)
+                          }}>
                             <img src={removeButton} alt="" />
                           </button>
-                          <p className="font-semibold 9xl:text-5xl" id="count" value={data.avdar}>{data.avdar}</p>
-                          <button onClick={increment}>
+                          <p className="font-semibold 9xl:text-5xl" id="count">{data.avdar}</p>
+                          <button onClick={ () => {
+                            data.avdar += 1;
+                            data.tincase += parseInt(data.incase);
+                            data.price += parseInt(data.incase) * parseInt(data.sprice);
+                            console.log(data.price);
+                            sessionStorage.setItem("array", JSON.stringify(orderArray));
+                            var sum = 0;
+                            orderArray.forEach(x => {
+                                sum += x.price;
+                            });
+
+                            sessionStorage.setItem("sum", sum);
+                            setTotal(sum)
+                            setRender(!render)
+                          }}>
                             <img src={addButton} alt="" />
                           </button>
                         </div>
@@ -298,7 +307,7 @@ export default function Order() {
                   </div>
 
                   <Link className="nav-link" to="#" >
-                    <button className="sagslahButton text-lg 9xl:text-4xl" onClick={Busket} id='submit'>
+                    <button className="sagslahButton text-lg 9xl:text-4xl px-1" onClick={Busket} id='submit'>
                       Захиалга нэмэх
                     </button>
                   </Link>

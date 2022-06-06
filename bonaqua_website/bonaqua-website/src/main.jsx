@@ -5,7 +5,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'tw-elements';
 
-ReactDOM.render(
+const root = ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,

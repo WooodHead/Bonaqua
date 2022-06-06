@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
@@ -13,9 +13,18 @@ import khan from '../../images/khan.png';
 
 export default function Payment() {
 
+  const {render, setRender} = useState(false);
+
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
+
+  function CancelOrder() {
+    orderArray = [];
+    sum = 0;
+
+    setRender(!render)
+  }
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -190,7 +199,7 @@ export default function Payment() {
 
                       <div className="removeOrder w-1/2">
                         <Link className="nav-link" to="/">
-                          <button className="removeOrderButton text-white 9xl:text-5xl">
+                          <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
                             Захиалга цуцлах
                           </button>
                         </Link>
