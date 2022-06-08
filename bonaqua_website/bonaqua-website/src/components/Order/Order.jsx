@@ -11,6 +11,9 @@ import removeButton from '../../images/svg/order 1/-.svg';
 import deleteButton from '../../images/svg/order 1/x.svg';
 import { AppContext } from "../../App";
 import { Modal, Button } from 'react-bootstrap';
+import SlideImage from "../SlideImage";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Order() {
   const [data, setData] = useState([]);
@@ -19,7 +22,7 @@ export default function Order() {
   const [render, setRender] = useState(false);
 
   const { setTotal } = useContext(AppContext);
-  
+
   // Баазаас мэдээлэл авах
   useEffect(() => {
     var getData = async () => {
@@ -35,11 +38,12 @@ export default function Order() {
   }, [])
 
   const number = Array(10).fill(0).map((e, i) => i + 1);
-  
+
   // Захиалгын мэдээлэл
   const arrays = sessionStorage.getItem("array");
   var orderArray = JSON.parse(arrays);
   let sum = sessionStorage.getItem("sum");
+  let item = sessionStorage.getItem("item");
 
   window.onload = () => {
     const p = document.getElementById('mlselect').value.split(',')[1];
@@ -47,9 +51,8 @@ export default function Order() {
     const n = document.getElementById('avdar').value;
     const result = document.getElementById('result');
 
-
     result.innerHTML = `${p * incase * n}₮`;
-    setRender(!render)
+    // setRender(!render)
   }
 
   // Нэмэлт захиалгын хэсэг /утга авах/
@@ -75,21 +78,33 @@ export default function Order() {
 
     var index = orderArray.findIndex(x => x.size == size);
 
-    index === -1 ? orderArray.push({
-      size: size,
-      sprice: prices,
-      price: prices * incase * bagts,
-      tincase: incase * bagts,
-      incase: incase,
-      avdar: bagts
-    })
-    : orderArray.forEach(e => {
-      if (e.size == size) {
-        e.price += (prices * incase) * bagts;
-        e.tincase += (incase * bagts);
-        e.avdar += bagts;
+    if (prices != 0 && prices != '0') {
+      index === -1 ? orderArray.push({
+        size: size,
+        sprice: prices,
+        price: prices * incase * bagts,
+        tincase: incase * bagts,
+        incase: incase,
+        avdar: bagts
+      })
+        : orderArray.forEach(e => {
+          if (e.size == size) {
+            e.price += (prices * incase) * bagts;
+            e.tincase += (incase * bagts);
+            e.avdar += bagts;
+          }
+        })
+        var c = 1;
+    orderArray.forEach(x => {
+      if (x.size != size) {
+        c += 1;
       }
-    })
+    });
+    sessionStorage.setItem("item", c);
+    }
+    else {
+      toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
+    }
 
     sessionStorage.setItem("array", JSON.stringify(orderArray));
     var sum = 0;
@@ -99,12 +114,14 @@ export default function Order() {
 
     sessionStorage.setItem("sum", sum);
     setTotal(sum)
+    
     setRender(!render)
   }
 
   // Захиалгын доод хэмжээ шалгах
   function Ordering() {
-    if (sum < 100000) {
+    const min = 100000;
+    if (sum < min) {
       setShow(true);
     }
     else {
@@ -124,60 +141,20 @@ export default function Order() {
       sum -= element.price;
       sessionStorage.setItem("sum", sum);
       setTotal(sum)
+      item -= 1;
+      sessionStorage.setItem("item", item);
     }
     setRender(!render)
   }
-  
+
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex">
-        <div className="w-1/2 flex items-center relative choosing">
-          <div className="slideContent choosing flex items-center">
-            <div
-              id="carouselExampleCaptions"
-              className="carousel slide relative"
-              data-bs-ride="carousel"
-            >
-              <div className="carousel-inner relative w-full overflow-hidden">
-                <div className="carousel-item active relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                    className="block w-full" alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                    className="block w-full" alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-                    className="block w-full" alt="..."
-                  />
-                </div>
-                <div className="carousel-indicators absolute flex justify-center">
-                  <button type="button"
-                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                    className="active"
-                    aria-current="true" aria-label="Slide 1">
-                  </button>
-                  <button type="button"
-                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2">
-                  </button>
-                  <button type="button"
-                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3">
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2 flex relative choosing">
+          <SlideImage />
         </div>
 
-        <div className="order1Content w-1/2 flex flex-col justify-between">
+        <div className="order1Content w-full lg:w-1/2 flex flex-col justify-between">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-4 9xl:text-8xl">Миний сагс</h1>
             <div className="flex productInfo">
@@ -186,7 +163,7 @@ export default function Order() {
             {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
               {orderArray.map(data =>
-                <div className="zahialsanHeseg my-1">
+                <div className="zahialsanHeseg my-1 9xl:my-40">
 
                   <div className="order1 flex">
                     <div className="order1Img flex justify-center">
@@ -199,13 +176,13 @@ export default function Order() {
                           <h6 className="9xl:text-4xl">Bonaqua {data.size} </h6>
                           <img src={deleteButton} onClick={() => removeOrder(data)} id="remove" alt="" className="cursor-pointer" />
                         </div>
-                        <p className="text-sm 9xl:text-2xl">Ширхэгийн тоо: {data.tincase} ширхэг</p>
+                        <p className="text-sm 9xl:text-3xl 9xl:mt-3">Ширхэгийн тоо: {data.tincase} ширхэг</p>
                       </div>
 
                       <div className="order1Price flex justify-between items-center">
                         <h3 className="9xl:text-5xl">{data.price}₮ </h3>
                         <div className="order1Button flex justify-between">
-                          <button className="" onClick={ () => {
+                          <button className="" onClick={() => {
                             if (data.avdar > 1 && sum > 0) {
                               data.avdar -= 1;
                               data.tincase -= parseInt(data.incase);
@@ -217,10 +194,10 @@ export default function Order() {
                             setTotal(sum)
                             setRender(!render)
                           }}>
-                            <img src={removeButton} alt="" />
+                            <img src={removeButton} alt="" className="9xl:w-14"/>
                           </button>
                           <p className="font-semibold 9xl:text-5xl" id="count">{data.avdar}</p>
-                          <button onClick={ () => {
+                          <button onClick={() => {
                             data.avdar += 1;
                             data.tincase += parseInt(data.incase);
                             data.price += parseInt(data.incase) * parseInt(data.sprice);
@@ -228,14 +205,14 @@ export default function Order() {
                             sessionStorage.setItem("array", JSON.stringify(orderArray));
                             var sum = 0;
                             orderArray.forEach(x => {
-                                sum += x.price;
+                              sum += x.price;
                             });
 
                             sessionStorage.setItem("sum", sum);
                             setTotal(sum)
                             setRender(!render)
                           }}>
-                            <img src={addButton} alt="" />
+                            <img src={addButton} alt="" className="9xl:w-14"/>
                           </button>
                         </div>
 
@@ -260,7 +237,7 @@ export default function Order() {
                 </div>
 
                 <div className='order1selectTotal1 flex flex-col'>
-                  <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Нийт үнэ</p>
+                  <p className='text-gray-500 flex ml-3 text-sm 9xl:text-3xl'>Нийт үнэ</p>
                   <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>
                 </div>
 
@@ -292,9 +269,9 @@ export default function Order() {
                     )}
                   </select>
                   <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700' id="result"></p>
+                    <p className='total pt-3 text-red-700 9xl:mt-5' id="result"></p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-2xl mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -308,13 +285,14 @@ export default function Order() {
 
                   <Link className="nav-link" to="#" >
                     <button className="sagslahButton text-lg 9xl:text-4xl px-1" onClick={Busket} id='submit'>
+                      <ToastContainer />
                       Захиалга нэмэх
                     </button>
                   </Link>
                 </form>
               </div>
             </div>
-            <p className="font-semibold flex justify-end">Захиалгын доод хэмжээ: 100,000₮</p>
+            <p className="font-semibold flex justify-end 9xl:text-4xl 9xl:mt-2">Захиалгын доод хэмжээ: 100,000₮</p>
           </div>
         </div>
 

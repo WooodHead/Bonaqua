@@ -24,3 +24,7 @@ exports.getBonaqua = async(req, res) => {
         return;
     };
 };
+
+exports.addBonaqua = async(req, res) => {
+
+}

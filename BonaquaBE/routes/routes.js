@@ -4,6 +4,7 @@ module.exports = app => {
     var router = require("express").Router();
 
     router.get("/", bonaqua.getBonaqua);
+    router.post("/addBonaqua", bonaqua.addBonaqua);
 
     app.use('/api/bonaqua', router);
 };

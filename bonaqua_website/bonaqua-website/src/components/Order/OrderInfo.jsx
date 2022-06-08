@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import user from "../../images/svg/order 2/Header-2.svg";
@@ -7,11 +7,15 @@ import sags from "../../images/svg/order 2/Group 550.svg";
 import insta from "../../images/svg/home/Instagram.svg";
 import fb from "../../images/svg/home/Facebook.svg";
 import twitter from "../../images/svg/home/Twitter.svg";
+import { AppContext } from "../../App";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SlideImage from "../SlideImage";
 
 export default function OrderInfo() {
+  const [render, setRender] = useState(false);
+  const { userarray } = useContext(AppContext)
   const randomON = 12;
-
-  const userArray = [];
 
   function getUserData() {
     const name = document.getElementById("name").value;
@@ -23,13 +27,16 @@ export default function OrderInfo() {
     const entrancecode = document.getElementById("entrancecode").value;
     const doornumber = document.getElementById("doornumber").value;
     const addinginfo = document.getElementById("addinginfo").value;
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '' ) {
-      alert("buh talbariig buglunu uu")
+
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+      toast("Бүх талбарыг бөглөнө үү!");
+      window.location.pathname = current.location
     }
-    
-    userArray.push({
+
+    var index = userarray.findIndex(x => x.number == number);
+    userarray.push({
       name: name,
-      phone: number,
+      number: number,
       district: district,
       committee: committee,
       apartment: apartment,
@@ -38,11 +45,25 @@ export default function OrderInfo() {
       doornumber: doornumber,
       addinginfo: addinginfo
     })
+    // : userarray.forEach(e=> {
+    //     if(e.number == number) {
+    //       console.log("same number")
+    //         // e.name = name,
+    //         // e.number = number
+    //         // e.district = district,
+    //         // e.committee = committee,
+    //         // e.apartment = apartment,
+    //         // e.entrance = entrance,
+    //         // e.entrancecode = entrancecode,
+    //         // e.doornumber = doornumber,
+    //         // e.addinginfo = addinginfo
+    //     }
+    // })
 
-    window.location.pathname = '/orderToPayment'
-  
-    console.log(userArray)
+    sessionStorage.setItem("userArray", JSON.stringify(userarray));
+    window.location.pathname = '/payment';
   }
+  console.log(userarray)
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -68,64 +89,12 @@ export default function OrderInfo() {
 
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex">
-        <div className="w-1/2 flex items-center relative choosing">
-          <div className="slideContent choosing flex items-center">
-            <div
-              id="carouselExampleCaptions"
-              className="carousel slide relative"
-              data-bs-ride="carousel"
-            >
-              <div className="carousel-inner relative w-full overflow-hidden">
-                <div className="carousel-item active relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-indicators absolute flex justify-center">
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="0"
-                    className="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2 flex items-center relative choosing orderInfo">
+          <SlideImage />
         </div>
 
-        <div className=" w-1/2 flex flex-col justify-between mr-10">
+        <div className="w-full lg:w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-3 9xl:text-7xl">Захиалгын мэдээлэл</h1>
 
@@ -137,18 +106,18 @@ export default function OrderInfo() {
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
-                  <div className='order1selectTotal flex justify-center items-center overflow-auto'>
+                  <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
                     <div className="min-w-0 flex mx-2">
-                    {orderArray.map(data => 
-                      <p className='total text-xl font-semibold'>{data.size}</p>
-                    )}
+                      {orderArray.map(data =>
+                        <p className='total text-xl font-semibold'>{data.size}</p>
+                      )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1 flex'>
-                  <div className="min-w-0 flex mx-2 items-center">
-                    {orderArray.map(data =>
-                      <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
-                    )}
+                  <div className='order1selectTotal1 flex justify-center items-center'>
+                    <div className="min-w-0 flex mx-2 items-center">
+                      {orderArray.map(data =>
+                        <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
+                      )}
                     </div>
                   </div>
                   <div className='order1selectTotal2'>
@@ -166,7 +135,7 @@ export default function OrderInfo() {
                     </div>
                   </div>
                 </div>
-               
+
               </div>
             </div>
 
@@ -180,15 +149,15 @@ export default function OrderInfo() {
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
                     <label>Нэр</label>
-                    <input type="text" id="name"/>
+                    <input type="text" id="name" />
                   </div>
                   <div class="group mr-1">
                     <label>Утасны дугаар</label>
-                    <input type="number" id="number"/>
+                    <input type="number" id="number" />
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
-                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={randomON}/>
+                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={randomON} />
                   </div>
                 </form>
               </div>
@@ -207,48 +176,47 @@ export default function OrderInfo() {
                       <div className="groupS mr-3 w-1/2">
                         <label htmlFor="">Дүүрэг</label>
                         <select name="" id="district" className='select w-full'>
-                          <option value="330" className='option'></option>
-                          <option value="500">Баянгол</option>
-                          <option value="800">Баянзүрх</option>
-                          <option value="1.5">Хан-Уул</option>
+                          <option value="" className='option'></option>
+                          <option value="Bayangol">Баянгол</option>
+                          <option value="Bayanzurh">Баянзүрх</option>
+                          <option value="Han-Uul">Хан-Уул</option>
                         </select>
                       </div>
                       <div className="groupS w-1/2">
                         <label htmlFor="">Хороо</label>
                         <select name="" id="committee" className='select w-full'>
-                          <option value="330" className='option'></option>
-                          <option value="500">1-р хороо</option>
-                          <option value="800">2-р хороо</option>
-                          <option value="1.5">3-р хороо</option>
+                          <option value="" className='option'></option>
+                          <option value="1">1-р хороо</option>
+                          <option value="2">2-р хороо</option>
+                          <option value="3">3-р хороо</option>
                         </select>
                       </div>
                     </div>
 
-
                     <div className="flex house">
                       <div class="groupL mr-3 w-1/2">
                         <label>Байр</label>
-                        <input type="text" className="w-full" id="apartment"/>
+                        <input type="text" className="w-full" id="apartment" />
                       </div>
                       <div class="groupL w-1/2">
                         <label>Орц</label>
-                        <input type="text" className="w-full" id="entrance"/>
+                        <input type="text" className="w-full" id="entrance" />
                       </div>
                     </div>
                     <div className="flex door">
                       <div class="groupL mr-3 w-1/2">
                         <label>Орцны код</label>
-                        <input type="text" className="w-full" id="entrancecode"/>
+                        <input type="text" className="w-full" id="entrancecode" />
                       </div>
                       <div class="groupL w-1/2">
                         <label>Хаалганы дугаар /тоот/</label>
-                        <input type="text" className="w-full" id="doornumber"/>
+                        <input type="text" className="w-full" id="doornumber" />
                       </div>
                     </div>
 
                     <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" id="addinginfo"/>
+                      <input type="text" className="w-full" id="addinginfo" />
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -260,6 +228,7 @@ export default function OrderInfo() {
                       <div className="choosePayment w-1/2">
                         <Link className="nav-link" to="#">
                           <button className="choosePaymentButton" onClick={getUserData} type="submit">
+                            <ToastContainer />
                             Баталгаажуулах
                           </button>
                         </Link>

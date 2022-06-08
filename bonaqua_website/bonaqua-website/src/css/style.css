@@ -18,13 +18,47 @@ html {
 .header {
   height: 16vh;
 }
-/* .footer {
+
+.popup::before {
+  content: attr(data-items-count);
+  width: 12%;
+  height: 30%;
+  position: absolute;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+  top: 50%;
+  color: white;
+  display: block;
+}
+.popup p {
+  position: absolute;
+  color: white;
+  left: 3%;
+  top: 45%;
+  transition: all 200ms ease-out;
+}
+.cart-animation-helper {
+  margin: 0 20%;
+  width: 0;
+  height: 0;
+}
+.cart-animation-helper:after {
+  opacity: 0;
+  border-radius: 0%;
+  max-height: 250px;
+  max-width: 200px;
+  content: "";
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  top: 10%;
-} */
-
+  margin: 0 auto;
+  display: block;
+  height: 250px;
+  width: 200px;
+  background-color: #ff9a9e;
+  transition: transform 0.8s ease-out, margin 0.8s ease-out, opacity 0.8s ease-out, border-radius 0.4s ease-out, max-height 0.4s ease-out, max-width 0.4s ease-out;
+}
 .back a.backButton {
   color: white;
 }
@@ -64,7 +98,7 @@ a {
 .link {
   width: 90%;
 }
-.active {
+.is-active {
   color: var(--blue-color) !important;
   font-weight: 500;
   margin-left: 1.5rem;
@@ -117,6 +151,11 @@ a {
     color: white;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    opacity: 0.9;
+  }
+  .sagslahButton:hover {
+    opacity: 1;
+    font-weight: 600;
   }
   .toirog {
     position: relative;
@@ -150,16 +189,17 @@ a {
     width: 100%;
     height: auto;
     background-color: #f9fafe;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
+
 .order2tablenames > * {
   background-color: #f9fafe;
   height: 0;
 }
 .order1Content {
     margin-right: 5%;
+    /* height: 70vh; */
 }
-
 
       /* Header */
       .logo img {
@@ -181,6 +221,7 @@ a {
         align-items: center;
         color: var(--blue-color);
         height: auto;
+        position: relative;
       }
       .busket img, .order img {
         width: 25%;
@@ -198,6 +239,10 @@ a {
         font-size: 1.4rem;
         color: #8a8888;
         font-weight: 400;
+      }
+      p.yourBusket:hover {
+        font-weight: 600;
+        color: var(--blue-color);
       }
     
       .footer1flower {
@@ -313,6 +358,7 @@ a {
       /* Zahialgiin medeelel */
       .slideContent {
         height: 70vh;
+        width: 100%;
       }
       .locate a {
         color: white !important;
@@ -368,13 +414,23 @@ a {
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
       }
-      .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar {
+      .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar  {
+        width: 10%;
         display: none;
+      }
+      .order1selectTotal::-webkit-scrollbar-track{
+        background-color: #f9fafe;
+      }
+      .order1selectTotal::-webkit-scrollbar-thumb {
+        background-color: var(--blue-color);
+        color: #3dbee3;
+        border-radius: 1rem;
+      }
+      .order1selectTotal:hover::-webkit-scrollbar {
+        display: block;
       }
       .order1selectTotal p.total {
         margin-bottom: 0;
-        width: min-content;
-        height: fit-content;
         margin-left: 0.2rem;
         margin-right: 0.3rem;
       }
@@ -697,7 +753,8 @@ a {
         font-size: 1.3rem;
       }
       .carousel-item img {
-        height: 25rem;
+        max-width: 0 !important;
+        margin-top: 20rem !important;
       }
       
       .dansMedeelel p {
@@ -712,6 +769,10 @@ a {
     }
     .water {
       width: 80%;
+    }
+
+    .slide {
+      height: 55vh !important;
     }
     }
 
@@ -813,11 +874,11 @@ a {
         color: #666363;
       }
       p.total {
-        font-size: 4rem;
+        font-size: 2.8rem;
         line-height: 5rem;
       }
       .select {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         padding: 2rem !important;
       }
       .productInfo img {
@@ -858,9 +919,6 @@ a {
       }
       .order1Button {
         width: 50%;
-      }
-      .carousel-item img {
-        height: 60rem;
       }
       
       .order1tablenames {
@@ -922,7 +980,15 @@ a {
         font-weight: 500;
         font-size: 2.8rem;
       }
-
+      .slideshowDots {
+        margin-top: 2%;
+        margin-bottom: 5%;
+      }
+      .popup p {
+        left: 4%;
+        top: 50%;
+        font-size: 2rem;
+      }
     }
 
     .main ul ul {
@@ -942,3 +1008,51 @@ a {
     }
 
     
+    /* Slideshow */
+
+.slideshow {
+  margin: 1rem auto;
+  margin-left: 8%;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 2000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 45vh;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 1rem 1rem;
+  background-color: #e7e7e7;
+}
+
+.slideshowDot.active {
+  background-color: var(--blue-color);
+}
+
+.orderInfo .slideshow {
+  margin-left: 10%;
+  margin-top: 5%;
+  overflow: hidden;
+  width: 90%;
+}

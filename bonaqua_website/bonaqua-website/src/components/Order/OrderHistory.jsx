@@ -30,33 +30,33 @@ export default function OrderHistory() {
         <div className='info w-1/2 mr-16 mt-3'>
           <h1 className=''>Захиалгын түүх</h1>
           <Router>
-              <div className='orderHistoryLink'>
-                <div className='link flex justify-between py-3'>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/allorder">
-                    Бүгд
-                  </NavLink>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/orderConfirm">
-                    Баталгаажсан
-                  </NavLink>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/orderDelivered">
-                    Хүргэгдсэн
-                  </NavLink>
-                  <div className="sort flex justify-end">
-                        <select name="" id="" className='select w-full'>
-                          <option value="" className=''>Сүүлийнх нь эхэндээ</option>
-                          <option value=""></option>
-                        </select>
-                  </div>
-                </div>
-                <div className=''>
-                  <Switch>
-                    <Route exact path="/allorder" children={<AllOrder />} />
-                    <Route path="/orderConfirm" children={<OrderConfirm />} />
-                    <Route path="/orderDelivered" children={<OrderDelivered />} />
-                  </Switch>
+            <div className='orderHistoryLink'>
+              <div className='link flex justify-between py-3'>
+                <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/allorder">
+                  Бүгд
+                </NavLink>
+                <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/orderConfirm">
+                  Баталгаажсан
+                </NavLink>
+                <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/orderDelivered">
+                  Хүргэгдсэн
+                </NavLink>
+                <div className="sort flex justify-end">
+                  <select name="" id="" className='select w-full'>
+                    <option value="" className=''>Сүүлийнх нь эхэндээ</option>
+                    <option value=""></option>
+                  </select>
                 </div>
               </div>
-            </Router>
+              <div className=''>
+                <Switch>
+                  <Route exact path="/allorder" children={<AllOrder />} />
+                  <Route path="/orderConfirm" children={<OrderConfirm />} />
+                  <Route path="/orderDelivered" children={<OrderDelivered />} />
+                </Switch>
+              </div>
+            </div>
+          </Router>
         </div>
 
         <div className='social flex flex-col justify-center items-center'>

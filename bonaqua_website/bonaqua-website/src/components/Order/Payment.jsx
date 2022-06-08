@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
@@ -10,82 +10,43 @@ import line from '../../images/svg/order 3/Line 4.svg';
 import dans from '../../images/svg/order 3/Header-1.svg';
 import instruction from '../../images/svg/order 3/Header-2.svg';
 import khan from '../../images/khan.png';
+import bonaqua from '../../images/maxresdefault.jpg';
+import bonaqua1 from '../../images/b.jpg';
+import bonaqua2 from '../../images/b1.jpg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SlideImage from "../SlideImage";
 
 export default function Payment() {
 
-  const {render, setRender} = useState(false);
+  const { render, setRender } = useState(false);
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
+  const userarrays = sessionStorage.getItem("userArray");
+  const userArray = JSON.parse(userarrays);
+  console.log(userArray)
 
   function CancelOrder() {
-    orderArray = [];
-    sum = 0;
+
+    toast("Захиалга цуцлагдлаа!")
+    setTimeout(() => {
+      sessionStorage.clear();
+      window.location.pathname = '/';
+    }, 2000)
 
     setRender(!render)
   }
 
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex">
-        <div className="w-1/2 flex items-center relative choosing">
-          <div className="slideContent choosing flex items-center">
-            <div
-              id="carouselExampleCaptions"
-              className="carousel slide relative"
-              data-bs-ride="carousel"
-            >
-              <div className="carousel-inner relative w-full overflow-hidden">
-                <div className="carousel-item active relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-item relative float-left w-full">
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-                    className="block w-full"
-                    alt="..."
-                  />
-                </div>
-                <div className="carousel-indicators absolute flex justify-center">
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="0"
-                    className="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2 flex items-center relative choosing orderInfo">
+          <SlideImage />
         </div>
 
-        <div className="order2Content w-1/2 flex flex-col justify-between mr-10">
+        <div className="order2Content w-full lg:w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-3 9xl:text-7xl">Төлбөр төлөх</h1>
 
@@ -98,17 +59,17 @@ export default function Payment() {
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
                   <div className='order1selectTotal flex justify-center items-center'>
-                  <div className="min-w-0 flex mx-2">
-                    {orderArray.map(data => 
-                      <p className='total text-xl font-semibold'>{data.size}</p>
-                    )}
+                    <div className="min-w-0 flex mx-2">
+                      {orderArray.map(data =>
+                        <p className='total text-xl font-semibold'>{data.size}</p>
+                      )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1 flex items-center'>
-                  <div className="min-w-0 flex mx-2">
-                    {orderArray.map(data =>
-                      <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.avdar}</p>
-                    )}
+                  <div className='order1selectTotal1 flex items-center justify-center'>
+                    <div className="min-w-0 flex mx-2">
+                      {orderArray.map(data =>
+                        <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.avdar}</p>
+                      )}
                     </div>
                   </div>
                   <div className='order1selectTotal2'>
@@ -126,7 +87,7 @@ export default function Payment() {
                     </div>
                   </div>
                 </div>
-               
+
               </div>
             </div>
 
@@ -134,7 +95,7 @@ export default function Payment() {
             <div className="userInfo">
               <div className="flex w-full justify-between my-3">
                 {/* <p className="userImg">ДАНС эсвэл QR код</p> */}
-                <img src={dans} alt="" className="userImg"/>
+                <img src={dans} alt="" className="userImg" />
                 <img src={sags} alt="" className="flowerImg" />
               </div>
               <form className="flex flex-wrap text-sm 9xl:text-4xl">
@@ -181,13 +142,13 @@ export default function Payment() {
 
                       <div className="qrCode flex flex-col justify-center items-center">
 
-                        <img src={insta} alt="" className="w-full"  />
+                        <img src={insta} alt="" className="w-full" />
                       </div>
 
                     </div>
 
-                    <div className="warning">
-                      <p className="font-semibold 9xl:text-3xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
+                    <div className="warning 9xl:mt-48">
+                      <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
                     </div>
 
                     <div className="flex w-full">
@@ -198,8 +159,9 @@ export default function Payment() {
                       </div>
 
                       <div className="removeOrder w-1/2">
-                        <Link className="nav-link" to="/">
+                        <Link className="nav-link" to="#">
                           <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
+                            <ToastContainer />
                             Захиалга цуцлах
                           </button>
                         </Link>

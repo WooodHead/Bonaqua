@@ -4,14 +4,18 @@ import sagsicon from '../images/icons/busket.svg';
 import history from '../images/svg/home/Group 560.svg';
 import flower from '../images/svg/order 1/tsetseg jijig.svg';
 import { Modal, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../App';
+
 
 export default function Header() {
-
+  // const {item} = useContext(AppContext);
+  const [render, setRender] = useState(false);
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
 
   let sum = sessionStorage.getItem("sum");
+  var item = sessionStorage.getItem("item");
 
   const orderHistory = (e) => {
     e.preventDefault()
@@ -27,7 +31,7 @@ export default function Header() {
     <div className=''>
       <div className='header flex'>
         <div className='logo w-1/2 flex items-end ml-6'>
-          <a className='nav-link' href='/'>
+          <a className='nav-link' href='/' onClick={() => sessionStorage.clear()}>
             <img src={logo} alt="" className='' />
           </a>
         </div>
@@ -35,7 +39,8 @@ export default function Header() {
           <div className='ProductAndOrder flex justify-center'>
 
             <div className='busket flex relative'>
-              <img src={sagsicon} alt="" />
+              <div className='popup'><p className='absolute'>{item}</p></div>
+              <img src={sagsicon} alt="" data-items-count="6" />
               <div className='dun'>
                 <a className="nav-link" href='/order' id='submit'>
                   <p className='busket' id='resultH'>{sum}₮</p>
@@ -48,7 +53,8 @@ export default function Header() {
             <div className='busket flex relative'>
               <img src={history} alt="" />
               <div className='dun cursor-pointer'>
-                <p className='busket'>1234-5678</p>
+                <p className='busket'>
+                </p>
                 <a href="#" onClick={handleShow}>
                   <p className='yourBusket'>Захиалгын түүх</p>
                 </a>
@@ -61,7 +67,7 @@ export default function Header() {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className="d-flex w-100 flex justify-center items-center" >
-            <img src={flower} alt="" className='mx-3'/>
+            <img src={flower} alt="" className='mx-3' />
             <h2 className="my-2">Захиалгын түүх</h2>
           </Modal.Title>
         </Modal.Header>

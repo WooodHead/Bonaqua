@@ -14,7 +14,7 @@ import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 
 export default function Content() {
-  var {array, setTotal} = useContext(AppContext);
+  var { array, setTotal, setItem } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
 
@@ -32,21 +32,23 @@ export default function Content() {
   }, [render])
 
   // Link
-  const buttonElements = Array.from(document.querySelectorAll('.button'));
-  buttonElements.forEach(buttonElement => {
-    buttonElement.addEventListener('click', () => {
-      const activeElements = Array.from(document.querySelectorAll('.li-active'));
-      activeElements.forEach(activeElement => {
-        activeElement.classList.remove('li-active');
-      });
-      buttonElement.parentElement.classList.add('li-active');
-      const circle = document.getElementById("capaInCircle");
-      const capacity = document.getElementById("liCapacity").value;
-      circle.innerHTML = capacity;
-    });
-  });
 
-  window.onload = () => {
+    const buttonElements = Array.from(document.querySelectorAll('.button'));
+    buttonElements.forEach(buttonElement => {
+      buttonElement.addEventListener('click', () => {
+        const activeElements = Array.from(document.querySelectorAll('.li-active'));
+        activeElements.forEach(activeElement => {
+          activeElement.classList.remove('li-active');
+          const circle = document.getElementById("capaInCircle");
+          const capacity = document.getElementById("liCapacity").innerText;
+          circle.innerHTML = capacity;
+        });
+        buttonElement.parentElement.classList.add('li-active');
+       
+      });
+    });
+ 
+  window.reload = () => {
     const p = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
     const size = document.getElementById('mlselect').value.split(',')[0];
@@ -71,7 +73,7 @@ export default function Content() {
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
   }
-  
+
   // Захиалга сагсанд орох
   function Busket() {
     const size = document.getElementById('mlselect').value.split(',')[0];
@@ -79,37 +81,51 @@ export default function Content() {
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
     const bagts = parseInt(document.getElementById('avdar').value);
-    
-    var index = array.findIndex(x => x.size == size); 
 
-    index === -1 ? array.push({
-          size: size,
-          sprice: prices,
-          price: prices * incase * bagts, 
-          tincase: incase * bagts,
-          incase: incase, 
-          avdar: bagts
-    }) 
-    : array.forEach(e=> {
-        if(e.size == size) {
+    var index = array.findIndex(x => x.size == size);
+    if (prices != 0 && prices != '0') {
+      index === -1 ? array.push({
+        size: size,
+        sprice: prices,
+        price: prices * incase * bagts,
+        tincase: incase * bagts,
+        incase: incase,
+        avdar: bagts
+      })
+        : array.forEach(e => {
+          if (e.size == size) {
             e.price += (prices * incase) * bagts;
             e.tincase += (incase * bagts);
             e.avdar += bagts;
-        }
-    })
-    
+          }
+        })
+
+        var c = 1;
+        array.forEach(x => {
+          if (x.size != size) {
+            c += 1;
+          }
+        });
+        sessionStorage.setItem("item", c);
+        setItem(c);
+    }
+    else {
+      alert("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх ёстой!")
+    }
+
     sessionStorage.setItem("array", JSON.stringify(array));
 
     var sum = 0;
     array.forEach(x => {
       sum += x.price;
     });
-      sessionStorage.setItem("sum", sum);
-      setTotal(sum)
-      setRender(!render)
-    }
-  
-  const number = Array(10).fill(0).map((e,i) => i+1 );
+    sessionStorage.setItem("sum", sum);
+    setTotal(sum)
+
+    setRender(!render)
+  }
+
+  const number = Array(10).fill(0).map((e, i) => i + 1);
 
   // document.getElementById("avdar").select2({
   //   placeholder: 'Select an option'
@@ -122,8 +138,8 @@ export default function Content() {
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
-      <div className='flex flex-col md:flex-row'>
-        <div className='choosing w-full md:w-1/2 flex items-center relative'>
+      <div className='flex flex-col lg:flex-row'>
+        <div className='choosing w-full lg:w-1/2 flex items-center relative'>
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
@@ -134,7 +150,7 @@ export default function Content() {
                     </a>
                     <ul>
                       <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
-                      <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
+                      <li id='liCapacity' onChange="">{res.Capacity}</li>
                     </ul>
                   </li>
                 )}
@@ -158,7 +174,7 @@ export default function Content() {
           </div>
         </div>
 
-        <div className='info w-full md:w-1/2 pl-4 flex flex-col'>
+        <div className='info w-full lg:w-1/2 pl-4 flex flex-col'>
           <div className='water'>
             <img src={water} alt="" />
           </div>
@@ -189,12 +205,12 @@ export default function Content() {
                   )}
                    </datalist> */}
 
-                
+
 
                   <div className='selectTotal flex justify-center items-center text-center'>
-                        <p className='total text-red-700 pt-4' id='result'></p>
+                    <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>{}</p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-9xl mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>
