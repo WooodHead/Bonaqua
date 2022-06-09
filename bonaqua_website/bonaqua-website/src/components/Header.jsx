@@ -13,8 +13,8 @@ export default function Header() {
   const [render, setRender] = useState(false);
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
-
-  let sum = sessionStorage.getItem("sum");
+  
+  var sum = sessionStorage.getItem("sum");
   var item = sessionStorage.getItem("item");
 
   const orderHistory = (e) => {
@@ -43,7 +43,9 @@ export default function Header() {
               <img src={sagsicon} alt="" data-items-count="6" />
               <div className='dun'>
                 <a className="nav-link" href='/order' id='submit'>
-                  <p className='busket' id='resultH'>{sum}₮</p>
+                  <p className='busket' id='resultH'>
+                    {sum == null ? '' : `${sum}₮` }
+                  </p>
                   <p className='yourBusket'>Таны сагсанд</p>
                 </a>
               </div>

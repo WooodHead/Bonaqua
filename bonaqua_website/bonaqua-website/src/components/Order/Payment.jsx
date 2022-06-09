@@ -1,21 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
 import insta from "../../images/svg/home/Instagram.svg";
-import fb from "../../images/svg/home/Facebook.svg";
-import twitter from "../../images/svg/home/Twitter.svg";
-import table from '../../images/svg/order 2/Group 569.svg';
-import line from '../../images/svg/order 3/Line 4.svg';
 import dans from '../../images/svg/order 3/Header-1.svg';
 import instruction from '../../images/svg/order 3/Header-2.svg';
 import khan from '../../images/khan.png';
-import bonaqua from '../../images/maxresdefault.jpg';
-import bonaqua1 from '../../images/b.jpg';
-import bonaqua2 from '../../images/b1.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
+import Social from "../Social";
 
 export default function Payment() {
 
@@ -173,17 +167,10 @@ export default function Payment() {
 
               </form>
             </div>
-
-
           </div>
 
         </div>
-
-        <div className="social flex flex-col justify-center items-center">
-          <img src={insta} alt="" className="sc" />
-          <img src={fb} alt="" className="sc" />
-          <img src={twitter} alt="" className="sc" />
-        </div>
+        <Social />
       </div>
     </div>
   );

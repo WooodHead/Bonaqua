@@ -4,13 +4,11 @@ import orderinfo from "../../images/svg/order 2/Header.svg";
 import user from "../../images/svg/order 2/Header-2.svg";
 import location from "../../images/svg/order 2/Header-1.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
-import insta from "../../images/svg/home/Instagram.svg";
-import fb from "../../images/svg/home/Facebook.svg";
-import twitter from "../../images/svg/home/Twitter.svg";
 import { AppContext } from "../../App";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
+import Social from "../Social";
 
 export default function OrderInfo() {
   const [render, setRender] = useState(false);
@@ -227,7 +225,7 @@ export default function OrderInfo() {
 
                       <div className="choosePayment w-1/2">
                         <Link className="nav-link" to="#">
-                          <button className="choosePaymentButton" onClick={getUserData} type="submit">
+                          <button className="choosePaymentButton hover:font-semibold" onClick={getUserData} type="submit">
                             <ToastContainer />
                             Баталгаажуулах
                           </button>
@@ -243,12 +241,7 @@ export default function OrderInfo() {
           </div>
 
         </div>
-
-        <div className="social flex flex-col justify-center items-center">
-          <img src={insta} alt="" className="sc" />
-          <img src={fb} alt="" className="sc" />
-          <img src={twitter} alt="" className="sc" />
-        </div>
+        <Social />
       </div>
     </div>
   );

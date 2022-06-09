@@ -14,6 +14,7 @@ export const AppContext = createContext();
 
 function App() {
   const [value, setValues] = useState("");
+  const [capacity, setCapacity] = useState("");
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(0);
   const [array, setArray] = useState([]);
@@ -21,7 +22,7 @@ function App() {
   const [render, setRender] = useState(false);
 
   return (
-    <AppContext.Provider value={{ value, setValues, total, setTotal, array, setArray, item, setItem, userarray, setUserArray }}>
+    <AppContext.Provider value={{ value, setValues, total, setTotal, array, setArray, item, setItem, userarray, setUserArray, setCapacity, capacity }}>
       <div className="contain">
         <Header />
         <div className='routes'>

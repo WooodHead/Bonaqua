@@ -1,11 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import sags from "../../images/svg/order 1/sagsnii medelel.svg";
-import insta from "../../images/svg/home/Instagram.svg";
-import fb from "../../images/svg/home/Facebook.svg";
-import twitter from "../../images/svg/home/Twitter.svg";
 import add from '../../images/svg/order 1/nemelt zahialga.svg';
 import bona from '../../images/bona0.5.png';
+import flower from '../../images/svg/order 1/tsetseg jijig.svg';
 import addButton from '../../images/svg/order 1/+.svg';
 import removeButton from '../../images/svg/order 1/-.svg';
 import deleteButton from '../../images/svg/order 1/x.svg';
@@ -14,6 +12,7 @@ import { Modal, Button } from 'react-bootstrap';
 import SlideImage from "../SlideImage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Social from "../Social";
 
 export default function Order() {
   const [data, setData] = useState([]);
@@ -21,7 +20,7 @@ export default function Order() {
 
   const [render, setRender] = useState(false);
 
-  const { setTotal } = useContext(AppContext);
+  const { setTotal, value } = useContext(AppContext);
 
   // Баазаас мэдээлэл авах
   useEffect(() => {
@@ -67,6 +66,9 @@ export default function Order() {
     sessionStorage.setItem('total', totals);
     result.innerHTML = `${totals}₮`;
   }
+  if (orderArray == null) {
+    orderArray = [];
+  }
 
   // Захиалга нэмэх
   function Busket() {
@@ -76,9 +78,9 @@ export default function Order() {
 
     const bagts = parseInt(document.getElementById('avdar').value);
 
-    var index = orderArray.findIndex(x => x.size == size);
+    var index = orderArray.findIndex(x => x.size == size );
 
-    if (prices != 0 && prices != '0') {
+    if (prices != 0 || prices != '' ) {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,
@@ -94,7 +96,7 @@ export default function Order() {
             e.avdar += bagts;
           }
         })
-        var c = 1;
+    var c = 1;
     orderArray.forEach(x => {
       if (x.size != size) {
         c += 1;
@@ -162,7 +164,11 @@ export default function Order() {
             </div>
             {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
-              {orderArray.map(data =>
+              {orderArray == '' ? <div className="w-full flex justify-center my-10">
+                  <img src={flower} alt="" className='mx-3 -mt-4' />
+                  <p className="text-lg text-gray-500 font-medium">Таны сагс хоосон байна!</p>
+              </div> 
+              : orderArray.map(data =>
                 <div className="zahialsanHeseg my-1 9xl:my-40">
 
                   <div className="order1 flex">
@@ -201,7 +207,6 @@ export default function Order() {
                             data.avdar += 1;
                             data.tincase += parseInt(data.incase);
                             data.price += parseInt(data.incase) * parseInt(data.sprice);
-                            console.log(data.price);
                             sessionStorage.setItem("array", JSON.stringify(orderArray));
                             var sum = 0;
                             orderArray.forEach(x => {
@@ -220,7 +225,8 @@ export default function Order() {
                     </div>
                   </div>
                 </div>
-              )}
+              ) }
+              
             </div>
 
             <div className="flex zahialahHusnegt">
@@ -229,9 +235,9 @@ export default function Order() {
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Хэмжээ</p>
                   <div className="flex justify-center items-center">
                     <div className="min-w-0 flex mx-2">
-                      {orderArray.map(data =>
+                      {orderArray != null ? orderArray.map(data =>
                         <p className='total text-xl font-semibold'>{data.size}</p>
-                      )}
+                      ) : ''}
                     </div>
                   </div>
                 </div>
@@ -269,7 +275,7 @@ export default function Order() {
                     )}
                   </select>
                   <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700 9xl:mt-5' id="result"></p>
+                    <p className='total pt-3 text-red-700 9xl:mt-5' id="result">{value}</p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
@@ -296,11 +302,7 @@ export default function Order() {
           </div>
         </div>
 
-        <div className="social flex flex-col justify-center items-center">
-          <img src={insta} alt="" className="sc" />
-          <img src={fb} alt="" className="sc" />
-          <img src={twitter} alt="" className="sc" />
-        </div>
+       <Social />
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>

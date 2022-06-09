@@ -4,17 +4,17 @@ import Instruction from './ProductInformation/Instruction';
 import Nutrition from './ProductInformation/Nutrition';
 import Product from './ProductInformation/Product';
 import water from '../images/svg/home/water 2.svg';
-import insta from '../images/svg/home/Instagram.svg';
-import fb from '../images/svg/home/Facebook.svg';
-import twitter from '../images/svg/home/Twitter.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
 import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua from '../images/bona0.5.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Social from './Social';
 
 export default function Content() {
-  var { array, setTotal, setItem } = useContext(AppContext);
+  var { array, setTotal, total, setItem, setValues, setCapacity, capacity} = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
 
@@ -32,42 +32,37 @@ export default function Content() {
   }, [render])
 
   // Link
-
     const buttonElements = Array.from(document.querySelectorAll('.button'));
     buttonElements.forEach(buttonElement => {
       buttonElement.addEventListener('click', () => {
         const activeElements = Array.from(document.querySelectorAll('.li-active'));
         activeElements.forEach(activeElement => {
           activeElement.classList.remove('li-active');
-          const circle = document.getElementById("capaInCircle");
-          const capacity = document.getElementById("liCapacity").innerText;
-          circle.innerHTML = capacity;
         });
         buttonElement.parentElement.classList.add('li-active');
-       
       });
     });
- 
-  window.reload = () => {
-    const p = document.getElementById('mlselect').value.split(',')[1];
-    const incase = document.getElementById('mlselect').value.split(',')[2];
-    const size = document.getElementById('mlselect').value.split(',')[0];
-    const n = document.getElementById('avdar').value;
-    const result = document.getElementById('result');
-    const title = document.getElementById('title');
+  
+  var fprice = [];
+  var fsize = [];
+  var ftotal;
+  const fincase = [];
 
-    result.innerHTML = `${p * incase * n}₮`;
-    title.innerHTML = `Bonaqua ${size} - ${p}₮`;
-  }
+  data.forEach(x => { 
+    fprice.push(x.BPrice)
+    fincase.push(x.InCase)
+    fsize.push(x.Capacity)
+  })
+  ftotal = fprice[0] * fincase[0];
+  setValues(ftotal)
 
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const price = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
     const number = document.getElementById('avdar').value;
-    const result = document.getElementById('result');
     const title = document.getElementById('title');
-
+    setTotal(incase)
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
@@ -81,9 +76,10 @@ export default function Content() {
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
     const bagts = parseInt(document.getElementById('avdar').value);
-
+    
     var index = array.findIndex(x => x.size == size);
-    if (prices != 0 && prices != '0') {
+
+    if (prices != 0 || prices != '') {
       index === -1 ? array.push({
         size: size,
         sprice: prices,
@@ -110,7 +106,7 @@ export default function Content() {
         setItem(c);
     }
     else {
-      alert("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх ёстой!")
+      toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
     }
 
     sessionStorage.setItem("array", JSON.stringify(array));
@@ -150,7 +146,8 @@ export default function Content() {
                     </a>
                     <ul>
                       <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
-                      <li id='liCapacity' onChange="">{res.Capacity}</li>
+                      <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
+                      
                     </ul>
                   </li>
                 )}
@@ -182,7 +179,9 @@ export default function Content() {
           <div className='waterfor pl-3 flex flex-col justify-around'>
 
             <div className='sagslah'>
-              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'></p>
+              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'>
+              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
+              </p>
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
@@ -194,7 +193,7 @@ export default function Content() {
 
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>
                     {number.map(res =>
-                      <option value={res} id='number'>{res} авдар</option>
+                      <option value={res} id='number'>{res} x {total}ш</option>
                     )}
                   </select>
 
@@ -205,10 +204,10 @@ export default function Content() {
                   )}
                    </datalist> */}
 
-
-
                   <div className='selectTotal flex justify-center items-center text-center'>
-                    <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>{}</p>
+                    <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
+                      {ftotal}₮
+                    </p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
@@ -216,6 +215,7 @@ export default function Content() {
                     </div>
                     <div className='tablename2'>
                       <p className=''>Багц</p>
+
                     </div>
                     <div className='tablename3'>
                       <p className=''>Нийт үнэ</p>
@@ -223,6 +223,7 @@ export default function Content() {
                   </div>
 
                   <Link className="nav-link" to="#" id='submit' onClick={Busket}>
+                    <ToastContainer />
                     <button className="sagslahButton text-xl 9xl:text-5xl">
                       Сагслах
                     </button>
@@ -262,11 +263,7 @@ export default function Content() {
           </div>
 
         </div>
-        <div className='social flex flex-col justify-center items-center'>
-          <img src={insta} alt="" className='sc' />
-          <img src={fb} alt="" className='sc' />
-          <img src={twitter} alt="" className='sc' />
-        </div>
+       <Social />
       </div>
     </div>
   )
