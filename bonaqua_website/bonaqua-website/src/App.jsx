@@ -14,7 +14,8 @@ export const AppContext = createContext();
 
 function App() {
   const [value, setValues] = useState("");
-  const [capacity, setCapacity] = useState("");
+  const [circle, setCircle] = useState("");
+  const [random, setRandom] = useState("");
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(0);
   const [array, setArray] = useState([]);
@@ -22,7 +23,10 @@ function App() {
   const [render, setRender] = useState(false);
 
   return (
-    <AppContext.Provider value={{ value, setValues, total, setTotal, array, setArray, item, setItem, userarray, setUserArray, setCapacity, capacity }}>
+    <AppContext.Provider value={{ value, setValues, total, setTotal, 
+    array, setArray, item, setItem, userarray, 
+    setUserArray, setCircle, circle,
+    setRandom, random }}>
       <div className="contain">
         <Header />
         <div className='routes'>

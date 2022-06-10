@@ -62,11 +62,14 @@ export default function Content() {
     const incase = document.getElementById('mlselect').value.split(',')[2];
     const number = document.getElementById('avdar').value;
     const title = document.getElementById('title');
+    const caseinunit = document.getElementById('caseinunit');
+
     setTotal(incase)
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
+    caseinunit.innerHTML = `1 авдар доторх ширхэгийн хэмжээ - ${incase}ш`
   }
 
   // Захиалга сагсанд орох
@@ -147,7 +150,9 @@ export default function Content() {
                     <ul>
                       <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
                       <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
-                      
+                      <li className='circleInLink text-xl'>
+                        <p> {res.Capacity} </p>
+                      </li>
                     </ul>
                   </li>
                 )}
@@ -164,7 +169,7 @@ export default function Content() {
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'> </p>
+                  <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'></p>
                 </div>
               </div>
             </div>
@@ -179,9 +184,9 @@ export default function Content() {
           <div className='waterfor pl-3 flex flex-col justify-around'>
 
             <div className='sagslah'>
-              <p className='font-semibold text-3xl mb-10 9xl:text-6xl 9xl:mb-20' id='title'>
-              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
-              </p>
+              <p className='font-semibold text-3xl 9xl:text-6xl' id='title'>
+              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}</p>
+              <p id='caseinunit' className='text-base text-gray-500 font-medium mb-3 9xl:mb-10'>1 авдар доторх ширхэгийн хэмжээ - {fincase[0]}ш</p>
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
@@ -193,7 +198,7 @@ export default function Content() {
 
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>
                     {number.map(res =>
-                      <option value={res} id='number'>{res} x {total}ш</option>
+                      <option value={res} id='number'>{res} Авдар</option>
                     )}
                   </select>
 

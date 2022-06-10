@@ -18,17 +18,18 @@ export default function Payment() {
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
-  const userarrays = sessionStorage.getItem("userArray");
+
+  const userarrays = sessionStorage.getItem("userarray");
   const userArray = JSON.parse(userarrays);
+
   console.log(userArray)
 
   function CancelOrder() {
-
     toast("Захиалга цуцлагдлаа!")
     setTimeout(() => {
       sessionStorage.clear();
       window.location.pathname = '/';
-    }, 2000)
+    }, 1000)
 
     setRender(!render)
   }

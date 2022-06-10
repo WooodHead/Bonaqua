@@ -5,6 +5,7 @@ import user from "../../images/svg/order 2/Header-2.svg";
 import location from "../../images/svg/order 2/Header-1.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
 import { AppContext } from "../../App";
+import { Modal, Button } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
@@ -12,8 +13,8 @@ import Social from "../Social";
 
 export default function OrderInfo() {
   const [render, setRender] = useState(false);
-  const { userarray } = useContext(AppContext)
-  const randomON = 12;
+  const { userarray, setRandom, random } = useContext(AppContext)
+  var randomON;
 
   function getUserData() {
     const name = document.getElementById("name").value;
@@ -26,12 +27,66 @@ export default function OrderInfo() {
     const doornumber = document.getElementById("doornumber").value;
     const addinginfo = document.getElementById("addinginfo").value;
 
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-      toast("Бүх талбарыг бөглөнө үү!");
-      window.location.pathname = current.location
-    }
+    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+    //   toast("Бүх талбарыг бөглөнө үү!");
+    //   window.location.pathname
+    // }
+    // else {
+      function fetchDeparture(city) {
+        return new Promise((resolve, reject) => {
+          window.setTimeout(() => {
+            resolve(city);
+            setShow(true)
+          }, 500);
+        });
+      }
 
-    var index = userarray.findIndex(x => x.number == number);
+      async function fetchSentence() {
+        var chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        serialLength = 8,
+        randomSerial = "",
+        randomNumber;
+    
+        for (let i = 0; i < serialLength; i = i + 1) {
+            randomNumber = Math.floor(Math.random() * chars.length);
+            randomSerial += chars.substring(randomNumber, randomNumber + 1);
+        }
+  
+        try {
+          document.getElementById('ordernumber').innerHTML = "Захиалгын дугаар үүсгэгдэж байна...";
+          let departure = await fetchDeparture(randomSerial);
+          return `${departure}`
+        } catch (error) {
+          return 'Захиалгын дугаар үүсэх боломжгүй!'
+        }
+      }
+
+      (async () => {
+        const sentence = await fetchSentence();
+        document.getElementById('ordernumber').innerHTML = sentence;
+        setRandom(sentence);
+      })();
+      
+    // }
+  }
+
+  const arrays = sessionStorage.getItem("array");
+  const orderArray = JSON.parse(arrays);
+  const sum = sessionStorage.getItem("sum");
+
+  const [show, setShow] = useState(false);
+
+  function Continue() {
+    const name = document.getElementById("name").value;
+    const number = document.getElementById("number").value;
+    const district = document.getElementById("district").value;
+    const committee = document.getElementById("committee").value;
+    const apartment = document.getElementById("apartment").value;
+    const entrance = document.getElementById("entrance").value;
+    const entrancecode = document.getElementById("entrancecode").value;
+    const doornumber = document.getElementById("doornumber").value;
+    const addinginfo = document.getElementById("addinginfo").value;
+
     userarray.push({
       name: name,
       number: number,
@@ -43,47 +98,12 @@ export default function OrderInfo() {
       doornumber: doornumber,
       addinginfo: addinginfo
     })
-    // : userarray.forEach(e=> {
-    //     if(e.number == number) {
-    //       console.log("same number")
-    //         // e.name = name,
-    //         // e.number = number
-    //         // e.district = district,
-    //         // e.committee = committee,
-    //         // e.apartment = apartment,
-    //         // e.entrance = entrance,
-    //         // e.entrancecode = entrancecode,
-    //         // e.doornumber = doornumber,
-    //         // e.addinginfo = addinginfo
-    //     }
-    // })
-
-    sessionStorage.setItem("userArray", JSON.stringify(userarray));
-    window.location.pathname = '/payment';
+    console.log(userarray)
+    sessionStorage.setItem("userarray", JSON.stringify(userarray));
+    // setShow(false);
+    window.location.pathname = '/payment'
   }
   console.log(userarray)
-
-  const arrays = sessionStorage.getItem("array");
-  const orderArray = JSON.parse(arrays);
-  const sum = sessionStorage.getItem("sum");
-
-  // const getUserInfo = (e) => {
-  //   e.preventDefault();
-
-  //   fetch('http://localhost:8080/api/bonaqua', {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       name: e.target[0].value
-  //     })
-  //   })
-  //   .then((res) => {
-  //     res.json()
-  //   })
-  //   .then((data) => setUserInfo(data))
-  // }
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -155,7 +175,8 @@ export default function OrderInfo() {
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
-                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={randomON} />
+                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} />
+                    {/* <p id="ordernumber" className="randomOrderNumber border w-60 h-10 pt-2"></p> */}
                   </div>
                 </form>
               </div>
@@ -237,12 +258,31 @@ export default function OrderInfo() {
                 </div>
               </div>
             </div>
-
           </div>
 
         </div>
         <Social />
       </div>
+      <Modal show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title className="d-flex w-100 flex justify-center items-center" >
+
+            <h2 className="my-2">Захиалгын дугаар</h2>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className="was-validated d-flex flex-column" id="" onSubmit="">
+            <div className="row p-4">
+              <p className='text-gray-500'>Таны захиалгын дугаар: <span className="ordernumber font-semibold text-2xl"> {random} </span>.
+               Та захиалгын дугаараа гүйлгээний утга дээрээ бичих тул тэмдэглэж авна уу! <span> Төлбөр төлөгдсөний дараа захиалга баталгаажина.</span> <br/>
+              <span className="text-black font-semibold">Захиалгын дугаараар захиалга идэвхжихийг анхаарна уу!</span></p>
+            </div>
+            <Button type="submit" className="w-50 mx-auto continueButton" onClick={Continue}>
+               Үргэлжлүүлэх
+            </Button>
+          </form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
