@@ -6,6 +6,7 @@ import flower from '../images/svg/order 1/tsetseg jijig.svg';
 import { Modal, Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import { AppContext } from '../App';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default function Header() {
@@ -23,9 +24,32 @@ export default function Header() {
 
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const userarrays = sessionStorage.getItem("userarray");
+  const userArray = JSON.parse(userarrays);
 
+  const handleClose = () => {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+
+    // if (name == '' || phone == '') {
+    //   toast("Нэр болон утасны дугаараа оруулна уу!")
+    // }
+    console.log(userArray)
+    // var index = userArray.findIndex(x => x.number ==  phone);
+
+    userArray.forEach(element => {
+      if(element.name == name && element.number == phone) {
+        // window.location.pathname = '/orderHistory';
+        console.log()
+      }
+      else {
+        toast("Утасны дугаар эсвэл нэр таарахгүй байна")
+      }
+    });
+
+    setShow(false)
+  };
+  const handleShow = () => setShow(true);
 
   return (
     <div className=''>
@@ -57,16 +81,16 @@ export default function Header() {
               <div className='dun cursor-pointer'>
                 <p className='busket'>
                 </p>
-                <a href="#" onClick={handleShow}>
+                <button onClick={handleShow}>
                   <p className='yourBusket'>Захиалгын түүх</p>
-                </a>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title className="d-flex w-100 flex justify-center items-center" >
             <img src={flower} alt="" className='mx-3' />
@@ -77,16 +101,17 @@ export default function Header() {
           <form className="was-validated d-flex flex-column" id="" onSubmit={orderHistory}>
             <div className="row p-4">
               <p className='text-gray-400'>Захиалга өгсөн нэр болон утасны дугаараа оруулна уу!</p>
-              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="" placeholder='Нэр' />
-              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="" placeholder='Утасны дугаар' />
+              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="name" placeholder='Нэр' />
+              <input className='py-2 px-3 w-100 input my-1' type="number" name="" id="phone" placeholder='Утасны дугаар' />
             </div>
             <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose}>
+            <ToastContainer />
               Үргэлжлүүлэх
             </Button>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
         </Modal.Footer>

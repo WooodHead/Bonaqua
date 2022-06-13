@@ -27,11 +27,11 @@ export default function OrderInfo() {
     const doornumber = document.getElementById("doornumber").value;
     const addinginfo = document.getElementById("addinginfo").value;
 
-    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-    //   toast("Бүх талбарыг бөглөнө үү!");
-    //   window.location.pathname
-    // }
-    // else {
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+      toast("Бүх талбарыг бөглөнө үү!");
+      window.location.pathname
+    }
+    else {
       function fetchDeparture(city) {
         return new Promise((resolve, reject) => {
           window.setTimeout(() => {
@@ -67,7 +67,7 @@ export default function OrderInfo() {
         setRandom(sentence);
       })();
       
-    // }
+    }
   }
 
   const arrays = sessionStorage.getItem("array");
@@ -96,14 +96,14 @@ export default function OrderInfo() {
       entrance: entrance,
       entrancecode: entrancecode,
       doornumber: doornumber,
-      addinginfo: addinginfo
+      addinginfo: addinginfo,
+      date: new Date().toLocaleString(),
+      order: random,
+      priceTotal: sum
     })
-    console.log(userarray)
+
     sessionStorage.setItem("userarray", JSON.stringify(userarray));
-    // setShow(false);
-    window.location.pathname = '/payment'
   }
-  console.log(userarray)
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -175,7 +175,8 @@ export default function OrderInfo() {
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
-                    <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} />
+                    {random == '' ? <input type="text" id="ordernumber" disabled="disabled" className="cursor-not-allowed" placeholder="Автоматаар үүснэ" /> 
+                    : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} /> } 
                     {/* <p id="ordernumber" className="randomOrderNumber border w-60 h-10 pt-2"></p> */}
                   </div>
                 </form>
@@ -235,7 +236,7 @@ export default function OrderInfo() {
 
                     <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" id="addinginfo" />
+                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" />
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -277,7 +278,7 @@ export default function OrderInfo() {
                Та захиалгын дугаараа гүйлгээний утга дээрээ бичих тул тэмдэглэж авна уу! <span> Төлбөр төлөгдсөний дараа захиалга баталгаажина.</span> <br/>
               <span className="text-black font-semibold">Захиалгын дугаараар захиалга идэвхжихийг анхаарна уу!</span></p>
             </div>
-            <Button type="submit" className="w-50 mx-auto continueButton" onClick={Continue}>
+            <Button type="submit" className="w-50 mx-auto continueButton" onClick={Continue} href="/payment">
                Үргэлжлүүлэх
             </Button>
           </form>

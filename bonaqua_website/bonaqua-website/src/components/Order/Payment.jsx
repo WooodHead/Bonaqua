@@ -30,7 +30,6 @@ export default function Payment() {
       sessionStorage.clear();
       window.location.pathname = '/';
     }, 1000)
-
     setRender(!render)
   }
 
@@ -155,10 +154,12 @@ export default function Payment() {
 
                       <div className="removeOrder w-1/2">
                         <Link className="nav-link" to="#">
-                          <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
+                          <button className="removeOrderButton relative text-white 9xl:text-5xl" onClick={CancelOrder}>
                             <ToastContainer />
                             Захиалга цуцлах
+                            <span className="tooltiptext">Төлбөр төлөгдсөн тохиолдолд захиалга цуцлах боломжгүйг анхаарна уу!</span>
                           </button>
+                          
                         </Link>
                       </div>
                     </div>

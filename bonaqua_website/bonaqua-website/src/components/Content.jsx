@@ -124,6 +124,12 @@ export default function Content() {
     setRender(!render)
   }
 
+  // document.getElementsByClassName('.sagslahButton').on('click', function(e) {
+  //   var elements = {
+  //     flyer: 
+  //   }
+  // })
+
   const number = Array(10).fill(0).map((e, i) => i + 1);
 
   // document.getElementById("avdar").select2({
