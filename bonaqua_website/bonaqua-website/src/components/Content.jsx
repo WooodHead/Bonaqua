@@ -113,7 +113,7 @@ export default function Content() {
     }
 
     sessionStorage.setItem("array", JSON.stringify(array));
-
+    // Нийт дүн
     var sum = 0;
     array.forEach(x => {
       sum += x.price;
@@ -122,24 +122,13 @@ export default function Content() {
     setTotal(sum)
 
     setRender(!render)
+
   }
 
-  // document.getElementsByClassName('.sagslahButton').on('click', function(e) {
-  //   var elements = {
-  //     flyer: 
-  //   }
-  // })
+  // fly to busket
+
 
   const number = Array(10).fill(0).map((e, i) => i + 1);
-
-  // document.getElementById("avdar").select2({
-  //   placeholder: 'Select an option'
-  // });
-
-  // $("#avdar").select2({
-  //   placeholder: "Select",
-  //   allowClear: true
-  // });
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -155,8 +144,8 @@ export default function Content() {
                     </a>
                     <ul>
                       <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
-                      <li id='liCapacity' value={res.Capacity}>{res.Capacity}</li>
-                      <li className='circleInLink text-xl'>
+                      <li id='liCapacity' value={res.Capacity} className="9xl:text-6xl">{res.Capacity}</li>
+                      <li className='circleInLink text-xl 9xl:text-5xl text-center'>
                         <p> {res.Capacity} </p>
                       </li>
                     </ul>
@@ -175,7 +164,7 @@ export default function Content() {
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'></p>
+                  {/* <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'></p> */}
                 </div>
               </div>
             </div>
@@ -192,7 +181,7 @@ export default function Content() {
             <div className='sagslah'>
               <p className='font-semibold text-3xl 9xl:text-6xl' id='title'>
               {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}</p>
-              <p id='caseinunit' className='text-base text-gray-500 font-medium mb-3 9xl:mb-10'>1 авдар доторх ширхэгийн хэмжээ - {fincase[0]}ш</p>
+              <p id='caseinunit' className='text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн хэмжээ - {fincase[0]}ш</p>
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
@@ -235,7 +224,7 @@ export default function Content() {
 
                   <Link className="nav-link" to="#" id='submit' onClick={Busket}>
                     <ToastContainer />
-                    <button className="sagslahButton text-xl 9xl:text-5xl">
+                    <button className="sagslahButton text-xl 9xl:text-5xl" id='fly'>
                       Сагслах
                     </button>
                   </Link>
@@ -250,13 +239,22 @@ export default function Content() {
             <Router>
               <div className='ChangeInfo'>
                 <div className='link flex justify-between py-3'>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/">
+                 {/* <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/">
                     Бүтээгдэхүүний тайлбар
                   </NavLink>
                   <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/instruction">
                     Хадгалах заавар
                   </NavLink>
                   <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/nutrition">
+                    Тэжээллэг чанар
+                  </NavLink> */}
+                  <NavLink className="nav-link" to="/" activeClassName='is-active'>
+                    Бүтээгдэхүүний тайлбар
+                  </NavLink> 
+                  <NavLink className="nav-link" to="/instruction" activeClassName='is-active'>
+                    Хадгалах заавар
+                  </NavLink>
+                  <NavLink className="nav-link" to="/nutrition" activeClassName='is-active'>
                     Тэжээллэг чанар
                   </NavLink>
                 </div>

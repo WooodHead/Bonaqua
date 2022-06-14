@@ -39,11 +39,10 @@ export default function Header() {
 
     userArray.forEach(element => {
       if(element.name == name && element.number == phone) {
-        // window.location.pathname = '/orderHistory';
-        console.log()
+        window.location.pathname = '/orderHistory';
       }
       else {
-        toast("Утасны дугаар эсвэл нэр таарахгүй байна")
+        toast("Захиалгын түүх олдсонгүй!")
       }
     });
 
@@ -79,11 +78,20 @@ export default function Header() {
             <div className='busket flex relative'>
               <img src={history} alt="" />
               <div className='dun cursor-pointer'>
-                <p className='busket'>
+                <p className='busket'> 
+                {
+                userArray != null ? userArray[0].number : ''
+                }
                 </p>
-                <button onClick={handleShow}>
+                {
+                userArray != null ? <a href="/orderHistory">
+                  <p className='yourBusket'>Захиалгын түүх</p>
+                </a> 
+                : <button onClick={handleShow}>
                   <p className='yourBusket'>Захиалгын түүх</p>
                 </button>
+                }
+                
               </div>
             </div>
           </div>

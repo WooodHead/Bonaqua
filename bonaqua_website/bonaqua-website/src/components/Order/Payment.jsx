@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
-import insta from "../../images/svg/home/Instagram.svg";
+import qr from "../../images/svg/qr.png";
 import dans from '../../images/svg/order 3/Header-1.svg';
 import instruction from '../../images/svg/order 3/Header-2.svg';
 import khan from '../../images/khan.png';
@@ -52,28 +52,28 @@ export default function Payment() {
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
-                  <div className='order1selectTotal flex justify-center items-center'>
+                  <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
                     <div className="min-w-0 flex mx-2">
                       {orderArray.map(data =>
                         <p className='total text-xl font-semibold'>{data.size}</p>
                       )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1 flex items-center justify-center'>
+                  <div className='order1selectTotal1 flex items-center justify-center overflow-scroll'>
                     <div className="min-w-0 flex mx-2">
                       {orderArray.map(data =>
                         <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.avdar}</p>
                       )}
                     </div>
                   </div>
-                  <div className='order1selectTotal2'>
+                  <div className='order1selectTotal2 overflow-scroll'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
                     <div className='flex'>
                       <p className=''>Хэмжээ</p>
                     </div>
-                    <div className='flex'>
+                    <div className='flex ml-10 9xl:ml-20'>
                       <p className=''>Багц</p>
                     </div>
                     <div className='flex'>
@@ -112,7 +112,7 @@ export default function Payment() {
                       <img src={instruction} alt="" className="userImg" />
                       <img src={sags} alt="" className="flowerImg" />
                     </div>
-                    <div className="9xl:mb-2 flex w-full justify-around">
+                    <div className="flex w-full justify-around">
                       <p className="text-lg 9xl:text-4xl text-gray-900">Дансаар шилжүүлэх</p>
                       <p className="text-lg 9xl:text-4xl text-gray-900">QR код уншуулах</p>
                     </div>
@@ -120,8 +120,8 @@ export default function Payment() {
 
                       <div className="paymentInstruction flex flex-col justify-center w-1/2">
 
-                        <div className="dansMedeelel flex">
-                          <div className="mr-5 9xl:text-2xl">
+                        <div className="dansMedeelel flex justify-center">
+                          <div className="9xl:text-2xl">
                             <p>Хүлээн авагч</p>
                             <p>Хаан банк</p>
                             <p>Гүйлгээний утга</p>
@@ -134,15 +134,14 @@ export default function Payment() {
                         </div>
                       </div>
 
-                      <div className="qrCode flex flex-col justify-center items-center">
-
-                        <img src={insta} alt="" className="w-full" />
+                      <div className="flex flex-col justify-center items-center w-1/2 ">
+                        <img src={qr} alt="" className="w-1/2" />
                       </div>
 
                     </div>
 
                     <div className="warning 9xl:mt-48">
-                      <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын R247468743 дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
+                      <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
                     </div>
 
                     <div className="flex w-full">
@@ -154,12 +153,12 @@ export default function Payment() {
 
                       <div className="removeOrder w-1/2">
                         <Link className="nav-link" to="#">
-                          <button className="removeOrderButton relative text-white 9xl:text-5xl" onClick={CancelOrder}>
-                            <ToastContainer />
+                        <ToastContainer />
+                          <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
                             Захиалга цуцлах
-                            <span className="tooltiptext">Төлбөр төлөгдсөн тохиолдолд захиалга цуцлах боломжгүйг анхаарна уу!</span>
+                            
                           </button>
-                          
+                          <span className="tooltiptext">Төлбөр төлөгдсөн тохиолдолд захиалга цуцлах боломжгүйг анхаарна уу!</span>
                         </Link>
                       </div>
                     </div>

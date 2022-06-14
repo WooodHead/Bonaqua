@@ -9,6 +9,7 @@ import Payment from './components/Order/Payment';
 import OrderHistory from './components/Order/OrderHistory';
 import Content from './components/Content';
 import Home from './components/Home';
+import AllOrder from './components/orderHistory/AllOrder';
 
 export const AppContext = createContext();
 
