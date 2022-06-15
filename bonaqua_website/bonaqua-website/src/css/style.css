@@ -331,7 +331,7 @@ a {
         font-weight: 400;
       }
       p.yourBusket:hover {
-        font-weight: 600;
+        font-weight: 400;
         color: var(--blue-color);
       }
     
@@ -347,6 +347,7 @@ a {
       }
       .choosing {
         margin-right: 3rem;
+        
       }
     
       .productInfo {
@@ -447,7 +448,7 @@ a {
  
       /* OrderInfo */
       .slideContent {
-        height: 70vh;
+        /* height: 70vh; */
         width: 100%;
       }
       .locate a {
@@ -747,6 +748,14 @@ a {
       border-radius: 0.5rem;
       background-color: #f9fafe;
       box-shadow: 1px 1px 8px var(--blue-color);
+    }
+    .orderHistoryInfo > * {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .orderHistoryImg img {
       width: 30%;

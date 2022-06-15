@@ -108,8 +108,7 @@ export default function Header() {
         <Modal.Body>
           <form className="was-validated d-flex flex-column" id="" onSubmit={orderHistory}>
             <div className="row p-4">
-              <p className='text-gray-400'>Захиалга өгсөн нэр болон утасны дугаараа оруулна уу!</p>
-              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="name" placeholder='Нэр' />
+              <p className='text-gray-400'>Захиалга өгсөн утасны дугаараа оруулна уу!</p>
               <input className='py-2 px-3 w-100 input my-1' type="number" name="" id="phone" placeholder='Утасны дугаар' />
             </div>
             <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose}>

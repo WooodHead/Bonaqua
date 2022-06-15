@@ -79,7 +79,7 @@ export default function Content() {
     const incase = document.getElementById('mlselect').value.split(',')[2];
 
     const bagts = parseInt(document.getElementById('avdar').value);
-    
+
     var index = array.findIndex(x => x.size == size);
 
     if (prices != 0 || prices != '') {
@@ -122,13 +122,10 @@ export default function Content() {
     setTotal(sum)
 
     setRender(!render)
-
   }
 
-  // fly to busket
-
-
-  const number = Array(10).fill(0).map((e, i) => i + 1);
+  // const number = Array(10).fill(0).map((e, i) => i+1);
+  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'own choice'];
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -191,18 +188,19 @@ export default function Content() {
                     )}
                   </select>
 
+                  <input id="input1" hidden="hidden" placeholder="input data" />
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>
-                    {number.map(res =>
+                    {number.map(res => 
                       <option value={res} id='number'>{res} Авдар</option>
                     )}
                   </select>
-
-                  {/* <input type="number" name="example" list="exampleList" id='avdar' className='select' onChange={setValue}/>
-                   <datalist id='exampleList'>
-                  {number.map(res => 
-                  <option value={res} id="number" placeholder='Хэмжээ'>{res}</option>
-                  )}
-                   </datalist> */}
+                
+                  {/* <input type="number" name="city" list="cityname" id="avdar" className='select' onChange={setValue}/>
+                      <datalist id='cityname'>
+                      {number.map(res =>
+                          <option value={res} id='number'> Авдар</option>
+                      )}
+                      </datalist> */}
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>

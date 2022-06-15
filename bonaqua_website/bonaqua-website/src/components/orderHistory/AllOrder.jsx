@@ -13,10 +13,10 @@ export default function AllOrder() {
     </div>
     {
       userArray.map(data => 
-      <div className="orderHistoryInfo p-1 flex justify-between w-full mx-8 my-2 items-center 9xl:text-3xl">
+      <div className="orderHistoryInfo p-1 flex justify-between w-full mx-2 9xl:mx-8 my-2 items-center 9xl:text-3xl">
             <div className="date leading-3">
               <p className="text-gray-500 9xl:text-3xl">Огноо</p>
-              <p className="font-semibold 9xl:text-3xl">{data.date}</p>
+              <p className="font-semibold 9xl:text-3xl leading-5">{data.date}</p>
               {/* <p className="font-semibold">15:34</p> */}
             </div>
             <div className="state">
@@ -24,7 +24,7 @@ export default function AllOrder() {
               <p className="font-semibold">Баталгаажсан</p>
             </div>
             <div className="orderNumber">
-              <p className="text-gray-500">Захиалгын дугаар</p>
+              <p className="text-gray-500 leading-3">Захиалгын дугаар</p>
               <p className="font-semibold">{data.order}</p>
             </div>
             <div className="amount">

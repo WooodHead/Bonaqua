@@ -105,6 +105,8 @@ export default function OrderInfo() {
     sessionStorage.setItem("userarray", JSON.stringify(userarray));
   }
 
+  var regex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
+  
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex flex-col lg:flex-row">
