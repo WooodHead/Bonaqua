@@ -42,7 +42,7 @@ export default function Payment() {
 
         <div className="order2Content w-full lg:w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
-            <h1 className="mb-3 9xl:text-7xl">Төлбөр төлөх</h1>
+            <h1 className="9xl:text-7xl">Төлбөр төлөх</h1>
 
             {/* Захиалгын мэдээлэл*/}
             <div className="order2Info">
@@ -69,7 +69,7 @@ export default function Payment() {
                   <div className='order1selectTotal2 overflow-scroll'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
-                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
+                  <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
                     <div className='flex'>
                       <p className=''>Хэмжээ</p>
                     </div>
@@ -121,7 +121,7 @@ export default function Payment() {
                       <div className="paymentInstruction flex flex-col justify-center w-1/2">
 
                         <div className="dansMedeelel flex justify-center">
-                          <div className="9xl:text-2xl">
+                          <div className="">
                             <p>Хүлээн авагч</p>
                             <p>Хаан банк</p>
                             <p>Гүйлгээний утга</p>
@@ -140,7 +140,7 @@ export default function Payment() {
 
                     </div>
 
-                    <div className="warning 9xl:mt-48">
+                    <div className="warning 9xl:my-10">
                       <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
                     </div>
 

@@ -18,24 +18,21 @@ html {
 .header {
   height: 16vh;
 }
-
-.popup::before {
-  content: attr(data-items-count);
+.popup {
+  content: "";
   width: 12%;
-  height: 30%;
+  padding: 0.6rem;
   position: absolute;
   background-color: var(--blue-color);
   border-radius: 50%;
   top: 50%;
   color: white;
-  display: block;
 }
 .popup p {
-  position: absolute;
   color: white;
-  left: 4%;
-  top: 48%;
-  transition: all 200ms ease-out;
+  left: 30%;
+  top: 0;
+  transition: all 300ms ease-out;
 }
 .cart-animation-helper {
   margin: 0 20%;
@@ -221,19 +218,23 @@ a {
       margin-left: 8%;
       overflow: hidden;
       width: 100%;
-      height: auto;
+      /* border: 2px solid black; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     .slideshowSlider {
       white-space: nowrap;
       transition: ease 2000ms;
+      height: 80%;
     }
     
     .slide {
       display: inline-block;
-      height: 45vh;
-      margin-top: 2rem;
       width: 100%;
+      height: 100%;
     }
     
     /* Image Slider */
@@ -261,6 +262,7 @@ a {
       margin-top: 5%;
       overflow: hidden;
       width: 90%;
+      height: 100%;
     }
       /*Remove order comment */
     .tooltiptext {
@@ -270,7 +272,7 @@ a {
       padding: 1rem;
       border-radius: 1rem;
       left: 70%;
-      top: 80%;
+      top: 70%;
       right: 10%;
       z-index: 1;
       opacity: 0;
@@ -347,7 +349,6 @@ a {
       }
       .choosing {
         margin-right: 3rem;
-        
       }
     
       .productInfo {
@@ -730,10 +731,6 @@ a {
       outline:none;
       height: auto;
     }
-
-    .instructionPayment {
-        margin: 2rem 0 !important;
-    }
     .sort {
       color: #8a8888;
     }
@@ -792,16 +789,17 @@ a {
     @media (max-width: 1023px) {
       .ProductAndOrder {
         width: auto;
-        height: 90%;
-      }
-      .header {
-        margin-bottom: 10%;
+        height: 60%;
       }
       p.yourBusket {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       p.busket {
         font-size: 1.5rem;
+      }
+      .bona {
+        width: 50%;
+        margin-top: 10%;
       }
       .orderName p {
         line-height: 12px;
@@ -812,6 +810,9 @@ a {
       }
       .sc {
         margin: 0 2rem;
+      }
+      .order2tablenames > * {
+        width: 35%;
       }
     }
 
@@ -829,9 +830,9 @@ a {
         font-size: 1rem;
         font-weight: 400;
       }
-     p.total {
-       font-size: 1.1rem;
-     }
+      p.total {
+        font-size: 1.1rem;
+      }
      .logo img {
        height: 6rem;
      }
@@ -877,7 +878,6 @@ a {
         max-width: 0 !important;
         margin-top: 20rem !important;
       }
-      
       .dansMedeelel p {
         font-size: 0.8rem;
         line-height: 1rem;
@@ -891,19 +891,16 @@ a {
     .water {
       width: 80%;
     }
-
-    .slide {
-      height: 55vh !important;
-    }
-    .popup p {
-      left: 3%;
-      top: 45%;
-    }
     .circleInLink {
       top: 108%;
       left: 162%;
     }
-
+    .tooltiptext {
+      top: 55%;
+    }
+    .orderInfo .slideshow {
+      height: 70%;
+    }
     }
 
     @media (min-width: 1441px) and (max-width: 2048px) {
@@ -911,7 +908,8 @@ a {
         width: 60%;
       } 
       p.busket {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        height: 1.5rem;
       }
       p.yourBusket {
         font-size: 1.1rem;
@@ -920,9 +918,7 @@ a {
       }
       p.total {
         font-size: 1.2rem;
-        
       }
-     
       .order1tablenames {
         width: 24rem !important;
         margin-left: 0.5rem;
@@ -931,10 +927,15 @@ a {
         width: 50%;
         margin-left: 0.5rem;
       }
-      
+      .tooltiptext {
+        top: 60%;
+      }
     }
 
-    @media (min-width: 2049px) {
+    @media (min-width: 2049px) and (max-width: 3119px) {
+      .header {
+        height: 18vh;
+      }
       .logo img {
         height: 10rem;
       }
@@ -985,6 +986,9 @@ a {
       .chooseList li img {
         width: 1rem !important;
         margin: 1rem 0;
+      }
+      .tooltiptext {
+        top: 80%;
       }
     }
 
@@ -1102,7 +1106,7 @@ a {
         line-height: 40px;
       }
       .dansMedeelel p {
-        font-size: 3rem;
+        font-size: 2.5rem;
         line-height: 3rem;
       }
       .ProductC {
@@ -1120,9 +1124,11 @@ a {
         margin-top: 2%;
         margin-bottom: 5%;
       }
+      .popup {
+        padding: 1.5rem;
+      }
       .popup p {
-        left: 4%;
-        top: 50%;
+        top: 0.5rem;
         font-size: 2rem;
       }
       #caseinunit {
@@ -1142,5 +1148,8 @@ a {
       .sort select {
         font-size: 2rem;
         padding: 0 !important;
+      }
+      .tooltiptext {
+        top: 72%;
       }
     }

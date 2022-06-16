@@ -143,7 +143,7 @@ export default function OrderInfo() {
                   <div className='order1selectTotal2'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
-                  <div className='order2tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl'>
+                  <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
                     <div className='flex p'>
                       <p className=''>Хэмжээ</p>
                     </div>

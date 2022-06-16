@@ -244,7 +244,8 @@ export default function Order() {
 
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-3xl'>Нийт үнэ</p>
-                  <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>
+                  {sum == 0 || sum == null ? <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
+                  : <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>}
                 </div>
 
                 <Link className="nav-link cursor-pointer" to="#" id='submit' >

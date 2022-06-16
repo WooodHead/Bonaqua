@@ -127,20 +127,29 @@ export default function Content() {
   // const number = Array(10).fill(0).map((e, i) => i+1);
   const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'own choice'];
 
+  const images = [
+                    [{ "size": "1.5l", "img": bonaqua }],
+                    [{ "size": "4.5l", "img": bonaqua }],
+                    [{ "size": "800ml", "img": bonaqua }],
+                    [{ "size": "500ml", "img": bonaqua }]
+                 ]
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col lg:flex-row'>
-        <div className='choosing w-full lg:w-1/2 flex items-center relative'>
+        <div className='choosing w-full lg:w-1/2 flex items-center justify-center relative'>
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
-                {data.map(res =>
+                {data.map((res) =>
                   <li className='bonaquaType'>
                     <a href="#" class="button">
                       <img src={list} alt="" id="lists" />
                     </a>
                     <ul>
-                      <li>{/* <img src={bonaqua} alt="" className='type' /> */}</li>
+                      <li> 
+                        {/* <img src={bonaqua} alt="" /> */}
+                      </li>
                       <li id='liCapacity' value={res.Capacity} className="9xl:text-6xl">{res.Capacity}</li>
                       <li className='circleInLink text-xl 9xl:text-5xl text-center'>
                         <p> {res.Capacity} </p>
@@ -207,7 +216,7 @@ export default function Content() {
                       {ftotal}₮
                     </p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>

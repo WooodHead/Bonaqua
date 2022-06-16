@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import bonaqua from '../images/maxresdefault.jpg';
-// import bonaqua1 from '../images/b.jpg';
-import bonaqua2 from '../images/b1.jpg';
 
 export default function SlideImage() {
 

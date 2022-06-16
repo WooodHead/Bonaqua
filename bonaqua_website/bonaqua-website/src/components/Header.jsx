@@ -62,7 +62,7 @@ export default function Header() {
           <div className='ProductAndOrder flex justify-center'>
 
             <div className='busket flex relative'>
-              <div className='popup'><p className='absolute'>{item}</p></div>
+              <div className='popup'><p className='absolute text-sm'>{item}</p></div>
               <img src={sagsicon} alt="" data-items-count="6" />
               <div className='dun'>
                 <a className="nav-link" href='/order' id='submit'>
