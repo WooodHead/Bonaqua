@@ -80,7 +80,7 @@ export default function Order() {
 
     var index = orderArray.findIndex(x => x.size == size );
 
-    if (prices != 0 || prices != '' ) {
+    if (prices != 0 || prices != '') {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,

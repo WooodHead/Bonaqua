@@ -64,6 +64,7 @@ export default function Content() {
     const title = document.getElementById('title');
     const caseinunit = document.getElementById('caseinunit');
 
+    
     setTotal(incase)
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
@@ -81,8 +82,10 @@ export default function Content() {
     const bagts = parseInt(document.getElementById('avdar').value);
 
     var index = array.findIndex(x => x.size == size);
+    const totalPrice = prices * incase * bagts;
+    console.log(bagts)
 
-    if (prices != 0 || prices != '') {
+    if (totalPrice > 0) {
       index === -1 ? array.push({
         size: size,
         sprice: prices,
@@ -124,15 +127,7 @@ export default function Content() {
     setRender(!render)
   }
 
-  // const number = Array(10).fill(0).map((e, i) => i+1);
-  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'own choice'];
-
-  const images = [
-                    [{ "size": "1.5l", "img": bonaqua }],
-                    [{ "size": "4.5l", "img": bonaqua }],
-                    [{ "size": "800ml", "img": bonaqua }],
-                    [{ "size": "500ml", "img": bonaqua }]
-                 ]
+  const number = Array(10).fill(0).map((e, i) => i+1);
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -186,7 +181,8 @@ export default function Content() {
 
             <div className='sagslah'>
               <p className='font-semibold text-3xl 9xl:text-6xl' id='title'>
-              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}</p>
+              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
+              </p>
               <p id='caseinunit' className='text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн хэмжээ - {fincase[0]}ш</p>
               <div className='flex'>
 
@@ -197,23 +193,23 @@ export default function Content() {
                     )}
                   </select>
 
-                  <input id="input1" hidden="hidden" placeholder="input data" />
+                  {/* <input id="input1" hidden="" placeholder="input data"  className=''/>
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>
                     {number.map(res => 
                       <option value={res} id='number'>{res} Авдар</option>
                     )}
-                  </select>
+                  </select> */}
                 
-                  {/* <input type="number" name="city" list="cityname" id="avdar" className='select' onChange={setValue}/>
-                      <datalist id='cityname'>
+                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо"/>
+                      <datalist id='case'>
                       {number.map(res =>
-                          <option value={res} id='number'> Авдар</option>
+                          <option value={res} id='number'></option>
                       )}
-                      </datalist> */}
+                      </datalist>
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
-                      {ftotal}₮
+                      0₮
                     </p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>

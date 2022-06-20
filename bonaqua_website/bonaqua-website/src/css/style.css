@@ -349,6 +349,7 @@ a {
       }
       .choosing {
         margin-right: 3rem;
+        /* height: 70vh; */
       }
     
       .productInfo {
@@ -382,8 +383,11 @@ a {
         background-repeat: no-repeat;
         background-position: calc(100% - 6px) center;
       }
+      
       .locate form .select {
         height: auto;
+        appearance: none;
+        -moz-appearance: none;
       }
       select:focus-visible {
         background-repeat: no-repeat;
@@ -605,6 +609,9 @@ a {
       color: var(--blue-color);
       font-weight: 700;
     }
+    .select::placeholder {
+      font-size: 1rem;
+    }
     /* Байршлын мэдээлэл */
     .groupL{
       position:relative;
@@ -767,6 +774,7 @@ a {
     }
     .ProductC {
       margin-left: 2rem;
+      height: 10vh;
     }
     .footer2flower {
       width: 75%;
@@ -898,8 +906,8 @@ a {
     .tooltiptext {
       top: 55%;
     }
-    .orderInfo .slideshow {
-      height: 70%;
+    .slide {
+      margin-top: 10%;
     }
     }
 
@@ -1152,4 +1160,8 @@ a {
       .tooltiptext {
         top: 72%;
       }
+    }
+
+    input::-webkit-calendar-picker-indicator {
+      opacity: 0;
     }

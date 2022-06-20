@@ -110,7 +110,7 @@ export default function OrderInfo() {
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 flex items-center relative choosing orderInfo">
+        <div className="w-full lg:w-1/2 flex items-center justify-center relative choosing orderInfo">
           <SlideImage />
         </div>
 
