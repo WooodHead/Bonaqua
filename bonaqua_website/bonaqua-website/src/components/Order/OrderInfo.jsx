@@ -86,7 +86,6 @@ export default function OrderInfo() {
     //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
     // } 
     // }
-
   }
 
   const arrays = sessionStorage.getItem("array");
