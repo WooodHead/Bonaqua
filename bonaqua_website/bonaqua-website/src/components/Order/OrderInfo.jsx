@@ -15,7 +15,7 @@ export default function OrderInfo() {
   const [render, setRender] = useState(false);
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState("");
   const [district, setDistrict] = useState("");
   const [committee, setCommittee] = useState("");
   const [apartment, setApartment] = useState("");
@@ -25,30 +25,32 @@ export default function OrderInfo() {
   const [add, setAdd] = useState("");
   const { userarray, setRandom, random, orderid, setOrderid } = useContext(AppContext)
 
-  function getUserData() {
+  async function getUserData() {
 
     // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
     //   toast("Бүх талбарыг бөглөнө үү!");
     //   window.location.pathname
     // }
     // else {
-      var phoneno = /^[7-9]\d{7}$/;
-      var regName = /^[a-zA-Z ]{2,30}$/;
-      var today = new Date();
-      // if( number.match(phoneno) && name.match(regName) ) {
+    var phoneno = /^[7-9]\d{7}$/;
+    var regName = /^[a-zA-Z ]{2,30}$/;
+    var today = new Date();
+    // if( number.match(phoneno) && name.match(regName) ) {
 
-     fetch('http://localhost:8080/api/bonaqua/addOrder', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          date: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
-          description: [name, district, committee, apartment, entrance, code, doornumber, add].join(","),
-          phone: number
-        })
+    await fetch('http://localhost:8080/api/bonaqua/addOrder', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+        description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
+                         bair/gudamj: ${apartment}, orts: ${entrance}, ortsnii kod: ${code},
+                         haalganii dugaar: ${doornumber}, nemelt: ${add}`].join(","),
+        phone: number
       })
-      .then((res)=> {
+    })
+      .then((res) => {
         const data = res.json();
         data.then(ordernumber => {
           const orderNumber = ordernumber[0].OrderNumber;
@@ -57,31 +59,34 @@ export default function OrderInfo() {
           setOrderid(orderId);
           setShow(true)
         });
-        console.log(orderid);
       })
 
-      fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          orderid: orderid,
-          productid: 1,
-          quantity: 1,
-          price: 1,
-          pricedisc: 10
+    fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        orderid: orderid,
+        productid: 1,
+        quantity: 1,
+        price: 1,
+        pricedisc: 10
+      })
+    })
+      .then((res) => {
+        const data = res.json();
+        data.then(data => {
+          const value = data[0][""];
+          console.log(value)
         })
       })
-      .then((res)=> {
-        const data = res.json();
-      })
-
-      // }
-      // else {
-      //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-      // } 
     // }
+    // else {
+    //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+    // } 
+    // }
+
   }
 
   const arrays = sessionStorage.getItem("array");
@@ -89,11 +94,10 @@ export default function OrderInfo() {
   const sum = sessionStorage.getItem("sum");
 
   const Continue = (e) => {
-
-     window.location.pathname = '/payment';
+    window.location.pathname = '/payment';
   }
-  console.log(orderArray)
-  const horoo = Array(32).fill(0).map((e, i) => i+1);
+
+  const horoo = Array(32).fill(0).map((e, i) => i + 1);
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -157,7 +161,7 @@ export default function OrderInfo() {
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
                     <label>Нэр</label>
-                    <input type="text" id="name" onChange={(e) => setName(e.target.value)}/>
+                    <input type="text" id="name" onChange={(e) => setName(e.target.value)} />
                   </div>
                   <div class="group mr-1">
                     <label>Утасны дугаар</label>
@@ -165,8 +169,8 @@ export default function OrderInfo() {
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
-                    {random == '' ? <input type="text" id="ordernumber" disabled="disabled" className="cursor-not-allowed" placeholder="Автоматаар үүснэ" /> 
-                    : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} /> } 
+                    {random == '' ? <input type="text" id="ordernumber" disabled="disabled" className="cursor-not-allowed" placeholder="Автоматаар үүснэ" />
+                      : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} />}
                     {/* <p id="ordernumber" className="randomOrderNumber border w-60 h-10 pt-2"></p> */}
                   </div>
                 </form>
@@ -203,9 +207,9 @@ export default function OrderInfo() {
                         <select name="" id="committee" className='select w-full 9xl:text-4xl' onChange={(e) => setCommittee(e.target.value)}>
                           {
                             horoo.map(horoo => <>
-                            <option value=""></option>
+                              <option value=""></option>
                               <option value={horoo}>{horoo}-р хороо</option>
-                              </>
+                            </>
                             )
                           }
                         </select>
@@ -215,27 +219,27 @@ export default function OrderInfo() {
                     <div className="flex house">
                       <div class="groupL mr-3 w-1/2">
                         <label>Байр/Гудамж</label>
-                        <input type="text" className="w-full" id="apartment" onChange={(e) => setApartment(e.target.value)}/>
+                        <input type="text" className="w-full" id="apartment" onChange={(e) => setApartment(e.target.value)} />
                       </div>
                       <div class="groupL w-1/2">
                         <label>Орц</label>
-                        <input type="text" className="w-full" id="entrance" onChange={(e) => setEntrance(e.target.value)}/>
+                        <input type="text" className="w-full" id="entrance" onChange={(e) => setEntrance(e.target.value)} />
                       </div>
                     </div>
                     <div className="flex door">
                       <div class="groupL mr-3 w-1/2">
                         <label>Орцны код</label>
-                        <input type="text" className="w-full" id="entrancecode" onChange={(e) => setCode(e.target.value)}/>
+                        <input type="text" className="w-full" id="entrancecode" onChange={(e) => setCode(e.target.value)} />
                       </div>
                       <div class="groupL w-1/2">
                         <label>Хаалганы дугаар /тоот/</label>
-                        <input type="text" className="w-full" id="doornumber" onChange={(e) => setDoorNumber(e.target.value)}/>
+                        <input type="text" className="w-full" id="doornumber" onChange={(e) => setDoorNumber(e.target.value)} />
                       </div>
                     </div>
 
                     <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" onChange={(e) => setAdd(e.target.value)}/>
+                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" onChange={(e) => setAdd(e.target.value)} />
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -246,7 +250,7 @@ export default function OrderInfo() {
 
                       <div className="choosePayment w-1/2">
                         <Link className="nav-link" to="#">
-                        <ToastContainer />
+                          <ToastContainer />
                           <button className="choosePaymentButton hover:font-semibold" onClick={getUserData} type="submit">
                             Баталгаажуулах
                           </button>
@@ -273,11 +277,11 @@ export default function OrderInfo() {
           <form className="was-validated d-flex flex-column" id="" onSubmit="">
             <div className="row p-4">
               <p className='text-gray-500'>Таны захиалгын дугаар: <span className="ordernumber font-semibold text-2xl"> {random} </span>.
-               Та захиалгын дугаараа гүйлгээний утга дээрээ бичих тул тэмдэглэж авна уу! <span> Төлбөр төлөгдсөний дараа захиалга баталгаажина.</span> <br/>
-              <span className="text-black font-semibold">Захиалгын дугаараар захиалга идэвхжихийг анхаарна уу!</span></p>
+                Та захиалгын дугаараа гүйлгээний утга дээрээ бичих тул тэмдэглэж авна уу! <span> Төлбөр төлөгдсөний дараа захиалга баталгаажина.</span> <br />
+                <span className="text-black font-semibold">Захиалгын дугаараар захиалга идэвхжихийг анхаарна уу!</span></p>
             </div>
             <Button type="submit" className="w-50 mx-auto continueButton" onClick={Continue} href="/payment">
-               Үргэлжлүүлэх
+              Үргэлжлүүлэх
             </Button>
           </form>
         </Modal.Body>
