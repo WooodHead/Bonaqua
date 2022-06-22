@@ -13,100 +13,88 @@ import Social from "../Social";
 
 export default function OrderInfo() {
   const [render, setRender] = useState(false);
-  const { userarray, setRandom, random } = useContext(AppContext)
-  var randomON;
+  const [show, setShow] = useState(false);
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState(0);
+  const [district, setDistrict] = useState("");
+  const [committee, setCommittee] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [entrance, setEntrance] = useState("");
+  const [code, setCode] = useState("");
+  const [doornumber, setDoorNumber] = useState("");
+  const [add, setAdd] = useState("");
+  const { userarray, setRandom, random, orderid, setOrderid } = useContext(AppContext)
 
   function getUserData() {
-    const name = document.getElementById("name").value;
-    const number = document.getElementById("number").value;
-    const district = document.getElementById("district").value;
-    const committee = document.getElementById("committee").value;
-    const apartment = document.getElementById("apartment").value;
-    const entrance = document.getElementById("entrance").value;
-    const entrancecode = document.getElementById("entrancecode").value;
-    const doornumber = document.getElementById("doornumber").value;
-    const addinginfo = document.getElementById("addinginfo").value;
 
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-      toast("Бүх талбарыг бөглөнө үү!");
-      window.location.pathname
-    }
-    else {
-      function fetchDeparture(city) {
-        return new Promise((resolve, reject) => {
-          window.setTimeout(() => {
-            resolve(city);
-            setShow(true)
-          }, 500);
+    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+    //   toast("Бүх талбарыг бөглөнө үү!");
+    //   window.location.pathname
+    // }
+    // else {
+      var phoneno = /^[7-9]\d{7}$/;
+      var regName = /^[a-zA-Z ]{2,30}$/;
+      var today = new Date();
+      // if( number.match(phoneno) && name.match(regName) ) {
+
+     fetch('http://localhost:8080/api/bonaqua/addOrder', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          date: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
+          description: [name, district, committee, apartment, entrance, code, doornumber, add].join(","),
+          phone: number
+        })
+      })
+      .then((res)=> {
+        const data = res.json();
+        data.then(ordernumber => {
+          const orderNumber = ordernumber[0].OrderNumber;
+          const orderId = ordernumber[0].OrderID;
+          setRandom(orderNumber);
+          setOrderid(orderId);
+          setShow(true)
         });
-      }
+        console.log(orderid);
+      })
 
-      async function fetchSentence() {
-        var chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        serialLength = 8,
-        randomSerial = "",
-        randomNumber;
-    
-        for (let i = 0; i < serialLength; i = i + 1) {
-            randomNumber = Math.floor(Math.random() * chars.length);
-            randomSerial += chars.substring(randomNumber, randomNumber + 1);
-        }
-  
-        try {
-          document.getElementById('ordernumber').innerHTML = "Захиалгын дугаар үүсгэгдэж байна...";
-          let departure = await fetchDeparture(randomSerial);
-          return `${departure}`
-        } catch (error) {
-          return 'Захиалгын дугаар үүсгэх боломжгүй!'
-        }
-      }
+      fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          orderid: orderid,
+          productid: 1,
+          quantity: 1,
+          price: 1,
+          pricedisc: 10
+        })
+      })
+      .then((res)=> {
+        const data = res.json();
+      })
 
-      (async () => {
-        const sentence = await fetchSentence();
-        document.getElementById('ordernumber').innerHTML = sentence;
-        setRandom(sentence);
-      })();
-      
-    }
+      // }
+      // else {
+      //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+      // } 
+    // }
   }
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
 
-  const [show, setShow] = useState(false);
+  const Continue = (e) => {
 
-  function Continue() {
-    const name = document.getElementById("name").value;
-    const number = document.getElementById("number").value;
-    const district = document.getElementById("district").value;
-    const committee = document.getElementById("committee").value;
-    const apartment = document.getElementById("apartment").value;
-    const entrance = document.getElementById("entrance").value;
-    const entrancecode = document.getElementById("entrancecode").value;
-    const doornumber = document.getElementById("doornumber").value;
-    const addinginfo = document.getElementById("addinginfo").value;
-
-    userarray.push({
-      name: name,
-      number: number,
-      district: district,
-      committee: committee,
-      apartment: apartment,
-      entrance: entrance,
-      entrancecode: entrancecode,
-      doornumber: doornumber,
-      addinginfo: addinginfo,
-      date: new Date().toLocaleString(),
-      order: random,
-      priceTotal: sum
-    })
-
-    sessionStorage.setItem("userarray", JSON.stringify(userarray));
+     window.location.pathname = '/payment';
   }
+  console.log(orderArray)
+  const horoo = Array(32).fill(0).map((e, i) => i+1);
 
-  var regex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
-  
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex flex-col lg:flex-row">
@@ -169,11 +157,11 @@ export default function OrderInfo() {
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
                     <label>Нэр</label>
-                    <input type="text" id="name" />
+                    <input type="text" id="name" onChange={(e) => setName(e.target.value)}/>
                   </div>
                   <div class="group mr-1">
                     <label>Утасны дугаар</label>
-                    <input type="number" id="number" />
+                    <input type="number" id="number" onChange={(e) => setNumber(e.target.value)} />
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
@@ -197,48 +185,57 @@ export default function OrderInfo() {
                     <div className="flex district justify-between">
                       <div className="groupS mr-3 w-1/2">
                         <label htmlFor="">Дүүрэг</label>
-                        <select name="" id="district" className='select w-full 9xl:text-4xl'>
+                        <select name="" id="district" className='select w-full 9xl:text-4xl' onChange={(e) => setDistrict(e.target.value)}>
                           <option value="" className='option'></option>
                           <option value="Bayangol">Баянгол</option>
                           <option value="Bayanzurh">Баянзүрх</option>
                           <option value="Han-Uul">Хан-Уул</option>
+                          <option value="Songino-Hairhan">Сонгино-Хайрхан</option>
+                          <option value="Chingeltei">Чингэлтэй</option>
+                          <option value="Suhbaatar">Сүхбаатар</option>
+                          <option value="Nalaih">Налайх</option>
+                          <option value="Baganuur">Багануур</option>
+                          <option value="Bagahangai">Багахангай</option>
                         </select>
                       </div>
                       <div className="groupS w-1/2">
                         <label htmlFor="">Хороо</label>
-                        <select name="" id="committee" className='select w-full 9xl:text-4xl'>
-                          <option value="" className='option'></option>
-                          <option value="1">1-р хороо</option>
-                          <option value="2">2-р хороо</option>
-                          <option value="3">3-р хороо</option>
+                        <select name="" id="committee" className='select w-full 9xl:text-4xl' onChange={(e) => setCommittee(e.target.value)}>
+                          {
+                            horoo.map(horoo => <>
+                            <option value=""></option>
+                              <option value={horoo}>{horoo}-р хороо</option>
+                              </>
+                            )
+                          }
                         </select>
                       </div>
                     </div>
 
                     <div className="flex house">
                       <div class="groupL mr-3 w-1/2">
-                        <label>Байр</label>
-                        <input type="text" className="w-full" id="apartment" />
+                        <label>Байр/Гудамж</label>
+                        <input type="text" className="w-full" id="apartment" onChange={(e) => setApartment(e.target.value)}/>
                       </div>
                       <div class="groupL w-1/2">
                         <label>Орц</label>
-                        <input type="text" className="w-full" id="entrance" />
+                        <input type="text" className="w-full" id="entrance" onChange={(e) => setEntrance(e.target.value)}/>
                       </div>
                     </div>
                     <div className="flex door">
                       <div class="groupL mr-3 w-1/2">
                         <label>Орцны код</label>
-                        <input type="text" className="w-full" id="entrancecode" />
+                        <input type="text" className="w-full" id="entrancecode" onChange={(e) => setCode(e.target.value)}/>
                       </div>
                       <div class="groupL w-1/2">
                         <label>Хаалганы дугаар /тоот/</label>
-                        <input type="text" className="w-full" id="doornumber" />
+                        <input type="text" className="w-full" id="doornumber" onChange={(e) => setDoorNumber(e.target.value)}/>
                       </div>
                     </div>
 
                     <div class="groupLa w-full">
                       <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" />
+                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" onChange={(e) => setAdd(e.target.value)}/>
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -269,7 +266,6 @@ export default function OrderInfo() {
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title className="d-flex w-100 flex justify-center items-center" >
-
             <h2 className="my-2">Захиалгын дугаар</h2>
           </Modal.Title>
         </Modal.Header>

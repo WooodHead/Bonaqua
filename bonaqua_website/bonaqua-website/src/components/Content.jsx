@@ -78,6 +78,7 @@ export default function Content() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
+    const article = document.getElementById('mlselect').value.split(',')[3];
 
     const bagts = parseInt(document.getElementById('avdar').value);
 
@@ -92,7 +93,8 @@ export default function Content() {
         price: prices * incase * bagts,
         tincase: incase * bagts,
         incase: incase,
-        avdar: bagts
+        avdar: bagts,
+        article: article
       })
         : array.forEach(e => {
           if (e.size == size) {
@@ -142,8 +144,8 @@ export default function Content() {
                       <img src={list} alt="" id="lists" />
                     </a>
                     <ul>
-                      <li> 
-                        {/* <img src={bonaqua} alt="" /> */}
+                      <li className=''> 
+                        {/* <img src={bonaqua} alt="" className='CircleImage'/> */}
                       </li>
                       <li id='liCapacity' value={res.Capacity} className="9xl:text-6xl">{res.Capacity}</li>
                       <li className='circleInLink text-xl 9xl:text-5xl text-center'>
@@ -160,7 +162,7 @@ export default function Content() {
             <div className='flower absolute'>
               <img src={bigflower} alt="" className='bigflower' />
             </div>
-            <img src={bonaqua} alt="" className='' />
+              <img src={bonaqua} alt="" className='' />
 
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
@@ -189,7 +191,7 @@ export default function Content() {
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
                     {data.map((res) =>
-                      <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
+                      <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
 

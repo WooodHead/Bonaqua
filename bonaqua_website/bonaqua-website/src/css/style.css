@@ -62,7 +62,6 @@ html {
 a {
   text-decoration: none !important;
 }
-
 .routes {
   height: auto;
   aspect-ratio: 16/6;
@@ -110,7 +109,6 @@ a {
 :root {
   --blue-color: #3dbee3;
 }
-
 .line {
     height: 80%;
     border: 1px solid var(--blue-color);
@@ -130,7 +128,6 @@ a {
  .tablenames {
      width: 100% !important;
  }
-
  .order1tablenames > * {
     width: 50%;
     height: 1rem;
@@ -177,7 +174,6 @@ a {
   .sagslah {
       margin-right: 10%;
   }
-
  .seeTotalInfo {
     width: 100%;
     height: auto;
@@ -195,7 +191,7 @@ a {
 }
 .order1Content {
     margin-right: 5%;
-    /* height: 70vh; */
+    height: 70vh;
 }
         /* Bonaqua Type List */
         .main ul ul {
@@ -242,7 +238,6 @@ a {
     .slideshowDots {
       text-align: center;
     }
-    
     .slideshowDot {
       display: inline-block;
       height: 0.8rem;
@@ -252,7 +247,6 @@ a {
       margin: 1rem 1rem;
       background-color: #e7e7e7;
     }
-    
     .slideshowDot.active {
       background-color: var(--blue-color);
     }
@@ -299,7 +293,7 @@ a {
         padding-top: 1rem;
       }
       .ProductAndOrder {
-        width: 60%;
+        /* width: 60%; */
         height: 50%;
         border: 1px solid var(--blue-color);
         border-radius: 10px;
@@ -418,7 +412,7 @@ a {
      .circleInLink {
        position: absolute;
        left: 155%;
-       top: 128%;
+       top: 130%;
        color: white;
        width: 5rem;
        z-index: 1;
@@ -462,13 +456,13 @@ a {
       .addOrder {
         width: 100% !important;
       }
+
           /* My Busket */
   
       .zahialga {
         width: 100%;
         margin: 1rem 0;
       }
-
       .zahialsanHeseg {
         width: 49%;
         border: 1px solid var(--blue-color);
@@ -535,7 +529,6 @@ a {
       .order1selectTotal p {
         margin-bottom: 0;
       }
-
       .order1selectTotal1 {
         border-top: 1px solid var(--blue-color);
         border-bottom: 1px solid var(--blue-color);
@@ -543,11 +536,9 @@ a {
       .order1selectTotal1 p {
         margin-bottom: 0 !important;
       }
- 
       .seeTotalInfo {
         text-align: center;
       }
-   
       .order2TotalInfo .order1selectTotal {
         border: 1px solid var(--blue-color);
         height: auto;
@@ -591,7 +582,6 @@ a {
       background-color:white;
       color: #807e7e;
     }
-    
     .group>input{
       padding:0.5em;
       border-radius: 0.5em;
@@ -610,7 +600,7 @@ a {
       font-weight: 700;
     }
     .select::placeholder {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     /* Байршлын мэдээлэл */
     .groupL{
@@ -624,7 +614,6 @@ a {
       background-color:white;
       color: #807e7e;
     }
-    
     .groupL>input{
       padding:0.5em;
       border-radius: 0.5em;
@@ -657,7 +646,6 @@ a {
       font-weight: 600;
       text-align: center;
     }
-    
     .back, .choosePayment {
       display: flex;
       align-items: center;
@@ -694,7 +682,6 @@ a {
       background-color:white;
       color: #807e7e;
     }
-    
     .groupS>select{
       padding:0.5em;
       border-radius: 0.5em;
@@ -730,7 +717,6 @@ a {
       background-color:white;
       color: #807e7e;
     }
-    
     .groupPay>select{
       padding:0.5em;
       border-radius: 0.5em;
@@ -774,7 +760,6 @@ a {
     }
     .ProductC {
       margin-left: 2rem;
-      height: 10vh;
     }
     .footer2flower {
       width: 75%;
@@ -795,10 +780,6 @@ a {
     }
  
     @media (max-width: 1023px) {
-      .ProductAndOrder {
-        width: auto;
-        height: 60%;
-      }
       p.yourBusket {
         font-size: 1rem;
       }
@@ -825,9 +806,6 @@ a {
     }
 
     @media (min-width: 1024px) and (max-width: 1440px) {
-      .ProductAndOrder {
-        width: 70%;
-      }
      .busket img {
        padding: 0;
      }
@@ -836,7 +814,6 @@ a {
       }
       p.yourBusket {
         font-size: 1rem;
-        font-weight: 400;
       }
       p.total {
         font-size: 1.1rem;
@@ -890,9 +867,6 @@ a {
         font-size: 0.8rem;
         line-height: 1rem;
       }
-      .ProductC {
-        height: 9rem;
-      }
       .link .nav-link {
         margin-left: 0;
     }
@@ -909,19 +883,17 @@ a {
     .slide {
       margin-top: 10%;
     }
+    .select::placeholder {
+      font-size: 0.6rem;
+    }
     }
 
     @media (min-width: 1441px) and (max-width: 2048px) {
-      .ProductAndOrder {
-        width: 60%;
-      } 
       p.busket {
         font-size: 1.4rem;
-        height: 1.5rem;
       }
       p.yourBusket {
         font-size: 1.1rem;
-        font-weight: 400;
         color: #666363;
       }
       p.total {
@@ -947,15 +919,11 @@ a {
       .logo img {
         height: 10rem;
       }
-      .ProductAndOrder {
-        width: 60%;
-      } 
       p.busket {
         font-size: 2rem;
       }
       p.yourBusket {
         font-size: 1.4rem;
-        font-weight: 400;
         color: #666363;
       }
       p.total {
@@ -990,7 +958,6 @@ a {
         width: 2rem;
         margin: 2rem 0;
       }
-     
       .chooseList li img {
         width: 1rem !important;
         margin: 1rem 0;
@@ -1004,15 +971,11 @@ a {
       .logo img {
         height: 20rem;
       }
-      .ProductAndOrder {
-        width: 60%;
-      } 
       p.busket {
-        font-size: 4rem;
+        font-size: 3rem;
       }
       p.yourBusket {
-        font-size: 3rem;
-        font-weight: 400;
+        font-size: 2rem;
         color: #666363;
       }
       p.total {
@@ -1020,7 +983,7 @@ a {
         line-height: 5rem;
       }
       .select {
-        font-size: 3.5rem;
+        font-size: 1.5rem;
         padding: 2rem !important;
       }
       .productInfo img {
@@ -1065,7 +1028,6 @@ a {
       .order1Button {
         width: 50%;
       }
-      
       .order1tablenames {
         width: 24rem !important;
         margin-left: 0.5rem;
@@ -1093,7 +1055,7 @@ a {
       }
       .groupL>input {
         padding: 1rem;
-        font-size: 4rem;
+        font-size: 3rem;
       }
       .groupLa>input {
         padding: 2rem;
@@ -1118,7 +1080,6 @@ a {
         line-height: 3rem;
       }
       .ProductC {
-        height: 25rem;
         margin-left: 4rem;
       }
       .active {

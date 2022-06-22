@@ -75,19 +75,22 @@ export default function Order() {
     const size = document.getElementById('mlselect').value.split(',')[0];
     const prices = document.getElementById('mlselect').value.split(',')[1];
     const incase = document.getElementById('mlselect').value.split(',')[2];
+    const article = document.getElementById('mlselect').value.split(',')[3];
 
     const bagts = parseInt(document.getElementById('avdar').value);
+    const totalPrice = prices * incase * bagts;
 
     var index = orderArray.findIndex(x => x.size == size );
 
-    if (prices != 0 || prices != '') {
+    if (totalPrice > 0 ) {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,
         price: prices * incase * bagts,
         tincase: incase * bagts,
         incase: incase,
-        avdar: bagts
+        avdar: bagts,
+        article: article
       })
         : orderArray.forEach(e => {
           if (e.size == size) {
@@ -267,7 +270,7 @@ export default function Order() {
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
                     {data.map((res) =>
-                      <option id="incase" value={[res.Capacity, res.BPrice, res.InCase]}>{res.Capacity}</option>
+                      <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
                   <select name="avdar" id="avdar" className='select' onChange={setValue}>

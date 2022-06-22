@@ -19,6 +19,7 @@ function App() {
   const [random, setRandom] = useState("");
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(0);
+  const [orderid, setOrderid] = useState("");
   const [array, setArray] = useState([]);
   const [userarray, setUserArray] = useState([]);
   const [render, setRender] = useState(false);
@@ -26,7 +27,7 @@ function App() {
   return (
     <AppContext.Provider value={{ value, setValues, total, setTotal, 
     array, setArray, item, setItem, userarray, 
-    setUserArray, setCircle, circle,
+    setUserArray, setCircle, circle, orderid, setOrderid,
     setRandom, random }}>
       <div className="contain">
         <Header />
