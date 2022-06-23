@@ -19,11 +19,11 @@ export default function AllOrder() {
               <p className="font-semibold 9xl:text-3xl leading-5">{data.date}</p>
               {/* <p className="font-semibold">15:34</p> */}
             </div>
-            <div className="state">
+            <div className="state mx-3">
               <p className="text-gray-500">Төлөв</p>
               <p className="font-semibold">Баталгаажсан</p>
             </div>
-            <div className="orderNumber">
+            <div className="orderNumber mx-3">
               <p className="text-gray-500 leading-3">Захиалгын дугаар</p>
               <p className="font-semibold">{data.order}</p>
             </div>

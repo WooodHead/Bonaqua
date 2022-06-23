@@ -13,10 +13,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
 
-export default function Content() {
-  var { array, setTotal, total, setItem, setValues, setCapacity, capacity} = useContext(AppContext);
+export default function Content({match}) {
+  var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
+  const [capacity, setCapacity] = useState("");
 
   useEffect(() => {
     var getData = async () => {
@@ -64,7 +65,6 @@ export default function Content() {
     const title = document.getElementById('title');
     const caseinunit = document.getElementById('caseinunit');
 
-    
     setTotal(incase)
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
@@ -131,6 +131,40 @@ export default function Content() {
 
   const number = Array(10).fill(0).map((e, i) => i+1);
 
+  console.log(capacity)
+  const imageArray = [
+    {
+      "img": bigflower,
+      "size": "1.5L"
+    }, 
+    {
+      "img": bonaqua,
+      "size": "4.5L"
+    },
+    {
+      "img": bigflower,
+      "size": "800ml"
+    },
+    {
+      "img": bonaqua,
+      "size": "500ml"
+    },
+    {
+      "img": bigflower,
+      "size": "330ml"
+    },
+    {
+      "img": water,
+      "size": "18.9L"
+    },
+    {
+      "img": water,
+      "size": "11.3L"
+    },
+  ];
+
+  const [image, setImage] = useState(bonaqua);
+  
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col lg:flex-row'>
@@ -139,18 +173,21 @@ export default function Content() {
             <div class="main">
               <ul>
                 {data.map((res) =>
-                  <li className='bonaquaType'>
-                    <a href="#" class="button">
+                  <li className='bonaquaType' onClick={() => { 
+                      setCapacity(res.Capacity) 
+                      imageArray.map(img => {
+                        if (img.size == res.Capacity) {
+                          setImage(img.img)
+                        }
+                      }
+                      )
+                      
+                  }}>
+                    <a href="#" className="button">
                       <img src={list} alt="" id="lists" />
                     </a>
-                    <ul>
-                      <li className=''> 
-                        {/* <img src={bonaqua} alt="" className='CircleImage'/> */}
-                      </li>
+                    <ul >
                       <li id='liCapacity' value={res.Capacity} className="9xl:text-6xl">{res.Capacity}</li>
-                      <li className='circleInLink text-xl 9xl:text-5xl text-center'>
-                        <p> {res.Capacity} </p>
-                      </li>
                     </ul>
                   </li>
                 )}
@@ -162,12 +199,12 @@ export default function Content() {
             <div className='flower absolute'>
               <img src={bigflower} alt="" className='bigflower' />
             </div>
-              <img src={bonaqua} alt="" className='' />
+              <img src={image} alt="" className='bonaquaImageType' />
 
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  {/* <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'></p> */}
+                  <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
                 </div>
               </div>
             </div>
@@ -242,35 +279,24 @@ export default function Content() {
               <img src={productInfo} alt="" className='productImg' />
             </div>
             <Router>
-              <div className='ChangeInfo'>
+              <div className='ChangeInfo '>
                 <div className='link flex justify-between py-3'>
-                 {/* <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/">
-                    Бүтээгдэхүүний тайлбар
-                  </NavLink>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/instruction">
-                    Хадгалах заавар
-                  </NavLink>
-                  <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/nutrition">
-                    Тэжээллэг чанар
-                  </NavLink> */}
-                  <NavLink className="nav-link" to="/" activeClassName='is-active'>
+                  <NavLink className="nav-link" exact to='/' activeClassName='is-active'>
                     Бүтээгдэхүүний тайлбар
                   </NavLink> 
-                  <NavLink className="nav-link" to="/instruction" activeClassName='is-active'>
+                  <NavLink className="nav-link" to='/instruction' activeClassName='is-active'>
                     Хадгалах заавар
                   </NavLink>
-                  <NavLink className="nav-link" to="/nutrition" activeClassName='is-active'>
+                  <NavLink className="nav-link" to='/nutrition' activeClassName='is-active'>
                     Тэжээллэг чанар
                   </NavLink>
                 </div>
                 <div className=''>
-
                   <Switch>
-                    <Route exact path="/" children={<Product />} />
-                    <Route path="/instruction" children={<Instruction />} />
-                    <Route path="/nutrition" children={<Nutrition />} />
+                    <Route exact path='/' component={Product} />
+                    <Route path='/instruction' component={Instruction} />
+                    <Route path='/nutrition' component={Nutrition} />
                   </Switch>
-
                 </div>
               </div>
             </Router>

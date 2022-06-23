@@ -93,6 +93,21 @@ export default function OrderInfo() {
   const sum = sessionStorage.getItem("sum");
 
   const Continue = (e) => {
+    userarray.push({
+      date: new Date(),
+      name: name,
+      number: number,
+      district: district,
+      committee: committee,
+      apartment: apartment,
+      entrance: entrance,
+      code: code,
+      doornumber: doornumber,
+      add: add,
+      order: random,
+      priceTotal: sum,
+    })
+    sessionStorage.setItem("userarray", JSON.stringify(userarray));
     window.location.pathname = '/payment';
   }
 

@@ -199,14 +199,15 @@ a {
         }
         .main li.li-active ul {
           display: block;
-          color: #3dbee3;
+          color: var(--blue-color);
           font-size: 1.5rem;
           font-weight: 500;
+          padding-left: 0;
         }
         .main ul ul li {
           display: block;
         }
-        
+  
         /* Slideshow */
     
     .slideshow {
@@ -261,7 +262,7 @@ a {
       /*Remove order comment */
     .tooltiptext {
       position: absolute;
-      background-color: #3dbee3;
+      background-color: var(--blue-color);
       color: white;
       padding: 1rem;
       border-radius: 1rem;
@@ -281,7 +282,7 @@ a {
       margin-left: -20px;
       border-width: 20px;
       border-style: solid;
-      border-color: #3dbee3 transparent transparent transparent;
+      border-color: var(--blue-color) transparent transparent transparent;
     }
     .removeOrder .nav-link:hover .tooltiptext{
       opacity: 1;
@@ -409,20 +410,14 @@ a {
         width: 38%;
         z-index: 1;
       }
-     .circleInLink {
-       position: absolute;
-       left: 155%;
-       top: 130%;
-       color: white;
-       width: 5rem;
-       z-index: 1;
-       text-align: center;
-     }
       .flower {
         width: 70%;
         left: 40%;
         bottom: 46%;
         height: 80%;
+      }
+      p#capaInCircle {
+        margin-bottom: 0;
       }
       .bigflower {
         width: 100% !important;
@@ -515,7 +510,7 @@ a {
       }
       .order1selectTotal::-webkit-scrollbar-thumb {
         background-color: var(--blue-color);
-        color: #3dbee3;
+        color: var(--blue-color);
         border-radius: 1rem;
       }
       .order1selectTotal:hover::-webkit-scrollbar {
@@ -748,11 +743,11 @@ a {
       align-items: center;
     }
     .orderHistoryImg img {
-      width: 30%;
+      width: 50%;
     }
     .orderHistoryImg {
       width: 20%;
-      border-right: 1px solid #3dbee3;
+      border-right: 1px solid var(--blue-color);
       border-radius: 0.5rem;
     }
     .order1 {
@@ -872,10 +867,6 @@ a {
     }
     .water {
       width: 80%;
-    }
-    .circleInLink {
-      top: 108%;
-      left: 162%;
     }
     .tooltiptext {
       top: 55%;
@@ -1103,10 +1094,6 @@ a {
       #caseinunit {
         margin-top: 2rem !important;
         margin-bottom: 4rem !important;
-      }
-      .circleInLink {
-        top: 113%;
-        left: 150%;
       }
       .bonaquaType {
         margin: 3rem 0;
