@@ -9,7 +9,7 @@ export default function Footer() {
     path == '/' ?
     <div className='footer'>
       <img src={footer} alt="" className='footer1flower' />
-      <img src={footerw} alt="" className='ml-14' />
+      <img src={footerw} alt="" className='md:ml-14' />
     </div>
     :
     <div className='footer1 flex'>

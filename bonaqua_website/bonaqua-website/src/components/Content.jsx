@@ -13,7 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
 
-export default function Content({match}) {
+export default function Content({ match }) {
   var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
@@ -70,7 +70,7 @@ export default function Content({match}) {
     sessionStorage.setItem('total', totals);
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
-    caseinunit.innerHTML = `1 авдар доторх ширхэгийн хэмжээ - ${incase}ш`
+    caseinunit.innerHTML = `1 авдар доторх ширхэгийн тоо - ${incase}ш`
   }
 
   // Захиалга сагсанд орох
@@ -134,7 +134,7 @@ export default function Content({match}) {
   console.log(capacity)
   const imageArray = [
     {
-      "img": bigflower,
+      "img": bonaqua,
       "size": "1.5L"
     }, 
     {
@@ -142,7 +142,7 @@ export default function Content({match}) {
       "size": "4.5L"
     },
     {
-      "img": bigflower,
+      "img": bonaqua,
       "size": "800ml"
     },
     {
@@ -150,15 +150,15 @@ export default function Content({match}) {
       "size": "500ml"
     },
     {
-      "img": bigflower,
+      "img": bonaqua,
       "size": "330ml"
     },
     {
-      "img": water,
+      "img": bonaqua,
       "size": "18.9L"
     },
     {
-      "img": water,
+      "img": bonaqua,
       "size": "11.3L"
     },
   ];
@@ -219,10 +219,10 @@ export default function Content({match}) {
           <div className='waterfor pl-3 flex flex-col justify-around'>
 
             <div className='sagslah'>
-              <p className='font-semibold text-3xl 9xl:text-6xl' id='title'>
+              <p className='font-semibold text-2xl md:text-3xl 9xl:text-6xl' id='title'>
               {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
               </p>
-              <p id='caseinunit' className='text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн хэмжээ - {fincase[0]}ш</p>
+              <p id='caseinunit' className='text-xs md:text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн тоо - {fincase[0]}ш</p>
               <div className='flex'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
@@ -231,13 +231,6 @@ export default function Content({match}) {
                       <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
-
-                  {/* <input id="input1" hidden="" placeholder="input data"  className=''/>
-                  <select name="avdar" id="avdar" className='select' onChange={setValue}>
-                    {number.map(res => 
-                      <option value={res} id='number'>{res} Авдар</option>
-                    )}
-                  </select> */}
                 
                       <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо"/>
                       <datalist id='case'>
@@ -256,7 +249,7 @@ export default function Content({match}) {
                       <p className=''>Хэмжээ</p>
                     </div>
                     <div className='tablename2'>
-                      <p className=''>Багц</p>
+                      <p className=''>Авдар</p>
 
                     </div>
                     <div className='tablename3'>

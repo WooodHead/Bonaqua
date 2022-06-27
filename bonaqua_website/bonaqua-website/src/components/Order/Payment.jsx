@@ -5,7 +5,6 @@ import sags from "../../images/svg/order 2/Group 550.svg";
 import qr from "../../images/svg/qr.png";
 import dans from '../../images/svg/order 3/Header-1.svg';
 import instruction from '../../images/svg/order 3/Header-2.svg';
-import khan from '../../images/khan.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
@@ -97,7 +96,7 @@ export default function Payment() {
                   <label htmlFor="">Банк сонгох</label>
                   <select name="" id="" className='select w-full'>
                     <option value="haan">
-                      <img src={khan} alt="" width={20} />
+                      {/* <img src={} alt="" width={20} /> */}
                       Хаан</option>
                     <option value="tdb">Худалдаа хөгжил</option>
                     <option value="golomt">Голомт</option>

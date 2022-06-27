@@ -82,7 +82,7 @@ export default function Order() {
 
     var index = orderArray.findIndex(x => x.size == size );
 
-    if (totalPrice > 0 ) {
+    // if (totalPrice > 0 ) {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,
@@ -106,10 +106,10 @@ export default function Order() {
       }
     });
     sessionStorage.setItem("item", c);
-    }
-    else {
-      toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
-    }
+    // }
+    // else {
+    //   toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
+    // }
 
     sessionStorage.setItem("array", JSON.stringify(orderArray));
     var sum = 0;

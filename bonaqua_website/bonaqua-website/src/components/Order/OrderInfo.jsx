@@ -27,15 +27,15 @@ export default function OrderInfo() {
 
   async function getUserData() {
 
-    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-    //   toast("Бүх талбарыг бөглөнө үү!");
-    //   window.location.pathname
-    // }
-    // else {
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+      toast("Бүх талбарыг бөглөнө үү!");
+      window.location.pathname
+    }
+    else {
     var phoneno = /^[7-9]\d{7}$/;
     var regName = /^[a-zA-Z ]{2,30}$/;
     var today = new Date();
-    // if( number.match(phoneno) && name.match(regName) ) {
+    if( number.match(phoneno) && name.match(regName) ) {
 
     await fetch('http://localhost:8080/api/bonaqua/addOrder', {
       method: "POST",
@@ -61,31 +61,31 @@ export default function OrderInfo() {
         });
       })
 
-    fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        orderid: orderid,
-        productid: 1,
-        quantity: 1,
-        price: 1,
-        pricedisc: 10
-      })
-    })
-      .then((res) => {
-        const data = res.json();
-        data.then(data => {
-          const value = data[0][""];
-          console.log(value)
-        })
-      })
-    // }
-    // else {
-    //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-    // } 
-    // }
+    // fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     orderid: orderid,
+    //     productid: 1,
+    //     quantity: 1,
+    //     price: 1,
+    //     pricedisc: 10
+    //   })
+    // })
+    //   .then((res) => {
+    //     const data = res.json();
+    //     data.then(data => {
+    //       const value = data[0][""];
+    //       console.log(value)
+    //     })
+    //   })
+    }
+    else {
+        toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+    } 
+    }
   }
 
   const arrays = sessionStorage.getItem("array");

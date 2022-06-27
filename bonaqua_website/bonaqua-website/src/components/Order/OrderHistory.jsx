@@ -21,7 +21,7 @@ export default function OrderHistory() {
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold 9xl:text-4xl' id='capaInCircle'>500 мл</p>
+                  <p className='text-white font-semibold text-sm 9xl:text-4xl' id='capaInCircle'>500 мл</p>
                 </div>
               </div>
             </div>
