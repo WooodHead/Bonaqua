@@ -502,7 +502,7 @@ a {
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
       }
-      .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar  {
+      .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar, #submit::-webkit-scrollbar, .seeTotalInfo > *::-webkit-scrollbar   {
         width: 10%;
         height: 0.3rem;
         display: none;
@@ -518,6 +518,8 @@ a {
       .order1selectTotal:hover::-webkit-scrollbar, .order2TotalInfo .order1selectTotal1:hover::-webkit-scrollbar {
         display: block;
       }
+
+
       .order1selectTotal p.total {
         margin-bottom: 0;
         margin-left: 0.2rem;
