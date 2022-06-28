@@ -154,12 +154,12 @@ export default function Order() {
 
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 flex relative choosing">
+      <div className="flex flex-col xl:flex-row">
+        <div className="w-full xl:w-1/2 flex relative choosing">
           <SlideImage />
         </div>
 
-        <div className="order1Content w-full lg:w-1/2 flex flex-col justify-between">
+        <div className="order1Content w-full xl:w-1/2 flex flex-col justify-between">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-4 9xl:text-8xl">Миний сагс</h1>
             <div className="flex productInfo">

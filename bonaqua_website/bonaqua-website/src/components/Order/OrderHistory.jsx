@@ -11,8 +11,8 @@ import Social from '../Social';
 export default function OrderHistory() {
   return (
     <div className='mx-auto flex flex-col justify-between'>
-      <div className='flex flex-col lg:flex-row'>
-        <div className='choosing w-full lg:w-1/2 flex items-center justify-center relative mt-14'>
+      <div className='flex flex-col xl:flex-row'>
+        <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative mt-14'>
           <div className='bona flex justify-center items-start relative'>
             <div className='flower absolute'>
               <img src={bigflower} alt="" className='bigflower' />
@@ -27,7 +27,7 @@ export default function OrderHistory() {
             </div>
           </div>
         </div>
-        <div className='info w-full lg:w-1/2 mr-14 mt-3'>
+        <div className='info w-full xl:w-1/2 mr-14 mt-3'>
           <h1 className=''>Захиалгын түүх</h1>
           <Router>
             <div className='orderHistoryLink'>

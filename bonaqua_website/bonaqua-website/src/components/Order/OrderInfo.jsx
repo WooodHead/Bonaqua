@@ -115,12 +115,12 @@ export default function OrderInfo() {
 
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 flex items-center justify-center relative choosing orderInfo">
+      <div className="flex flex-col xl:flex-row">
+        <div className="w-full xl:w-1/2 flex items-center justify-center relative choosing orderInfo">
           <SlideImage />
         </div>
 
-        <div className="w-full lg:w-1/2 flex flex-col justify-between mr-10">
+        <div className="w-full xl:w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="mb-3 9xl:text-7xl">Захиалгын мэдээлэл</h1>
 

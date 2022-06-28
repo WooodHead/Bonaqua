@@ -167,8 +167,8 @@ export default function Content({ match }) {
   
   return (
     <div className='mx-auto flex flex-col justify-between'>
-      <div className='flex flex-col lg:flex-row'>
-        <div className='choosing w-full lg:w-1/2 flex items-center justify-center relative'>
+      <div className='flex flex-col xl:flex-row contentInfo'>
+        <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
@@ -211,7 +211,7 @@ export default function Content({ match }) {
           </div>
         </div>
 
-        <div className='info w-full lg:w-1/2 pl-4 flex flex-col'>
+        <div className='info w-full xl:w-1/2 pl-4 flex flex-col'>
           <div className='water'>
             <img src={water} alt="" />
           </div>
@@ -223,7 +223,7 @@ export default function Content({ match }) {
               {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
               </p>
               <p id='caseinunit' className='text-xs md:text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн тоо - {fincase[0]}ш</p>
-              <div className='flex'>
+              <div className='flex inputForm'>
 
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>

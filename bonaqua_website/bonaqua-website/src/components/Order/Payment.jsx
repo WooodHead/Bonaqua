@@ -34,12 +34,12 @@ export default function Payment() {
 
   return (
     <div className="mx-auto flex flex-col justify-between">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 flex items-center relative choosing orderInfo">
+      <div className="flex flex-col xl:flex-row">
+        <div className="w-full xl:w-1/2 flex items-center relative choosing orderInfo">
           <SlideImage />
         </div>
 
-        <div className="order2Content w-full lg:w-1/2 flex flex-col justify-between mr-10">
+        <div className="order2Content w-full xl:w-1/2 flex flex-col justify-between mr-10">
           <div className="orderInfo flex flex-col justify-between">
             <h1 className="9xl:text-7xl">Төлбөр төлөх</h1>
 
