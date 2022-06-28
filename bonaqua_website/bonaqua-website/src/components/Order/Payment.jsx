@@ -150,7 +150,7 @@ export default function Payment() {
                         </a>
                       </div>
 
-                      <div className="removeOrder w-1/2">
+                      <div className="removeOrder w-1/2 relative">
                         <Link className="nav-link" to="#">
                         <ToastContainer />
                           <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
