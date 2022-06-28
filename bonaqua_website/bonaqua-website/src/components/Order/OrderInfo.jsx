@@ -150,8 +150,13 @@ export default function OrderInfo() {
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
-                    <div className='flex'>
+                    <div className='flex sizecomment'>
                       <p className=''>Хэмжээ</p>
+                          {
+                            orderArray.map(data =>
+                              <span className="sizetext">{data.size}</span>
+                            )
+                          }
                     </div>
                     <div className='flex'>
                       <p className=''>Багц</p>
