@@ -27,15 +27,15 @@ export default function OrderInfo() {
 
   async function getUserData() {
 
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-      toast("Бүх талбарыг бөглөнө үү!");
-      window.location.pathname
-    }
-    else {
+    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+    //   toast("Бүх талбарыг бөглөнө үү!");
+    //   window.location.pathname
+    // }
+    // else {
     var phoneno = /^[7-9]\d{7}$/;
     var regName = /^[a-zA-Z ]{2,30}$/;
     var today = new Date();
-    if( number.match(phoneno) && name.match(regName) ) {
+    // if( number.match(phoneno) && name.match(regName) ) {
 
     await fetch('http://localhost:8080/api/bonaqua/addOrder', {
       method: "POST",
@@ -81,11 +81,11 @@ export default function OrderInfo() {
     //       console.log(value)
     //     })
     //   })
-    }
-    else {
-        toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-    } 
-    }
+    // }
+    // else {
+    //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+    // } 
+    // }
   }
 
   const arrays = sessionStorage.getItem("array");
@@ -150,13 +150,13 @@ export default function OrderInfo() {
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
-                    <div className='flex p'>
+                    <div className='flex'>
                       <p className=''>Хэмжээ</p>
                     </div>
-                    <div className='flex p'>
+                    <div className='flex'>
                       <p className=''>Багц</p>
                     </div>
-                    <div className='flex p'>
+                    <div className='flex'>
                       <p className=''>Нийт үнэ</p>
                     </div>
                   </div>

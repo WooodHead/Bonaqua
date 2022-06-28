@@ -129,12 +129,12 @@ a {
  .tablenames {
      width: 100% !important;
  }
+ .order2tablenames {
+  margin-top: 0.2rem;
+  background: none !important;
+ }
  .order1tablenames > * {
     width: 50%;
-    height: 1rem;
-}
-.order2tablenames > * {
-    width: 25%;
 }
  .tablenames > * {
      width: 28%;
@@ -186,10 +186,6 @@ a {
     overflow: scroll;
 }
 
-.order2tablenames > * {
-  background-color: #f9fafe;
-  height: 0;
-}
 .order1Content {
     margin-right: 5%;
     /* height: 70vh; */

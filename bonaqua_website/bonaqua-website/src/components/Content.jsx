@@ -250,7 +250,6 @@ export default function Content({ match }) {
                     </div>
                     <div className='tablename2'>
                       <p className=''>Авдар</p>
-
                     </div>
                     <div className='tablename3'>
                       <p className=''>Нийт үнэ</p>
