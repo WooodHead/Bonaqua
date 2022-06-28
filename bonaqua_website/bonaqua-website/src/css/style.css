@@ -182,7 +182,7 @@ a {
     width: 100%;
     height: auto;
     background-color: #f9fafe;
-    /* overflow: scroll; */
+    overflow: scroll;
 }
 
 .order2tablenames > * {
@@ -503,17 +503,18 @@ a {
       }
       .order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar  {
         width: 10%;
+        height: 0.3rem;
         display: none;
       }
-      .order1selectTotal::-webkit-scrollbar-track{
+      .order1selectTotal::-webkit-scrollbar-track, .order1selectTotal1::-webkit-scrollbar-track{
         background-color: #f9fafe;
       }
-      .order1selectTotal::-webkit-scrollbar-thumb {
+      .order1selectTotal::-webkit-scrollbar-thumb, .order1selectTotal1::-webkit-scrollbar-thumb {
         background-color: var(--blue-color);
         color: var(--blue-color);
         border-radius: 1rem;
       }
-      .order1selectTotal:hover::-webkit-scrollbar {
+      .order1selectTotal:hover::-webkit-scrollbar, .order1selectTotal1:hover::-webkit-scrollbar {
         display: block;
       }
       .order1selectTotal p.total {
@@ -840,13 +841,13 @@ a {
       }
       .selectTotal {
         width: 100% !important;
-        border: 1px solid #d6d1d1;
-        padding: 0;
-        height: 3rem !important;
+        border-bottom: 0;
       }
       .tablenames {
         margin-left: 0.3rem;
-        margin-top: 1rem !important;
+      }
+      .tablename3 {
+        padding-top: 0.4rem;
       }
       .zahialga {
         max-height: 30rem;
@@ -857,9 +858,16 @@ a {
       .orderName p {
         line-height: 0.8rem;
       }
+      .sagslahButton {
+        padding: 0.2rem;
+      }
+      .busket img {
+        width: 20%;
+        padding: 0.5rem;
+      }
     }
 
-    @media (min-width: 640px) and (max-width: 768px) {
+    @media (min-width: 640px) and (max-width: 767px) {
       .flower {
         left: 35%;
         height: 70%;
@@ -868,11 +876,11 @@ a {
         font-size: 1.6rem;
       }
       p.yourBusket {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       .busket img {
         width: 20%;
-        padding: 0.6rem;
+        padding: 0.8rem;
       }
       .social {
         display: flex;
@@ -884,7 +892,6 @@ a {
         display: flex;
         flex-direction: column;
       }
-
       .choosing {
         margin: 10% auto;
         display: flex;
@@ -898,16 +905,31 @@ a {
         align-items: center;
         width: 100%;
       }
-
+      .sagslahButton {
+        padding: 0.2rem;
+      }
+      .selectTotal {
+        width: 100% !important;
+        border-bottom: 0;
+      }
+      .zahialga {
+        max-height: 22rem;
+        overflow: scroll;
+        margin-bottom: 10%;
+      }
+      .seeTotalInfo {
+        margin-bottom: 5%;
+      }
     }
 
-    @media (min-width: 769px) and (max-width: 895px) {
+    @media (min-width: 768px) and (max-width: 895px) {
       
       p.busket {
         font-size: 1.5rem;
       }
       p.yourBusket {
         font-size: 0.9rem;
+        font-weight: 600;
       }
       .header {
         margin-bottom: 15%;
@@ -1029,6 +1051,10 @@ a {
     .select::placeholder {
       font-size: 0.6rem;
     }
+    .order1Content {
+      margin-right: 5%;
+      height: 70vh;
+  }
     }
 
     @media (min-width: 1441px) and (max-width: 2048px) {
@@ -1053,6 +1079,15 @@ a {
       .tooltiptext {
         top: 60%;
       }
+      .order1Content {
+        margin-right: 5%;
+        height: 70vh;
+    }
+    .zahialga {
+      max-height: 20rem;
+      overflow: scroll;
+      margin-bottom: 5%;
+    }
     }
 
     @media (min-width: 2049px) and (max-width: 3119px) {
@@ -1108,6 +1143,15 @@ a {
       .tooltiptext {
         top: 80%;
       }
+      .order1Content {
+        margin-right: 5%;
+        height: 70vh;
+    }
+    .zahialga {
+      max-height: 25rem;
+      overflow: scroll;
+      margin-bottom: 5%;
+    }
     }
 
     @media (min-width: 3200px) {
@@ -1260,6 +1304,15 @@ a {
       .tooltiptext {
         top: 72%;
       }
+      .order1Content {
+        margin-right: 5%;
+        height: 70vh;
+    }
+    .zahialga {
+      max-height: 25rem;
+      overflow: scroll;
+      margin-bottom: 5%;
+    }
     }
 
     input::-webkit-calendar-picker-indicator {

@@ -168,7 +168,7 @@ export default function Order() {
             {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
               {orderArray == '' ? <div className="w-full flex justify-center my-10">
-                  <img src={flower} alt="" className='mx-3 -mt-4' />
+                  <img src={flower} alt="" className='mx-3 -mt-4 emptyFlower'/>
                   <p className="text-lg text-gray-500 font-medium">Таны сагс хоосон байна!</p>
               </div> 
               : orderArray.map(data =>
@@ -248,7 +248,7 @@ export default function Order() {
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-3xl'>Нийт үнэ</p>
                   {sum == 0 || sum == null ? <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
-                  : <p className='total text-red-700 text-3xl font-semibold' id="resultO">{sum}₮</p>}
+                  : <p className='total text-red-700 text-xl md:text-3xl font-semibold' id="resultO">{sum}₮</p>}
                 </div>
 
                 <Link className="nav-link cursor-pointer" to="#" id='submit' >
@@ -267,40 +267,49 @@ export default function Order() {
               </div>
 
               <div className='flex'>
+
                 <form action="" id="mlform" className='flex relative flex-col md:flex-row'>
                   <select name="ml" id="mlselect" className='select' onChange={setValue}>
                     {data.map((res) =>
                       <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
-                  <select name="avdar" id="avdar" className='select' onChange={setValue}>
-                    {number.map(res =>
-                      <option value={res} id='number'>{res} авдар</option>
-                    )}
-                  </select>
-                  <div className='selectTotal'>
-                    <p className='total pt-3 text-red-700 9xl:mt-5' id="result">{value}</p>
+                
+                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо"/>
+                      <datalist id='case'>
+                      {number.map(res =>
+                          <option value={res} id='number'></option>
+                      )}
+                      </datalist>
+
+                  <div className='selectTotal flex justify-center items-center text-center'>
+                    <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
+                      0₮
+                    </p>
                   </div>
-                  <div className='tablenames absolute flex flex-col md:flex-row text-xs 9xl:text-3xl mt-1'>
+                  <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>
                     <div className='tablename1'>
                       <p className=''>Хэмжээ</p>
                     </div>
                     <div className='tablename2'>
-                      <p className=''>Багц</p>
+                      <p className=''>Авдар</p>
+
                     </div>
                     <div className='tablename3'>
                       <p className=''>Нийт үнэ</p>
                     </div>
                   </div>
 
-                  <Link className="nav-link" to="#" >
-                    <button className="sagslahButton text-lg 9xl:text-4xl px-1" onClick={Busket} id='submit'>
-                      <ToastContainer />
+                  <Link className="nav-link" to="#" id='submit' onClick={Busket}>
+                    <ToastContainer />
+                    <button className="sagslahButton text-xl 9xl:text-5xl" id='fly'>
                       Захиалга нэмэх
                     </button>
                   </Link>
+
                 </form>
               </div>
+
             </div>
             <p className="font-semibold flex justify-end 9xl:text-4xl 9xl:mt-2">Захиалгын доод хэмжээ: 100,000₮</p>
           </div>
