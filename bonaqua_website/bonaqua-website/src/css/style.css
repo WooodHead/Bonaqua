@@ -1373,7 +1373,18 @@ a {
         height: 12vh;
       }
     }
-    @media (min-height: 1920px) {
+    @media (max-width: 1768px) and (min-height: 1920px) {
+      .contentInfo {
+        display: flex;
+        flex-direction: column !important;
+      }
+      .choosing {
+        width: 100% !important;
+        padding: 8rem;
+      }
+      .info {
+        width: 100% !important;
+      }
       .header {
         height: 10vh;
       }
@@ -1513,6 +1524,9 @@ a {
       }
       .social {
         margin: 2rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
       }
       .warning p {
         font-size: 1.8rem;
