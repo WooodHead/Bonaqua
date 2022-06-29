@@ -945,7 +945,7 @@ a {
       }
     }
 
-    @media (min-width: 896px) and (max-width: 1279px) {
+    @media (min-width: 896px) and (max-width: 1284px) {
       p.yourBusket {
         font-size: 1rem;
       }
@@ -970,9 +970,19 @@ a {
       .order2tablenames > * {
         width: 35%;
       }
+      .contentInfo {
+        display: flex;
+        flex-direction: column !important;
+      }
+      .choosing {
+        width: 100% !important;
+      }
+      .info {
+        width: 100% !important;
+      }
     }
 
-    @media (min-width: 1280px) and (max-width: 1440px) {
+    @media (min-width: 1285px) and (max-width: 1440px) {
      .busket img {
        padding: 0;
      }
@@ -1342,4 +1352,163 @@ a {
     
     .sizecomment:hover .sizetext {
       visibility: visible;
+    }
+
+          /* Media Query Height Css */
+
+    @media (min-height: 1440px) {
+      .header {
+        height: 12vh;
+      }
+    }
+    @media (max-width: 1285px) and (min-height: 1920px) {
+      .header {
+        height: 10vh;
+      }
+      p.yourBusket {
+        font-size: 1.4rem;
+        margin-right: 0.5rem;
+      }
+      .busket img {
+        width: 30%;
+      }
+      .groupS .select {
+        height: 5rem !important;
+      }
+      .link .nav-link {
+        font-size: 2rem;
+      }
+      #capaInCircle {
+        font-size: 2rem;
+      }
+      #liCapacity {
+        font-size: 3rem;
+      }
+      #title {
+        font-size: 3.5rem;
+        margin: 3rem 0;
+      }
+      #caseinunit {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem !important;
+      }
+      .tablenames p {
+        font-size: 1.5rem;
+      }
+      .ProductC ul {
+        font-size: 1.6rem !important;
+        line-height: 2.5rem;
+      }
+      .ProductC h4 {
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+      .select::placeholder {
+        font-size: 1.4rem;
+      }
+      p.total {
+        font-size: 3rem;
+      }
+      p.busket {
+        font-size: 2.5rem;
+      }
+      .seeTotalInfo {
+        margin: 3rem 0;
+        height: 6rem;
+      }
+      .seeTotalInfo p.total {
+        font-size: 2.5rem;
+      }
+      .seeTotalInfo p {
+        font-size: 1.6rem;
+      }
+      .order1selectTotal {
+        padding: 0.8rem;
+      }
+      .sagslahButton {
+        font-size: 1.8rem !important;
+      }
+      #lists {
+        width: 1.2rem;
+      }
+      .productImg {
+        margin: 2rem 0;
+      }
+      .water img{
+        width: 90%;
+      }
+      .waterfor {
+        height: 40vh;
+      }
+      .orderName h6 {
+        font-size: 2rem;
+      }
+      .order1Price h3 {
+        font-size: 2.5rem;
+      }
+      .orderName p {
+        font-size: 1.2rem;
+      }
+      .order1Button button img {
+        width: 2rem;
+      }
+      .order1Button p {
+        font-size: 1.8rem;
+      }
+      .locate {
+        height: 30vh;
+      }
+      .groupL>input {
+        font-size: 2rem;
+      }
+      .groupLa>input {
+        font-size: 2rem;
+      }
+      #userform {
+        font-size: 1.2rem;
+      }
+      .groupS label, .group label, .groupL label, .groupLa label {
+        font-size: 1.8rem;
+        top: -0.4rem;
+      }
+      .userImg, .flowerImg {
+        margin: 2rem 0;
+      }
+      .order1selectTotal2 p.total {
+        margin-top: 1rem;
+      }
+      #userform > * {
+        width: 33%;
+      }
+      .group>input {
+        font-size: 2rem;
+      }
+      .sizecomment {
+        margin-right: 2.5rem;
+      }
+      .order2tablenames p {
+        font-size: 1.6rem;
+      }
+      .backButton {
+        font-size: 2rem;
+      }
+      .choosePayment a  {
+        font-size: 2rem;
+      }
+      .zahialga p {
+        font-size: 2rem;
+      }
+      .social {
+        margin: 2rem 0;
+      }
+      .warning p {
+        font-size: 1.8rem;
+        line-height: 2rem;
+      }
+      .back {
+        padding: 1rem;
+      }
+      .removeOrder a {
+        font-size: 2rem;
+      }
     }
