@@ -863,6 +863,9 @@ a {
         width: 20%;
         padding: 0.5rem;
       }
+      .order2tablenames > * {
+        width: 25%;
+      }
     }
 
     @media (min-width: 640px) and (max-width: 767px) {
@@ -918,6 +921,10 @@ a {
       .seeTotalInfo {
         margin-bottom: 5%;
       }
+      .order2tablenames > * {
+        width: 35%;
+        margin-left: 0.5rem;
+      }
     }
 
     @media (min-width: 768px) and (max-width: 895px) {
@@ -942,6 +949,10 @@ a {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+      }
+      .order2tablenames > * {
+        width: 35%;
+        margin-left: 0.5rem;
       }
     }
 
@@ -969,6 +980,7 @@ a {
       }
       .order2tablenames > * {
         width: 35%;
+        margin-left: 0.5rem;
       }
       .contentInfo {
         display: flex;
@@ -1361,7 +1373,7 @@ a {
         height: 12vh;
       }
     }
-    @media (max-width: 1285px) and (min-height: 1920px) {
+    @media (min-height: 1920px) {
       .header {
         height: 10vh;
       }
@@ -1484,7 +1496,8 @@ a {
         font-size: 2rem;
       }
       .sizecomment {
-        margin-right: 2.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
       }
       .order2tablenames p {
         font-size: 1.6rem;
