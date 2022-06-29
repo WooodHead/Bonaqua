@@ -41,6 +41,18 @@ export default function BonaquaType() {
       const [image, setImage] = useState(bonaqua);
       const [active, setActive] = useState("");
 
+      var activeLink = [];
+    
+      data.forEach(x => { 
+        activeLink.push(x.Capacity)
+      })
+      var l = activeLink[0];
+      console.log(l)
+
+      window.addEventListener('load', () => {
+        
+      })
+
   return (
     <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
           {/* <div className='choose flex justify-center self-center relative'>
@@ -68,7 +80,7 @@ export default function BonaquaType() {
                 data.map((res, index) => 
                 <ul>
                 <li key={index} >
-                    <NavLink exact to="#" id="bonaq" className={res === active ? "current": "nav-link"} onClick={() => { 
+                    <NavLink exact to={`#${res.Capacity}`}  id="bonaq" className={res === active ? "current": "nav-link"} onClick={() => { 
                         setCapacity(res.Capacity) 
                         imageArray.map(img => {
                           if (img.size == res.Capacity) {

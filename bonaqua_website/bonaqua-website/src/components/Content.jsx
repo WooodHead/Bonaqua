@@ -14,11 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
 import BonaquaType from './BonaquaType';
 
-export default function Content({ match }) {
+export default function Content() {
   var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
-  const [capacity, setCapacity] = useState("");
 
   useEffect(() => {
     var getData = async () => {
@@ -131,19 +130,6 @@ export default function Content({ match }) {
   }
 
   const number = Array(10).fill(0).map((e, i) => i+1);
-
-  console.log(capacity)
-  const imageArray = [
-    { "img": bonaqua, "size": "1.5L" }, 
-    { "img": bonaqua, "size": "4.5L" },
-    { "img": bonaqua, "size": "800ml" },
-    { "img": bonaqua, "size": "500ml" },
-    { "img": bonaqua, "size": "330ml" },
-    { "img": bonaqua, "size": "18.9L" },
-    { "img": bonaqua, "size": "11.3L" },
-  ];
-
-  const [image, setImage] = useState(bonaqua);
   
   return (
     <div className='mx-auto flex flex-col justify-between'>
