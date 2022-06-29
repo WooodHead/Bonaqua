@@ -133,34 +133,13 @@ export default function Content({ match }) {
 
   console.log(capacity)
   const imageArray = [
-    {
-      "img": bonaqua,
-      "size": "1.5L"
-    }, 
-    {
-      "img": bonaqua,
-      "size": "4.5L"
-    },
-    {
-      "img": bonaqua,
-      "size": "800ml"
-    },
-    {
-      "img": bonaqua,
-      "size": "500ml"
-    },
-    {
-      "img": bonaqua,
-      "size": "330ml"
-    },
-    {
-      "img": bonaqua,
-      "size": "18.9L"
-    },
-    {
-      "img": bonaqua,
-      "size": "11.3L"
-    },
+    { "img": bonaqua, "size": "1.5L" }, 
+    { "img": bonaqua, "size": "4.5L" },
+    { "img": bonaqua, "size": "800ml" },
+    { "img": bonaqua, "size": "500ml" },
+    { "img": bonaqua, "size": "330ml" },
+    { "img": bonaqua, "size": "18.9L" },
+    { "img": bonaqua, "size": "11.3L" },
   ];
 
   const [image, setImage] = useState(bonaqua);
@@ -168,48 +147,7 @@ export default function Content({ match }) {
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row contentInfo'>
-        <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
-          <div className='choose flex justify-center self-center relative'>
-            <div class="main">
-              <ul>
-                {data.map((res) =>
-                  <li className='bonaquaType' onClick={() => { 
-                      setCapacity(res.Capacity) 
-                      imageArray.map(img => {
-                        if (img.size == res.Capacity) {
-                          setImage(img.img)
-                        }
-                      }
-                      )
-                      
-                  }}>
-                    <a href="#" className="button">
-                      <img src={list} alt="" id="lists" />
-                    </a>
-                    <ul >
-                      <li id='liCapacity' value={res.Capacity} className="9xl:text-6xl">{res.Capacity}</li>
-                    </ul>
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
-
-          <div className='bona flex justify-center items-start relative'>
-            <div className='flower absolute'>
-              <img src={bigflower} alt="" className='bigflower' />
-            </div>
-              <img src={image} alt="" className='bonaquaImageType' />
-
-            <div className='toirog absolute'>
-              <div className='white flex justify-center items-center'>
-                <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <BonaquaType />
 
         <div className='info w-full xl:w-1/2 pl-4 flex flex-col'>
           <div className='water'>

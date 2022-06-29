@@ -95,6 +95,15 @@ a {
 .link {
   width: 90%;
 }
+#liCapacity {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+#liCapacity:hover {
+  color: var(--blue-color);
+  font-weight: 700;
+}
 .is-active {
   color: var(--blue-color) !important;
   font-weight: 500;
@@ -191,7 +200,7 @@ a {
     /* height: 70vh; */
 }
         /* Bonaqua Type List */
-        .main ul ul {
+        /* .main ul ul {
           display: none;
         }
         .main li.li-active ul {
@@ -201,9 +210,18 @@ a {
           font-weight: 500;
           padding-left: 0;
         }
+        .main li.li-active #liCapacity {
+          color: var(--blue-color);
+        }
         .main ul ul li {
           display: block;
           width: 4rem;
+        } */
+
+        .current {
+          color: var(--blue-color) !important;
+          font-weight: 500;
+          font-size: 2rem;
         }
   
         /* Slideshow */
