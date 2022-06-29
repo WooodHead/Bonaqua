@@ -12,6 +12,7 @@ import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
+import BonaquaType from './BonaquaType';
 
 export default function Content({ match }) {
   var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
