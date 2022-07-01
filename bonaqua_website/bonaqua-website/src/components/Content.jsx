@@ -4,6 +4,7 @@ import Instruction from './ProductInformation/Instruction';
 import Nutrition from './ProductInformation/Nutrition';
 import Product from './ProductInformation/Product';
 import water from '../images/svg/home/water 2.svg';
+import point from '../images/svg/order 1/Ellipse -1.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
 import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua from '../images/bona0.5.png';
@@ -18,6 +19,19 @@ export default function Content() {
   var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
+  const [capacity, setCapacity] = useState("");
+  const [image, setImage] = useState(bonaqua);
+  const [active, setActive] = useState("");
+
+  const imageArray = [
+    { "img": bonaqua, "size": "1.5L" },
+    { "img": bigflower, "size": "4.5L" },
+    { "img": bonaqua, "size": "800ml" },
+    { "img": bigflower, "size": "500ml" },
+    { "img": bonaqua, "size": "330ml" },
+    { "img": bigflower, "size": "18.9L" },
+    { "img": bonaqua, "size": "11.3L" },
+  ];
 
   useEffect(() => {
     var getData = async () => {
@@ -33,7 +47,7 @@ export default function Content() {
   }, [render])
 
   // Link
-    const buttonElements = Array.from(document.querySelectorAll('.button'));
+    const buttonElements = Array.from(document.querySelectorAll('.lists'));
     buttonElements.forEach(buttonElement => {
       buttonElement.addEventListener('click', () => {
         const activeElements = Array.from(document.querySelectorAll('.li-active'));
@@ -43,7 +57,7 @@ export default function Content() {
         buttonElement.parentElement.classList.add('li-active');
       });
     });
-  
+
   var fprice = [];
   var fsize = [];
   var ftotal;
@@ -70,7 +84,14 @@ export default function Content() {
     sessionStorage.setItem('total', totals);
     title.innerHTML = `Bonaqua ${size} - ${price}₮`;
     result.innerHTML = `${totals}₮`;
-    caseinunit.innerHTML = `1 авдар доторх ширхэгийн тоо - ${incase}ш`
+    caseinunit.innerHTML = `1 авдар доторх ширхэгийн тоо - ${incase}ш`;
+
+    imageArray.map(img => {
+      if (img.size == size) {
+        setImage(img.img)
+        setCapacity(size)
+      }
+    })
   }
 
   // Захиалга сагсанд орох
@@ -130,11 +151,71 @@ export default function Content() {
   }
 
   const number = Array(10).fill(0).map((e, i) => i+1);
+
   
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row contentInfo'>
-       <BonaquaType />
+       
+      <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
+     <div className='choose flex justify-center self-center relative'>
+            <div class="main">
+              <ul>
+                {data.map((res) =>
+                  <li className='bonaquaType' onClick={() => { 
+                      setCapacity(res.Capacity) 
+                      imageArray.map(img => {
+                        if (img.size == res.Capacity) {
+                          setImage(img.img)
+                        }
+                      })
+                  }}>
+                    <ul>
+                      <li id='lists' value={res.Capacity} className="9xl:text-6xl button">{res.Capacity}</li>
+                      <li> <img src={point} alt="" className=''/> </li>
+                    </ul>
+                   
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+      {/* <div className='choose'>
+        {data.map((res, index) =>
+          <ul>
+            <li key={index} >
+              <NavLink exact to={`#${res.Capacity}`} id="bonaq" className={res === active ? "current" : "nav-link"} onClick={() => {
+                setCapacity(res.Capacity)
+                imageArray.map(img => {
+                  if (img.size == res.Capacity) {
+                    setImage(img.img)
+                  }
+                })
+                setActive(res)
+              }}>
+                <img src={point} alt="" id='list' className='listing' />
+                <li className='lists'>{res.Capacity}</li>
+              </NavLink>
+            </li>
+          </ul>
+        )}
+      </div> */}
+
+      <div className='bona flex justify-center items-start relative'>
+        <div className='flower absolute'>
+          <img src={bigflower} alt="" className='bigflower' />
+        </div>
+          <img src={image} alt="" />
+        <div className='toirog absolute'>
+          <div className='white flex justify-center items-center'>
+            <div className='circle relative flex justify-center items-center'>
+              <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
         <div className='info w-full xl:w-1/2 pl-4 flex flex-col'>
           <div className='water'>

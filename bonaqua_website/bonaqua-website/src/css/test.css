@@ -1,4 +1,3 @@
-                                                /* General css */
 * {
   box-sizing: border-box;
 }
@@ -6,6 +5,9 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+}
+:root {
+  --blue-color: #3dbee3;
 }
 .contain {
   width: 90%;
@@ -16,31 +18,35 @@ html {
   justify-content: space-between;
 }
 .header {
-  height: auto;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-}
-.ProductC {
-  font-family: 'Montserrat', sans-serif;
-  height: 8rem;
-}
-.back a.backButton {
-  color: white;
+  height: 16vh;
 }
 a {
   text-decoration: none !important;
 }
-
 .routes {
-  height: 70vh;
   height: auto;
+  aspect-ratio: 16/6;
 }
-
+.nav-link {
+  padding: 0 !important;
+  color: #807e7e !important;
+  font-weight: 500;
+}
+.is-active {
+  color: var(--blue-color) !important;
+  font-weight: 500;
+  margin-left: 1.5rem;
+  position: relative;
+}
+.is-active::before {
+  content: url('../images/svg/order 1/tsetseg jijig.svg');
+  position: absolute;
+  left: -1.5rem;
+  top: 0.2rem;
+}
 @media (prefers-reduced-motion: no-preference) {
-  .bona::before {
-    animation: logo-spin infinite 20s linear;
+  .flower {
+    animation: logo-spin infinite 50s linear;
   }
 }
 
@@ -53,1593 +59,776 @@ a {
   }
 }
 
-.nav-link {
-  padding: 0 !important;
-  color: #807e7e !important;
-  font-weight: 500;
-}
-.link .nav-link {
-  position: relative;
-  margin-left: 2rem;
-}
-.active {
-  color: var(--blue-color) !important;
-  font-weight: 500;
-  margin-left: 1.5rem;
-  position: relative;
-}
-.is-active::before {
-  content: url('../images/svg/order 1/tsetseg jijig.svg');
-  position: absolute;
-  left: -1.5rem;
-  top: 0.2rem;
-}
-:root {
-  --blue-color: #3dbee3;
+.contentInfo {
+  display: flex;
+  flex-direction: column;
+
+  .info {
+      width: 100%;
+
+      .water {
+          width: 80%;
+
+          img {
+              width: 80%;
+
+              @media (max-width: 1768px) and (min-height: 1920px) {
+                  width: 90%;
+              }
+          }
+      }
+      .waterfor {
+          height: 40vh;
+
+          .sagslah {
+              margin-right: 10%;
+
+              #caseinunit {
+                  @media (min-width: 3200px) {
+                      margin-top: 2rem !important;
+                      margin-bottom: 4rem !important;
+                  }
+                  @media (max-width: 1768px) and (min-height: 1920px) {
+                      font-size: 1.8rem;
+                      margin-bottom: 2.5rem !important;
+                  }
+              }
+
+              .inputForm {
+                  #mlform {
+                      width: 100%;
+
+                      .select {
+                          border-top: 1px solid #d6d1d1;
+                          border-bottom: 1px solid #d6d1d1;
+                          border-right: 1px solid #d6d1d1;
+                          font-size: 1.2rem;
+                          padding-top: 0.4rem;
+                          font-weight: 500;
+                          cursor: pointer;
+                          text-align: center;
+                          appearance: none;
+                          -moz-appearance: none;
+                          -webkit-appearance: none;
+                          background-image: url('../images/svg/home/Arrow-down.svg');
+                          background-repeat: no-repeat;
+                          background-position: calc(100% - 6px) center;
+
+                              .select:focus-visible {
+                                  background-repeat: no-repeat;
+                                  background-position: calc(100% - 3px) center;
+                                  border: 2px solid var(--blue-color);
+                              }
+                              .selectTotal {
+                                  border-top: 1px solid #d6d1d1;
+                                  border-bottom: 1px solid #d6d1d1;
+                                  font-size: 1.7rem;
+                                  padding-top: 0.1rem;
+                                  font-weight: 500;
+                                  text-align: center;
+                                  height: auto;
+              
+                                  @media (max-width: 768px) {
+                                      width: 100% !important;
+                                      border-bottom: 0;
+                                  }
+                              }
+                              .tablenames {
+                                  width: 100% !important;
+              
+                                  @media (max-width: 639px) {
+                                      margin-left: 0.3rem;
+              
+                                      .tablename3 {
+                                          padding-top: 0.4rem;
+                                      }
+                                  }
+                                  @media (max-width: 1768px) and (min-height: 1920px) {
+                                      p {
+                                          font-size: 1.5rem;
+                                      }
+                                  }
+                              }
+                              .tablenames > * {
+                                  width: 28%;
+                              }
+
+                              @media (max-width: 639px) {
+                                  border-left: 1px solid #d6d1d1;
+                              }
+                              @media (min-width: 1285px) and (max-width: 1440px) {
+                                  .select::placeholder {
+                                      font-size: 0.6rem;
+                                  }
+                              }
+                              @media (min-width: 3200px) {
+                                      font-size: 1.5rem;
+                                      padding: 2rem !important;
+                              }
+                              @media (max-width: 1768px) and (min-height: 1920px) {
+                                      font-size: 1.4rem;
+                              }
+                            }
+                      }
+                      #mlform > * {
+                          min-width: 25%;
+                          height: auto;
+                      }
+              }
+              
+
+          }
+          .productInfo {
+              width: 100%;
+              margin-top: 1rem;
+
+              img {
+                  @media (min-width: 2049px) and (max-width: 3119px) {
+                      margin: 3rem 0;
+                  }
+                  @media (min-width: 3200px) {
+                      margin: 3rem 0;
+                  }
+              }
+          }
+      }
+  }
 }
 
+.choosing {
+  margin-right: 3rem;
 
-
-    
-@media (max-width: 512px) {
-  
-    /* Header */
-    .logo img {
-      height: 4rem;
-    }
-    .ProductAndOrder {
-      width: 25rem;
-      height: 50%;
-      border: 1px solid var(--blue-color);
-      border-radius: 10px;
-      margin-top: 3rem;
-    }
-    .line {
-      height: 3rem;
-      border: 1px solid var(--blue-color);
-      margin-right: 2rem;
-      margin-left: 1rem;
-    }
-    .busket, .order {
+  @media (min-width: 640px) and (max-width: 767px) {
+      margin: 10% auto;
       display: flex;
+      justify-content: center;
       align-items: center;
-      color: var(--blue-color);
-    }
-    .busket img, .order img {
-      width: 15rem;
-      height: 100%;
-    }
-    .busket p, .order p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-left: 4rem;
-    }
-  
-    .water img {
-      height: 25vh;
-    }
-  
-          /* Content  */
-    .sc {
-      margin: 1rem 0;
-    }
-    .chooseList {
-      height: 10rem;
-    }
-    .link {
-      width: 85%;
-    }
-    .productInfo {
-      width: 100%;
-      margin-top: 1rem;
-    }
-    .addOrdertitle {
-      width: 85%;
-    }
-    .orderInfo {
-      height: 40vh;
-    }
-    .tableImg {
-      width: 66%;
-    }
-    .buttonImg {
-      width: 11.5rem;
-      height: 4.8rem;
-    }
-  
-    .select {
-      width: 11rem;
-      height: 4.8rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      border-right: 1px solid #d6d1d1;
-      font-size: 1.2rem;
-      padding-top: 0.4rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: center;
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      background-image: url('../images/svg/home/Arrow-down.svg');
-      background-repeat: no-repeat;
-      background-position: calc(100% - 6px) center;
-    }
-    .locate form .select {
-      height: 2.7rem;
-    }
-    select:focus-visible {
-      background-repeat: no-repeat;
-      background-position: calc(100% - 3px) center;
-      border: 2px solid var(--blue-color);
-    }
-    
-    .selectTotal {
-      width: 10rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      font-size: 1.7rem;
-      padding-top: 0.1rem;
-      font-weight: 500;
-      text-align: center;
-      height: 4.8rem;
-    }
-    .order1Content .selectTotal, .order1Content .buttonImg {
-     height: 4.8rem;
-    }
-    .tablenames {
-      margin-left: 2rem;
-      width: 20rem;
-      color: #807e7e;
-    }
-    .tablename1 {
-      width: 4rem;
-      height: 5rem;
-    }
-    .tablename2 {
-      width: 4rem;
-      height: 5rem;
-    }
-    .tablename3 {
-      width: 4rem;
-      height: 4rem;
-    }
-    .bona {
-      width: 100%;
-      height: 38vh;
-      /* margin-left: 5rem; */
-      border: 1px solid #807e7e;
-    }
-    .bona img {
-      height: 95%;
-      z-index: 1;
-    }
-   
-    .bona::before {
-      display: none;
-    }
+  }
+  @media (min-width: 768px) and (max-width: 895px) {
+      margin-right: 0;
+  }
+  @media (min-width: 896px) and (max-width: 1284px) {
+      width: 100% !important;
+  }
+  @media (max-width: 1768px) and (min-height: 1920px) {
+      width: 100% !important;
+      padding: 8rem;
+  }
 
-    .white {
-      width: 5rem;
-      height: 5rem;
-      background-color: #fff;
-      position: relative;
-      border-radius: 50%;
-      right: 10rem;
-      bottom: 2rem;
-    }
-    .circle {
-      width: 4rem;
-      height: 4rem;
-      background-color: var(--blue-color);
-      border-radius: 50%;
-    }
-    
-  
-    /* Zahialgiin medeelel */
-    .slideContent {
-      height: 70vh;
-    }
-    .locate a {
-      color: white !important;
-    }
-    .slider {
-      height: 50vh;
-      border: 2px solid black;
-    }
-    .carousel-indicators button {
-      background-color: var(--blue-color) !important;
-      margin-top: 80rem !important;
-      border-radius: 50%;
-      width: 2rem !important;
-    }
-    .carousel-item img {
-      height: 32rem;
-    }
-    .addOrder p {
-      width: 85%;
-    }
-        /* Minii sags */
-    .zahialahHusnegt {
-      width: 85%;
-      height: 5rem;
-    }
-    .zahialga {
-      width: 85%;
-    }
-    .zahialsanHeseg {
-      width: 21rem;
-      height: 6rem;
-      border: 1px solid var(--blue-color);
-      border-radius: 0.5rem;
-    }
-  
-    .order1Img {
-      border-right: 1px solid var(--blue-color);
-      width: 30%;
-      height: 6rem;
-      border-radius: 0.5rem;
-    }
-    .order1Img img {
-      width: 2rem;
-    }
-    .order1Button {
-      width: 6rem;
-    }
-    .order1Button p {
-      margin-top: 1rem;
-    }
-    .order1Price {
-      width: 13rem;
-      height: 5rem;
-    }
-    .orderName {
-      height: 2rem;
-    }
-    .orderName img {
-      width: 0.8rem;
-    }
-    .orderName p {
-      color: #807e7e;
-      line-height: 5px;
-    }
-    .order1Info {
-      margin-left: 1rem;
-    }
-    .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order1selectTotal1 {
-      border-top: 1px solid var(--blue-color);
-      border-bottom: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-    }
-    .order1zahialahButton {
-      background-color: var(--blue-color);
-      color: white;
-      width: 13rem;
-      height: 3.1rem;
-      border-radius: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .order1tablenames {
-      height: 1rem;
-      width: 20rem;
-      padding-left: 1rem;
-    }
-    .seeTotalInfo {
-      text-align: center;
-    }
-    .order2TotalInfo .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 15.5rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order2TotalInfo .order1selectTotal1 {
-      border: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1selectTotal2 {
-      border: 1px solid var(--blue-color);
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-      width: 12rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1tablenames {
-      height: 1rem;
-      width: 36rem;
-      /* padding-left: 1rem; */
-    }
-  /* Захиалгын мэдээлэл */
-  .userInfo {
-    width: 85%;
-  }
-  .payP {
-    width: 20rem;
-  }
-  .userImg {
-    width: 28%;
-  }
-  /* Хэрэглэгчийн мэдээлэл */
-  .group{
-    position:relative;
-  }
-  .group>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .group>input{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    width: 14rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  /* Байршлын мэдээлэл */
-  .groupL{
-    position:relative;
-  }
-  .groupL>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .groupL>input{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .back, .choosePayment {
-    text-align: center;
-    padding: 0.6rem;
-    border-radius: 0.5em;
-    height: 2.5rem;
-    font-size: 1.1rem;
-  }
-  .back {
-    background-color: #e01f20;
-    margin-right: 0.5em;
-  }
-  
-  .choosePayment {
-    background-color: #3dbfe3;
-  }
-  .choosePayment button {
-    color: white;
-  }
-  .groupS{
-    position:relative;
-  }
-  .groupS>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .groupS>select{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-  }
-  .locate {
-    height: 20rem;
-  }
-  .locationInfo {
-    width: 100%;
-  }
-  /* Төлбөр төлөх */
-  .warning p {
-    line-height: 18px;
-    color: #807e7e;
-  }
-  .dansMedeelel p{
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 8px;
-    color: #807e7e;
-  }
-  .paymentInstruction {
-    border-right: 2px solid #a1a0a0;
-  }
-  .groupPay{
-    position:relative;
-  }
-  .groupPay>label{
-    padding:0 0.2em;
-    position:absolute;
-    top:-0.6em;
-    left:1em;
-    background-color:white;
-    color: #807e7e;
-  }
-  
-  .groupPay>select{
-    padding:0.5em;
-    border-radius: 0.5em;
-    border: 2px solid #e7e7e7;
-    outline:none;
-    height: 3.5rem;
-  }
-}  
+  .order1Content {
+      margin-right: 5%;
 
-@media (min-width: 512px) and (max-width: 768px) {
-  
+      @media (min-width: 1285px) {
+          margin-right: 5%;
+          height: 70vh;
+      }
+
+      .zahialga {
+          width: 100%;
+          margin: 1rem 0;
+
+          .zahialga::-webkit-scrollbar {
+              width: 0.4rem;
+              height: 100%;
+              background-color: none;
+          }
+          .zahialga:hover::-webkit-scrollbar {
+              display: block;
+          }
+          .zahialga:hover::-webkit-scrollbar-thumb {
+              background-color: #3dbee3;
+              border-radius: 1rem;
+          }
+
+          @media (max-width: 639px) {
+              max-height: 30rem;
+              overflow: scroll;
+              padding: 1rem;
+              margin-bottom: 10%;
+          }
+          @media (min-width: 640px) and (max-width: 767px) {
+              max-height: 22rem;
+              overflow: scroll;
+              margin-bottom: 10%;
+          }
+          @media (min-width: 1441px) and (max-width: 2048px) { 
+              max-height: 20rem;
+              overflow: scroll;
+              margin-bottom: 5%;
+              p {
+                  font-size: 2rem;
+              }
+          }
+          @media (min-width: 2049px) {
+              max-height: 25rem;
+              overflow: scroll;
+              margin-bottom: 5%;
+          }
+
+          .zahialsanHeseg {
+              width: 49%;
+              border: 1px solid var(--blue-color);
+              border-radius: 0.5rem;
+
+              @media (max-width: 639px) {
+                  width: 100%;
+              }
+
+              .order1 {
+                  background-color: #f9fafe;
+
+                  .order1Info {
+                      margin-left: 1rem;
+                      width: 100%;
+
+                      .orderName {
+                          @media (max-width: 1768px) and (min-height: 1920px) {
+                              .orderName h6 {
+                                  font-size: 2rem;
+                              }
+                          }
+                          img {
+                              width: 6%;
+
+                              img:hover {
+                                  width: 8%;
+                                  transition: ease 500ms;
+                              }
+                          }
+                          p {
+                              color: #807e7e;
+                              line-height: 5px;
+                              @media (max-width: 639px) {
+                                  line-height: 0.8rem;
+                              }
+                              @media (min-width: 896px) and (max-width: 1440px) {
+                                  line-height: 12px;
+                              }
+                              @media (max-width: 1768px) and (min-height: 1920px) {
+                                  font-size: 1.2rem;
+                              }
+                          }
+                          
+                      }
+                      .order1Price {
+                          width: 100%;
+                          height: auto;
+
+                          @media (min-width: 1285px) and (max-width: 1440px) {
+                              h3 {
+                                  font-size: 1.3rem;
+                              }
+                          }
+                          @media (max-width: 1768px) and (min-height: 1920px) {
+                              h3 {
+                                  font-size: 2.5rem;
+                                }
+                          }
+                          .order1Button {
+                              width: 45%;
+
+                              p {
+                                  margin-top: 1rem;
+                                  @media (max-width: 1768px) and (min-height: 1920px) {
+                                      font-size: 1.8rem;
+                                      button {
+                                          img {
+                                              width: 2rem;
+                                          }
+                                      }
+                                  }
+                                  @media (min-width: 3200px) {
+                                      width: 50%;
+                                  }
+                              }
+                          }
+
+                      }
+                      
+                      .seeTotalInfo {
+                          width: 100%;
+                          height: auto;
+                          text-align: center;
+
+                          @media (min-width: 640px) and (max-width: 767px) {
+                              margin-bottom: 5%;
+                          }
+                          @media (max-width: 1768px) and (min-height: 1920px) {
+                              margin: 3rem 0;
+                              height: 6rem;
+
+                              p.total {
+                                  font-size: 2.5rem;
+                              }
+                          }
+                          p {
+                              font-size: 1.6rem;
+                          }
+                      }
+                      .seeTotalInfo > * {
+                          width: 100%;
+                          height: auto;
+                          background-color: #f9fafe;
+                          overflow: scroll;
+
+                          @media (max-width: 639px) {
+                              width: 140%;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+.order1selectTotal {
+  border: 1px solid var(--blue-color);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.order1selectTotal::-webkit-scrollbar, .order1selectTotal1::-webkit-scrollbar, #submit::-webkit-scrollbar, .seeTotalInfo > *::-webkit-scrollbar   {
+  width: 10%;
+  height: 0.3rem;
+  display: none;
+}
+.order1selectTotal::-webkit-scrollbar-track, .order2TotalInfo .order1selectTotal1::-webkit-scrollbar-track{
+  background-color: #f9fafe;
+}
+.order1selectTotal::-webkit-scrollbar-thumb, .order2TotalInfo .order1selectTotal1::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+  color: var(--blue-color);
+  border-radius: 1rem;
+}
+.order1selectTotal:hover::-webkit-scrollbar, .order2TotalInfo .order1selectTotal1:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.order1selectTotal p.total {
+  margin-bottom: 0;
+  margin-left: 0.2rem;
+  margin-right: 0.3rem;
+}
+.order1selectTotal p {
+  margin-bottom: 0;
+}
+.order1selectTotal1 {
+  border-top: 1px solid var(--blue-color);
+  border-bottom: 1px solid var(--blue-color);
+}
+.order1selectTotal1 p {
+  margin-bottom: 0 !important;
+}
+.order2TotalInfo .order1selectTotal {
+  border: 1px solid var(--blue-color);
+  height: auto;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.order2TotalInfo .order1selectTotal1 {
+  border: 1px solid var(--blue-color);
+  height: auto;
+}
+.order2TotalInfo .order1selectTotal2 {
+  border: 1px solid var(--blue-color);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  height: auto;
 }
 
 
-                        /* (min-width: 641px) and (max-width: 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-      /* Header */
-      .logo img {
-        /* width: 18rem; */
-        height: 8rem;
+
+
+
+
+
+
+
+
+
+
+//   ghjklkjhjkl
+
+                                            /* General css */
+
+
+.popup {
+content: "";
+width: 12%;
+padding: 0.6rem;
+position: absolute;
+background-color: var(--blue-color);
+border-radius: 50%;
+top: 50%;
+color: white;
+}
+.popup p {
+color: white;
+left: 30%;
+top: 0;
+transition: all 300ms ease-out;
+}
+.cart-animation-helper {
+margin: 0 20%;
+width: 0;
+height: 0;
+}
+.cart-animation-helper:after {
+opacity: 0;
+border-radius: 0%;
+max-height: 250px;
+max-width: 200px;
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+margin: 0 auto;
+display: block;
+height: 250px;
+width: 200px;
+background-color: #ff9a9e;
+transition: transform 0.8s ease-out, margin 0.8s ease-out, opacity 0.8s ease-out, border-radius 0.4s ease-out, max-height 0.4s ease-out, max-width 0.4s ease-out;
+}
+.back a.backButton {
+color: white;
+}
+
+
+.link .nav-link {
+position: relative;
+margin-left: 2rem;
+}
+.link {
+width: 90%;
+}
+#liCapacity {
+cursor: pointer;
+font-size: 1.3rem;
+font-weight: 600;
+}
+#liCapacity:hover {
+color: var(--blue-color);
+font-weight: 700;
+}
+
+.line {
+  height: 80%;
+  border: 1px solid var(--blue-color);
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+#userform {
+   width: 100%;
+}
+
+.order2tablenames {
+margin-top: 0.2rem;
+background: none !important;
+}
+.order1tablenames > * {
+  width: 50%;
+}
+
+.sagslahButton {
+  height: 100%;
+  background-color: var(--blue-color);
+  width: 100%;
+  color: white;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  opacity: 0.9;
+}
+.sagslahButton:hover {
+  opacity: 1;
+  font-weight: 600;
+}
+.toirog {
+  position: relative;
+  right: 75%;
+  bottom: 4%;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px 0 #dbd9d9;
+}
+.white {
+  width: 6.8rem;
+  height: 6.8rem;
+  background-color: #fff;
+  position: relative;
+  border-radius: 50%;
+}
+.circle {
+  width: 6rem !important;
+  height: 6rem;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+}
+
+
+
+      /* Bonaqua Type List */
+      /* .main ul ul {
+        display: none;
       }
-      .ProductAndOrder {
-        width: 35rem;
-        height: 50%;
-        border: 1px solid var(--blue-color);
-        border-radius: 10px;
-        margin-top: 3rem;
+      .main li.li-active ul {
+        display: block;
+        color: var(--blue-color);
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding-left: 0;
       }
-      .line {
-        height: 3rem;
-        border: 1px solid var(--blue-color);
-        margin-right: 2rem;
-        margin-left: 1rem;
-      }
-      .busket, .order {
-        display: flex;
-        align-items: center;
+      .main li.li-active #liCapacity {
         color: var(--blue-color);
       }
-      .busket img, .order img {
-        width: 12rem;
-        height: 100%;
-      }
-      .busket p, .order p {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-left: 4rem;
-      }
-    
-      .water img {
-        height: 25vh;
-      }
-    
-            /* Content  */
-      .sc {
-        margin: 1rem 0;
-      }
-      .choosing {
-        margin-right: 3rem;
-      }
-      .chooseList {
-        height: 10rem;
-      }
-      .link {
-        width: 85%;
-      }
-      .productInfo {
-        width: 85%;
-        margin-top: 1rem;
-      }
-      .addOrdertitle {
-        width: 85%;
-      }
-      .orderInfo {
-        height: 40vh;
-      }
-      .tableImg {
-        width: 66%;
-      }
-      .buttonImg {
-        width: 6rem;
-        /* height: 8rem; */
-      }
-    
-      .select {
-        width: 8rem;
-        height: 4rem;
-        border-top: 1px solid #d6d1d1;
-        border-bottom: 1px solid #d6d1d1;
-        border-right: 1px solid #d6d1d1;
-        font-size: 1.2rem;
-        padding-top: 0.4rem;
-        font-weight: 500;
-        cursor: pointer;
-        text-align: center;
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        background-image: url('../images/svg/home/Arrow-down.svg');
-        background-repeat: no-repeat;
-        background-position: calc(100% - 6px) center;
-      }
-      .locate form .select {
-        height: 2.7rem;
-      }
-      select:focus-visible {
-        background-repeat: no-repeat;
-        background-position: calc(100% - 3px) center;
-        border: 2px solid var(--blue-color);
-      }
-      
-      .selectTotal {
-        width: 8rem;
-        border-top: 1px solid #d6d1d1;
-        border-bottom: 1px solid #d6d1d1;
-        font-size: 1.7rem;
-        padding-top: 0.1rem;
-        font-weight: 500;
-        text-align: center;
-        height: 4rem;
-      }
-      .order1Content .selectTotal, .order1Content .buttonImg {
-       height: 4.8rem;
-      }
-      .tablenames {
-        margin-left: 2rem;
-        width: 31rem;
-        color: #807e7e;
-      }
-      .tablename1 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename2 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename3 {
-        width: 11rem;
-        height: 1rem;
-      }
-      .bona {
-        width: 70%;
-        height: 40vh;
-        border: 1px solid #807e7e;
-      }
-      .bona img {
-        height: 95%;
-        z-index: 1;
-      }
-     
-      .bona::before {
-        content: url('../images/svg/home/tsetseg tom.svg');
-        position: absolute;
-        left: 2rem;
-        bottom: 5rem;
-      }
-      
-      .choose {
-        width: 20%;
-      }
-      .white {
-        width: 5rem;
-        height: 5rem;
-        background-color: #fff;
-        position: relative;
-        border-radius: 50%;
-        right: 7rem;
-        bottom: 0.5rem;
-      }
-      .circle {
+      .main ul ul li {
+        display: block;
         width: 4rem;
-        height: 4rem;
-        background-color: var(--blue-color);
-        border-radius: 50%;
-      }
-      
-    
-      /* Zahialgiin medeelel */
-      .slideContent {
-        height: 70vh;
-      }
-      .locate a {
-        color: white !important;
-      }
-      .slider {
-        height: 50vh;
-        border: 2px solid black;
-      }
-      .carousel-indicators button {
-        background-color: var(--blue-color) !important;
-        margin-top: 80rem !important;
-        border-radius: 50%;
-        width: 2rem !important;
-      }
-      .carousel-item img {
-        height: 32rem;
-      }
-      .addOrder p {
-        width: 85%;
-      }
-          /* Minii sags */
-      .zahialahHusnegt {
-        width: 85%;
-        height: 5rem;
-      }
-      .zahialga {
-        width: 85%;
-      }
-      .zahialsanHeseg {
-        width: 21rem;
-        height: 6rem;
-        border: 1px solid var(--blue-color);
-        border-radius: 0.5rem;
-      }
-    
-      .order1Img {
-        border-right: 1px solid var(--blue-color);
-        width: 30%;
-        height: 6rem;
-        border-radius: 0.5rem;
-      }
-      .order1Img img {
-        width: 2rem;
-      }
-      .order1Button {
-        width: 6rem;
-      }
-      .order1Button p {
-        margin-top: 1rem;
-      }
-      .order1Price {
-        width: 13rem;
-        height: 5rem;
-      }
-      .orderName {
-        height: 2rem;
-      }
-      .orderName img {
-        width: 0.8rem;
-      }
-      .orderName p {
-        color: #807e7e;
-        line-height: 5px;
-      }
-      .order1Info {
-        margin-left: 1rem;
-      }
-      .order1selectTotal {
-        border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-      }
-      .order1selectTotal1 {
-        border-top: 1px solid var(--blue-color);
-        border-bottom: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-      }
-      .order1zahialahButton {
-        background-color: var(--blue-color);
-        color: white;
-        width: 13rem;
-        height: 3.1rem;
-        border-radius: 0.5rem;
-        font-size: 1.2rem;
-      }
-      .order1tablenames {
-        height: 1rem;
-        width: 20rem;
-        padding-left: 1rem;
-      }
-      .seeTotalInfo {
-        text-align: center;
-      }
-      .order2TotalInfo .order1selectTotal {
-        border: 1px solid var(--blue-color);
-        width: 15.5rem;
-        height: 3rem;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-      }
-      .order2TotalInfo .order1selectTotal1 {
-        border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-      }
-      .order2TotalInfo .order1selectTotal2 {
-        border: 1px solid var(--blue-color);
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-        width: 12rem;
-        height: 3rem;
-      }
-      .order2TotalInfo .order1tablenames {
-        height: 1rem;
-        width: 36rem;
-        /* padding-left: 1rem; */
-      }
-    /* Захиалгын мэдээлэл */
-    .userInfo {
-      width: 85%;
-    }
-    .payP {
-      width: 20rem;
-    }
-    .userImg {
-      width: 28%;
-    }
-    /* Хэрэглэгчийн мэдээлэл */
-    .group{
-      position:relative;
-    }
-    .group>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
-    }
-    
-    .group>input{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      width: 14rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-    }
-    /* Байршлын мэдээлэл */
-    .groupL{
-      position:relative;
-    }
-    .groupL>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
-    }
-    
-    .groupL>input{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-    }
-    
-    .back, .choosePayment {
-      text-align: center;
-      padding: 0.6rem;
-      border-radius: 0.5em;
-      height: 2.5rem;
-      font-size: 1.1rem;
-    }
-    .back {
-      background-color: #e01f20;
-      margin-right: 0.5em;
-    }
-    
-    .choosePayment {
-      background-color: #3dbfe3;
-    }
-    .choosePayment button {
-      color: white;
-    }
-    .groupS{
-      position:relative;
-    }
-    .groupS>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
-    }
-    
-    .groupS>select{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-    }
-    .locate {
-      height: 20rem;
-    }
-    .locationInfo {
-      width: 100%;
-    }
-    /* Төлбөр төлөх */
-    .warning p {
-      line-height: 18px;
-      color: #807e7e;
-    }
-    .dansMedeelel p{
-      font-size: 1.1rem;
-      font-weight: 500;
-      line-height: 8px;
-      color: #807e7e;
-    }
-    .paymentInstruction {
-      border-right: 2px solid #a1a0a0;
-    }
-    .groupPay{
-      position:relative;
-    }
-    .groupPay>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
-    }
-    
-    .groupPay>select{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      height: 3.5rem;
-    }
-  
-}
+      } */
 
-                
-@media (min-width: 1025px) and (max-width: 1280px) {
-   /* Header */
-   .logo img {
-    /* width: 18rem; */
-    height: 8rem;
-  }
-  .ProductAndOrder {
-    width: 23rem;
-    height: 50%;
-    border: 1px solid var(--blue-color);
-    border-radius: 10px;
-    margin-top: 3rem;
-  }
-  .line {
-    height: 3rem;
-    border: 1px solid var(--blue-color);
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-  .busket, .order {
+      .current {
+        color: var(--blue-color) !important;
+        font-weight: 500;
+        font-size: 2rem;
+      }
+
+      /* Slideshow */
+  
+  .slideshow {
+    margin: 1rem auto;
+    margin-left: 8%;
+    overflow: hidden;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: var(--blue-color);
   }
-  .busket img, .order img {
-    width: 15rem;
+  
+  .slideshowSlider {
+    white-space: nowrap;
+    transition: ease 2000ms;
+    height: 80%;
+  }
+  
+  .slide {
+    display: inline-block;
+    width: 100%;
     height: 100%;
   }
-  .busket p, .order p {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-left: 3rem;
-  }
-
-  .water img {
-    height: 25vh;
-  }
-  .footer1flower {
-    width: 80%;
-  }
-        /* Content  */
-  .sc {
-    margin: 1rem 0;
-  }
-  .social {
-    margin-left: 3rem;
-  }
-  .chooseList {
-    height: 10rem;
-  }
-  .link {
-    width: 100%;
-  }
-  .productInfo {
-    width: 100%;
-    margin-top: 1rem;
-  }
-  .addOrdertitle {
-    width: 85%;
-  }
-  .orderInfo {
-    height: 40vh;
-  }
-  .tableImg {
-    width: 66%;
-  }
-  .select {
-    width: 11rem;
-    height: 4rem;
-    border-top: 1px solid #d6d1d1;
-    border-bottom: 1px solid #d6d1d1;
-    border-right: 1px solid #d6d1d1;
-    font-size: 1.2rem;
-    padding-top: 0.4rem;
-    font-weight: 500;
-    cursor: pointer;
+  
+  /* Image Slider */
+  
+  .slideshowDots {
     text-align: center;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-image: url('../images/svg/home/Arrow-down.svg');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 6px) center;
   }
-  .locate form .select {
-    height: 2.7rem;
-  }
-  select:focus-visible {
-    background-repeat: no-repeat;
-    background-position: calc(100% - 3px) center;
-    border: 2px solid var(--blue-color);
-  }
-  
-  .selectTotal {
-    width: 10rem;
-    border-top: 1px solid #d6d1d1;
-    border-bottom: 1px solid #d6d1d1;
-    font-size: 1.7rem;
-    padding-top: 0.1rem;
-    font-weight: 500;
-    text-align: center;
-    height: 4rem;
-  }
-  
-  .tablenames {
-    margin-left: 2rem;
-    width: 31rem;
-    color: #807e7e;
-  }
-  .tablename1 {
-    width: 8rem;
-    height: 1rem;
-  }
-  .tablename2 {
-    width: 8rem;
-    height: 1rem;
-  }
-  .tablename3 {
-    width: 11rem;
-    height: 1rem;
-  }
-  .bona {
-    width: 70%;
-    height: 56vh;
-    border: 1px solid #807e7e;
-  }
-  .bona img {
-    height: 95%;
-    z-index: 1;
-  }
- 
-  .bona::before {
-    content: url('../images/svg/home/tsetseg tom.svg');
-    position: absolute;
-    left: 8rem;
-    bottom: 12rem;
-  }
-  
-  .choose {
-    width: 20%;
-  }
-  .white {
-    width: 6rem;
-    height: 6rem;
-    background-color: #fff;
-    position: relative;
-    border-radius: 50%;
-    right: 10rem;
-    bottom: 1rem;
-  }
-  .circle {
-    width: 5rem;
-    height: 5rem;
-    background-color: var(--blue-color);
-    border-radius: 50%;
-  }
-  
-
-  /* Zahialgiin medeelel */
-  .slideContent {
-    height: 70vh;
-  }
-  .locate a {
-    color: white !important;
-  }
-  .slider {
-    height: 50vh;
-    border: 2px solid black;
-  }
-  .carousel-indicators button {
-    background-color: var(--blue-color) !important;
-    margin-top: 80rem !important;
-    border-radius: 50%;
-    width: 2rem !important;
-  }
-  .carousel-item img {
-    height: 32rem;
-  }
-  .addOrder p {
-    width: 85%;
-    border: 2px solid black;
-  }
-      /* Minii sags */
-  .zahialahHusnegt {
-    width: 85%;
-    height: 5rem;
-  }
-  .zahialga {
-    width: 85%;
-  }
-  .zahialsanHeseg {
-    width: 21rem;
-    height: 6rem;
-    border: 1px solid var(--blue-color);
-    border-radius: 0.5rem;
-  }
-
-  .order1Img {
-    border-right: 1px solid var(--blue-color);
-    width: 30%;
-    height: 6rem;
-    border-radius: 0.5rem;
-  }
-  .order1Img img {
-    width: 2rem;
-  }
-  .order1Button {
-    width: 6rem;
-  }
-  .order1Button p {
-    margin-top: 1rem;
-  }
-  .order1Price {
-    width: 13rem;
-    height: 5rem;
-  }
-  .orderName {
-    height: 2rem;
-  }
-  .orderName img {
+  .slideshowDot {
+    display: inline-block;
+    height: 0.8rem;
     width: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 1rem 1rem;
+    background-color: #e7e7e7;
   }
-  .orderName p {
-    color: #807e7e;
-    line-height: 5px;
+  .slideshowDot.active {
+    background-color: var(--blue-color);
   }
-  .order1Info {
-    margin-left: 1rem;
+  
+  .orderInfo .slideshow {
+    margin-left: 10%;
+    margin-top: 5%;
+    overflow: hidden;
+    width: 90%;
+    height: 100%;
   }
-  .order1selectTotal {
-    border: 1px solid var(--blue-color);
-    width: 16rem;
-    height: 3rem;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-  }
-  .order1selectTotal1 {
-    border-top: 1px solid var(--blue-color);
-    border-bottom: 1px solid var(--blue-color);
-    width: 16rem;
-    height: 3rem;
-  }
-  .order1zahialahButton {
+    /*Remove order comment */
+  .tooltiptext {
+    position: absolute;
     background-color: var(--blue-color);
     color: white;
-    width: 13rem;
-    height: 3.1rem;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    /* left: 70%; */
+    top: -280% !important;
+    right: 10%;
+    z-index: 1;
+    opacity: 0;
+    font-weight: 600;
+    transition: opacity 0.3s;
   }
-  .order1tablenames {
-    height: 1rem;
-    width: 20rem;
-    padding-left: 1rem;
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -20px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: var(--blue-color) transparent transparent transparent;
   }
-  .seeTotalInfo {
-    text-align: center;
+  .removeOrder .nav-link:hover .tooltiptext {
+    opacity: 1;
   }
-  .order2TotalInfo .order1selectTotal {
-    border: 1px solid var(--blue-color);
-    width: 15.5rem;
-    height: 3rem;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-  }
-  .order2TotalInfo .order1selectTotal1 {
-    border: 1px solid var(--blue-color);
-    width: 16rem;
-    height: 3rem;
-  }
-  .order2TotalInfo .order1selectTotal2 {
-    border: 1px solid var(--blue-color);
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    width: 12rem;
-    height: 3rem;
-  }
-  .order2TotalInfo .order1tablenames {
-    height: 1rem;
-    width: 36rem;
-    /* padding-left: 1rem; */
-  }
-/* Захиалгын мэдээлэл */
-.userInfo {
-  width: 85%;
-}
-.payP {
-  width: 20rem;
-}
-.userImg {
-  width: 28%;
-}
-/* Хэрэглэгчийн мэдээлэл */
-.group{
-  position:relative;
-}
-.group>label{
-  padding:0 0.2em;
-  position:absolute;
-  top:-0.6em;
-  left:1em;
-  background-color:white;
-  color: #807e7e;
-}
 
-.group>input{
-  padding:0.5em;
-  border-radius: 0.5em;
-  border: 2px solid #e7e7e7;
-  outline:none;
-  width: 14rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-/* Байршлын мэдээлэл */
-.groupL{
-  position:relative;
-}
-.groupL>label{
-  padding:0 0.2em;
-  position:absolute;
-  top:-0.6em;
-  left:1em;
-  background-color:white;
-  color: #807e7e;
-}
-
-.groupL>input{
-  padding:0.5em;
-  border-radius: 0.5em;
-  border: 2px solid #e7e7e7;
-  outline:none;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.back, .choosePayment {
-  text-align: center;
-  padding: 0.6rem;
-  border-radius: 0.5em;
-  height: 2.5rem;
-  font-size: 1.1rem;
-}
-.back {
-  background-color: #e01f20;
-  margin-right: 0.5em;
-}
-
-.choosePayment {
-  background-color: #3dbfe3;
-}
-.choosePayment button {
-  color: white;
-}
-.groupS{
-  position:relative;
-}
-.groupS>label{
-  padding:0 0.2em;
-  position:absolute;
-  top:-0.6em;
-  left:1em;
-  background-color:white;
-  color: #807e7e;
-}
-
-.groupS>select{
-  padding:0.5em;
-  border-radius: 0.5em;
-  border: 2px solid #e7e7e7;
-  outline:none;
-}
-.locate {
-  height: 20rem;
-}
-.locationInfo {
-  width: 100%;
-}
-/* Төлбөр төлөх */
-.warning p {
-  line-height: 18px;
-  color: #807e7e;
-}
-.dansMedeelel p{
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 8px;
-  color: #807e7e;
-}
-.paymentInstruction {
-  border-right: 2px solid #a1a0a0;
-}
-.groupPay{
-  position:relative;
-}
-.groupPay>label{
-  padding:0 0.2em;
-  position:absolute;
-  top:-0.6em;
-  left:1em;
-  background-color:white;
-  color: #807e7e;
-}
-
-.groupPay>select{
-  padding:0.5em;
-  border-radius: 0.5em;
-  border: 2px solid #e7e7e7;
-  outline:none;
-  height: 3.5rem;
-}
-}
-
-@media (min-width: 1281px) and (max-width: 1536px) {
     /* Header */
-    
     .logo img {
-      height: 7rem;
+      height: 8rem;
+      padding-top: 1rem;
     }
     .ProductAndOrder {
-      width: 23rem;
+      /* width: 60%; */
       height: 50%;
       border: 1px solid var(--blue-color);
       border-radius: 10px;
-      margin-top: 3rem;
+      margin: auto 0;
     }
-    .line {
-      height: 3rem;
-      border: 1px solid var(--blue-color);
-      margin-right: 1rem;
-      margin-left: 1rem;
+    .ProductAndOrder p {
+      margin-bottom: 0;
     }
     .busket, .order {
       display: flex;
       align-items: center;
       color: var(--blue-color);
+      height: auto;
+      position: relative;
     }
     .busket img, .order img {
-      width: 15rem;
+      width: 25%;
       height: 100%;
+      padding: 0.3rem;
+      margin-right: 0.6rem;
     }
-    .busket p, .order p {
-      font-size: 1.3rem;
+    
+    p.busket, .order p {
+      font-size: 2rem;
       font-weight: 600;
-      margin-left: 3rem;
+      height: auto;
+    }
+    p.yourBusket {
+      font-size: 1.4rem;
+      color: #8a8888;
+      font-weight: 400;
+    }
+    p.yourBusket:hover {
+      font-weight: 400;
+      color: var(--blue-color);
     }
   
-    .water img {
-      height: 25vh;
-    }
     .footer1flower {
-      width: 80%;
+      width: 100%;
     }
           /* Content  */
+    .social {
+      margin: auto 0;
+    }
     .sc {
       margin: 1rem 0;
     }
-    .social {
-      margin-left: 3rem;
-    }
-    .chooseList {
-      height: 10rem;
-    }
-    .link {
-      width: 100%;
-    }
-    .productInfo {
-      width: 100%;
-      margin-top: 1rem;
-    }
+
+  
+
     .addOrdertitle {
       width: 100%;
     }
-    .orderInfo {
-      height: 40vh;
-    }
+   
     .tableImg {
       width: 66%;
     }
-    .select {
-      width: 11rem;
-      height: 4rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      border-right: 1px solid #d6d1d1;
-      font-size: 1.2rem;
-      padding-top: 0.4rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: center;
+    .tablenames {
+      height: 0 !important;
+    }
+  
+
+    
+    .locate form .select {
+      height: auto;
       appearance: none;
       -moz-appearance: none;
-      -webkit-appearance: none;
-      background-image: url('../images/svg/home/Arrow-down.svg');
-      background-repeat: no-repeat;
-      background-position: calc(100% - 6px) center;
     }
-    .locate form .select {
-      height: 2.7rem;
-    }
-    select:focus-visible {
-      background-repeat: no-repeat;
-      background-position: calc(100% - 3px) center;
-      border: 2px solid var(--blue-color);
-    }
+
     
-    .selectTotal {
-      width: 10rem;
-      border-top: 1px solid #d6d1d1;
-      border-bottom: 1px solid #d6d1d1;
-      font-size: 1.7rem;
-      padding-top: 0.1rem;
-      font-weight: 500;
-      text-align: center;
-      height: 4rem;
-    }
-    .order1Content .selectTotal, .order1Content .buttonImg {
-     height: 4rem;
-    }
-    .order1Content {
-      padding-left: 2rem;
-    }
-    
-    .tablenames {
-      margin-left: 2rem;
-      width: 31rem;
-      color: #807e7e;
-    }
-    .tablename1 {
-      width: 9rem;
-      height: 1rem;
-    }
-    .tablename2 {
-      width: 10rem;
-      height: 1rem;
-    }
-    .tablename3 {
-      width: 11rem;
-      height: 1rem;
-    }
+
+  
     .bona {
-      width: 70%;
-      height: 56vh;
+      width: 65%;
+      border-radius: 50%;
       border: 1px solid #807e7e;
     }
     .bona img {
-      height: 95%;
+      width: 38%;
       z-index: 1;
     }
-   
-    .bona::before {
-      content: url('../images/svg/home/tsetseg tom.svg');
-      position: absolute;
-      left: 8rem;
-      bottom: 10rem;
+    .flower {
+      width: 70%;
+      left: 40%;
+      bottom: 46%;
+      height: 80%;
     }
-    
+    p#capaInCircle {
+      margin-bottom: 0;
+    }
+    .bigflower {
+      width: 100% !important;
+      height: 100%;
+    }
+    .continueButton {
+      background-color: var(--blue-color) !important;
+      border: 1px solid var(--blue-color) !important;
+    }
+    .chooseList li img {
+      margin: 1rem 0;
+    }
     .choose {
-      width: 20%;
+      width: 20%; 
+      margin-right: 3rem;
+      height: auto;
     }
-    .white {
-      width: 6rem;
-      height: 6rem;
-      background-color: #fff;
-      position: relative;
-      border-radius: 50%;
-      right: 10rem;
-      bottom: 1rem;
+    .bonaquaType {
+      margin: 1rem 0;
     }
-    .circle {
-      width: 5rem;
-      height: 5rem;
-      background-color: var(--blue-color);
-      border-radius: 50%;
-    }
-    
-  
-    /* Zahialgiin medeelel */
+
+
+    /* OrderInfo */
     .slideContent {
-      height: 70vh;
+      /* height: 70vh; */
+      width: 100%;
     }
     .locate a {
       color: white !important;
     }
-    .slider {
-      height: 50vh;
-      border: 2px solid black;
+    .addOrder {
+      width: 100% !important;
     }
-    .carousel-indicators button {
-      background-color: var(--blue-color) !important;
-      margin-top: 80rem !important;
-      border-radius: 50%;
-      width: 2rem !important;
-    }
-    .carousel-item img {
-      margin-top: 0.5rem;
-      height: 23rem;
-    }
-    .addOrder p {
-      width: 100%;
-    }
-        /* Minii sags */
-    .zahialahHusnegt {
-      width: 85%;
-      height: 5rem;
-    }
-    .zahialga {
-      width: 85%;
-    }
-    .zahialsanHeseg {
-      width: 21rem;
-      height: 6rem;
-      border: 1px solid var(--blue-color);
-      border-radius: 0.5rem;
-    }
-  
+
+        /* My Busket */
+
+
+
     .order1Img {
       border-right: 1px solid var(--blue-color);
       width: 30%;
-      height: 6rem;
       border-radius: 0.5rem;
     }
     .order1Img img {
-      width: 2rem;
+      width: 40%;
     }
-    .order1Button {
-      width: 6rem;
-    }
-    .order1Button p {
-      margin-top: 1rem;
-    }
-    .order1Price {
-      width: 13rem;
-      height: 5rem;
-    }
-    .orderName {
-      height: 2rem;
-    }
-    .orderName img {
-      width: 0.8rem;
-    }
-    .orderName p {
-      color: #807e7e;
-      line-height: 5px;
-    }
-    .order1Info {
-      margin-left: 1rem;
-    }
-    .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 14rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order1selectTotal1 {
-      border-top: 1px solid var(--blue-color);
-      border-bottom: 1px solid var(--blue-color);
-      width: 15rem;
-      height: 3rem;
-    }
-    .order1zahialahButton {
-      background-color: var(--blue-color);
-      color: white;
-      width: 8rem;
-      height: 3.1rem;
-      border-radius: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .tablename4 {
-      width: 5rem;
-    }
-    .tablename5 {
-      width: 22rem;
-    }
-    .tablename6 {
-      width: 4rem;
-    }
-    p.total {
-      margin-left: 1rem;
-    }
-    .seeTotalInfo {
-      text-align: center;
-    }
-    .order2TotalInfo .order1selectTotal {
-      border: 1px solid var(--blue-color);
-      width: 15.5rem;
-      height: 3rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    .order2TotalInfo .order1selectTotal1 {
-      border: 1px solid var(--blue-color);
-      width: 16rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1selectTotal2 {
-      border: 1px solid var(--blue-color);
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-      width: 12rem;
-      height: 3rem;
-    }
-    .order2TotalInfo .order1tablenames {
-      height: 1rem;
-      width: 36rem;
-    }
-    .order2Content {
-      padding-left: 2rem;
-    }
+
+
+   
   /* Захиалгын мэдээлэл */
-  .userInfo {
-    width: 100%;
-  }
+  
   .payP {
     width: 20rem;
   }
   .userImg {
-    width: 28%;
+    width: 30%;
+  }
+  .flowerImg {
+    width: 70%;
+  }
+  .productImg {
+    width: 90%;
   }
   /* Хэрэглэгчийн мэдээлэл */
   .group{
@@ -1653,16 +842,25 @@ a {
     background-color:white;
     color: #807e7e;
   }
-  
   .group>input{
     padding:0.5em;
     border-radius: 0.5em;
     border: 2px solid #e7e7e7;
     outline:none;
-    width: 12.2rem;
+    width: 100%;
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
+  }
+  .ordernumber {
+    color: var(--blue-color);
+  }
+  .randomOrderNumber::placeholder {
+    color: var(--blue-color);
+    font-weight: 700;
+  }
+  .select::placeholder {
+    font-size: 0.8rem;
   }
   /* Байршлын мэдээлэл */
   .groupL{
@@ -1676,7 +874,6 @@ a {
     background-color:white;
     color: #807e7e;
   }
-  
   .groupL>input{
     padding:0.5em;
     border-radius: 0.5em;
@@ -1685,7 +882,6 @@ a {
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    width: 18rem;
   }
   .groupLa{
     position:relative;
@@ -1698,7 +894,9 @@ a {
     background-color:white;
     color: #807e7e;
   }
-  
+  .district, .house, .door {
+      width: 100%;
+  }
   .groupLa>input{
     padding:0.5em;
     border-radius: 0.5em;
@@ -1707,26 +905,31 @@ a {
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    width: 37rem;
   }
-  
   .back, .choosePayment {
-    text-align: center;
-    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 0.5em;
-    height: 2.5rem;
+    height: auto;
     font-size: 1.1rem;
   }
   .back {
     background-color: #e01f20;
     margin-right: 0.5em;
   }
-  
   .choosePayment {
-    background-color: #3dbfe3;
+    background-color: var(--blue-color);
   }
-  .choosePayment button {
-    color: white;
+  .removeOrder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5em;
+      padding: 0.7rem;
+      height: auto;
+      font-size: 1.1rem;
+      background-color: var(--blue-color);
   }
   .groupS{
     position:relative;
@@ -1739,45 +942,26 @@ a {
     background-color:white;
     color: #807e7e;
   }
-  
   .groupS>select{
     padding:0.5em;
     border-radius: 0.5em;
     border: 2px solid #e7e7e7;
     outline:none;
-    width: 18rem;
   }
   .locate {
-    height: 16rem;
-  }
-  .locationInfo {
-    width: 100%;
+    height: 20rem;
   }
   /* Төлбөр төлөх */
   .warning p {
     line-height: 18px;
     color: #807e7e;
-  }
-  .tablename4 {
-    width: 4rem;
-  }
-  .tablename5 {
-    width: 23rem;
-  }
-  .tablename6 {
-    width: 4rem;
+    margin-bottom: 1rem;
   }
   .dansMedeelel p{
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    line-height: 8px;
+    line-height: 28px;
     color: #807e7e;
-  }
-  .qrCode img {
-    width: 100%;
-  }
-  .qrCode {
-    width: 15%;
   }
   .paymentInstruction {
     border-right: 2px solid #a1a0a0;
@@ -1793,473 +977,663 @@ a {
     background-color:white;
     color: #807e7e;
   }
-  
   .groupPay>select{
     padding:0.5em;
     border-radius: 0.5em;
     border: 2px solid #e7e7e7;
     outline:none;
-    height: 3rem;
+    height: auto;
   }
-}
+  .sort {
+    color: #8a8888;
+  }
+  .sort select {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    border-radius: 0.5rem;
+  }
+  .orderHistory {
+    width: 100%;
+    border: 1px solid var(--blue-color);
+    border-radius: 0.5rem;
+    background-color: #f9fafe;
+    box-shadow: 1px 1px 8px var(--blue-color);
+  }
+  .orderHistoryInfo > * {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .orderHistoryImg img {
+    width: 50%;
+  }
+  .orderHistoryImg {
+    width: 20%;
+    border-right: 1px solid var(--blue-color);
+    border-radius: 0.5rem;
+  }
 
-@media (min-width: 1537px) and (max-width: 1793px) {
-  
-}
+  .ProductC {
+    margin-left: 2rem;
+  }
+  .footer2flower {
+    width: 75%;
+  }
+  .footerwater {
+    width: 25%;
+  }
+  input.input {
+    border: 1px solid var(--blue-color);
+    border-radius: 0.5rem;
+    background-color: #f9fafe;
+  }
+  .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  @media (max-width: 371px) {
+    p.yourBusket {
+      font-size: 0.85rem !important;
+    }
+  }
 
-@media (min-width: 1793px) and (max-width: 2048px) {
-      /* Header */
-      .logo img {
-        height: auto;
-        margin-top: 1rem;
-      }
-      .ProductAndOrder {
-        width: 35rem;
-        height: 50%;
-        border: 1px solid var(--blue-color);
-        border-radius: 10px;
-        margin-top: 3rem;
-      }
-      .line {
-        height: 80%;
-        border: 1px solid var(--blue-color);
-        margin-right: 2rem;
-        margin-left: 1rem;
-      }
-      .busket, .order {
-        display: flex;
-        align-items: center;
-        color: var(--blue-color);
-      }
-      .busket img, .order img {
-        width: 15rem;
-        height: 100%;
-      }
-      .busket p, .order p {
-        font-size: 2rem;
-        font-weight: 600;
-        margin-left: 4rem;
-      }
-    
-      .water img {
-        height: 25vh;
-      }
-      .footer1flower {
-        width: 90%;
-      }
-            /* Content  */
-      .sc {
-        margin: 1rem 0;
-      }
-      .choosing {
-        margin-right: 3rem;
-      }
-      .chooseList {
-        height: 10rem;
-      }
-      .link {
-        width: 85%;
-      }
-      .productInfo {
-        width: 85%;
-        margin-top: 1rem;
-      }
-      .addOrdertitle {
-        width: 85%;
-      }
-      .orderInfo {
-        height: 40vh;
-      }
-      .tableImg {
-        width: 66%;
-      }
-      .buttonImg {
-        width: 11.5rem;
-        height: 4.8rem;
-      }
-    
-      .select {
-        width: 11rem;
-        height: 4.8rem;
-        border-top: 1px solid #d6d1d1;
-        border-bottom: 1px solid #d6d1d1;
-        border-right: 1px solid #d6d1d1;
-        font-size: 1.2rem;
-        padding-top: 0.4rem;
-        font-weight: 500;
-        cursor: pointer;
-        text-align: center;
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        background-image: url('../images/svg/home/Arrow-down.svg');
-        background-repeat: no-repeat;
-        background-position: calc(100% - 6px) center;
-      }
-      .locate form .select {
-        height: 2.7rem;
-      }
-      select:focus-visible {
-        background-repeat: no-repeat;
-        background-position: calc(100% - 3px) center;
-        border: 2px solid var(--blue-color);
-      }
-      
-      .selectTotal {
-        width: 10rem;
-        border-top: 1px solid #d6d1d1;
-        border-bottom: 1px solid #d6d1d1;
-        font-size: 1.7rem;
-        padding-top: 0.1rem;
-        font-weight: 500;
-        text-align: center;
-        height: 4.8rem;
-      }
-      .order1Content .selectTotal, .order1Content .buttonImg {
-       height: 4.8rem;
-      }
-      .tablenames {
-        margin-left: 2rem;
-        width: 31rem;
-        color: #807e7e;
-      }
-      .tablename1 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename2 {
-        width: 13rem;
-        height: 1rem;
-      }
-      .tablename3 {
-        width: 11rem;
-        height: 1rem;
-      }
-      .bona {
-        width: 70%;
-        height: 56vh;
-        border: 1px solid #807e7e;
-      }
-      .bona img {
-        height: 95%;
-        z-index: 1;
-      }
-     
-      .bona::before {
-        content: url('../images/svg/home/tsetseg tom.svg');
-        position: absolute;
-        left: 15rem;
-        bottom: 18rem;
-      }
-      
-      .choose {
-        width: 20%;
-      }
-      .white {
-        width: 8rem;
-        height: 8rem;
-        background-color: #fff;
-        position: relative;
-        border-radius: 50%;
-        right: 12rem;
-        bottom: 2rem;
-      }
-      .circle {
-        width: 7rem;
-        height: 7rem;
-        background-color: var(--blue-color);
-        border-radius: 50%;
-      }
-      
-    
-      /* Zahialgiin medeelel */
-      .slideContent {
-        height: 70vh;
-      }
-      .locate a {
-        color: white !important;
-      }
-      .slider {
-        height: 50vh;
-        border: 2px solid black;
-      }
-      .carousel-indicators button {
-        background-color: var(--blue-color) !important;
-        margin-top: 80rem !important;
-        border-radius: 50%;
-        width: 2rem !important;
-      }
-      .carousel-item img {
-        height: 32rem;
-      }
-      .addOrder p {
-        width: 85%;
-      }
-          /* Minii sags */
-      .zahialahHusnegt {
-        width: 85%;
-        height: 5rem;
-      }
-      .zahialga {
-        width: 85%;
-      }
-      .zahialsanHeseg {
-        width: 21rem;
-        height: 6rem;
-        border: 1px solid var(--blue-color);
-        border-radius: 0.5rem;
-      }
-    
-      .order1Img {
-        border-right: 1px solid var(--blue-color);
-        width: 30%;
-        height: 6rem;
-        border-radius: 0.5rem;
-      }
-      .order1Img img {
-        width: 2rem;
-      }
-      .order1Button {
-        width: 6rem;
-      }
-      .order1Button p {
-        margin-top: 1rem;
-      }
-      .order1Price {
-        width: 13rem;
-        height: 5rem;
-      }
-      .orderName {
-        height: 2rem;
-      }
-      .orderName img {
-        width: 0.8rem;
-      }
-      .orderName p {
-        color: #807e7e;
-        line-height: 5px;
-      }
-      .order1Info {
-        margin-left: 1rem;
-      }
-      .order1selectTotal {
-        border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-      }
-      .order1selectTotal1 {
-        border-top: 1px solid var(--blue-color);
-        border-bottom: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-      }
-      .order1zahialahButton {
-        background-color: var(--blue-color);
-        color: white;
-        width: 13rem;
-        height: 3.1rem;
-        border-radius: 0.5rem;
-        font-size: 1.2rem;
-      }
-      .order1tablenames {
-        height: 1rem;
-        width: 20rem;
-        padding-left: 1rem;
-      }
-      .seeTotalInfo {
-        text-align: center;
-      }
-      .order2TotalInfo .order1selectTotal {
-        border: 1px solid var(--blue-color);
-        width: 15.5rem;
-        height: 3rem;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-      }
-      .order2TotalInfo .order1selectTotal1 {
-        border: 1px solid var(--blue-color);
-        width: 16rem;
-        height: 3rem;
-      }
-      .order2TotalInfo .order1selectTotal2 {
-        border: 1px solid var(--blue-color);
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-        width: 12rem;
-        height: 3rem;
-      }
-      .order2TotalInfo .order1tablenames {
-        height: 1rem;
-        width: 36rem;
-      }
-      .tablename4 {
-        width: 4rem;
-      }
-      .tablename5 {
-        width: 26rem;
-      }
-      .tablename6 {
-        width: 5rem;
-      }
-    /* Захиалгын мэдээлэл */
-    .userInfo {
-      width: 85%;
+  @media (max-width: 639px) {
+    .ProductAndOrder {
+      display: flex;
+      flex-direction: column;
+      height: auto;
     }
-    .payP {
-      width: 20rem;
+    .header {
+      margin-bottom: 15%;
     }
-    .userImg {
-      width: 28%;
+    .logo img {
+      height: 6rem;
     }
-    /* Хэрэглэгчийн мэдээлэл */
-    .group{
-      position:relative;
+    p.busket {
+      font-size: 1.3rem;
     }
-    .group>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
+    p.yourBusket {
+      font-size: 0.95rem;
     }
+    .group>label {
+      font-size: 0.7rem;
+    }
+    .social {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .total {
+      font-size: 1.2rem !important;
+    }
+    .white {
+      width: 4rem;
+      height: 4rem;
+    }
+    .circle {
+      width: 3rem !important;
+      height: 3rem;
+    }
+    .flower {
+      left: 30%;
+    }
+    .link {
+      display: flex;
+      flex-direction: column;
+    }
+    .ProductC {
+      margin-left: 0;
+    }
+    .order1selectTotal {
+      overflow: scroll;
+    }
+    .sagslahButton {
+      padding: 0.2rem;
+    }
+    .busket img {
+      width: 20%;
+      padding: 0.5rem;
+    }
+    .order2tablenames > * {
+      width: 25%;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .flower {
+      left: 35%;
+      height: 70%;
+    }
+    p.busket {
+      font-size: 1.6rem;
+    }
+    p.yourBusket {
+      font-size: 1.2rem;
+    }
+    .busket img {
+      width: 20%;
+      padding: 0.8rem;
+    }
+    .social {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .ProductAndOrder {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dun {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .sagslahButton {
+      padding: 0.2rem;
+    }
+    .order2tablenames > * {
+      width: 35%;
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 895px) {
     
-    .group>input{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      width: 14rem;
-      font-size: 1rem;
+    p.busket {
+      font-size: 1.5rem;
+    }
+    p.yourBusket {
+      font-size: 0.9rem;
       font-weight: 600;
-      text-align: center;
     }
-    /* Байршлын мэдээлэл */
-    .groupL{
-      position:relative;
+    .header {
+      margin-bottom: 15%;
     }
-    .groupL>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
+    .choose {
+      margin-right: 0;
     }
-    
-    .groupL>input{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
+    .social {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .order2tablenames > * {
+      width: 35%;
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: 896px) and (max-width: 1284px) {
+    p.yourBusket {
       font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-      width: 21.5rem;
     }
-    .groupLa{
-      position:relative;
+    p.busket {
+      font-size: 1.5rem;
     }
-    .groupLa>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
+    .bona {
+      width: 50%;
+      margin-top: 10%;
     }
-    
-    .groupLa>input{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
+    .social {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .sc {
+      margin: 0 2rem;
+    }
+    .order2tablenames > * {
+      width: 35%;
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1285px) and (max-width: 1440px) {
+   .busket img {
+     padding: 0;
+   }
+    p.busket {
+      font-size: 1.2rem;
+    }
+    p.yourBusket {
       font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-      width: 44rem;
     }
-    
-    .back, .choosePayment {
-      text-align: center;
-      padding: 0.6rem;
-      border-radius: 0.5em;
-      height: 2.5rem;
+    p.total {
       font-size: 1.1rem;
     }
-    .back {
-      background-color: #e01f20;
-      margin-right: 0.5em;
+   .logo img {
+     height: 6rem;
+   }
+   .bona {
+     width: 70%;
+   }
+    .white {
+      width: 4.5rem;
+      height: 4.5rem;
     }
-    
-    .choosePayment {
-      background-color: #3dbfe3;
+    .circle {
+      width: 4rem !important;
+      height: 4rem;
     }
-    .choosePayment button {
-      color: white;
+    .order1selectTotal1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .groupS{
-      position:relative;
+    .order1selectTotal2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .groupS>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
+    .order1Img img {
+      width: 70%;
     }
-    
-    .groupS>select{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      width: 21.5rem;
+    .order1tablenames {
+      width: 22rem !important;
+      margin-left: 0.5rem;
+    }
+    .order2tablenames > * {
+      width: 50%;
+      margin-left: 0.5rem;
+    }
+    .carousel-item img {
+      max-width: 0 !important;
+      margin-top: 20rem !important;
+    }
+    .dansMedeelel p {
+      font-size: 0.8rem;
+      line-height: 1rem;
+    }
+    .link .nav-link {
+      margin-left: 0;
+  }
+
+  .slide {
+    margin-top: 10%;
+  }
+
+.contain  {
+  height: 95vh;
+  width: 90%;
+}
+  }
+
+  @media (min-width: 1441px) and (max-width: 2048px) {
+    p.busket {
+      font-size: 1.4rem;
+    }
+    p.yourBusket {
+      font-size: 1.1rem;
+      color: #666363;
+    }
+    p.total {
+      font-size: 1.2rem;
+    }
+    .order1tablenames {
+      width: 24rem !important;
+      margin-left: 0.5rem;
+    }
+    .order2tablenames > * {
+      width: 50%;
+      margin-left: 0.5rem;
+    }
+  .contain  {
+    height: 95vh;
+    width: 90%;
+  }
+
+  }
+
+  @media (min-width: 2049px) and (max-width: 3119px) {
+    .header {
+      height: 18vh;
+    }
+    .logo img {
+      height: 10rem;
+    }
+    p.busket {
+      font-size: 2rem;
+    }
+    p.yourBusket {
+      font-size: 1.4rem;
+      color: #666363;
+    }
+    p.total {
+      font-size: 1.6rem;
+    }
+
+    .link {
+      font-size: 1.4rem;
+    }
+    .ProductC h4 {
+      font-size: 1.6rem;
+    }
+    .ProductC ul li {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2rem;
+    }
+
+    .order1tablenames {
+      width: 24rem !important;
+      margin-left: 0.5rem;
+    }
+    .order2tablenames > * {
+      width: 50%;
+      margin-left: 0.5rem;
+    }
+    .sc {
+      width: 2rem;
+      margin: 2rem 0;
+    }
+    .chooseList li img {
+      width: 1rem !important;
+      margin: 1rem 0;
+    }
+  .contain  {
+    height: 95vh;
+    width: 90%;
+  }
+  }
+
+  @media (min-width: 3200px) {
+    .logo img {
+      height: 15rem;
+    }
+    p.busket {
+      font-size: 3rem;
+    }
+    p.yourBusket {
+      font-size: 2rem;
+      color: #666363;
+    }
+    p.total {
+      font-size: 2.8rem;
+      line-height: 5rem;
+    }
+
+    .link {
+      font-size: 3.2rem;
+    }
+    .ProductC h4 {
+      font-size: 3rem;
+      margin: 2rem 0;
+    }
+    .ProductC ul li {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 3rem;
+    }
+
+    .white {
+      width: 13rem;
+      height: 13rem;
+    }
+    .circle {
+      width: 12rem !important;
+      height: 12rem;
+    }
+    .footerwater{
+      width: 15%;
+    }
+    .footer1flower {
+      width: 100%;
+    }
+    .footer2flower {
+      width: 85%;
+    }
+    .chooseList li img {
+      width: 2rem;
+      margin: 2rem 0;
+    }
+    .order1tablenames {
+      width: 24rem !important;
+      margin-left: 0.5rem;
+    }
+    .order2tablenames > * {
+      width: 50%;
+      margin-left: 0.5rem;
+    }
+    .sc {
+      width: 3.5rem;
+      margin: 3rem 0;
+    }
+    .scf {
+      width: 2rem;
+    }
+    #userform > * {
+      width: 33%;
+    }
+    .back, .choosePayment {
+      font-size: 3rem;
+      height: 8rem;
     }
     .locate {
-      height: 20rem;
+      height: 45vh;
+    }
+    .groupL>input {
+      padding: 1rem;
+      font-size: 3rem;
+    }
+    .groupLa>input {
+      padding: 2rem;
+      font-size: 3rem;
+    }
+    .group>input {
+      padding: 1rem;
+      font-size: 2.5rem;
     }
     .locationInfo {
       width: 100%;
     }
-    /* Төлбөр төлөх */
+    .groupPay>input {
+      padding: 1rem;
+      font-size: 4rem;
+    }
     .warning p {
-      line-height: 18px;
-      color: #807e7e;
+      line-height: 40px;
     }
-    .dansMedeelel p{
-      font-size: 1.1rem;
+    .dansMedeelel p {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    .ProductC {
+      margin-left: 4rem;
+    }
+    .active {
+      margin-left: 0;
+    }
+    .nav-link {
       font-weight: 500;
-      line-height: 8px;
-      color: #807e7e;
+      font-size: 2.8rem;
     }
-    .paymentInstruction {
-      border-right: 2px solid #a1a0a0;
+    .slideshowDots {
+      margin-top: 2%;
+      margin-bottom: 5%;
     }
-    .groupPay{
-      position:relative;
+    .popup {
+      padding: 1.5rem;
     }
-    .groupPay>label{
-      padding:0 0.2em;
-      position:absolute;
-      top:-0.6em;
-      left:1em;
-      background-color:white;
-      color: #807e7e;
+    .popup p {
+      top: 0.5rem;
+      font-size: 2rem;
     }
-    
-    .groupPay>select{
-      padding:0.5em;
-      border-radius: 0.5em;
-      border: 2px solid #e7e7e7;
-      outline:none;
-      height: 3.5rem;
-    }
-}
 
-@media (min-width: 2049px) {
+    .bonaquaType {
+      margin: 3rem 0;
+    }
+    #lists {
+      width: 1.5rem;
+    }
+    .sort select {
+      font-size: 2rem;
+      padding: 0 !important;
+    }
+
+  .contain  {
+    height: 95vh;
+    width: 90%;
+  }
+  }
+
+  input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  .sizecomment {
+    position: relative;
+    display: inline-block;
+  }
   
-}
+  .sizecomment .sizetext {
+    visibility: hidden;
+    background-color: black;
+    color: var(--blue-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 1;
+    /* bottom: 100%; */
+    /* left: 50%;  */
+    /* margin-left: -60px; */
+  }
+  
+  .sizecomment:hover .sizetext {
+    visibility: visible;
+  }
+
+        /* Media Query Height Css */
+
+  @media (min-height: 1440px) {
+    .header {
+      height: 12vh;
+    }
+  }
+  @media (max-width: 1768px) and (min-height: 1920px) {
+    .info {
+      width: 100% !important;
+    }
+    .header {
+      height: 10vh;
+    }
+    p.yourBusket {
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    .busket img {
+      width: 30%;
+    }
+    .groupS .select {
+      height: 5rem !important;
+    }
+    .link .nav-link {
+      font-size: 2rem;
+    }
+    #capaInCircle {
+      font-size: 2rem;
+    }
+    #liCapacity {
+      font-size: 3rem;
+    }
+    #title {
+      font-size: 3.5rem;
+      margin: 3rem 0;
+    }
+
+
+    .ProductC ul {
+      font-size: 1.6rem !important;
+      line-height: 2.5rem;
+    }
+    .ProductC h4 {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+
+    p.total {
+      font-size: 2.5rem;
+    }
+    p.busket {
+      font-size: 2.5rem;
+    }
+    .order1selectTotal {
+      padding: 0.8rem;
+    }
+    .sagslahButton {
+      font-size: 1.8rem !important;
+    }
+    #lists {
+      width: 1.2rem;
+    }
+    .productImg {
+      margin: 2rem 0;
+    }
+
+    .locate {
+      height: 30vh;
+    }
+    .groupL>input {
+      font-size: 2rem;
+    }
+    .groupLa>input {
+      font-size: 2rem;
+    }
+    #userform {
+      font-size: 1.2rem;
+    }
+    .groupS label, .group label, .groupL label, .groupLa label {
+      font-size: 1.8rem;
+      top: -0.4rem;
+    }
+    .userImg, .flowerImg {
+      margin: 2rem 0;
+    }
+    .order1selectTotal2 p.total {
+      margin-top: 1rem;
+    }
+    #userform > * {
+      width: 33%;
+    }
+    .group>input {
+      font-size: 2rem;
+    }
+    .sizecomment {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .order2tablenames p {
+      font-size: 1.6rem;
+    }
+    .backButton {
+      font-size: 2rem;
+    }
+    .choosePayment a  {
+      font-size: 2rem;
+    }
+    .social {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .warning p {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
+    .back {
+      padding: 1rem;
+    }
+    .removeOrder a {
+      font-size: 2rem;
+    }
+  }

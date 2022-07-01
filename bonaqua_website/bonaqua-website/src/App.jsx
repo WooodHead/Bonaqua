@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import './css/style.css';
+import './css/mediaQuery.css';
 import Header from './components/Header';
 import Order from './components/Order/Order';
 import Footer from './components/Footer';
@@ -8,11 +9,6 @@ import OrderInfo from './components/Order/OrderInfo';
 import Payment from './components/Order/Payment';
 import OrderHistory from './components/Order/OrderHistory';
 import Content from './components/Content';
-import Home from './components/Home';
-import AllOrder from './components/orderHistory/AllOrder';
-import Product from './components/ProductInformation/Product';
-import Instruction from './components/ProductInformation/Instruction';
-import Nutrition from './components/ProductInformation/Nutrition';
 
 export const AppContext = createContext();
 

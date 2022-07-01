@@ -8,7 +8,6 @@ import { useState, useContext } from 'react';
 import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 export default function Header() {
   // const {item} = useContext(AppContext);
   const [render, setRender] = useState(false);
@@ -80,7 +79,7 @@ export default function Header() {
               <div className='dun cursor-pointer'>
                 <p className='busket'> 
                 {
-                userArray != null ? userArray[0].number : ''
+                userArray != null ? userArray[0].number : '********'
                 }
                 </p>
                 {
