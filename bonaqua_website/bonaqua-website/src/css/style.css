@@ -814,7 +814,7 @@ a {
       visibility: visible;
     }
   
-      .lists {
+      #lists {
         display: none;
       }
       .list-active {

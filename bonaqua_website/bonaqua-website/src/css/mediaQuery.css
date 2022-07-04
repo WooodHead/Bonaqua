@@ -157,6 +157,7 @@
     
     p.busket {
       font-size: 1.5rem;
+      height: 1.2rem;
     }
     p.yourBusket {
       font-size: 0.9rem;
@@ -188,6 +189,7 @@
     }
     p.busket {
       font-size: 1.5rem;
+      height: 1.2rem;
     }
     .bona {
       margin-top: 10%;

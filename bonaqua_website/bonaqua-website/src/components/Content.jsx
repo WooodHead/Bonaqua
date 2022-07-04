@@ -169,12 +169,14 @@ export default function Content() {
                           setImage(img.img)
                         }
                       })
+                      document.getElementById("lists").style.display = 'block';
                   }}>
                     <ul>
-                      <li id='lists' value={res.Capacity} className="9xl:text-6xl button">{res.Capacity}</li>
-                      <li> <img src={point} alt="" className=''/> </li>
+                      <li>
+                         <img src={point} alt="" className=''/>
+                         <li id='lists' className="9xl:text-6xl button">{capacity}</li>
+                      </li>
                     </ul>
-                   
                   </li>
                 )}
               </ul>
