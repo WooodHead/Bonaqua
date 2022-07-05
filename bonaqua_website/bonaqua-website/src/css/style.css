@@ -814,6 +814,12 @@ a {
       visibility: visible;
     }
   
+    .bonaquaType {
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: #8a8888;
+      border-radius: 50%;
+    }
       #lists {
         display: none;
       }
@@ -824,7 +830,7 @@ a {
       .main ul li {
         display: block;
       }
-      .main li.li-active ul {
+      .main li.li-active ul li {
         display: block;
         color: var(--blue-color);
         font-size: 1.5rem;

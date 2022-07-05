@@ -26,7 +26,7 @@ export default function Order() {
   useEffect(() => {
     var getData = async () => {
       try {
-        var data = await fetch('http://localhost:8080/api/bonaqua');
+        var data = await fetch('http://localhost:8090/api/bonaqua');
         var resData = await data.json();
         setData(resData)
       } catch (err) {
@@ -82,7 +82,7 @@ export default function Order() {
 
     var index = orderArray.findIndex(x => x.size == size );
 
-    // if (totalPrice > 0 ) {
+    if (totalPrice > 0 ) {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,
@@ -106,10 +106,10 @@ export default function Order() {
       }
     });
     sessionStorage.setItem("item", c);
-    // }
-    // else {
-    //   toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
-    // }
+    }
+    else {
+      toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
+    }
 
     sessionStorage.setItem("array", JSON.stringify(orderArray));
     var sum = 0;

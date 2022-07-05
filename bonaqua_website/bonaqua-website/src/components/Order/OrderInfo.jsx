@@ -27,17 +27,17 @@ export default function OrderInfo() {
 
   async function getUserData() {
 
-    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-    //   toast("Бүх талбарыг бөглөнө үү!");
-    //   window.location.pathname
-    // }
-    // else {
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
+      toast("Бүх талбарыг бөглөнө үү!");
+      window.location.pathname
+    }
+    else {
     var phoneno = /^[7-9]\d{7}$/;
     var regName = /^[a-zA-Z ]{2,30}$/;
     var today = new Date();
-    // if( number.match(phoneno) && name.match(regName) ) {
+    if( number.match(phoneno) && name.match(regName) ) {
 
-    await fetch('http://localhost:8080/api/bonaqua/addOrder', {
+    await fetch('http://localhost:8090/api/bonaqua/addOrder', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,11 +81,11 @@ export default function OrderInfo() {
     //       console.log(value)
     //     })
     //   })
-    // }
-    // else {
-    //     toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-    // } 
-    // }
+    }
+    else {
+        toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+    } 
+    }
   }
 
   const arrays = sessionStorage.getItem("array");
@@ -125,7 +125,7 @@ export default function OrderInfo() {
             <h1 className="mb-3 9xl:text-7xl">Захиалгын мэдээлэл</h1>
 
             {/* Захиалгын мэдээлэл*/}
-            <div className="">
+            {/* <div className="">
               <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
                 <img src={sags} alt="" className="flowerImg" />
@@ -161,6 +161,50 @@ export default function OrderInfo() {
                     <div className='flex'>
                       <p className=''>Багц</p>
                     </div>
+                    <div className='flex'>
+                      <p className=''>Нийт үнэ</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div> */}
+
+
+<div className="">
+              <div className="flex justify-between">
+                <img src={orderinfo} alt="" className="userImg mb-3" />
+                <img src={sags} alt="" className="flowerImg" />
+              </div>
+              <div className="order2TotalInfo">
+                <div className="seeTotalInfo flex relative">
+                  <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
+                    <div className="min-w-0 flex mx-2">
+                      {orderArray.map(data =>
+                        <p className='total text-xl font-semibold'>{data.size}</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className='order1selectTotal1 flex justify-center items-center overflow-scroll'>
+                    <div className="min-w-0 flex mx-2 items-center">
+                      {orderArray.map(data =>
+                        <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className='order1selectTotal2'>
+                    <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
+                  </div>
+                  <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
+                    <div className='flex sizecomment'>
+                      <p className=''>Хэмжээ</p>
+                          {
+                            orderArray.map(data =>
+                              <span className="sizetext">{data.size}</span>
+                            )
+                          }
+                    </div>
+                  
                     <div className='flex'>
                       <p className=''>Нийт үнэ</p>
                     </div>

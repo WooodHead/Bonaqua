@@ -36,7 +36,7 @@ export default function Content() {
   useEffect(() => {
     var getData = async () => {
       try {
-        var data = await fetch('http://localhost:8080/api/bonaqua');
+        var data = await fetch('http://localhost:8090/api/bonaqua');
         var resData = await data.json();
         setData(resData)
       } catch (err) {
@@ -78,6 +78,7 @@ export default function Content() {
     const number = document.getElementById('avdar').value;
     const title = document.getElementById('title');
     const caseinunit = document.getElementById('caseinunit');
+    console.log(number)
 
     setTotal(incase)
     const totals = (incase * price) * number;
@@ -172,9 +173,9 @@ export default function Content() {
                       document.getElementById("lists").style.display = 'block';
                   }}>
                     <ul>
-                      <li>
-                         <img src={point} alt="" className=''/>
-                         <li id='lists' className="9xl:text-6xl button">{capacity}</li>
+                      <li id='lists' className="9xl:text-6xl button">
+                         {/* <img src={point} alt="" className=''/> */}
+                        {res.Capacity}
                       </li>
                     </ul>
                   </li>
@@ -240,16 +241,16 @@ export default function Content() {
                     )}
                   </select>
                 
-                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо"/>
+                      <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1"/>
                       <datalist id='case'>
                       {number.map(res =>
-                          <option value={res} id='number'></option>
+                          <option value={res} id='number'>{res}</option>
                       )}
                       </datalist>
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
-                      0₮
+                      {ftotal}₮
                     </p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>

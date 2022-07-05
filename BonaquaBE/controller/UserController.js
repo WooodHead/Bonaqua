@@ -105,3 +105,22 @@ exports.updateOrder = async(req, res) => {
     }
 }
 
+exports.paymentOrder = async(req, res) => {
+
+    const orderid = req.body.orderid;
+
+    const order = await db.sequelize.query(`exec Anungoo_db.dbo.SP_BtoC_CREATE_ORDER 'updateorder','', '', '', '', '',${orderid},''`, { type: QueryTypes.SELECT });
+
+    try {
+        if(order != 0) {
+            res.status(200).send(order);
+        } else {
+            res.status(404).json({ message: "No data to insert." });
+            return;
+        }
+    } catch(err) {
+        res.status(500).json({ message: err.message });
+        return;
+    }
+}
+

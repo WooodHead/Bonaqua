@@ -120,7 +120,7 @@
       flex-direction: column;
     }
     .choosing {
-      margin: 10% auto;
+      margin: 15% auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -215,6 +215,7 @@
     }
     .choosing {
       width: 100% !important;
+      margin-top: 5%;
     }
     .info {
       width: 100% !important;
@@ -227,6 +228,7 @@
    }
     p.busket {
       font-size: 1.2rem;
+      height: 1.3rem;
     }
     p.yourBusket {
       font-size: 1rem;
@@ -300,6 +302,11 @@
 .contain  {
   height: 95vh;
   width: 90%;
+}
+.zahialga {
+  max-height: 14rem;
+  overflow: scroll;
+  margin-bottom: 5%;
 }
   }
 
