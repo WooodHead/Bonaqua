@@ -2,7 +2,7 @@ import React from 'react';
 import bonaqua from '../../images/bona0.5.png';
 import bigflower from '../../images/svg/home/tsetseg tom.svg';
 import lineflower from '../../images/svg/order 2/Group 550.svg';
-import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import AllOrder from '../orderHistory/AllOrder';
 import OrderConfirm from '../orderHistory/orderConfirm';
 import OrderDelivered from '../orderHistory/OrderDelivered';
@@ -69,6 +69,15 @@ export default function OrderHistory() {
           <div className='my-14'>
             <img src={lineflower} alt="" className='w-full' />
           </div>
+
+          <div>
+            <Link className="nav-link" to="/payment">
+              <button className='backPaymentButton'>
+                Төлбөр төлөх хэсэг рүү буцах
+              </button>
+            </Link>
+          </div>
+         
         </div>
 
         <Social />

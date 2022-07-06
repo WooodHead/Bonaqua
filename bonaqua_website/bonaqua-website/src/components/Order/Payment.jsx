@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../App";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
@@ -13,6 +14,7 @@ import Social from "../Social";
 export default function Payment() {
 
   const { render, setRender } = useState(false);
+  const { orderid } = useContext(AppContext)
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -20,8 +22,8 @@ export default function Payment() {
 
   const userarrays = sessionStorage.getItem("userarray");
   const userArray = JSON.parse(userarrays);
-
-  console.log(userArray)
+  const random = sessionStorage.getItem("random");
+  console.log(random, userArray)
 
   function CancelOrder() {
     toast("Захиалга цуцлагдлаа!")
@@ -46,7 +48,7 @@ export default function Payment() {
             {/* Захиалгын мэдээлэл*/}
             <div className="order2Info">
               <div className="flex productInfo justify-between">
-                <img src={orderinfo} alt="" className="userImg mb-3" />
+                <img src={orderinfo} alt="" className="userImg mb-3 mx-2" />
                 <img src={sags} alt="" className="flowerImg" />
               </div>
               <div className="order2TotalInfo">
@@ -86,51 +88,29 @@ export default function Payment() {
 
             {/* Хэрэглэгчийн мэдээлэл */}
             <div className="userInfo">
-              <div className="flex w-full justify-between my-3">
-                {/* <p className="userImg">ДАНС эсвэл QR код</p> */}
-                <img src={dans} alt="" className="userImg" />
-                <img src={sags} alt="" className="flowerImg" />
-              </div>
               <form className="flex flex-wrap text-sm 9xl:text-4xl">
-                <div className="groupPay w-full">
-                  <label htmlFor="">Банк сонгох</label>
-                  <select name="" id="" className='select w-full'>
-                    <option value="haan">
-                      {/* <img src={} alt="" width={20} /> */}
-                      Хаан</option>
-                    <option value="tdb">Худалдаа хөгжил</option>
-                    <option value="golomt">Голомт</option>
-                  </select>
-                </div>
 
                 {/* Байршлын мэдээлэл */}
                 <div className="locationInfo">
                   <div className="userInfo w-full">
                     <div className="flex w-full justify-between my-3">
                       {/* <p className="payP">Төлбөр төлөх заавар</p> */}
-                      <img src={instruction} alt="" className="userImg" />
+                      <img src={instruction} alt="" className="userImg mx-2" />
                       <img src={sags} alt="" className="flowerImg" />
                     </div>
+                    <div className="row px-4">
+                      <p className='text-gray-500 text-2xl'>Таны захиалгын дугаар: <span className="ordernumber font-semibold text-2xl"> {random} </span> </p>
+                        <p className="text-gray-500 text-base"> Та гүйлгээний утга дээрээ захиалгын дугаараа бичихийг анхаарна уу!</p>
+                    </div>  
                     <div className="flex w-full justify-around">
-                      <p className="text-lg 9xl:text-4xl text-gray-900">Дансаар шилжүүлэх</p>
-                      <p className="text-lg 9xl:text-4xl text-gray-900">QR код уншуулах</p>
+                      <p className="text-lg 9xl:text-4xl text-gray-900">Social Pay</p>
+                      <p className="text-lg 9xl:text-4xl text-gray-900">QR код</p>
                     </div>
+                    
                     <div className="flex justify-around instructionPayment">
 
-                      <div className="paymentInstruction flex flex-col justify-center w-1/2">
-
-                        <div className="dansMedeelel flex justify-center">
-                          <div className="">
-                            <p>Хүлээн авагч</p>
-                            <p>Хаан банк</p>
-                            <p>Гүйлгээний утга</p>
-                          </div>
-                          <div className="ml-5">
-                            <p>КОКА-КОЛА ХХК</p>
-                            <p>5011 395 477</p>
-                            <p>R247468743</p>
-                          </div>
-                        </div>
+                      <div className="paymentInstruction flex flex-col items-center w-1/2">
+                        
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">
@@ -139,13 +119,13 @@ export default function Payment() {
 
                     </div>
 
-                    <div className="warning 9xl:my-10">
-                      <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжихийг анхаарна уу! Төлбөрийг дээрх дансанд шилжүүлэх ба захиалгын дугаарыг гүйлгээний утга дээр бичнэ үү.</p>
+                    <div className="warning my-2 9xl:my-10">
+                      <p className="font-semibold 9xl:text-4xl">Төлбөр төлөгдсөний дараа таны захиалга идэвхжих ба Төлбөрөө төлөхдөө гүйлгээний утга дээр захиалгын дугаарыг заавал бичнэ үү!</p>
                     </div>
 
                     <div className="flex w-full">
                       <div className="back w-1/2">
-                        <a className="backButton" href="/orderToPayment">
+                        <a className="backButton" href="/userinfo">
                           Буцах
                         </a>
                       </div>
@@ -155,7 +135,6 @@ export default function Payment() {
                         <ToastContainer />
                           <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
                             Захиалга цуцлах
-                            
                           </button>
                           <span className="tooltiptext">Төлбөр төлөгдсөн тохиолдолд захиалга цуцлах боломжгүйг анхаарна уу!</span>
                         </Link>

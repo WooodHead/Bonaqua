@@ -130,7 +130,7 @@ export default function Order() {
       setShow(true);
     }
     else {
-      window.location.pathname = '/orderToPayment';
+      window.location.pathname = '/userinfo';
     }
   }
 

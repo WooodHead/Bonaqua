@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
+import $ from 'jquery';
 
 export default function OrderInfo() {
   const [render, setRender] = useState(false);
@@ -23,95 +24,125 @@ export default function OrderInfo() {
   const [code, setCode] = useState("");
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
-  const { userarray, setRandom, random, orderid, setOrderid } = useContext(AppContext)
+  const { userarray, setRandom, setOrderid, random } = useContext(AppContext)
 
   async function getUserData() {
 
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || entrance == '' || entrancecode == '' || doornumber == '' || addinginfo == '') {
-      toast("Бүх талбарыг бөглөнө үү!");
+    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || doornumber == '' || addinginfo == '') {
+      toast("Шаардлагатай талбаруудыг бөглөнө үү!");
       window.location.pathname
     }
     else {
-    var phoneno = /^[7-9]\d{7}$/;
-    var regName = /^[a-zA-Z ]{2,30}$/;
-    var today = new Date();
-    if( number.match(phoneno) && name.match(regName) ) {
+      var phoneno = /^[7-9]\d{7}$/;
+      var regName = /^[a-zA-Z ]{2,30}$/;
+      var today = new Date();
+      if (number.match(phoneno) && name.match(regName)) {
 
-    await fetch('http://localhost:8090/api/bonaqua/addOrder', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
-        description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
+        await fetch('http://localhost:8090/api/bonaqua/addOrder', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+            description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
                          bair/gudamj: ${apartment}, orts: ${entrance}, ortsnii kod: ${code},
                          haalganii dugaar: ${doornumber}, nemelt: ${add}`].join(","),
-        phone: number
-      })
-    })
-      .then((res) => {
-        const data = res.json();
-        data.then(ordernumber => {
-          const orderNumber = ordernumber[0].OrderNumber;
-          const orderId = ordernumber[0].OrderID;
-          setRandom(orderNumber);
-          setOrderid(orderId);
-          setShow(true)
-        });
-      })
+            phone: number
+          })
+        })
+          .then((res) => {
+            const data = res.json();
+            data.then(ordernumber => {
+              const orderNumber = ordernumber[0].OrderNumber;
+              const orderId = ordernumber[0].OrderID;
+              setRandom(orderNumber);
+              setOrderid(orderId);
+              sessionStorage.setItem("random", orderNumber);
+              console.log(orderNumber, orderId);
+            });
+          })
+        userarray.push({
+          date: new Date(),
+          name: name,
+          number: number,
+          district: district,
+          committee: committee,
+          apartment: apartment,
+          entrance: entrance,
+          code: code,
+          doornumber: doornumber,
+          add: add,
+          order: random,
+          priceTotal: sum,
+        })
+        sessionStorage.setItem("userarray", JSON.stringify(userarray));
+        window.location.pathname = '/payment';
+        console.log(random)
 
-    // fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     orderid: orderid,
-    //     productid: 1,
-    //     quantity: 1,
-    //     price: 1,
-    //     pricedisc: 10
-    //   })
-    // })
-    //   .then((res) => {
-    //     const data = res.json();
-    //     data.then(data => {
-    //       const value = data[0][""];
-    //       console.log(value)
-    //     })
-    //   })
-    }
-    else {
+        // fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     orderid: orderid,
+        //     productid: 1,
+        //     quantity: 1,
+        //     price: 1,
+        //     pricedisc: 10
+        //   })
+        // })
+        //   .then((res) => {
+        //     const data = res.json();
+        //     data.then(data => {
+        //       const value = data[0][""];
+        //       console.log(value)
+        //     })
+        //   })
+      }
+      else {
         toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-    } 
+      }
     }
+
   }
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
 
-  const Continue = (e) => {
-    userarray.push({
-      date: new Date(),
-      name: name,
-      number: number,
-      district: district,
-      committee: committee,
-      apartment: apartment,
-      entrance: entrance,
-      code: code,
-      doornumber: doornumber,
-      add: add,
-      order: random,
-      priceTotal: sum,
-    })
-    sessionStorage.setItem("userarray", JSON.stringify(userarray));
-    window.location.pathname = '/payment';
-  }
+  // const Continue = (e) => {
+  //   userarray.push({
+  //     date: new Date(),
+  //     name: name,
+  //     number: number,
+  //     district: district,
+  //     committee: committee,
+  //     apartment: apartment,
+  //     entrance: entrance,
+  //     code: code,
+  //     doornumber: doornumber,
+  //     add: add,
+  //     order: random,
+  //     priceTotal: sum,
+  //   })
+  //   sessionStorage.setItem("userarray", JSON.stringify(userarray));
+  // }
 
   const horoo = Array(32).fill(0).map((e, i) => i + 1);
+
+  var fprice = [];
+  var fsize = [];
+  var ftotal;
+  const fincase = [];
+
+  orderArray.forEach(x => { 
+    fprice.push(x.size)
+    fincase.push(x.incase)
+    fsize.push(x.avdar)
+  })
+  console.log(fprice, fincase)
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -171,7 +202,7 @@ export default function OrderInfo() {
             </div> */}
 
 
-<div className="">
+            <div className="">
               <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
                 <img src={sags} alt="" className="flowerImg" />
@@ -179,32 +210,34 @@ export default function OrderInfo() {
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
                   <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
-                    <div className="min-w-0 flex mx-2">
-                      {orderArray.map(data =>
-                        <p className='total text-xl font-semibold'>{data.size}</p>
+                    <div className="flex mx-2 w-full flex-column mt-3">
+                      {orderArray.map((data, i) =>
+                        <p className='total text-xl font-semibold'>
+                         {`${fprice[i]} - ${fincase[i]} авдар (${fincase[i]*fsize[i]}ш),`} 
+                        </p>
                       )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1 flex justify-center items-center overflow-scroll'>
+                  {/* <div className='order1selectTotal1 flex justify-center items-center overflow-scroll'>
                     <div className="min-w-0 flex mx-2 items-center">
                       {orderArray.map(data =>
                         <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
                       )}
                     </div>
-                  </div>
+                  </div> */}
                   <div className='order1selectTotal2'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
                     <div className='flex sizecomment'>
-                      <p className=''>Хэмжээ</p>
-                          {
-                            orderArray.map(data =>
-                              <span className="sizetext">{data.size}</span>
-                            )
-                          }
+                      <p className=''>Хэмжээ/Тоо ширхэг</p>
+                      {
+                        orderArray.map(data =>
+                          <span className="sizetext">{data.size}</span>
+                        )
+                      }
                     </div>
-                  
+
                     <div className='flex'>
                       <p className=''>Нийт үнэ</p>
                     </div>
@@ -223,17 +256,17 @@ export default function OrderInfo() {
               <div className="">
                 <form className="flex justify-between text-sm 9xl:text-3xl" id="userform">
                   <div class="group mr-1">
-                    <label>Нэр</label>
-                    <input type="text" id="name" onChange={(e) => setName(e.target.value)} />
+                    <label className="form-label">Нэр</label>
+                    <input type="text" id="name" className="check" onChange={(e) => setName(e.target.value)} required="required" />
                   </div>
                   <div class="group mr-1">
-                    <label>Утасны дугаар</label>
-                    <input type="number" id="number" onChange={(e) => setNumber(e.target.value)} />
+                    <label className="form-label">Утасны дугаар</label>
+                    <input type="text" id="number" className="check" onChange={(e) => setNumber(e.target.value)} required="required" />
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
                     {random == '' ? <input type="text" id="ordernumber" disabled="disabled" className="cursor-not-allowed" placeholder="Автоматаар үүснэ" />
-                      : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder={random} />}
+                      : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder="" />}
                     {/* <p id="ordernumber" className="randomOrderNumber border w-60 h-10 pt-2"></p> */}
                   </div>
                 </form>
@@ -248,11 +281,11 @@ export default function OrderInfo() {
                   <img src={sags} alt="" className="flowerImg" />
                 </div>
                 <div className="locate flex justify-between w-full">
-                  <form className="flex justify-between flex-wrap text-sm 9xl:text-3xl">
+                  <form className="flex justify-between flex-wrap text-sm 9xl:text-3xl" id="orderInfo">
                     <div className="flex district justify-between">
                       <div className="groupS mr-3 w-1/2">
-                        <label htmlFor="">Дүүрэг</label>
-                        <select name="" id="district" className='select w-full 9xl:text-4xl' onChange={(e) => setDistrict(e.target.value)}>
+                        <label htmlFor="" className="form-label">Дүүрэг</label>
+                        <select name="" id="district" className='select w-full 9xl:text-4xl check' onChange={(e) => setDistrict(e.target.value)} required="required">
                           <option value="" className='option'></option>
                           <option value="Bayangol">Баянгол</option>
                           <option value="Bayanzurh">Баянзүрх</option>
@@ -266,8 +299,8 @@ export default function OrderInfo() {
                         </select>
                       </div>
                       <div className="groupS w-1/2">
-                        <label htmlFor="">Хороо</label>
-                        <select name="" id="committee" className='select w-full 9xl:text-4xl' onChange={(e) => setCommittee(e.target.value)}>
+                        <label htmlFor="" className="form-label">Хороо</label>
+                        <select name="" id="committee" className='select w-full 9xl:text-4xl check' onChange={(e) => setCommittee(e.target.value)} required="required">
                           {
                             horoo.map(horoo => <>
                               <option value=""></option>
@@ -281,28 +314,28 @@ export default function OrderInfo() {
 
                     <div className="flex house">
                       <div class="groupL mr-3 w-1/2">
-                        <label>Байр/Гудамж</label>
-                        <input type="text" className="w-full" id="apartment" onChange={(e) => setApartment(e.target.value)} />
+                        <label className="form-label">Байр/Гудамж</label>
+                        <input type="text" className="w-full check" id="apartment" onChange={(e) => setApartment(e.target.value)} required="required" />
                       </div>
                       <div class="groupL w-1/2">
-                        <label>Орц</label>
-                        <input type="text" className="w-full" id="entrance" onChange={(e) => setEntrance(e.target.value)} />
+                        <label className="form-label">Орц</label>
+                        <input type="text" className="w-full check" id="entrance" onChange={(e) => setEntrance(e.target.value)} />
                       </div>
                     </div>
                     <div className="flex door">
                       <div class="groupL mr-3 w-1/2">
-                        <label>Орцны код</label>
-                        <input type="text" className="w-full" id="entrancecode" onChange={(e) => setCode(e.target.value)} />
+                        <label className="form-label">Орцны код</label>
+                        <input type="text" className="w-full check" id="entrancecode" onChange={(e) => setCode(e.target.value)} />
                       </div>
                       <div class="groupL w-1/2">
-                        <label>Хаалганы дугаар /тоот/</label>
-                        <input type="text" className="w-full" id="doornumber" onChange={(e) => setDoorNumber(e.target.value)} />
+                        <label className="form-label">Хаалганы дугаар /тоот/</label>
+                        <input type="text" className="w-full check" id="doornumber" onChange={(e) => setDoorNumber(e.target.value)} required="required" />
                       </div>
                     </div>
 
                     <div class="groupLa w-full">
-                      <label>Нэмэлт мэдээлэл</label>
-                      <input type="text" className="w-full" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" onChange={(e) => setAdd(e.target.value)} />
+                      <label className="form-label">Нэмэлт мэдээлэл</label>
+                      <input type="text" className="w-full check" id="addinginfo" placeholder="Дэлгэрэнгүй хаяг" onChange={(e) => setAdd(e.target.value)} required="required" />
                     </div>
                     <div className="flex w-full">
                       <div className="back w-1/2">
@@ -322,6 +355,7 @@ export default function OrderInfo() {
                     </div>
 
                   </form>
+
                 </div>
               </div>
             </div>
@@ -330,7 +364,7 @@ export default function OrderInfo() {
         </div>
         <Social />
       </div>
-      <Modal show={show} onHide={() => setShow(false)}>
+      {/* <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title className="d-flex w-100 flex justify-center items-center" >
             <h2 className="my-2">Захиалгын дугаар</h2>
@@ -348,7 +382,7 @@ export default function OrderInfo() {
             </Button>
           </form>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

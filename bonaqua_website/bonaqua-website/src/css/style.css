@@ -844,3 +844,14 @@ a {
         display: block;
         width: 4rem;
       } 
+
+
+    input:invalid, select:invalid {
+      border: 1px solid #f0baba;
+    }
+    .backPaymentButton {
+      background-color: var(--blue-color);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
