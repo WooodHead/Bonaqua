@@ -7,8 +7,35 @@ import AllOrder from '../orderHistory/AllOrder';
 import OrderConfirm from '../orderHistory/orderConfirm';
 import OrderDelivered from '../orderHistory/OrderDelivered';
 import Social from '../Social';
+import { AppContext } from "../../App";
+import { useEffect, useContext } from 'react';
 
 export default function OrderHistory() {
+  const { orderHistory, value } = useContext(AppContext);
+
+  const dugaarc = sessionStorage.getItem("dugaar");
+
+  // useEffect(() => {
+  //   var getData = async () => {
+  //     try {
+  //       var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+  //       var resData = await data.json();
+  //       setHistory(resData)
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   getData();
+  // }, [])
+
+  // var tuuh = [];
+  // var dugaar = []
+
+  // orderHistory.forEach(x => { 
+  //   tuuh.push(x.orderno)
+  //   dugaar.push(x.phonenumber)
+  // })
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row'>

@@ -23,7 +23,6 @@ export default function Payment() {
   const userarrays = sessionStorage.getItem("userarray");
   const userArray = JSON.parse(userarrays);
   const random = sessionStorage.getItem("random");
-  console.log(random, userArray)
 
   function CancelOrder() {
     toast("Захиалга цуцлагдлаа!")

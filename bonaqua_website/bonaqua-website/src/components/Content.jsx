@@ -69,7 +69,6 @@ export default function Content() {
     fsize.push(x.Capacity)
   })
   ftotal = fprice[0] * fincase[0];
-  setValues(ftotal)
 
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
@@ -78,7 +77,6 @@ export default function Content() {
     const number = document.getElementById('avdar').value;
     const title = document.getElementById('title');
     const caseinunit = document.getElementById('caseinunit');
-    console.log(number)
 
     setTotal(incase)
     const totals = (incase * price) * number;

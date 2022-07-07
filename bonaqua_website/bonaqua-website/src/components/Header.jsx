@@ -4,48 +4,69 @@ import sagsicon from '../images/icons/busket.svg';
 import history from '../images/svg/home/Group 560.svg';
 import flower from '../images/svg/order 1/tsetseg jijig.svg';
 import { Modal, Button } from 'react-bootstrap';
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 
 export default function Header() {
   // const {item} = useContext(AppContext);
-  const [render, setRender] = useState(false);
+  const [phoneNumber, setPhone] = useState("");
+  const [orderHistory, setHistory] = useState([]);
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   
   var sum = sessionStorage.getItem("sum");
   var item = sessionStorage.getItem("item");
 
-  const orderHistory = (e) => {
-    e.preventDefault()
-  }
-
   const [show, setShow] = useState(false);
 
   const userarrays = sessionStorage.getItem("userarray");
   const userArray = JSON.parse(userarrays);
 
+  useEffect(() => {
+    var getData = async () => {
+      try {
+        var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+        var resData = await data.json();
+        setHistory(resData)
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, [])
+
+  var tuuh = [];
+  var dugaar = [];
+
+  orderHistory.forEach(x => { 
+    tuuh.push(x.orderno)
+    dugaar.push(x.phonenumber)
+  })
+
+ 
+
   const handleClose = () => {
-    var name = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
 
-    // if (name == '' || phone == '') {
-    //   toast("Нэр болон утасны дугаараа оруулна уу!")
-    // }
-    console.log(userArray)
-    // var index = userArray.findIndex(x => x.number ==  phone);
-
-    userArray.forEach(element => {
-      if(element.name == name && element.number == phone) {
+    for(let i = 0; i < dugaar.length; i++) {
+      if(dugaar[i] == phoneNumber) {
+        console.log(phoneNumber);
         window.location.pathname = '/orderHistory';
       }
-      else {
-        toast("Захиалгын түүх олдсонгүй!")
-      }
-    });
-
-    setShow(false)
+    }
+    
+    // dugaar.map((element, i) => {
+    //   console.log(element[0])
+      // if( element == phoneNumber ) {
+      //   window.location.pathname = '/orderHistory';
+      //   sessionStorage.setItem("dugaar", phoneNumber);
+      //   console.log(element)
+      // }
+      // else {
+      //   toast("Захиалгын түүх олдсонгүй!")
+      // }
+    // });
+    // setShow(false)
   };
   const handleShow = () => setShow(true);
 
@@ -75,12 +96,10 @@ export default function Header() {
             </div>
             <div className='line my-auto'></div>
             <div className='busket flex relative'>
-              <img src={history} alt="" />
+              <img src={history} alt="" className=''/>
               <div className='dun cursor-pointer'>
                 <p className='busket'> 
-                {
-                userArray != null ? userArray[0].number : '********'
-                }
+                { userArray != null ? userArray[0].number : '********' }
                 </p>
                 {
                 userArray != null ? <a href="/orderHistory">
@@ -90,7 +109,6 @@ export default function Header() {
                   <p className='yourBusket'>Захиалгын түүх</p>
                 </button>
                 }
-                
               </div>
             </div>
           </div>
@@ -105,13 +123,12 @@ export default function Header() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="was-validated d-flex flex-column" id="" onSubmit={orderHistory}>
+          <form className="was-validated d-flex flex-column" id="">
             <div className="row p-4">
               <p className='text-gray-400'>Захиалга өгсөн утасны дугаараа оруулна уу!</p>
-              <input className='py-2 px-3 w-100 input my-1' type="number" name="" id="phone" placeholder='Утасны дугаар' />
+              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="phone" placeholder='Утасны дугаар' onChange={(e) => setPhone(e.target.value)}/>
             </div>
-            <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose}>
-            <ToastContainer />
+            <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose} >
               Үргэлжлүүлэх
             </Button>
           </form>

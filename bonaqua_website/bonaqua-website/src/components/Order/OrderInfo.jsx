@@ -134,7 +134,6 @@ export default function OrderInfo() {
 
   var fprice = [];
   var fsize = [];
-  var ftotal;
   const fincase = [];
 
   orderArray.forEach(x => { 
@@ -142,7 +141,6 @@ export default function OrderInfo() {
     fincase.push(x.incase)
     fsize.push(x.avdar)
   })
-  console.log(fprice, fincase)
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -212,8 +210,8 @@ export default function OrderInfo() {
                   <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) =>
-                        <p className='total text-xl font-semibold'>
-                         {`${fprice[i]} - ${fincase[i]} авдар (${fincase[i]*fsize[i]}ш),`} 
+                        <p className='total font-semibold'>
+                         {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i]*fsize[i]}ш),`} 
                         </p>
                       )}
                     </div>

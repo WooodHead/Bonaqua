@@ -152,6 +152,15 @@ export default function Order() {
     setRender(!render)
   }
 
+  var fprice = [];
+  const fincase = [];
+
+  data.forEach(x => { 
+    fprice.push(x.BPrice)
+    fincase.push(x.InCase)
+  })
+  var ftotal = fprice[0] * fincase[0];
+
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex flex-col xl:flex-row">
@@ -237,7 +246,7 @@ export default function Order() {
                 <div className='order1selectTotal flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-2xl'>Хэмжээ</p>
                   <div className="flex justify-center items-center">
-                    <div className="min-w-0 flex mx-2">
+                    <div className="min-w-0 flex mx-2 my-3">
                       {orderArray != null ? orderArray.map(data =>
                         <p className='total text-xl font-semibold'>{data.size}</p>
                       ) : ''}
@@ -275,7 +284,7 @@ export default function Order() {
                     )}
                   </select>
                 
-                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо"/>
+                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1"/>
                       <datalist id='case'>
                       {number.map(res =>
                           <option value={res} id='number'></option>
@@ -284,7 +293,7 @@ export default function Order() {
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
-                      0₮
+                    {ftotal}₮
                     </p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>

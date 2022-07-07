@@ -90,7 +90,7 @@
       padding: 0.5rem;
     }
     .order2tablenames > * {
-      width: 25%;
+      width: 40%;
     }
   }
 
@@ -148,7 +148,7 @@
       margin-bottom: 5%;
     }
     .order2tablenames > * {
-      width: 35%;
+      width: 50%;
       margin-left: 0.5rem;
     }
   }
@@ -178,7 +178,7 @@
       justify-content: space-around;
     }
     .order2tablenames > * {
-      width: 35%;
+      width: 50%;
       margin-left: 0.5rem;
     }
   }
@@ -206,7 +206,7 @@
       margin: 0 2rem;
     }
     .order2tablenames > * {
-      width: 35%;
+      width: 50%;
       margin-left: 0.5rem;
     }
     .contentInfo {
@@ -580,7 +580,7 @@
         height: 12vh;
       }
     }
-    @media (max-width: 1768px) and (min-height: 1920px) {
+    @media (max-width: 1768px) and (min-height: 3800px) {
       .contentInfo {
         display: flex;
         flex-direction: column !important;
@@ -730,6 +730,7 @@
       }
       .zahialga p {
         font-size: 2rem;
+        line-height: 2rem;
       }
       .social {
         margin: 2rem 0;
@@ -748,3 +749,8 @@
         font-size: 2rem;
       }
     }
+
+
+
+
+    /* min-576, min-768, min-992, min-1200, min-1400, */

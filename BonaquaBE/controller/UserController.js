@@ -124,3 +124,19 @@ exports.paymentOrder = async(req, res) => {
     }
 }
 
+exports.orderHistory = async(req, res) => {
+
+    const bonaqua = await db.sequelize.query(`SELECT * FROM Anungoo_db.dbo.t_BtoCphoneno`, { type: QueryTypes.SELECT });
+
+    try {
+        if(bonaqua != 0) {
+            res.status(200).send(bonaqua);
+        } else {
+            res.status(404).json({ message: "Couldn't find bonaqua." });
+            return;
+        }
+    } catch(err) {
+        res.status(500).json({ message: err.message });
+        return;
+    };
+};
