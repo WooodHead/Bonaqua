@@ -24,33 +24,35 @@ function App() {
   const [render, setRender] = useState(false);
 
   return (
-    <AppContext.Provider 
-    value={{ value, setValues, 
-      total, setTotal, 
-      array, setArray, 
-      item, setItem, 
-      userarray, setUserArray, 
-      circle, setCircle, 
-      orderid, setOrderid,
-      random, setRandom}}
-    render={{ render, setRender }}>
+    <AppContext.Provider
+      value={{
+        value, setValues,
+        total, setTotal,
+        array, setArray,
+        item, setItem,
+        userarray, setUserArray,
+        circle, setCircle,
+        orderid, setOrderid,
+        random, setRandom
+      }}
+      render={{ render, setRender }}>
 
       <div className="contain">
         <Header />
         <div className='routes'>
           <Routes>
             <Switch>
-              <Route exact path="/" component={Content}/>
+              <Route exact path="/" component={Content} />
               <Route path="/order" component={Order} />
-              <Route path="/userinfo" component={OrderInfo}/>
-              <Route path="/payment" component={Payment}/>
-              <Route path="/orderHistory" component={OrderHistory}/>
+              <Route path="/userinfo" component={OrderInfo} />
+              <Route path="/payment" component={Payment} />
+              <Route path="/orderHistory" component={OrderHistory} />
             </Switch>
           </Routes>
         </div>
         <Footer />
       </div>
-      
+
     </AppContext.Provider>
   )
 }
