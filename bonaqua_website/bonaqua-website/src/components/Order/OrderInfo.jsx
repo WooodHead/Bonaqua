@@ -136,7 +136,7 @@ export default function OrderInfo() {
   var fsize = [];
   const fincase = [];
 
-  orderArray.forEach(x => { 
+  orderArray.forEach(x => {
     fprice.push(x.size)
     fincase.push(x.incase)
     fsize.push(x.avdar)
@@ -211,7 +211,7 @@ export default function OrderInfo() {
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) =>
                         <p className='total font-semibold'>
-                         {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i]*fsize[i]}ш),`} 
+                          {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i] * fsize[i]}ш),`}
                         </p>
                       )}
                     </div>

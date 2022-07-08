@@ -99,17 +99,17 @@ export default function Payment() {
                     </div>
                     <div className="row px-4">
                       <p className='text-gray-500 text-2xl'>Таны захиалгын дугаар: <span className="ordernumber font-semibold text-2xl"> {random} </span> </p>
-                        <p className="text-gray-500 text-base"> Та гүйлгээний утга дээрээ захиалгын дугаараа бичихийг анхаарна уу!</p>
-                    </div>  
+                      <p className="text-gray-500 text-base"> Та гүйлгээний утга дээрээ захиалгын дугаараа бичихийг анхаарна уу!</p>
+                    </div>
                     <div className="flex w-full justify-around">
                       <p className="text-lg 9xl:text-4xl text-gray-900">Social Pay</p>
                       <p className="text-lg 9xl:text-4xl text-gray-900">QR код</p>
                     </div>
-                    
+
                     <div className="flex justify-around instructionPayment">
 
                       <div className="paymentInstruction flex flex-col items-center w-1/2">
-                        
+
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">
@@ -131,7 +131,7 @@ export default function Payment() {
 
                       <div className="removeOrder w-1/2 relative">
                         <Link className="nav-link" to="#">
-                        <ToastContainer />
+                          <ToastContainer />
                           <button className="removeOrderButton text-white 9xl:text-5xl" onClick={CancelOrder}>
                             Захиалга цуцлах
                           </button>
@@ -141,7 +141,6 @@ export default function Payment() {
                     </div>
                   </div>
                 </div>
-
 
               </form>
             </div>

@@ -13,7 +13,7 @@ export default function Header() {
   const [orderHistory, setHistory] = useState([]);
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
-  
+
   var sum = sessionStorage.getItem("sum");
   var item = sessionStorage.getItem("item");
 
@@ -38,32 +38,32 @@ export default function Header() {
   var tuuh = [];
   var dugaar = [];
 
-  orderHistory.forEach(x => { 
+  orderHistory.forEach(x => {
     tuuh.push(x.orderno)
     dugaar.push(x.phonenumber)
   })
 
- 
+
 
   const handleClose = () => {
 
-    for(let i = 0; i < dugaar.length; i++) {
-      if(dugaar[i] == phoneNumber) {
+    for (let i = 0; i < dugaar.length; i++) {
+      if (dugaar[i] == phoneNumber) {
         console.log(phoneNumber);
         window.location.pathname = '/orderHistory';
       }
     }
-    
+
     // dugaar.map((element, i) => {
     //   console.log(element[0])
-      // if( element == phoneNumber ) {
-      //   window.location.pathname = '/orderHistory';
-      //   sessionStorage.setItem("dugaar", phoneNumber);
-      //   console.log(element)
-      // }
-      // else {
-      //   toast("Захиалгын түүх олдсонгүй!")
-      // }
+    // if( element == phoneNumber ) {
+    //   window.location.pathname = '/orderHistory';
+    //   sessionStorage.setItem("dugaar", phoneNumber);
+    //   console.log(element)
+    // }
+    // else {
+    //   toast("Захиалгын түүх олдсонгүй!")
+    // }
     // });
     // setShow(false)
   };
@@ -86,7 +86,7 @@ export default function Header() {
               <div className='dun'>
                 <a className="nav-link" href='/order' id='submit'>
                   <p className='busket' id='resultH'>
-                    {sum == null ? '' : `${sum}₮` }
+                    {sum == null ? '' : `${sum}₮`}
                   </p>
                   <p className='yourBusket'>Таны сагсанд</p>
                 </a>
@@ -95,18 +95,18 @@ export default function Header() {
             </div>
             <div className='line my-auto'></div>
             <div className='busket flex relative'>
-              <img src={history} alt="" className=''/>
+              <img src={history} alt="" className='' />
               <div className='dun cursor-pointer'>
-                <p className='busket'> 
-                { userArray != null ? userArray[0].number : '********' }
+                <p className='busket'>
+                  {userArray != null ? userArray[0].number : '********'}
                 </p>
                 {
-                userArray != null ? <a href="/orderHistory">
-                  <p className='yourBusket'>Захиалгын түүх</p>
-                </a> 
-                : <button onClick={handleShow}>
-                  <p className='yourBusket'>Захиалгын түүх</p>
-                </button>
+                  userArray != null ? <a href="/orderHistory">
+                    <p className='yourBusket'>Захиалгын түүх</p>
+                  </a>
+                    : <button onClick={handleShow}>
+                      <p className='yourBusket'>Захиалгын түүх</p>
+                    </button>
                 }
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Header() {
           <form className="was-validated d-flex flex-column" id="">
             <div className="row p-4">
               <p className='text-gray-400'>Захиалга өгсөн утасны дугаараа оруулна уу!</p>
-              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="phone" placeholder='Утасны дугаар' onChange={(e) => setPhone(e.target.value)}/>
+              <input className='py-2 px-3 w-100 input my-1' type="text" name="" id="phone" placeholder='Утасны дугаар' onChange={(e) => setPhone(e.target.value)} />
             </div>
             <Button type="submit" className="w-50 mx-auto continueButton" onClick={handleClose} >
               Үргэлжлүүлэх

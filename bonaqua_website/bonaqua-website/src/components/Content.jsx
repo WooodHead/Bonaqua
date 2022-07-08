@@ -16,13 +16,13 @@ import Social from './Social';
 import BonaquaType from './BonaquaType';
 
 export default function Content() {
-  var { array, setTotal, total, setItem, setValues} = useContext(AppContext);
+  var { array, setTotal, total, setItem, setValues } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
   const [capacity, setCapacity] = useState("");
   const [image, setImage] = useState(bonaqua);
   const [active, setActive] = useState([]);
-  
+
 
   const imageArray = [
     { "img": bonaqua, "size": "1.5L" },
@@ -50,23 +50,23 @@ export default function Content() {
   }, [render])
 
   // Link
-    const buttonElements = Array.from(document.querySelectorAll('.lists'));
-    buttonElements.forEach(buttonElement => {
-      buttonElement.addEventListener('click', () => {
-        const activeElements = Array.from(document.querySelectorAll('.li-active'));
-        activeElements.forEach(activeElement => {
-          activeElement.classList.remove('li-active');
-        });
-        buttonElement.parentElement.classList.add('li-active');
+  const buttonElements = Array.from(document.querySelectorAll('.lists'));
+  buttonElements.forEach(buttonElement => {
+    buttonElement.addEventListener('click', () => {
+      const activeElements = Array.from(document.querySelectorAll('.li-active'));
+      activeElements.forEach(activeElement => {
+        activeElement.classList.remove('li-active');
       });
+      buttonElement.parentElement.classList.add('li-active');
     });
+  });
 
   var fprice = [];
   var fsize = [];
   var ftotal;
   const fincase = [];
 
-  data.forEach(x => { 
+  data.forEach(x => {
     fprice.push(x.BPrice)
     fincase.push(x.InCase)
     fsize.push(x.Capacity)
@@ -128,14 +128,14 @@ export default function Content() {
           }
         })
 
-        var c = 1;
-        array.forEach(x => {
-          if (x.size != size) {
-            c += 1;
-          }
-        });
-        sessionStorage.setItem("item", c);
-        setItem(c);
+      var c = 1;
+      array.forEach(x => {
+        if (x.size != size) {
+          c += 1;
+        }
+      });
+      sessionStorage.setItem("item", c);
+      setItem(c);
     }
     else {
       toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
@@ -153,77 +153,77 @@ export default function Content() {
     setRender(!render)
   }
 
-  const number = Array(10).fill(0).map((e, i) => i+1);
+  const number = Array(10).fill(0).map((e, i) => i + 1);
 
-  $(document).ready(function(e) {
-    $('#fly').click(function() {
-        var target        = $('.choose').first(),
-            target_offset = target.offset();
+  $(document).ready(function (e) {
+    $('#fly').click(function () {
+      var target = $('.choose').first(),
+        target_offset = target.offset();
 
-        var target_x = target_offset.left,
-            target_y = target_offset.top;
+      var target_x = target_offset.left,
+        target_y = target_offset.top;
 
-        console.log('target: ' + target_x + ', ' + target_y);
-        
-		var obj_id = 1 + Math.floor(Math.random() * 100000),
-			obj_class = 'cart-animation-helper',
-			obj_class_id = obj_class + '_' + obj_id;
-		
-        var obj = $("<div>", {
-            'class': obj_class + ' ' + obj_class_id
+      console.log('target: ' + target_x + ', ' + target_y);
+
+      var obj_id = 1 + Math.floor(Math.random() * 100000),
+        obj_class = 'cart-animation-helper',
+        obj_class_id = obj_class + '_' + obj_id;
+
+      var obj = $("<div>", {
+        'class': obj_class + ' ' + obj_class_id
+      });
+
+      $(this).parent().parent().append(obj);
+
+      var obj_offset = obj.offset(),
+        dist_x = target_x - obj_offset.left + 10,
+        dist_y = target_y - obj_offset.top + 10,
+        delay = 0.8; // seconds
+
+      console.log('obj_off: ' + obj_offset.left + ', ' + obj_offset.top);
+
+      setTimeout(function () {
+        obj.css({
+          'transition': 'transform ' + delay + 's ease-in',
+          'transform': "translateX(" + dist_x + "px)"
         });
-
-        $(this).parent().parent().append(obj);
-		
-        var obj_offset = obj.offset(),
-			dist_x = target_x - obj_offset.left + 10,
-            dist_y = target_y - obj_offset.top + 10,
-            delay  = 0.8; // seconds
-		
-        console.log('obj_off: ' + obj_offset.left + ', ' + obj_offset.top);
-		
-        setTimeout(function() {
-            obj.css({
-            	'transition': 'transform ' + delay + 's ease-in',
-            	'transform' : "translateX(" + dist_x + "px)"
-            });
-			$('<style>.' + obj_class_id + ':after{ \
+        $('<style>.' + obj_class_id + ':after{ \
 				transform: translateY(' + dist_y + 'px); \
 				opacity: 1; \
 				border-radius: 100%; \
 				max-height: 20px; \
 				max-width: 20px; margin: 0; \
 			}</style>').appendTo('head');
-        }, 0);
-        
-        obj.show(1).delay((delay + 0.02) * 1000).hide(1, function() {
-            $(obj).remove();
-        });
-    });
-});
+      }, 0);
 
-  
+      obj.show(1).delay((delay + 0.02) * 1000).hide(1, function () {
+        $(obj).remove();
+      });
+    });
+  });
+
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row contentInfo'>
-       
-      <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
-     <div className='choose flex justify-center self-center relative'>
+
+        <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
+          <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
                 {data.map((res) =>
-                  <li className='bonaquaType' onClick={() => { 
-                      setCapacity(res.Capacity) 
-                      imageArray.map(img => {
-                        if (img.size == res.Capacity) {
-                          setImage(img.img)
-                        }
-                      })
-                      document.getElementById("lists").style.display = 'block';
+                  <li className='bonaquaType' onClick={() => {
+                    setCapacity(res.Capacity)
+                    imageArray.map(img => {
+                      if (img.size == res.Capacity) {
+                        setImage(img.img)
+                      }
+                    })
+                    document.getElementById("lists").style.display = 'block';
                   }}>
                     <ul>
                       <li id='lists' className="9xl:text-6xl button">
-                         {/* <img src={point} alt="" className=''/> */}
+                        {/* <img src={point} alt="" className=''/> */}
                         {res.Capacity}
                       </li>
                     </ul>
@@ -232,7 +232,7 @@ export default function Content() {
               </ul>
             </div>
           </div>
-      {/* <div className='choose'>
+          {/* <div className='choose'>
         {data.map((res, index) =>
           <ul>
             <li key={index} >
@@ -253,21 +253,21 @@ export default function Content() {
         )}
       </div> */}
 
-      <div className='bona flex justify-center items-start relative'>
-        <div className='flower absolute'>
-          <img src={bigflower} alt="" className='bigflower' />
-        </div>
-          <img src={image} alt="" />
-        <div className='toirog absolute'>
-          <div className='white flex justify-center items-center'>
-            <div className='circle relative flex justify-center items-center'>
-              <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
+          <div className='bona flex justify-center items-start relative'>
+            <div className='flower absolute'>
+              <img src={bigflower} alt="" className='bigflower' />
             </div>
+            <img src={image} alt="" />
+            <div className='toirog absolute'>
+              <div className='white flex justify-center items-center'>
+                <div className='circle relative flex justify-center items-center'>
+                  <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-
-      </div>
-    </div>
 
         <div className='info w-full xl:w-1/2 pl-4 flex flex-col'>
           <div className='water'>
@@ -278,7 +278,7 @@ export default function Content() {
 
             <div className='sagslah'>
               <p className='font-semibold text-2xl md:text-3xl 9xl:text-6xl' id='title'>
-              {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
+                {`Bonaqua ${fsize[0]} - ${fprice[0]}₮`}
               </p>
               <p id='caseinunit' className='text-xs md:text-base 9xl:text-4xl text-gray-500 font-medium mb-3'>1 авдар доторх ширхэгийн тоо - {fincase[0]}ш</p>
               <div className='flex inputForm'>
@@ -289,13 +289,13 @@ export default function Content() {
                       <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
-                
-                      <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1"/>
-                      <datalist id='case'>
-                      {number.map(res =>
-                          <option value={res} id='number'>{res}</option>
-                      )}
-                      </datalist>
+
+                  <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1" />
+                  <datalist id='case'>
+                    {number.map(res =>
+                      <option value={res} id='number'>{res}</option>
+                    )}
+                  </datalist>
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
@@ -333,7 +333,7 @@ export default function Content() {
                 <div className='link flex justify-between py-3'>
                   <NavLink className="nav-link" exact to='/' activeClassName='is-active'>
                     Бүтээгдэхүүний тайлбар
-                  </NavLink> 
+                  </NavLink>
                   <NavLink className="nav-link" to='/instruction' activeClassName='is-active'>
                     Хадгалах заавар
                   </NavLink>
@@ -353,7 +353,7 @@ export default function Content() {
           </div>
 
         </div>
-       <Social />
+        <Social />
       </div>
     </div>
   )

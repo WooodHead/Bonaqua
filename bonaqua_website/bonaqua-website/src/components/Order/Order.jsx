@@ -91,9 +91,9 @@ export default function Order() {
     const bagts = parseInt(document.getElementById('avdar').value);
     const totalPrice = prices * incase * bagts;
 
-    var index = orderArray.findIndex(x => x.size == size );
+    var index = orderArray.findIndex(x => x.size == size);
 
-    if (totalPrice > 0 ) {
+    if (totalPrice > 0) {
       index === -1 ? orderArray.push({
         size: size,
         sprice: prices,
@@ -111,13 +111,13 @@ export default function Order() {
             e.avdar += bagts;
           }
         })
-    var c = 1;
-    orderArray.forEach(x => {
-      if (x.size != size) {
-        c += 1;
-      }
-    });
-    sessionStorage.setItem("item", c);
+      var c = 1;
+      orderArray.forEach(x => {
+        if (x.size != size) {
+          c += 1;
+        }
+      });
+      sessionStorage.setItem("item", c);
     }
     else {
       toast("Уучлаарай cагслах боломжгүй байна. Үнийн дүн 0-ээс их байх хэрэгтэй!")
@@ -131,7 +131,7 @@ export default function Order() {
 
     sessionStorage.setItem("sum", sum);
     setTotal(sum)
-    
+
     setRender(!render)
   }
 
@@ -167,7 +167,7 @@ export default function Order() {
   var fprice = [];
   const fincase = [];
 
-  data.forEach(x => { 
+  data.forEach(x => {
     fprice.push(x.BPrice)
     fincase.push(x.InCase)
   })
@@ -189,68 +189,68 @@ export default function Order() {
             {/* Захиалгын хэсэг */}
             <div className="zahialga flex flex-wrap justify-between">
               {orderArray == '' ? <div className="w-full flex justify-center my-10">
-                  <img src={flower} alt="" className='mx-3 -mt-4 emptyFlower'/>
-                  <p className="text-lg text-gray-500 font-medium">Таны сагс хоосон байна!</p>
-              </div> 
-              : orderArray.map(data =>
-                <div className="zahialsanHeseg my-1 9xl:my-40">
+                <img src={flower} alt="" className='mx-3 -mt-4 emptyFlower' />
+                <p className="text-lg text-gray-500 font-medium">Таны сагс хоосон байна!</p>
+              </div>
+                : orderArray.map(data =>
+                  <div className="zahialsanHeseg my-1 9xl:my-40">
 
-                  <div className="order1 flex">
-                    <div className="order1Img flex justify-center">
-                      <img src={data.image} alt="" className="" />
-                    </div>
-
-                    <div className="order1Info p-2">
-                      <div className="orderName">
-                        <div className="flex justify-between w-full">
-                          <h6 className="9xl:text-4xl">Bonaqua {data.size} </h6>
-                          <img src={deleteButton} onClick={() => removeOrder(data)} id="remove" alt="" className="cursor-pointer" />
-                        </div>
-                        <p className="text-sm 9xl:text-3xl 9xl:mt-3">Ширхэгийн тоо: {data.tincase} ширхэг</p>
+                    <div className="order1 flex">
+                      <div className="order1Img flex justify-center">
+                        <img src={data.image} alt="" className="" />
                       </div>
 
-                      <div className="order1Price flex justify-between items-center">
-                        <h3 className="9xl:text-5xl">{data.price}₮ </h3>
-                        <div className="order1Button flex justify-between">
-                          <button className="" onClick={() => {
-                            if (data.avdar > 1 && sum > 0) {
-                              data.avdar -= 1;
-                              data.tincase -= parseInt(data.incase);
-                              data.price -= parseInt(data.incase) * parseInt(data.sprice);
-                              sum -= parseInt(data.incase) * parseInt(data.sprice);
-                            }
-                            sessionStorage.setItem("array", JSON.stringify(orderArray));
-                            sessionStorage.setItem("sum", sum);
-                            setTotal(sum)
-                            setRender(!render)
-                          }}>
-                            <img src={removeButton} alt="" className="9xl:w-14"/>
-                          </button>
-                          <p className="font-semibold 9xl:text-5xl" id="count">{data.avdar}</p>
-                          <button onClick={() => {
-                            data.avdar += 1;
-                            data.tincase += parseInt(data.incase);
-                            data.price += parseInt(data.incase) * parseInt(data.sprice);
-                            sessionStorage.setItem("array", JSON.stringify(orderArray));
-                            var sum = 0;
-                            orderArray.forEach(x => {
-                              sum += x.price;
-                            });
-
-                            sessionStorage.setItem("sum", sum);
-                            setTotal(sum)
-                            setRender(!render)
-                          }}>
-                            <img src={addButton} alt="" className="9xl:w-14"/>
-                          </button>
+                      <div className="order1Info p-2">
+                        <div className="orderName">
+                          <div className="flex justify-between w-full">
+                            <h6 className="9xl:text-4xl">Bonaqua {data.size} </h6>
+                            <img src={deleteButton} onClick={() => removeOrder(data)} id="remove" alt="" className="cursor-pointer" />
+                          </div>
+                          <p className="text-sm 9xl:text-3xl 9xl:mt-3">Ширхэгийн тоо: {data.tincase} ширхэг</p>
                         </div>
 
+                        <div className="order1Price flex justify-between items-center">
+                          <h3 className="9xl:text-5xl">{data.price}₮ </h3>
+                          <div className="order1Button flex justify-between">
+                            <button className="" onClick={() => {
+                              if (data.avdar > 1 && sum > 0) {
+                                data.avdar -= 1;
+                                data.tincase -= parseInt(data.incase);
+                                data.price -= parseInt(data.incase) * parseInt(data.sprice);
+                                sum -= parseInt(data.incase) * parseInt(data.sprice);
+                              }
+                              sessionStorage.setItem("array", JSON.stringify(orderArray));
+                              sessionStorage.setItem("sum", sum);
+                              setTotal(sum)
+                              setRender(!render)
+                            }}>
+                              <img src={removeButton} alt="" className="9xl:w-14" />
+                            </button>
+                            <p className="font-semibold 9xl:text-5xl" id="count">{data.avdar}</p>
+                            <button onClick={() => {
+                              data.avdar += 1;
+                              data.tincase += parseInt(data.incase);
+                              data.price += parseInt(data.incase) * parseInt(data.sprice);
+                              sessionStorage.setItem("array", JSON.stringify(orderArray));
+                              var sum = 0;
+                              orderArray.forEach(x => {
+                                sum += x.price;
+                              });
+
+                              sessionStorage.setItem("sum", sum);
+                              setTotal(sum)
+                              setRender(!render)
+                            }}>
+                              <img src={addButton} alt="" className="9xl:w-14" />
+                            </button>
+                          </div>
+
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ) }
-              
+                )}
+
             </div>
 
             <div className="flex zahialahHusnegt">
@@ -269,7 +269,7 @@ export default function Order() {
                 <div className='order1selectTotal1 flex flex-col'>
                   <p className='text-gray-500 flex ml-3 text-sm 9xl:text-3xl'>Нийт үнэ</p>
                   {sum == 0 || sum == null ? <p className='total text-red-700 text-3xl font-semibold' id="resultO"></p>
-                  : <p className='total text-red-700 text-xl md:text-3xl font-semibold' id="resultO">{sum}₮</p>}
+                    : <p className='total text-red-700 text-xl md:text-3xl font-semibold' id="resultO">{sum}₮</p>}
                 </div>
 
                 <Link className="nav-link cursor-pointer" to="#" id='submit' >
@@ -295,17 +295,17 @@ export default function Order() {
                       <option id="incase" value={[res.Capacity, res.BPrice, res.InCase, res.Article]}>{res.Capacity}</option>
                     )}
                   </select>
-                
-                      <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1"/>
-                      <datalist id='case'>
-                      {number.map(res =>
-                          <option value={res} id='number'></option>
-                      )}
-                      </datalist>
+
+                  <input type="number" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1" />
+                  <datalist id='case'>
+                    {number.map(res =>
+                      <option value={res} id='number'></option>
+                    )}
+                  </datalist>
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>
-                    {ftotal}₮
+                      {ftotal}₮
                     </p>
                   </div>
                   <div className='tablenames absolute flex flex-col md:flex-row text-sm 9xl:text-3xl mt-1'>
@@ -336,7 +336,7 @@ export default function Order() {
           </div>
         </div>
 
-       <Social />
+        <Social />
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
