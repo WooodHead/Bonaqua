@@ -9,7 +9,6 @@ import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 
 export default function Header() {
-  // const {item} = useContext(AppContext);
   const [phoneNumber, setPhone] = useState("");
   const [orderHistory, setHistory] = useState([]);
   const arrays = sessionStorage.getItem("array");

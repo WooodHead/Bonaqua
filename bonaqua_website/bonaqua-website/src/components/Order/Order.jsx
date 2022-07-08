@@ -7,6 +7,7 @@ import flower from '../../images/svg/order 1/tsetseg jijig.svg';
 import addButton from '../../images/svg/order 1/+.svg';
 import removeButton from '../../images/svg/order 1/-.svg';
 import deleteButton from '../../images/svg/order 1/x.svg';
+import bigflower from '../../images/svg/home/tsetseg tom.svg';
 import { AppContext } from "../../App";
 import { Modal, Button } from 'react-bootstrap';
 import SlideImage from "../SlideImage";
@@ -19,6 +20,7 @@ export default function Order() {
   const [show, setShow] = useState(false);
 
   const [render, setRender] = useState(false);
+  const [image, setImage] = useState(bona);
 
   const { setTotal, value } = useContext(AppContext);
 
@@ -62,9 +64,18 @@ export default function Order() {
     const number = document.getElementById('avdar').value;
     const result = document.getElementById('result');
 
+    const imgArr = JSON.parse(sessionStorage.getItem("imagearray"));
+
     const totals = (incase * price) * number;
     sessionStorage.setItem('total', totals);
     result.innerHTML = `${totals}₮`;
+
+    imgArr.map((img, i) => {
+      if (img.size == size) {
+        setImage(img.img)
+        console.log(img.size)
+      }
+    })
   }
   if (orderArray == null) {
     orderArray = [];
@@ -90,7 +101,8 @@ export default function Order() {
         tincase: incase * bagts,
         incase: incase,
         avdar: bagts,
-        article: article
+        article: article,
+        image: image
       })
         : orderArray.forEach(e => {
           if (e.size == size) {
@@ -185,7 +197,7 @@ export default function Order() {
 
                   <div className="order1 flex">
                     <div className="order1Img flex justify-center">
-                      <img src={bona} alt="" className="" />
+                      <img src={data.image} alt="" className="" />
                     </div>
 
                     <div className="order1Info p-2">
