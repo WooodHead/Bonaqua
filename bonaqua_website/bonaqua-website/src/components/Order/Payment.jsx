@@ -14,7 +14,7 @@ import Social from "../Social";
 export default function Payment() {
 
   const { render, setRender } = useState(false);
-  const { orderid } = useContext(AppContext)
+  const { orderid, incase, pack, size } = useContext(AppContext)
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -33,15 +33,13 @@ export default function Payment() {
     setRender(!render)
   }
 
-  var fprice = [];
-  var fsize = [];
-  const fincase = [];
-
   orderArray.forEach(x => {
-    fprice.push(x.size)
-    fincase.push(x.incase)
-    fsize.push(x.avdar)
+    pack.push(x.size)
+    incase.push(x.incase)
+    size.push(x.avdar)
   })
+
+  console.log(pack)
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -66,7 +64,7 @@ export default function Payment() {
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) =>
                         <p className='total font-semibold'>
-                          {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i] * fsize[i]}ш),`}
+                          {`${pack[i]} -> ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
                       )}
                     </div>

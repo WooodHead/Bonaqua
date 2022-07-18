@@ -22,6 +22,9 @@ function App() {
   const [array, setArray] = useState([]);
   const [userarray, setUserArray] = useState([]);
   const [render, setRender] = useState(false);
+  const [pack, setPack] = useState([]);
+  const [size, setSize] = useState([]);
+  const [incase, setIncase] = useState([]);
 
   return (
     <AppContext.Provider
@@ -33,7 +36,10 @@ function App() {
         userarray, setUserArray,
         circle, setCircle,
         orderid, setOrderid,
-        random, setRandom
+        random, setRandom,
+        pack, setPack,
+        size, setSize,
+        incase, setIncase
       }}
       render={{ render, setRender }}>
 

@@ -24,7 +24,7 @@ export default function OrderInfo() {
   const [code, setCode] = useState("");
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
-  const { userarray, setRandom, setOrderid, random } = useContext(AppContext)
+  const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
 
   async function getUserData() {
 
@@ -115,14 +115,10 @@ export default function OrderInfo() {
 
   const horoo = Array(32).fill(0).map((e, i) => i + 1);
 
-  var fprice = [];
-  var fsize = [];
-  const fincase = [];
-
   orderArray.forEach(x => {
-    fprice.push(x.size)
-    fincase.push(x.incase)
-    fsize.push(x.avdar)
+    pack.push(x.size)
+    incase.push(x.incase)
+    size.push(x.avdar)
   })
 
   return (
@@ -193,7 +189,7 @@ export default function OrderInfo() {
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) =>
                         <p className='total font-semibold'>
-                          {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i] * fsize[i]}ш),`}
+                          {`${pack[i]} -> ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
                       )}
                     </div>
