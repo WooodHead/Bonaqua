@@ -33,6 +33,16 @@ export default function Payment() {
     setRender(!render)
   }
 
+  var fprice = [];
+  var fsize = [];
+  const fincase = [];
+
+  orderArray.forEach(x => {
+    fprice.push(x.size)
+    fincase.push(x.incase)
+    fsize.push(x.avdar)
+  })
+
   return (
     <div className="mx-auto flex flex-col justify-between">
       <div className="flex flex-col xl:flex-row">
@@ -45,37 +55,37 @@ export default function Payment() {
             <h1 className="9xl:text-7xl">Төлбөр төлөх</h1>
 
             {/* Захиалгын мэдээлэл*/}
-            <div className="order2Info">
-              <div className="flex productInfo justify-between">
-                <img src={orderinfo} alt="" className="userImg mb-3 mx-2" />
+            <div className="">
+              <div className="flex justify-between">
+                <img src={orderinfo} alt="" className="userImg mb-3" />
                 <img src={sags} alt="" className="flowerImg" />
               </div>
               <div className="order2TotalInfo">
                 <div className="seeTotalInfo flex relative">
                   <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
-                    <div className="min-w-0 flex mx-2">
-                      {orderArray.map(data =>
-                        <p className='total text-xl font-semibold'>{data.size}</p>
+                    <div className="flex mx-2 w-full flex-column mt-3">
+                      {orderArray.map((data, i) =>
+                        <p className='total font-semibold'>
+                          {`${fprice[i]} -> ${fsize[i]} авдар (${fincase[i] * fsize[i]}ш),`}
+                        </p>
                       )}
                     </div>
                   </div>
-                  <div className='order1selectTotal1 flex items-center justify-center overflow-scroll'>
-                    <div className="min-w-0 flex mx-2">
+                  {/* <div className='order1selectTotal1 flex justify-center items-center overflow-scroll'>
+                    <div className="min-w-0 flex mx-2 items-center">
                       {orderArray.map(data =>
-                        <p className='total text-xl font-semibold mr-2'>{data.incase}x{data.avdar}</p>
+                        <p className='total text-xl flex justify-center items-center font-semibold mr-2'>{data.incase}x{data.avdar}</p>
                       )}
                     </div>
-                  </div>
-                  <div className='order1selectTotal2 overflow-scroll'>
+                  </div> */}
+                  <div className='order1selectTotal2'>
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
                     <div className='flex'>
-                      <p className=''>Хэмжээ</p>
+                      <p className=''>Хэмжээ/Тоо ширхэг</p>
                     </div>
-                    <div className='flex ml-10 9xl:ml-20'>
-                      <p className=''>Багц</p>
-                    </div>
+
                     <div className='flex'>
                       <p className=''>Нийт үнэ</p>
                     </div>

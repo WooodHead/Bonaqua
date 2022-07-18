@@ -794,27 +794,6 @@ a {
       background-color: #3dbee3;
       border-radius: 1rem;
     }
-
-
-    .sizecomment {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .sizecomment .sizetext {
-      visibility: hidden;
-      background-color: black;
-      color: var(--blue-color);
-      text-align: center;
-      border-radius: 6px;
-      padding: 0.5rem;
-      position: absolute;
-      z-index: 1;
-    }
-    
-    .sizecomment:hover .sizetext {
-      visibility: visible;
-    }
   
     .bonaquaType {
       width: 0.8rem;

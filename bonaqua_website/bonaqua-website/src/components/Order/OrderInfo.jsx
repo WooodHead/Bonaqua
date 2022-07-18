@@ -48,7 +48,8 @@ export default function OrderInfo() {
             description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
                          bair/gudamj: ${apartment}, orts: ${entrance}, ortsnii kod: ${code},
                          haalganii dugaar: ${doornumber}, nemelt: ${add}`].join(","),
-            phone: number
+            phone: number,
+            price: sum
           })
         })
           .then((res) => {
@@ -111,24 +112,6 @@ export default function OrderInfo() {
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
-
-  // const Continue = (e) => {
-  //   userarray.push({
-  //     date: new Date(),
-  //     name: name,
-  //     number: number,
-  //     district: district,
-  //     committee: committee,
-  //     apartment: apartment,
-  //     entrance: entrance,
-  //     code: code,
-  //     doornumber: doornumber,
-  //     add: add,
-  //     order: random,
-  //     priceTotal: sum,
-  //   })
-  //   sessionStorage.setItem("userarray", JSON.stringify(userarray));
-  // }
 
   const horoo = Array(32).fill(0).map((e, i) => i + 1);
 
@@ -199,7 +182,6 @@ export default function OrderInfo() {
               </div>
             </div> */}
 
-
             <div className="">
               <div className="flex justify-between">
                 <img src={orderinfo} alt="" className="userImg mb-3" />
@@ -227,13 +209,8 @@ export default function OrderInfo() {
                     <p className='total pt-3 text-red-700 text-3xl font-semibold'>{sum}₮</p>
                   </div>
                   <div className='order2tablenames absolute flex flex-row text-xs 9xl:text-3xl'>
-                    <div className='flex sizecomment'>
+                    <div className='flex'>
                       <p className=''>Хэмжээ/Тоо ширхэг</p>
-                      {
-                        orderArray.map(data =>
-                          <span className="sizetext">{data.size}</span>
-                        )
-                      }
                     </div>
 
                     <div className='flex'>

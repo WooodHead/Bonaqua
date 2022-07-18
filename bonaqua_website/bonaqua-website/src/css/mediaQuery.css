@@ -239,7 +239,6 @@
    .logo img {
      height: 6rem;
    }
-
     .white {
       width: 4.5rem;
       height: 4.5rem;
@@ -296,22 +295,23 @@
   }
   .order1Content {
     margin-right: 5%;
-    height: 70vh;
-}
-.contain  {
-  height: 95vh;
-  width: 90%;
-}
-.zahialga {
-  max-height: 14rem;
-  overflow: scroll;
-  margin-bottom: 5%;
-}
+    /* height: 70vh; */
   }
+  .contain  {
+    height: 95vh;
+    width: 90%;
+  }
+  .zahialga {
+    max-height: 14rem;
+    overflow: scroll;
+    margin-bottom: 5%;
+  }
+}
 
   @media (min-width: 1441px) and (max-width: 2048px) {
     p.busket {
       font-size: 1.4rem;
+      height: 1.2rem;
     }
     p.yourBusket {
       font-size: 1.1rem;
@@ -330,10 +330,10 @@
     }
     .order1Content {
       margin-right: 5%;
-      height: 70vh;
+      /* height: 70vh; */
   }
   .zahialga {
-    max-height: 20rem;
+    max-height: 16rem;
     overflow: scroll;
     margin-bottom: 5%;
   }
