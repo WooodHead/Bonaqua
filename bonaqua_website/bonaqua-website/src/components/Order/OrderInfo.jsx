@@ -24,6 +24,7 @@ export default function OrderInfo() {
   const [code, setCode] = useState("");
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
+  const [data, setData] = useState([]);
   const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
 
   async function getUserData() {
@@ -119,7 +120,34 @@ export default function OrderInfo() {
     pack.push(x.size)
     incase.push(x.incase)
     size.push(x.avdar)
-  })
+  });
+
+
+  var options = "<option value=''></option>";
+
+  function Options() {
+    for (let i = 1; i < 33; i++) {
+      options += "<option value='"+i+"'>"+i+"-р хороо</option>";
+    }
+    document.getElementById('committee').innerHTML = options;
+  }
+  
+  window.onload = (event) => {
+    Options();
+  };
+
+  useEffect(() => {
+    var getData = async () => {
+      try {
+        var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+        var resData = await data.json();
+        setData(resData)
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, [])
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -232,7 +260,30 @@ export default function OrderInfo() {
                   </div>
                   <div class="group mr-1">
                     <label className="form-label">Утасны дугаар</label>
-                    <input type="text" id="number" className="check" onChange={(e) => setNumber(e.target.value)} required="required" />
+                    <input type="text" id="number" className="check" 
+                    onChange={(e) => {
+                        setNumber(e.target.value);
+                        var dugaar = [];
+                        data.forEach(x => {
+                          dugaar.push(x.phonenumber)
+                        })
+
+                        if (dugaar.includes(e.target.value)) {
+                           console.log("yes")
+                           
+                           var proceed = confirm("Та өмнөх захиалгын хаягаа ашиглах уу?");
+                           if (proceed) {
+                             for (let i = 0; i < data.length; i++) {
+                               if (data[i].phonenumber == e.target.value) {
+                                  document.getElementById("apartment").placeholder = data[i].orderno;
+                               }
+                             }
+                           } else {
+                             document.getElementById("apartment").placeholder = ""
+                           }
+                        }
+
+                    }} required="required" />
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
@@ -272,13 +323,11 @@ export default function OrderInfo() {
                       <div className="groupS w-1/2">
                         <label htmlFor="" className="form-label">Хороо</label>
                         <select name="" id="committee" className='select w-full 9xl:text-4xl check' onChange={(e) => setCommittee(e.target.value)} required="required">
-                          {
-                            horoo.map(horoo => <>
-                              <option value=""></option>
-                              <option value={horoo}>{horoo}-р хороо</option>
-                            </>
+                          {/* { 
+                            horoo.map(horoo =>
+                              options += <option value={horoo}>{horoo}-р хороо</option>
                             )
-                          }
+                          } */}
                         </select>
                       </div>
                     </div>

@@ -58,8 +58,8 @@ export default function OrderHistory() {
           <h1 className=''>Захиалгын түүх</h1>
           <Router>
             <div className='orderHistoryLink'>
-              <div className='link flex justify-around py-3 w-full'>
-                <div className='flex'>
+              <div className='link flex py-3 w-full'>
+                {/* <div className='flex'>
                   <div>
                     <NavLink className={isActive => isActive ? "is-active" : "nav-link"} to="/orderHistory">
                       Бүгд
@@ -75,7 +75,22 @@ export default function OrderHistory() {
                       Хүргэгдсэн
                     </NavLink>
                   </div>
+                </div> */}
+
+                <div className='link flex justify-between py-3 mr-[20%]'>
+                  <NavLink className="nav-link" exact to='/orderHistory' activeClassName='is-active'>
+                    Бүгд
+                  </NavLink>
+                  <NavLink className="nav-link" to='/orderHistory/orderConfirm' activeClassName='is-active'>
+                    Баталгаажсан
+                  </NavLink>
+                  <NavLink className="nav-link" to='/orderHistory/orderDelivered' activeClassName='is-active'>
+                    Хүргэгдсэн
+                  </NavLink>
                 </div>
+               
+             
+
                 <div className="sort flex justify-end">
                   <select name="" id="" className='select w-full'>
                     <option value="" className=''>Сүүлийнх нь эхэндээ</option>
@@ -85,9 +100,9 @@ export default function OrderHistory() {
               </div>
               <div className=''>
                 <Switch>
-                  <Route exact path="/orderHistory" children={<AllOrder />} />
-                  <Route path="/orderHistory/orderConfirm" children={<OrderConfirm />} />
-                  <Route path="/orderHistory/orderDelivered" children={<OrderDelivered />} />
+                  <Route exact path="/orderHistory" component={AllOrder} />
+                  <Route path="/orderHistory/orderConfirm" component={OrderConfirm} />
+                  <Route path="/orderHistory/orderDelivered" component={OrderDelivered} />
                 </Switch>
               </div>
             </div>

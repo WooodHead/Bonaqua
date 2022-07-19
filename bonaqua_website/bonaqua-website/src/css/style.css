@@ -512,9 +512,9 @@ a {
         color: var(--blue-color);
         border-radius: 1rem;
       }
-      .order1selectTotal:hover::-webkit-scrollbar, .order2TotalInfo .order1selectTotal1:hover::-webkit-scrollbar {
+      .order1Content .order1selectTotal:hover::-webkit-scrollbar, .order1Content .order2TotalInfo .order1selectTotal1:hover::-webkit-scrollbar {
         display: block;
-      }
+      } 
 
       .order1selectTotal p.total {
         margin-bottom: 0;
