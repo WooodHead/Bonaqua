@@ -461,6 +461,12 @@ a {
         border: 1px solid var(--blue-color);
         border-radius: 0.5rem;
       }
+      .zahialsanHesegContent {
+        width: 90%;
+        border: 1px solid var(--blue-color);
+        border-radius: 0.5rem;
+      }
+    
       .order1Img {
         border-right: 1px solid var(--blue-color);
         width: 30%;
@@ -866,4 +872,8 @@ a {
         border-radius 0.4s ease-out,
         max-height 0.4s ease-out,
         max-width 0.4s ease-out;
+    }
+
+    .phoneBusket {
+      display: none;
     }

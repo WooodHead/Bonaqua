@@ -12,6 +12,9 @@ import bonaqua330 from '../images/546A4006.png';
 import bonaqua15 from '../images/546A4015.png';
 import bonaqua45 from '../images/546A4021.png';
 import bonaqua900 from '../images/546A4025.png';
+import addButton from '../images/svg/order 1/+.svg';
+import removeButton from '../images/svg/order 1/-.svg';
+import deleteButton from '../images/svg/order 1/x.svg';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
@@ -206,6 +209,22 @@ export default function Content() {
     });
   });
 
+  let sum = sessionStorage.getItem("sum");
+    // Захиалга устгах
+    function removeOrder(element) {
+      const index = array.indexOf(element);
+  
+      if (index > -1) {
+        array.splice(index, 1);
+        sessionStorage.setItem("array", JSON.stringify(array));
+        sum -= element.price;
+        sessionStorage.setItem("sum", sum);
+        setTotal(sum)
+        item -= 1;
+        sessionStorage.setItem("item", item);
+      }
+      setRender(!render)
+    }
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -329,15 +348,72 @@ export default function Content() {
               </div>
             </div>
 
-            {/* <div className='border phoneBusket my-5'>
-              <div className="zahialsanHeseg my-1">
-                 {
-                  array.map(data => 
-                    <div className=''>{data.size}</div>  
-                  )
-                 }
-              </div>
-            </div> */}
+            <h3 className='flex justify-center text-gray-400 xl:hidden'>Таны сагс</h3>
+            <div className='w-[90%] phoneBusket my-3 p-2 flex flex-col md:flex-row justify-center xl:hidden'>
+        
+            {array.map(data =>
+            <div className='flex'>
+                  <div className="zahialsanHesegContent mt-3">
+
+                    <div className="order1 flex">
+                      <div className="order1Img flex justify-center">
+                        <img src={data.image} alt="" className="" />
+                      </div>
+
+                      <div className="order1Info p-2">
+                        <div className="orderName">
+                          <div className="flex justify-between w-full">
+                            <h6 className="9xl:text-4xl">Bonaqua {data.size} </h6>
+                            <img src={deleteButton} onClick={() => removeOrder(data)} id="remove" alt="" className="cursor-pointer" />
+                          </div>
+                          <p className="text-sm 9xl:text-3xl 9xl:mt-3">Ширхэгийн тоо: {data.tincase} ширхэг</p>
+                        </div>
+
+                        <div className="order1Price flex justify-between items-center">
+                          <h3 className="9xl:text-5xl">{data.price}₮ </h3>
+                          <div className="order1Button flex justify-between">
+                            <button className="" onClick={() => {
+                              if (data.avdar > 1 && sum > 0) {
+                                data.avdar -= 1;
+                                data.tincase -= parseInt(data.incase);
+                                data.price -= parseInt(data.incase) * parseInt(data.sprice);
+                                sum -= parseInt(data.incase) * parseInt(data.sprice);
+                              }
+                              sessionStorage.setItem("array", JSON.stringify(array));
+                              sessionStorage.setItem("sum", sum);
+                              setTotal(sum)
+                              setRender(!render)
+                            }}>
+                              <img src={removeButton} alt="" className="9xl:w-14" />
+                            </button>
+                            <p className="font-semibold 9xl:text-5xl" id="count">{data.avdar}</p>
+                            <button onClick={() => {
+                              data.avdar += 1;
+                              data.tincase += parseInt(data.incase);
+                              data.price += parseInt(data.incase) * parseInt(data.sprice);
+                              sessionStorage.setItem("array", JSON.stringify(array));
+                              var sum = 0;
+                              array.forEach(x => {
+                                sum += x.price;
+                              });
+
+                              sessionStorage.setItem("sum", sum);
+                              setTotal(sum)
+                              setRender(!render)
+                            }}>
+                              <img src={addButton} alt="" className="9xl:w-14" />
+                            </button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                )}
+                
+                </div>
+            
 
             <div className='productInfo'>
               <img src={productInfo} alt="" className='productImg' />
