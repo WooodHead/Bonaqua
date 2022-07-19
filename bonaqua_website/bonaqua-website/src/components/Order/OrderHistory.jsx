@@ -1,5 +1,5 @@
 import React from 'react';
-import bonaqua from '../../images/bona0.5.png';
+import bonaqua from '../../images/546A4010.png';
 import bigflower from '../../images/svg/home/tsetseg tom.svg';
 import lineflower from '../../images/svg/order 2/Group 550.svg';
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
@@ -48,7 +48,7 @@ export default function OrderHistory() {
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold text-sm 9xl:text-4xl' id='capaInCircle'>500 мл</p>
+                  <p className='text-white font-semibold text-sm 9xl:text-4xl' id='capaInCircle'>bonaqua</p>
                 </div>
               </div>
             </div>
