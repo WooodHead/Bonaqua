@@ -88,8 +88,6 @@ export default function OrderHistory() {
                     Хүргэгдсэн
                   </NavLink>
                 </div>
-               
-             
 
                 <div className="sort flex justify-end">
                   <select name="" id="" className='select w-full'>

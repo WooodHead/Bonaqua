@@ -127,11 +127,11 @@ export default function OrderInfo() {
 
   function Options() {
     for (let i = 1; i < 33; i++) {
-      options += "<option value='"+i+"'>"+i+"-р хороо</option>";
+      options += "<option value='" + i + "'>" + i + "-р хороо</option>";
     }
     document.getElementById('committee').innerHTML = options;
   }
-  
+
   window.onload = (event) => {
     Options();
   };
@@ -260,8 +260,8 @@ export default function OrderInfo() {
                   </div>
                   <div class="group mr-1">
                     <label className="form-label">Утасны дугаар</label>
-                    <input type="text" id="number" className="check" 
-                    onChange={(e) => {
+                    <input type="text" id="number" className="check"
+                      onChange={(e) => {
                         setNumber(e.target.value);
                         var dugaar = [];
                         data.forEach(x => {
@@ -269,21 +269,21 @@ export default function OrderInfo() {
                         })
 
                         if (dugaar.includes(e.target.value)) {
-                           console.log("yes")
-                           
-                           var proceed = confirm("Та өмнөх захиалгын хаягаа ашиглах уу?");
-                           if (proceed) {
-                             for (let i = 0; i < data.length; i++) {
-                               if (data[i].phonenumber == e.target.value) {
-                                  document.getElementById("apartment").placeholder = data[i].orderno;
-                               }
-                             }
-                           } else {
-                             document.getElementById("apartment").placeholder = ""
-                           }
+                          console.log("yes")
+
+                          var proceed = confirm("Та өмнөх захиалгын хаягаа ашиглах уу?");
+                          if (proceed) {
+                            for (let i = 0; i < data.length; i++) {
+                              if (data[i].phonenumber == e.target.value) {
+                                document.getElementById("apartment").placeholder = data[i].orderno;
+                              }
+                            }
+                          } else {
+                            document.getElementById("apartment").placeholder = ""
+                          }
                         }
 
-                    }} required="required" />
+                      }} required="required" />
                   </div>
                   <div class="group">
                     <label>Захиалгын дугаар</label>
@@ -375,7 +375,6 @@ export default function OrderInfo() {
                     </div>
 
                   </form>
-
                 </div>
               </div>
             </div>

@@ -7,7 +7,11 @@ import water from '../images/svg/home/water 2.svg';
 import point from '../images/svg/order 1/Ellipse -1.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
 import bigflower from '../images/svg/home/tsetseg tom.svg';
-import bonaqua from '../images/bona0.5.png';
+import bonaqua05 from '../images/546A4010.png';
+import bonaqua330 from '../images/546A4006.png';
+import bonaqua15 from '../images/546A4015.png';
+import bonaqua45 from '../images/546A4021.png';
+import bonaqua900 from '../images/546A4025.png';
 import list from '../images/svg/order 1/Ellipse -1.svg';
 import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
@@ -20,18 +24,18 @@ export default function Content() {
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
   const [capacity, setCapacity] = useState("");
-  const [image, setImage] = useState(bonaqua);
+  const [image, setImage] = useState(bonaqua05);
   const [active, setActive] = useState([]);
 
 
   const imageArray = [
-    { "img": bonaqua, "size": "1.5L" },
-    { "img": bigflower, "size": "4.5L" },
-    { "img": water, "size": "800ml" },
-    { "img": point, "size": "500ml" },
-    { "img": productInfo, "size": "330ml" },
-    { "img": list, "size": "18.9L" },
-    { "img": bonaqua, "size": "11.3L" },
+    { "img": bonaqua15, "size": "1.5L" },
+    { "img": bonaqua45, "size": "4.5L" },
+    { "img": bonaqua900, "size": "800ml" },
+    { "img": bonaqua05, "size": "500ml" },
+    { "img": bonaqua330, "size": "330ml" },
+    { "img": bonaqua05, "size": "18.9L" },
+    { "img": bonaqua05, "size": "11.3L" },
   ];
 
   sessionStorage.setItem("imagearray", JSON.stringify(imageArray));
@@ -257,7 +261,7 @@ export default function Content() {
             <div className='flower absolute'>
               <img src={bigflower} alt="" className='bigflower' />
             </div>
-            <img src={image} alt="" />
+            <img src={image} alt=""/>
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
@@ -324,6 +328,16 @@ export default function Content() {
                 </form>
               </div>
             </div>
+
+            {/* <div className='border phoneBusket my-5'>
+              <div className="zahialsanHeseg my-1">
+                 {
+                  array.map(data => 
+                    <div className=''>{data.size}</div>  
+                  )
+                 }
+              </div>
+            </div> */}
 
             <div className='productInfo'>
               <img src={productInfo} alt="" className='productImg' />

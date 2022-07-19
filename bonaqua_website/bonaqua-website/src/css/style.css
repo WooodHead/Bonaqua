@@ -399,12 +399,12 @@ a {
       }
     
       .bona {
-        width: 70%;
+        width: 85%;
         border-radius: 50%;
         border: 1px solid #807e7e;
       }
       .bona img {
-        width: 40%;
+        width: 65%;
         z-index: 1;
         margin: 0 auto;
       }
