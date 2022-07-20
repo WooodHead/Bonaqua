@@ -20,14 +20,14 @@ import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
-import $ from 'jquery';
+import $, { ready } from 'jquery';
 
 export default function Content() {
   var { array, setTotal, total, setItem, setValues } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [render, setRender] = useState(false);
   const [capacity, setCapacity] = useState("");
-  const [image, setImage] = useState(bonaqua05);
+  const [image, setImage] = useState(bonaqua15);
   const [active, setActive] = useState([]);
 
 
@@ -73,12 +73,14 @@ export default function Content() {
   var ftotal;
   const fincase = [];
 
+
   data.forEach(x => {
     fprice.push(x.BPrice)
     fincase.push(x.InCase)
     fsize.push(x.Capacity)
   })
   ftotal = fprice[0] * fincase[0];
+  console.log(fsize[0])
 
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
@@ -179,11 +181,20 @@ export default function Content() {
       setRender(!render)
     }
 
-    const selector = $("#avdar")
-    $(document).ready(function() {
-      selector.select2({
-        tags: true
-      });
+    // var options = "<input type='text' list='case' id='avdar' className='select border' onChange={setValue} placeholder='Авдарны тоо' defaultValue='1' />"
+    // function Options() {
+    //   for (let i = 1; i <= 10; i++) {
+    //     options += "<option value='" + i + "'>" + i + "</option>";
+    //   }
+    //   document.getElementById('avdar').innerHTML = options;
+    // }
+  
+    // window.onload = (event) => {
+    //   Options();
+    // }
+
+    $(document).ready(function () {
+      $("#avdar").select2();
     })
 
   return (
@@ -244,7 +255,7 @@ export default function Content() {
             <div className='toirog absolute'>
               <div className='white flex justify-center items-center'>
                 <div className='circle relative flex justify-center items-center'>
-                  <p className='text-white font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity}</p>
+                  <p className='text-white text-sm font-semibold 9xl:text-4xl flex items-center' id='capaInCircle'>{capacity == '' ? fsize[0] : capacity}</p>
                 </div>
               </div>
             </div>
@@ -273,13 +284,14 @@ export default function Content() {
                     )}
                   </select>
 
-                  {/* <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1" />
-                  <datalist id='case'>
+                  
+                  {/* <datalist id='case'>
                     {number.map(res =>
                       <option value={res} id='number'>{res}</option>
                     )}
-                  </datalist> */}
-                  <select name="" id="avdar" className='select' >
+                  </datalist>
+                  <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue={1}/> */}
+                  <select type="text" name="" id="avdar" className='select' >
                   {number.map(res =>
                       <option value={res} id='number'>{res}</option>
                     )}

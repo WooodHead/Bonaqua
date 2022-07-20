@@ -122,9 +122,7 @@ export default function OrderInfo() {
     size.push(x.avdar)
   });
 
-
   var options = "<option value=''></option>";
-
   function Options() {
     for (let i = 1; i < 33; i++) {
       options += "<option value='" + i + "'>" + i + "-р хороо</option>";
