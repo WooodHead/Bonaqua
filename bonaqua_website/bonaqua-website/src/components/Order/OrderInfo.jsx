@@ -25,7 +25,7 @@ export default function OrderInfo() {
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
   const [data, setData] = useState([]);
-  const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
+  const { userarray, setRandom, orderid, setOrderid, random, pack, size, incase } = useContext(AppContext)
 
   async function getUserData() {
 
@@ -82,7 +82,7 @@ export default function OrderInfo() {
         window.location.pathname = '/payment';
         console.log(random)
 
-        // fetch('http://localhost:8080/api/bonaqua/addOrderDetail', {
+        // fetch('http://localhost:8090/api/bonaqua/addOrderDetail', {
         //   method: "POST",
         //   headers: {
         //     "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export default function OrderInfo() {
         //     orderid: orderid,
         //     productid: 1,
         //     quantity: 1,
-        //     price: 1,
+        //     price: sum,
         //     pricedisc: 10
         //   })
         // })

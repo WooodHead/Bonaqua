@@ -347,12 +347,11 @@ export default function Content() {
                 </form>
               </div>
             </div>
-
-            <h3 className='flex justify-center text-gray-400 xl:hidden'>Таны сагс</h3>
-            <div className='w-[90%] phoneBusket my-3 p-2 flex flex-col md:flex-row justify-center xl:hidden'>
+             {array == '' ? '' : <a href="/order"> <h3 className='flex justify-center text-gray-400 xl:hidden mt-3'>Сагс руу орох</h3> </a>}
+            <div className='phoneBusket mb-3 p-2 flex flex-wrap flex-col md:flex-row justify-center xl:hidden'>
         
             {array.map(data =>
-            <div className='flex'>
+            <div className='w-1/2'>
                   <div className="zahialsanHesegContent mt-3">
 
                     <div className="order1 flex">
