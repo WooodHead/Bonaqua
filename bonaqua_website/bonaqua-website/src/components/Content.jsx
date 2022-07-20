@@ -4,7 +4,7 @@ import Instruction from './ProductInformation/Instruction';
 import Nutrition from './ProductInformation/Nutrition';
 import Product from './ProductInformation/Product';
 import water from '../images/svg/home/water 2.svg';
-import point from '../images/svg/order 1/Ellipse -1.svg';
+import sagsicon from '../images/icons/busket.svg';
 import productInfo from '../images/svg/home/buteegdhuunii medeelel.svg';
 import bigflower from '../images/svg/home/tsetseg tom.svg';
 import bonaqua05 from '../images/546A4010.png';
@@ -162,53 +162,6 @@ export default function Content() {
 
   const number = Array(10).fill(0).map((e, i) => i + 1);
 
-  $(document).ready(function (e) {
-    $('#fly').click(function () {
-      var target = $('.choose').first(),
-        target_offset = target.offset();
-
-      var target_x = target_offset.left,
-        target_y = target_offset.top;
-
-      console.log('target: ' + target_x + ', ' + target_y);
-
-      var obj_id = 1 + Math.floor(Math.random() * 100000),
-        obj_class = 'cart-animation-helper',
-        obj_class_id = obj_class + '_' + obj_id;
-
-      var obj = $("<div>", {
-        'class': obj_class + ' ' + obj_class_id
-      });
-
-      $(this).parent().parent().append(obj);
-
-      var obj_offset = obj.offset(),
-        dist_x = target_x - obj_offset.left + 10,
-        dist_y = target_y - obj_offset.top + 10,
-        delay = 0.8; // seconds
-
-      console.log('obj_off: ' + obj_offset.left + ', ' + obj_offset.top);
-
-      setTimeout(function () {
-        obj.css({
-          'transition': 'transform ' + delay + 's ease-in',
-          'transform': "translateX(" + dist_x + "px)"
-        });
-        $('<style>.' + obj_class_id + ':after{ \
-				transform: translateY(' + dist_y + 'px); \
-				opacity: 1; \
-				border-radius: 100%; \
-				max-height: 20px; \
-				max-width: 20px; margin: 0; \
-			}</style>').appendTo('head');
-      }, 0);
-
-      obj.show(1).delay((delay + 0.02) * 1000).hide(1, function () {
-        $(obj).remove();
-      });
-    });
-  });
-
   let sum = sessionStorage.getItem("sum");
     // Захиалга устгах
     function removeOrder(element) {
@@ -347,11 +300,11 @@ export default function Content() {
                 </form>
               </div>
             </div>
-             {array == '' ? '' : <a href="/order"> <h3 className='flex justify-center text-gray-400 xl:hidden mt-3'>Сагс руу орох</h3> </a>}
-            <div className='phoneBusket mb-3 p-2 flex flex-wrap flex-col md:flex-row justify-center xl:hidden'>
+             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  --> </h4> </a>}
+            <div className='phoneBusket mb-3 p-2 flex flex-wrap flex-col sm:flex-row justify-center xl:hidden'>
         
             {array.map(data =>
-            <div className='w-1/2'>
+            <div className='flex w-1/2'>
                   <div className="zahialsanHesegContent mt-3">
 
                     <div className="order1 flex">
