@@ -885,6 +885,12 @@ a {
       height: 0.4rem;
       display: none;
     }
+    @media (min-width: 640px) {
+      .phoneBusket::-webkit-scrollbar {
+        height: 10%;
+        width: 0.4rem;
+      }
+    }
     .phoneBusket::-webkit-scrollbar-track {
       background-color: #f9fafe;
     }
