@@ -20,7 +20,7 @@ import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from './Social';
-import BonaquaType from './BonaquaType';
+import $ from 'jquery';
 
 export default function Content() {
   var { array, setTotal, total, setItem, setValues } = useContext(AppContext);
@@ -179,6 +179,13 @@ export default function Content() {
       setRender(!render)
     }
 
+    const selector = $("#avdar")
+    $(document).ready(function() {
+      selector.select2({
+        tags: true
+      });
+    })
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row contentInfo'>
@@ -266,12 +273,18 @@ export default function Content() {
                     )}
                   </select>
 
-                  <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1" />
+                  {/* <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue="1" />
                   <datalist id='case'>
                     {number.map(res =>
                       <option value={res} id='number'>{res}</option>
                     )}
-                  </datalist>
+                  </datalist> */}
+                  <select name="" id="avdar" className='select' >
+                  {number.map(res =>
+                      <option value={res} id='number'>{res}</option>
+                    )}
+                  </select>
+
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>

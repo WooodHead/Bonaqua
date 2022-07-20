@@ -117,6 +117,13 @@ export default function OrderHistory() {
               </button>
             </Link>
           </div>
+          <div>
+            <Link className="nav-link" to="/">
+              <button className='backPaymentButton' onClick={() => {sessionStorage.clear(); window.location.pathname = '/'}}>
+                Гарах
+              </button>
+            </Link>
+          </div>
 
         </div>
 

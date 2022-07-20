@@ -37,7 +37,7 @@ export default function Header() {
 
   var tuuh = [];
   var dugaar = [];
-  var login = false;
+  var login = [phoneNumber];
 
   orderHistory.forEach(x => {
     tuuh.push(x.orderno)
@@ -48,13 +48,14 @@ export default function Header() {
     if (dugaar.includes(phoneNumber)) {
         sessionStorage.setItem("dugaar", phoneNumber);
         window.location.pathname = '/orderHistory';
-        login = true;
+        sessionStorage.setItem("login", login)
     }
     else {
       toast(`${phoneNumber} дугаартай захиалгын түүх олдсонгүй!`);
     }
     setShow(false)
   };
+  var log = sessionStorage.getItem("login");
 
   const handleShow = () => setShow(true);
 
@@ -87,14 +88,11 @@ export default function Header() {
               <img src={history} alt="" className='' />
               <div className='dun cursor-pointer'>
                 <p className='busket'>
-                  {/* {dugaar.includes(phoneNumber) == 0 ? userArray[0].number : '********'} */}
-                  {
-                    login == false ? '********' : phoneNumber
-                  }
+                  { log == null ? '********' : log }
                 </p>
                 <ToastContainer/>
                 {
-                  userArray != null ? <a href="/orderHistory">
+                  log != null ? <a href="/orderHistory">
                     <p className='yourBusket'>Захиалгын түүх</p>
                   </a>
                     : <a href='#' onClick={handleShow}>
