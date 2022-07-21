@@ -39,7 +39,25 @@ export default function Payment() {
     size.push(x.avdar)
   })
 
-  console.log(pack)
+  function SocialPay() {
+    fetch('https://ecommerce.golomtbank.com/api/invoice', {
+      method: "POST",
+      headers: {
+        Authentication: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
+      },
+      body: JSON.stringify({
+          amount: `${sum}`,
+          callback: "string",
+          checksum: "string",
+          genToken: "Y",
+          returnType: "GET",
+          transactionId: `${orderid}`
+      })
+    })
+      .then((res) => {
+        res.json()
+      })
+  }
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -116,8 +134,11 @@ export default function Payment() {
 
                     <div className="flex justify-around instructionPayment">
 
-                      <div className="paymentInstruction flex flex-col items-center w-1/2">
-
+                      <div className="paymentInstruction flex flex-col items-center justify-center w-1/2">
+                          <button className="py-2 px-4 socialpay text-white font-semibold text-base"
+                           onClick={SocialPay}>
+                            Social Pay - ээр төлөх
+                          </button>
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">

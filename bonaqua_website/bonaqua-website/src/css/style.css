@@ -902,3 +902,7 @@ a {
     .phoneBusket:hover::-webkit-scrollbar {
       display: block;
     } 
+    .socialpay {
+      background-color: var(--blue-color);
+      border-radius: 0.5rem;
+    }
