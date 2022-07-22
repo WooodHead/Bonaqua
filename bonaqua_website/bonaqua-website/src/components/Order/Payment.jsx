@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
 import qr from "../../images/svg/qr.png";
-import dans from '../../images/svg/order 3/Header-1.svg';
 import instruction from '../../images/svg/order 3/Header-2.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
+import crypto from "crypto-js";
+import utf8 from "utf8";
 
 export default function Payment() {
 
@@ -39,6 +40,15 @@ export default function Payment() {
     size.push(x.avdar)
   })
 
+  const key = crypto.enc.Utf8.parse("bsuTPNVvbM#sAI2#");
+  // let hash = crypto.createHmac("sha256", key).update(message).digest("hex");
+  const checksum = orderid + sum + "GET" + "http://localhost:3000/orderHistory";
+  var bytes = crypto.enc.Utf8.parse(checksum);
+  let sha256 = crypto.algo.HMAC.create(crypto.algo.SHA256, key);
+  var digest = sha256.update(crypto.enc.Hex.parse(bytes));
+  
+  console.log(sha256)
+
   function SocialPay() {
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
@@ -47,15 +57,18 @@ export default function Payment() {
       },
       body: JSON.stringify({
           amount: `${sum}`,
-          callback: "string",
-          checksum: "string",
+          callback: "http://localhost:3000/orderHistory",
+          checksum: `${digest}`,
           genToken: "Y",
           returnType: "GET",
-          transactionId: `${orderid}`
+          transactionId: `123`
       })
     })
       .then((res) => {
-        res.json()
+        const data = res.json();
+        data.then(res => {
+          console.log(res);
+        });
       })
   }
 
