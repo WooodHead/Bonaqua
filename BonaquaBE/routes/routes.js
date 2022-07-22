@@ -9,6 +9,7 @@ module.exports = app => {
     router.post("/addOrderDetail", bonaqua.addOrderDetail);
     router.post("/updateOrder", bonaqua.updateOrder);
     router.get("/orderHistory", bonaqua.orderHistory);
+    router.get("/socialpay", bonaqua.SocialPay);
 
     app.use('/api/bonaqua', router);
 };
