@@ -40,26 +40,30 @@ export default function Payment() {
     size.push(x.avdar)
   })
 
-  const key = crypto.enc.Utf8.parse("bsuTPNVvbM#sAI2#");
-  // let hash = crypto.createHmac("sha256", key).update(message).digest("hex");
-  const checksum = orderid + sum + "GET" + "http://localhost:3000/orderHistory";
-  var bytes = crypto.enc.Utf8.parse(checksum);
-  let sha256 = crypto.algo.HMAC.create(crypto.algo.SHA256, key);
-  var digest = sha256.update(crypto.enc.Hex.parse(bytes));
-  
-  console.log(sha256)
+  // const key = utf8.encode("bsuTPNVvbM#sAI2#");
+  // var bytes = utf8.encode(checksum);
+  // const keys = crypto.enc.Utf8.parse("bsuTPNVvbM#sAI2#");
+  const key = "bsuTPNVvbM#sAI2#";
+  const hash = crypto.HmacSHA256("message", key);
+  var checksum = 123 + sum + "GET" + "http://localhost:3000/orderHistory";  
+  const byte = crypto.HmacSHA256("text", checksum);
+  let sha256 = hash.toString(crypto.enc.Hex);
+  let check256 = sha256.toString(crypto.enc.Hex.stringify(byte));
+
+  console.log(check256);
 
   function SocialPay() {
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authentication: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
       },
       body: JSON.stringify({
           amount: `${sum}`,
           callback: "http://localhost:3000/orderHistory",
           checksum: `${digest}`,
-          genToken: "Y",
+          genToken: "N",
           returnType: "GET",
           transactionId: `123`
       })
