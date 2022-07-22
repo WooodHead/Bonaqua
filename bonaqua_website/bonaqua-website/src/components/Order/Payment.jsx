@@ -48,7 +48,7 @@ export default function Payment() {
   var checksum = 123 + sum + "GET" + "http://localhost:3000/orderHistory";  
   const byte = crypto.HmacSHA256("text", checksum);
   let sha256 = hash.toString(crypto.enc.Hex);
-  let check256 = sha256.toString(crypto.enc.Hex.stringify(byte));
+  let check256 = sha256.toString(crypto.enc.Hex.stringify(byte.toString(crypto.enc.Hex)));
 
   console.log(check256);
 
