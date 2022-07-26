@@ -28,7 +28,7 @@ export default function Order() {
   useEffect(() => {
     var getData = async () => {
       try {
-        var data = await fetch('http://localhost:8090/api/bonaqua');
+        var data = await fetch('http://localhost:8088/api/bonaqua');
         var resData = await data.json();
         setData(resData)
       } catch (err) {

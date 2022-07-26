@@ -10,11 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
 import crypto from "crypto-js";
-import utf8 from "utf8";
+import { data } from "jquery";
 
 export default function Payment() {
 
-  const { render, setRender } = useState(false);
+  // const { render, setRender } = useState(false);
   const { orderid, incase, pack, size } = useContext(AppContext)
   const [invoice, setInvoice] = useState("");
 
@@ -32,7 +32,7 @@ export default function Payment() {
       sessionStorage.clear();
       window.location.pathname = '/';
     }, 1000)
-    setRender(!render)
+    // setRender(!render)
   }
 
   orderArray.forEach(x => {
@@ -41,23 +41,25 @@ export default function Payment() {
     size.push(x.avdar)
   })
 
-  const key = crypto.enc.Utf8.parse("bsuTPNVvbM#sAI2#");
+  const key = "bsuTPNVvbM#sAI2#";
   var checksum = orderid + sum + "GET" + "http://localhost:3000/orderHistory";
   var checksum1 = checksum.toString();
   const hash = crypto.HmacSHA256(`${checksum1}`, key);
   let sha256 = hash.toString(crypto.enc.Hex);
 
-  async function SocialPay() {
-    await fetch('https://ecommerce.golomtbank.com/api/invoice', {
+  function SocialPay() {
+    fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
       mode: "no-cors",
       headers: {
-        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
-        Authentication: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        "Access-Control-Allow-Credentials": true,
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
       },
       body: JSON.stringify({
-          amount: `${sum}`,
+          amount: sum,
           callback: "http://localhost:3000/orderHistory",
           checksum: sha256,
           genToken: "N",
@@ -65,17 +67,12 @@ export default function Payment() {
           transactionId: orderid
       })
     })
-      .then(res => res.json());
-        //const data = res.json();
-            // data.then(res => {
-            //   const check = res.checksum;
-            //   const inVoice = res.invoice;
-            //   setInvoice(inVoice)
-            //   sessionStorage.setItem("invoice", inVoice);
-            //   console.log(inVoice, check);
-            // });
-      console.log(res)
-      // window.location.href = `https://ecommerce.golomtbank.com/socialpay/mn/${invoice}`;
+      .then(res => {
+        const data = res.status
+        console.log(data);
+      });
+
+      // window.location.href = `https://ecommerce.golomtbank.com/socialpay/mn/5b0e9b3b-077f-421a-9a60-878013efd287`;
   }
 
   return (
@@ -99,7 +96,7 @@ export default function Payment() {
                 <div className="seeTotalInfo flex relative">
                   <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
                     <div className="flex mx-2 w-full flex-column mt-3">
-                      {orderArray.map((data, i) =>
+                      {orderArray.map((data, i) => 
                         <p className='total font-semibold'>
                           {`${pack[i]} -> ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
@@ -154,10 +151,10 @@ export default function Payment() {
                     <div className="flex justify-around instructionPayment">
 
                       <div className="paymentInstruction flex flex-col items-center justify-center w-1/2">
-                          <button className="py-2 px-4 socialpay text-white font-semibold text-base"
+                          <a href="#" className="py-2 px-4 socialpay text-white font-semibold text-base"
                            onClick={SocialPay}>
                             Social Pay - ээр төлөх
-                          </button>
+                          </a>
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">

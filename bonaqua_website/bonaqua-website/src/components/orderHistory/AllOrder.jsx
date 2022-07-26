@@ -12,7 +12,7 @@ export default function AllOrder() {
   useEffect(() => {
     var getData = async () => {
       try {
-        var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+        var data = await fetch('http://localhost:8088/api/bonaqua/orderHistory');
         var resData = await data.json();
         setData(resData)
       } catch (err) {

@@ -39,7 +39,7 @@ export default function OrderInfo() {
       var today = new Date();
       if (number.match(phoneno) && name.match(regName)) {
 
-        await fetch('http://localhost:8090/api/bonaqua/addOrder', {
+        await fetch('http://localhost:8088/api/bonaqua/addOrder', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,6 @@ export default function OrderInfo() {
               setRandom(orderNumber);
               setOrderid(orderId);
               sessionStorage.setItem("random", orderNumber);
-              console.log(orderNumber, orderId);
             });
           })
         userarray.push({
@@ -79,10 +78,9 @@ export default function OrderInfo() {
           priceTotal: sum,
         })
         sessionStorage.setItem("userarray", JSON.stringify(userarray));
-        window.location.pathname = '/payment';
-        console.log(random)
+       
 
-        // fetch('http://localhost:8090/api/bonaqua/addOrderDetail', {
+        // fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
         //   method: "POST",
         //   headers: {
         //     "Content-Type": "application/json",
@@ -102,6 +100,8 @@ export default function OrderInfo() {
         //       console.log(value)
         //     })
         //   })
+
+          window.location.pathname = '/payment';
       }
       else {
         toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
@@ -137,7 +137,7 @@ export default function OrderInfo() {
   useEffect(() => {
     var getData = async () => {
       try {
-        var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+        var data = await fetch('http://localhost:8088/api/bonaqua/orderHistory');
         var resData = await data.json();
         setData(resData)
       } catch (err) {

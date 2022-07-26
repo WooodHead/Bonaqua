@@ -18,7 +18,7 @@ export default function OrderHistory() {
   // useEffect(() => {
   //   var getData = async () => {
   //     try {
-  //       var data = await fetch('http://localhost:8090/api/bonaqua/orderHistory');
+  //       var data = await fetch('http://localhost:8088/api/bonaqua/orderHistory');
   //       var resData = await data.json();
   //       setHistory(resData)
   //     } catch (err) {
@@ -110,13 +110,13 @@ export default function OrderHistory() {
             <img src={lineflower} alt="" className='w-full' />
           </div>
 
-          <div>
+          {/* <div>
             <Link className="nav-link" to="/payment">
               <button className='backPaymentButton'>
                 Төлбөр төлөх хэсэг рүү буцах
               </button>
             </Link>
-          </div>
+          </div> */}
           <div>
             <Link className="nav-link" to="/">
               <button className='backPaymentButton' onClick={() => {sessionStorage.clear(); window.location.pathname = '/'}}>
