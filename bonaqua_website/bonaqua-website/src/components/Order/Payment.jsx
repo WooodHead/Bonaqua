@@ -96,7 +96,7 @@ export default function Payment() {
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) => 
                         <p className='total font-semibold'>
-                          {`${pack[i]} -> ${size[i]} авдар (${incase[i] * size[i]}ш),`}
+                          {`${pack[i]} - ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
                       )}
                     </div>
@@ -148,7 +148,7 @@ export default function Payment() {
 
                     <div className="flex justify-around instructionPayment">
 
-                      <div className="paymentInstruction flex flex-col items-center justify-center w-1/2">
+                      <div className="paymentInstruction flex flex-col items-center justify-center w-1/2 px-2">
                           <a href="#" className="py-2 px-4 socialpay text-white font-semibold text-base"
                            onClick={SocialPay}>
                             Social Pay - ээр төлөх

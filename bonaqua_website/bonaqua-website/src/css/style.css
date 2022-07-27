@@ -810,6 +810,9 @@ a {
       #lists {
         display: none;
       }
+      .dnone {
+        display: none;
+      }
       .list-active {
         display: block;
       }

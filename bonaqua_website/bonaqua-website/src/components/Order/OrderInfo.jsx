@@ -215,7 +215,7 @@ export default function OrderInfo() {
                     <div className="flex mx-2 w-full flex-column mt-3">
                       {orderArray.map((data, i) =>
                         <p className='total font-semibold'>
-                          {`${pack[i]} -> ${size[i]} авдар (${incase[i] * size[i]}ш),`}
+                          {`${pack[i]} - ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
                       )}
                     </div>

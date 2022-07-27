@@ -29,7 +29,7 @@ export default function Content() {
   const [capacity, setCapacity] = useState("");
   const [image, setImage] = useState(bonaqua15);
   const [active, setActive] = useState([]);
-
+  const [text, setText] = useState("");
 
   const imageArray = [
     { "img": bonaqua15, "size": "1.5L" },
@@ -63,8 +63,10 @@ export default function Content() {
       const activeElements = Array.from(document.querySelectorAll('.li-active'));
       activeElements.forEach(activeElement => {
         activeElement.classList.remove('li-active');
+        activeElement.classList.remove('dnone');
       });
       buttonElement.parentElement.classList.add('li-active');
+      buttonElement.parentElement.classList.add('dnone')
     });
   });
 
@@ -202,22 +204,25 @@ export default function Content() {
             <div class="main">
               <ul>
                 {data.map((res) => 
-                <>
-                  <li href={`#link${res.Capacity}`} className='bonaquaType' onClick={() => {
+                <div className=''>
+                  <li className='bonaquaType lists' onClick={() => {
                     setCapacity(res.Capacity)
                     imageArray.map(img => {
                       if (img.size == res.Capacity) {
                         setImage(img.img)
+                        setText(res.Capacity)
                       }
                     })
                   }}>
                   </li>
-                    <li id={`link${res.Capacity}`} className="9xl:text-6xl button">
-                      {res.Capacity}
-                    </li>
-                 </>
+                  <li id="lists" className="9xl:text-6xl">{res.Capacity}</li>
+                 </div>
                 )}
+                {/* {data.map((res) => 
+                  <li id="list" className="9xl:text-6xl">{res.Capacity}</li>
+                )} */}
               </ul>
+              
             </div>
           </div>
           {/* <div className='choose'>
@@ -319,7 +324,7 @@ export default function Content() {
                 </form>
               </div>
             </div>
-             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  --> </h4> </a>}
+             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  -- </h4> </a>}
             <div className='phoneBusket mb-3 p-2 flex flex-wrap flex-col sm:flex-row justify-center xl:hidden'>
         
             {array.map(data =>
