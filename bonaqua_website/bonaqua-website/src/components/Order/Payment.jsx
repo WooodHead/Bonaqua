@@ -10,12 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
 import crypto from "crypto-js";
-import { data } from "jquery";
 
 export default function Payment() {
 
   // const { render, setRender } = useState(false);
-  const { orderid, incase, pack, size } = useContext(AppContext)
+  const { incase, pack, size } = useContext(AppContext)
   const [invoice, setInvoice] = useState("");
 
   const arrays = sessionStorage.getItem("array");
@@ -32,7 +31,7 @@ export default function Payment() {
       sessionStorage.clear();
       window.location.pathname = '/';
     }, 1000)
-    // setRender(!render)
+    setRender(!render)
   }
 
   orderArray.forEach(x => {
@@ -42,7 +41,7 @@ export default function Payment() {
   })
 
   const key = "bsuTPNVvbM#sAI2#";
-  var checksum = orderid + sum + "GET" + "http://localhost:3000/orderHistory";
+  var checksum = random + sum + "GET" + "http://localhost:3000/orderHistory";
   var checksum1 = checksum.toString();
   const hash = crypto.HmacSHA256(`${checksum1}`, key);
   let sha256 = hash.toString(crypto.enc.Hex);
@@ -50,12 +49,11 @@ export default function Payment() {
   function SocialPay() {
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
-      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        "Access-Control-Allow-Credentials": true,
+        "Origin": "http://localhost:3000",
+        "Access-Control-Allow-Headers": "Origin, Content-Type",
+        "Access-Control-Allow-Method": "POST",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
       },
       body: JSON.stringify({
@@ -63,8 +61,8 @@ export default function Payment() {
           callback: "http://localhost:3000/orderHistory",
           checksum: sha256,
           genToken: "N",
-          returnType: "GET",
-          transactionId: orderid
+          returnType: "POST",
+          transactionId: random
       })
     })
       .then(res => {

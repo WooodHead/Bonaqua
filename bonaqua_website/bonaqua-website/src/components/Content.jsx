@@ -80,7 +80,6 @@ export default function Content() {
     fsize.push(x.Capacity)
   })
   ftotal = fprice[0] * fincase[0];
-  console.log(fsize[0])
 
   function setValue() {
     const size = document.getElementById('mlselect').value.split(',')[0];
@@ -193,9 +192,6 @@ export default function Content() {
     //   Options();
     // }
 
-    $(document).ready(function () {
-      $("#avdar").select2();
-    })
 
   return (
     <div className='mx-auto flex flex-col justify-between'>
@@ -205,23 +201,21 @@ export default function Content() {
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
               <ul>
-                {data.map((res) =>
-                  <li className='bonaquaType' onClick={() => {
+                {data.map((res) => 
+                <>
+                  <li href={`#link${res.Capacity}`} className='bonaquaType' onClick={() => {
                     setCapacity(res.Capacity)
                     imageArray.map(img => {
                       if (img.size == res.Capacity) {
                         setImage(img.img)
                       }
                     })
-                    document.getElementById("lists").style.display = 'block';
                   }}>
-                    <ul>
-                      <li id='lists' className="9xl:text-6xl button">
-                        {/* <img src={point} alt="" className=''/> */}
-                        {res.Capacity}
-                      </li>
-                    </ul>
                   </li>
+                    <li id={`link${res.Capacity}`} className="9xl:text-6xl button">
+                      {res.Capacity}
+                    </li>
+                 </>
                 )}
               </ul>
             </div>
