@@ -57,17 +57,19 @@ export default function Content() {
   }, [render])
 
   // Link
-  const buttonElements = Array.from(document.querySelectorAll('.lists'));
+  const buttonElements = Array.from(document.querySelectorAll(".bonaquaType"));
   buttonElements.forEach(buttonElement => {
     buttonElement.addEventListener('click', () => {
-      const activeElements = Array.from(document.querySelectorAll('.li-active'));
+      const activeElements = Array.from(document.querySelectorAll(".li-active"));
       activeElements.forEach(activeElement => {
-        activeElement.classList.remove('li-active');
-        activeElement.classList.remove('dnone');
+        activeElement.classList.remove("li-active");
+        activeElement.classList.remove("bg");
       });
-      buttonElement.parentElement.classList.add('li-active');
-      buttonElement.parentElement.classList.add('dnone')
+      buttonElement.parentElement.classList.add("li-active");
+      // buttonElement.style.backgroundColor = "#3dbee3";
+      buttonElement.parentElement.classList.add("bg");
     });
+    buttonElement.classList.remove("bg");
   });
 
   var fprice = [];
@@ -202,10 +204,11 @@ export default function Content() {
         <div className='choosing w-full xl:w-1/2 flex items-center justify-center relative'>
           <div className='choose flex justify-center self-center relative'>
             <div class="main">
-              <ul>
-                {data.map((res) => 
-                <div className=''>
-                  <li className='bonaquaType lists' onClick={() => {
+              <ul id='accordion'>
+                {data.map((res, i) => 
+                <div className='' id={`heading${i}`}>
+                  <li className='bonaquaType' id={`type${i}`} data-toggle="collapse" data-target={`#list${res.Capacity}`}
+                   onClick={() => { 
                     setCapacity(res.Capacity)
                     imageArray.map(img => {
                       if (img.size == res.Capacity) {
@@ -213,9 +216,11 @@ export default function Content() {
                         setText(res.Capacity)
                       }
                     })
-                  }}>
+                    // document.getElementById(`type${i}`).style.backgroundColor = "#3dbee3";
+                   }}>
+                    
                   </li>
-                  <li id="lists" className="9xl:text-6xl">{res.Capacity}</li>
+                  <li id={`list${res.Capacity}`} data-parent="#accordion" aria-labelledby={`heading${i}`} className="9xl:text-6xl collapse listCol">{res.Capacity}</li>
                  </div>
                 )}
                 {/* {data.map((res) => 

@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build-r": "react-scripts build"
+    "build-r": "react-scripts build",
+    "proxy": "http://localhost:3000/"
   },
   "dependencies": {
     "@react-three/drei": "^9.7.1",

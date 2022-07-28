@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../App";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
 import qr from "../../images/svg/qr.png";
@@ -13,9 +13,9 @@ import crypto from "crypto-js";
 
 export default function Payment() {
 
-  // const { render, setRender } = useState(false);
   const { incase, pack, size } = useContext(AppContext)
-  const [invoice, setInvoice] = useState("");
+  // const [invoice, setInvoice] = useState("");
+  let history = useHistory();
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -41,19 +41,19 @@ export default function Payment() {
   })
 
   const key = "bsuTPNVvbM#sAI2#";
-  var checksum = random + sum + "GET" + "http://localhost:3000/orderHistory";
+  var checksum = random + sum + "POST" + "http://localhost:3000/orderHistory";
   var checksum1 = checksum.toString();
   const hash = crypto.HmacSHA256(`${checksum1}`, key);
   let sha256 = hash.toString(crypto.enc.Hex);
+  // console.log(sha256)
 
   function SocialPay() {
+    
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        "Origin": "http://localhost:3000",
-        "Access-Control-Allow-Headers": "Origin, Content-Type",
-        "Access-Control-Allow-Method": "POST",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
       },
       body: JSON.stringify({
@@ -66,11 +66,12 @@ export default function Payment() {
       })
     })
       .then(res => {
-        const data = res.status
-        console.log(data);
+        const data = res.json()
+        data.then(data => {
+          console.log(data.invoice);
+          window.location.href = `https://ecommerce.golomtbank.com/socialpay/mn/${data.invoice}`;
+        })
       });
-
-      // window.location.href = `https://ecommerce.golomtbank.com/socialpay/mn/5b0e9b3b-077f-421a-9a60-878013efd287`;
   }
 
   return (

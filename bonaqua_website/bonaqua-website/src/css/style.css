@@ -807,12 +807,14 @@ a {
       background-color: #8a8888;
       border-radius: 50%;
     }
-      #lists {
-        display: none;
-      }
-      .dnone {
-        display: none;
-      }
+    .listCol {
+      color: var(--blue-color);
+      font-weight: bolder;
+      font-size: larger;
+    }
+    .bg {
+      background-color: var(--blue-color);
+    }
       .list-active {
         display: block;
       }
