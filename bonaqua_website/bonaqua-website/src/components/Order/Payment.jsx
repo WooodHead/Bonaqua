@@ -1,20 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AppContext } from "../../App";
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
 import orderinfo from "../../images/svg/order 2/Header.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
-import qr from "../../images/svg/qr.png";
+import qr from "../../images/qr.png";
 import instruction from '../../images/svg/order 3/Header-2.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
 import crypto from "crypto-js";
+import QRCode from 'qrcode-reader';
+import { data } from "jquery";
 
 export default function Payment() {
 
-  const { incase, pack, size } = useContext(AppContext)
-  // const [invoice, setInvoice] = useState("");
+  const { incase, pack, size, access_token, setAccess_Token, 
+    invoice_id, setInvoice_id, qr_text, setQR_text, qr_image, setQR_image } = useContext(AppContext)
   let history = useHistory();
 
   const arrays = sessionStorage.getItem("array");
@@ -51,7 +53,6 @@ export default function Payment() {
     
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
@@ -73,6 +74,84 @@ export default function Payment() {
         })
       });
   }
+
+  function QPay() {
+        fetch('https://merchant.qpay.mn/v2/auth/token', {
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Basic TUNTOmFoTlpGT00x"
+          }
+        })
+        .then(res => {
+          const data = res.json()
+          data.then(res => {
+            const token = res.access_token;
+            // console.log(token)
+            setAccess_Token(token);
+          })
+        })
+    
+    fetch('https://merchant.qpay.mn/v2/invoice', {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${access_token}`
+      },
+      body: JSON.stringify({
+        "invoice_code": "MCS_INVOICE",
+              "sender_invoice_no": random,
+              "sender_branch_code": "branch",
+              "invoice_receiver_code": "terminal",
+              "invoice_receiver_data": {
+                "register": "2663503",
+                "name": "М Си Эс Кока Кола ХХК",
+                "email": "solongo.ts@mcscocacola.mn",
+                "phone": "88333211"
+              },
+              "invoice_description": "bonaqua qpay " + random,
+              "invoice_due_date": null,
+              "allow_partial": false,
+              "minimum_amount": null,
+              "allow_exceed": false,
+              "maximum_amount": null,
+              "note": null,
+              "lines": [
+                {
+                  "tax_product_code": null,
+                  "line_description": "Invoice description",
+                  "line_quantity": "1.00",
+                  "line_unit_price": sum,
+                  "note": ""
+                }
+              ]
+      })
+    })
+    .then(res => {
+      const data = res.json()
+      data.then(res => {
+        setInvoice_id(res.invoice_id);
+        setQR_text(res.qr_text);
+      })
+    })
+
+  }
+ 
+  // QRCode.toDataURL(qr_text).then((data) => {
+  //   setQR_image(data); 
+  // })
+ 
+  var qrcode = undefined;
+  function qrCode(value) {
+    if (qrcode === undefined) {
+      qrcode = new QRCode(document.getElementById("qrcode"), value);
+    }
+    else {
+      qrcode.clear();
+      qrcode.makeCode();
+    }
+  }
+  qrCode("ll");
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -157,7 +236,8 @@ export default function Payment() {
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">
-                        <img src={qr} alt="" className="w-1/2" />
+                        {/* <a href="#"> <img src={qr_image} alt="" className="w-1/2" /> </a> */}
+                        <div id="qrcode"></div>
                       </div>
 
                     </div>

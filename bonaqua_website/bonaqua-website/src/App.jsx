@@ -25,6 +25,10 @@ function App() {
   const [pack, setPack] = useState([]);
   const [size, setSize] = useState([]);
   const [incase, setIncase] = useState([]);
+  const [access_token, setAccess_Token] = useState("");
+  const [invoice_id, setInvoice_id] = useState("");
+  const [qr_text, setQR_text] = useState("");
+  const [qr_image, setQR_image] = useState("")
 
   return (
     <AppContext.Provider
@@ -39,7 +43,12 @@ function App() {
         random, setRandom,
         pack, setPack,
         size, setSize,
-        incase, setIncase
+        incase, setIncase,
+        access_token, setAccess_Token,
+        invoice_id, setInvoice_id,
+        qr_text, setQR_text,
+        qr_image, setQR_image
+
       }}
       render={{ render, setRender }}>
 
