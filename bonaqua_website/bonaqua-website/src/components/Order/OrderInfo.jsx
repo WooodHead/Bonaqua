@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
+import { useHistory } from "react-router-dom";
 import $ from 'jquery';
 
 export default function OrderInfo() {
@@ -26,6 +27,7 @@ export default function OrderInfo() {
   const [add, setAdd] = useState("");
   const [data, setData] = useState([]);
   const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
+  const history = useHistory();
 
   async function getUserData() {
 
@@ -101,7 +103,8 @@ export default function OrderInfo() {
         //     })
         //   })
 
-          window.location.pathname = '/payment';
+          // window.location.pathname = '/payment';
+          history.push('/payment');
       }
       else {
         toast("Та нэр эсвэл утасны дугаараа шалгана уу!");

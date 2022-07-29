@@ -14,6 +14,7 @@ import SlideImage from "../SlideImage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Social from "../Social";
+import { useHistory } from "react-router-dom";
 
 export default function Order() {
   const [data, setData] = useState([]);
@@ -23,6 +24,7 @@ export default function Order() {
   const [image, setImage] = useState(bona);
 
   const { setTotal, value } = useContext(AppContext);
+  const history = useHistory();
 
   // Баазаас мэдээлэл авах
   useEffect(() => {
@@ -142,7 +144,8 @@ export default function Order() {
       setShow(true);
     }
     else {
-      window.location.pathname = '/userinfo';
+      // window.location.pathname = '/userinfo';
+      history.push('/userinfo');
     }
   }
 

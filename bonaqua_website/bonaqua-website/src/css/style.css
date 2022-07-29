@@ -806,15 +806,18 @@ a {
       background-color: #8a8888;
       border-radius: 50%;
     }
+    .bonaquaType.li-active {
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: var(--blue-color);
+      border-radius: 50%;
+    }
     .listCol {
       color: var(--blue-color);
       font-weight: bolder;
       font-size: larger;
     }
-    .bg {
-      background-color: var(--blue-color);
-    }
-      .list-active {
+     /* .list-active {
         display: block;
       }
 
@@ -834,8 +837,11 @@ a {
       .main ul ul li {
         display: block;
         width: 4rem;
-      } 
+      } */
 
+    .li-active {
+      color: var(--blue-color);
+    }
 
     input:invalid, select:invalid {
       border: 1px solid #f0baba;

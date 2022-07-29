@@ -63,13 +63,10 @@ export default function Content() {
       const activeElements = Array.from(document.querySelectorAll(".li-active"));
       activeElements.forEach(activeElement => {
         activeElement.classList.remove("li-active");
-        activeElement.classList.remove("bg");
       });
       buttonElement.parentElement.classList.add("li-active");
       // buttonElement.style.backgroundColor = "#3dbee3";
-      buttonElement.parentElement.classList.add("bg");
     });
-    buttonElement.classList.remove("bg");
   });
 
   var fprice = [];
@@ -216,9 +213,9 @@ export default function Content() {
                         setText(res.Capacity)
                       }
                     })
-                    // document.getElementById(`type${i}`).style.backgroundColor = "#3dbee3";
+                    document.getElementById(`type${i}`).style.backgroundColor = "#3dbee3";
                    }}>
-                    
+                    {/* <div className='bonaquaType'></div> */}
                   </li>
                   <li id={`list${res.Capacity}`} data-parent="#accordion" aria-labelledby={`heading${i}`} className="9xl:text-6xl collapse listCol">{res.Capacity}</li>
                  </div>

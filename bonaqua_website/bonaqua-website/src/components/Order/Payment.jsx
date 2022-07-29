@@ -12,6 +12,7 @@ import Social from "../Social";
 import crypto from "crypto-js";
 import QRCode from 'qrcode';
 import { data } from "jquery";
+import { ToastBody } from "react-bootstrap";
 
 export default function Payment() {
 
@@ -33,6 +34,7 @@ export default function Payment() {
     setTimeout(() => {
       sessionStorage.clear();
       window.location.pathname = '/';
+      // history.push('/')
     }, 1000)
     setRender(!render)
   }
@@ -48,7 +50,6 @@ export default function Payment() {
   var checksum1 = checksum.toString();
   const hash = crypto.HmacSHA256(`${checksum1}`, key);
   let sha256 = hash.toString(crypto.enc.Hex);
-  // console.log(sha256)
 
   function SocialPay() {
 
@@ -145,6 +146,21 @@ export default function Payment() {
 //   })
 
 useEffect(() => {
+  fetch('https://122.201.28.34:8080/api/MyCokeGetTokenQPay', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => {
+    const data = res.json();
+    data.then(res => {
+      const date = new Date().toJSON().slice(0,10);
+      if (res.updateddate.slice(0,10) >= date) {
+        console.log(date, res.updateddate.slice(0,10))
+      }
+    })
+  })
 
   function QPay() {
       fetch('https://api.qpay.mn/v1/auth/token', {
@@ -200,7 +216,7 @@ useEffect(() => {
           "bill_no": "165465112kjh;0jlklj;kl3212134",
           "date":"2019-11-22 14:30",
           "description":"dafdafasd",
-          "amount":20000,
+          "amount":100,
           "btuk_code":"",
           "vat_flag": "0"
         })
@@ -208,17 +224,16 @@ useEffect(() => {
         .then(res => {
           const data = res.json()
           data.then(res => {
-            // setQR_text(res.qPay_QRcode);
-            QRCode.toDataURL(res.qPay_QRcode).then((data) => {
-              setQR_image(data);
-            })
+            setQR_text(res.qPay_QRcode);
           })
         })
   }
   QPay()
 }, [])
 
-
+  QRCode.toDataURL(qr_text).then((data) => {
+    setQR_image(data);
+  })
 
   return (
     <div className="mx-auto flex flex-col justify-between">

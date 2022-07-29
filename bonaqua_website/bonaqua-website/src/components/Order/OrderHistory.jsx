@@ -9,11 +9,13 @@ import OrderDelivered from '../orderHistory/OrderDelivered';
 import Social from '../Social';
 import { AppContext } from "../../App";
 import { useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function OrderHistory() {
   const { orderHistory, value } = useContext(AppContext);
 
   const dugaarc = sessionStorage.getItem("dugaar");
+  const history = useHistory();
 
   // useEffect(() => {
   //   var getData = async () => {
@@ -119,7 +121,11 @@ export default function OrderHistory() {
           </div> */}
           <div>
             <Link className="nav-link" to="/">
-              <button className='backPaymentButton' onClick={() => {sessionStorage.clear(); window.location.pathname = '/'}}>
+              <button className='backPaymentButton' onClick={() => {
+                  sessionStorage.clear();   
+                  // window.location.pathname = '/'
+                  history.push('/');
+                }}>
                 Гарах
               </button>
             </Link>
