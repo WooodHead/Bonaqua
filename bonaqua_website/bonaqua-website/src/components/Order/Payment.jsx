@@ -10,14 +10,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
 import crypto from "crypto-js";
-import QRCode from 'qrcode-reader';
+import QRCode from 'qrcode';
 import { data } from "jquery";
 
 export default function Payment() {
 
-  const { incase, pack, size, access_token, setAccess_Token, 
+  const { incase, pack, size, access_token, setAccess_Token,
     invoice_id, setInvoice_id, qr_text, setQR_text, qr_image, setQR_image } = useContext(AppContext)
   let history = useHistory();
+  const [render, setRender] = useState(false);
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -50,7 +51,7 @@ export default function Payment() {
   // console.log(sha256)
 
   function SocialPay() {
-    
+
     fetch('https://ecommerce.golomtbank.com/api/invoice', {
       method: "POST",
       headers: {
@@ -58,12 +59,12 @@ export default function Payment() {
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9NQ1NfQ09DQV9DT0xBIiwiaWF0IjoxNjMyNzkxOTM4fQ.Tji9cxZsRZPcNJ1xtxx7O3lq2TDn9VZhbx9n6YZ7yOs",
       },
       body: JSON.stringify({
-          amount: sum,
-          callback: "http://localhost:3000/orderHistory",
-          checksum: sha256,
-          genToken: "N",
-          returnType: "POST",
-          transactionId: random
+        amount: sum,
+        callback: "http://localhost:3000/orderHistory",
+        checksum: sha256,
+        genToken: "N",
+        returnType: "POST",
+        transactionId: random
       })
     })
       .then(res => {
@@ -75,83 +76,149 @@ export default function Payment() {
       });
   }
 
+//   useEffect(() => {
+
+//   function QPay() {
+//       fetch('https://merchant.qpay.mn/v2/auth/token', {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Authorization": "Basic TUNTOmFoTlpGT00x"
+//         }
+//       })
+//         .then(res => {
+//           const data = res.json()
+//           data.then(res => {
+//             const token = res.access_token;
+//             setAccess_Token(token);
+//           })
+//         })
+
+//       fetch('https://merchant.qpay.mn/v2/invoice', {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Authorization": `Bearer ${access_token}`
+//         },
+//         body: JSON.stringify({
+//           "invoice_code": "MCS_INVOICE",
+//           "sender_invoice_no": random,
+//           "sender_branch_code": "branch",
+//           "invoice_receiver_code": "terminal",
+//           "invoice_receiver_data": {
+//             "register": "2663503",
+//             "name": "М Си Эс Кока Кола ХХК",
+//             "email": "solongo.ts@mcscocacola.mn",
+//             "phone": "88333211"
+//           },
+//           "invoice_description": "bonaqua qpay " + random,
+//           "invoice_due_date": null,
+//           "allow_partial": false,
+//           "minimum_amount": null,
+//           "allow_exceed": false,
+//           "maximum_amount": null,
+//           "note": null,
+//           "lines": [
+//             {
+//               "tax_product_code": null,
+//               "line_description": "Invoice description",
+//               "line_quantity": "1.00",
+//               "line_unit_price": sum,
+//               "note": ""
+//             }
+//           ]
+//         })
+//       })
+//         .then(res => {
+//           const data = res.json()
+//           data.then(res => {
+//             setInvoice_id(res.invoice_id);
+//             setQR_text(res.qr_text);
+//           })
+//         })
+//   }
+//   QPay();
+// }, [])
+
+//   QRCode.toDataURL(qr_text).then((data) => {
+//     setQR_image(data);
+//   })
+
+useEffect(() => {
+
   function QPay() {
-        fetch('https://merchant.qpay.mn/v2/auth/token', {
-          method: "POST", 
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Basic TUNTOmFoTlpGT00x"
-          }
+      fetch('https://api.qpay.mn/v1/auth/token', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Basic TUNTOmFoTlpGT00x"
+        },
+        body: JSON.stringify({
+            "client_id": "qpay_test",
+            "client_secret": "sdZv9k9m",
+            "grant_type":"client",
+            "refresh_token":""
         })
+      })
         .then(res => {
           const data = res.json()
           data.then(res => {
             const token = res.access_token;
-            // console.log(token)
             setAccess_Token(token);
           })
         })
-    
-    fetch('https://merchant.qpay.mn/v2/invoice', {
-      method: "POST", 
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${access_token}`
-      },
-      body: JSON.stringify({
-        "invoice_code": "MCS_INVOICE",
-              "sender_invoice_no": random,
-              "sender_branch_code": "branch",
-              "invoice_receiver_code": "terminal",
-              "invoice_receiver_data": {
-                "register": "2663503",
-                "name": "М Си Эс Кока Кола ХХК",
-                "email": "solongo.ts@mcscocacola.mn",
-                "phone": "88333211"
-              },
-              "invoice_description": "bonaqua qpay " + random,
-              "invoice_due_date": null,
-              "allow_partial": false,
-              "minimum_amount": null,
-              "allow_exceed": false,
-              "maximum_amount": null,
-              "note": null,
-              "lines": [
-                {
-                  "tax_product_code": null,
-                  "line_description": "Invoice description",
-                  "line_quantity": "1.00",
-                  "line_unit_price": sum,
-                  "note": ""
-                }
-              ]
-      })
-    })
-    .then(res => {
-      const data = res.json()
-      data.then(res => {
-        setInvoice_id(res.invoice_id);
-        setQR_text(res.qr_text);
-      })
-    })
 
+      fetch('https://api.qpay.mn/v1/bill/create', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${access_token}`
+        },
+        body: JSON.stringify({
+          "template_id": "TEST_INVOICE",
+          "merchant_id": "TEST_MERCHANT",
+          "branch_id": "1",
+          "pos_id": "1",
+          "receiver": {
+            "id": "CUST_001",
+            "register_no": "ddf",
+            "name": "Central brnach",
+            "email": "info@info.mn",
+          "phone_number":"99888899",
+            "note" : "davaa"
+          },
+          "transactions":[{
+            "description":"asdfasdf",
+            "amount":10000,
+            "accounts":[{
+              "bank_code":"050000",
+              "name":"davaa",
+              "number":"5084107767",
+              "currency":"MNT"
+            }]
+          }],
+          "bill_no": "165465112kjh;0jlklj;kl3212134",
+          "date":"2019-11-22 14:30",
+          "description":"dafdafasd",
+          "amount":20000,
+          "btuk_code":"",
+          "vat_flag": "0"
+        })
+      })
+        .then(res => {
+          const data = res.json()
+          data.then(res => {
+            // setQR_text(res.qPay_QRcode);
+            QRCode.toDataURL(res.qPay_QRcode).then((data) => {
+              setQR_image(data);
+            })
+          })
+        })
   }
- 
-  // QRCode.toDataURL(qr_text).then((data) => {
-  //   setQR_image(data); 
-  // })
- 
-  var qrcode = undefined;
-  function qrCode(value) {
-    if (qrcode === undefined) {
-      qrcode = new QRCode(document.getElementById("qrcode"), value);
-    }
-    else {
-      qrcode.clear();
-      qrcode.makeCode();
-    }
-  }
-  qrCode("ll");
+  QPay()
+}, [])
+
+
 
   return (
     <div className="mx-auto flex flex-col justify-between">
@@ -174,7 +241,7 @@ export default function Payment() {
                 <div className="seeTotalInfo flex relative">
                   <div className='order1selectTotal flex justify-center items-center overflow-scroll'>
                     <div className="flex mx-2 w-full flex-column mt-3">
-                      {orderArray.map((data, i) => 
+                      {orderArray.map((data, i) =>
                         <p className='total font-semibold'>
                           {`${pack[i]} - ${size[i]} авдар (${incase[i] * size[i]}ш),`}
                         </p>
@@ -229,15 +296,15 @@ export default function Payment() {
                     <div className="flex justify-around instructionPayment">
 
                       <div className="paymentInstruction flex flex-col items-center justify-center w-1/2 px-2">
-                          <a href="#" className="py-2 px-4 socialpay text-white font-semibold text-base"
-                           onClick={SocialPay}>
-                            Social Pay - ээр төлөх
-                          </a>
+                        <a href="#" className="py-2 px-4 socialpay text-white font-semibold text-base"
+                          onClick={SocialPay}>
+                          Social Pay - ээр төлөх
+                        </a>
                       </div>
 
                       <div className="flex flex-col justify-center items-center w-1/2 ">
-                        {/* <a href="#"> <img src={qr_image} alt="" className="w-1/2" /> </a> */}
-                        <div id="qrcode"></div>
+                        {/* <a href="#" onClick={QPay}> <img src={qr} alt="" className="w-1/2" /> </a> */}
+                        <div id="qrcode"><img src={qr_image} alt="" /></div>
                       </div>
 
                     </div>
