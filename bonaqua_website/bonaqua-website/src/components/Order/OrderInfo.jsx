@@ -12,6 +12,7 @@ import SlideImage from "../SlideImage";
 import Social from "../Social";
 import { useHistory } from "react-router-dom";
 import $ from 'jquery';
+import QRCode from 'qrcode';
 
 export default function OrderInfo() {
   const [render, setRender] = useState(false);
@@ -110,7 +111,6 @@ export default function OrderInfo() {
         toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
       }
     }
-
   }
 
   const arrays = sessionStorage.getItem("array");
