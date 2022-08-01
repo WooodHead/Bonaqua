@@ -10,9 +10,11 @@ import Social from '../Social';
 import { AppContext } from "../../App";
 import { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function OrderHistory() {
   const { orderHistory, value } = useContext(AppContext);
+  const [render, setRender] = useState(false);
 
   const dugaarc = sessionStorage.getItem("dugaar");
   const history = useHistory();
@@ -122,9 +124,11 @@ export default function OrderHistory() {
           <div>
             <Link className="nav-link" to="/">
               <button className='backPaymentButton' onClick={() => {
-                  sessionStorage.clear();   
+                   
                   // window.location.pathname = '/'
                   history.push('/');
+                  sessionStorage.clear();  
+                  location.reload();
                 }}>
                 Гарах
               </button>

@@ -28,7 +28,7 @@ export default function Content() {
   const [render, setRender] = useState(false);
   const [capacity, setCapacity] = useState("");
   const [image, setImage] = useState(bonaqua15);
-  const [active, setActive] = useState([]);
+  // const [article, setArticle] = useState("");
   const [text, setText] = useState("");
 
   const imageArray = [
@@ -113,10 +113,10 @@ export default function Content() {
     const article = document.getElementById('mlselect').value.split(',')[3];
 
     const bagts = parseInt(document.getElementById('avdar').value);
-
+    
     var index = array.findIndex(x => x.size == size);
+
     const totalPrice = prices * incase * bagts;
-    console.log(bagts)
 
     if (totalPrice > 0) {
       index === -1 ? array.push({
@@ -156,6 +156,7 @@ export default function Content() {
     array.forEach(x => {
       sum += x.price;
     });
+
     sessionStorage.setItem("sum", sum);
     setTotal(sum)
 
@@ -192,7 +193,6 @@ export default function Content() {
     // window.onload = (event) => {
     //   Options();
     // }
-
 
   return (
     <div className='mx-auto flex flex-col justify-between'>

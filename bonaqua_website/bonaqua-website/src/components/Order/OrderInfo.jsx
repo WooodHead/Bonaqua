@@ -30,17 +30,21 @@ export default function OrderInfo() {
   const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
   const history = useHistory();
 
+  const arrays = sessionStorage.getItem("array");
+  const orderArray = JSON.parse(arrays);
+  const sum = sessionStorage.getItem("sum");
+
   async function getUserData() {
 
-    if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || doornumber == '' || addinginfo == '') {
-      toast("Шаардлагатай талбаруудыг бөглөнө үү!");
-      window.location.pathname
-    }
-    else {
-      var phoneno = /^[7-9]\d{7}$/;
-      var regName = /^[a-zA-Z ]{2,30}$/;
+    // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || doornumber == '' || addinginfo == '') {
+    //   toast("Шаардлагатай талбаруудыг бөглөнө үү!");
+    //   window.location.pathname
+    // }
+    // else {
+    //   var phoneno = /^[7-9]\d{7}$/;
+    //   var regName = /^[a-zA-Z ]{2,30}$/;
       var today = new Date();
-      if (number.match(phoneno) && name.match(regName)) {
+    //   if (number.match(phoneno) && name.match(regName)) {
 
         await fetch('http://localhost:8088/api/bonaqua/addOrder', {
           method: "POST",
@@ -81,41 +85,42 @@ export default function OrderInfo() {
           priceTotal: sum,
         })
         sessionStorage.setItem("userarray", JSON.stringify(userarray));
-       
 
-        // fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     orderid: orderid,
-        //     productid: 1,
-        //     quantity: 1,
-        //     price: sum,
-        //     pricedisc: 10
-        //   })
-        // })
-        //   .then((res) => {
-        //     const data = res.json();
-        //     data.then(data => {
-        //       const value = data[0][""];
-        //       console.log(value)
-        //     })
-        //   })
+        for(var i in orderArray) {
+          fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              orderid: random,
+              productid: orderArray[i].article,
+              quantity: orderArray[i].tincase,
+              price: orderArray[i].price,
+              pricedisc: 0
+            })
+          })
+            .then((res) => {
+              const data = res.json();
+              data.then(data => {
+                const value = data[0][""];
+                console.log(value)
+              })
+            })
+        }
+
+        // for(var i in orderArray) {
+        //   console.log(orderArray[i].price, orderArray[i].article, orderArray[i].tincase)
+        // }
 
           // window.location.pathname = '/payment';
-          history.push('/payment');
-      }
-      else {
-        toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
-      }
-    }
+          // history.push('/payment');
+      // }
+      // else {
+      //   toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
+      // }
+    // }
   }
-
-  const arrays = sessionStorage.getItem("array");
-  const orderArray = JSON.parse(arrays);
-  const sum = sessionStorage.getItem("sum");
 
   const horoo = Array(32).fill(0).map((e, i) => i + 1);
 

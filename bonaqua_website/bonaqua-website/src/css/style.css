@@ -752,7 +752,7 @@ a {
       align-items: center;
     }
     .orderHistoryImg img {
-      width: 50%;
+      width: 35%;
     }
     .orderHistoryImg {
       width: 20%;
@@ -916,3 +916,40 @@ a {
       background-color: var(--blue-color);
       border-radius: 0.5rem;
     }
+
+    //Pagination style
+
+    .page {
+      width: 100%;
+    }
+    .paginationBttns {
+      width: 100%;
+      list-style: none;
+      margin-top: 10%;
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .paginationBttns a {
+      padding: 5px 10px;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--blue-color);
+      color: var(--blue-color) !important;
+      cursor: pointer;
+    }
+
+    .paginationBttns a:hover {
+      color: white !important;
+      background-color: var(--blue-color);
+    }
+
+    .paginationActive a {
+      color: white !important;
+      background-color: var(--blue-color);
+    }
+
+
+
+
+    
