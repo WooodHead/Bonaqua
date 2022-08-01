@@ -49,22 +49,22 @@ export default function AllOrder() {
 
         <div className="orderHistoryInfo flex flex-col sm:flex-row justify-between w-full mx-2 9xl:mx-8 my-2 items-center 9xl:text-3xl">
           <div className="flex flex-row w-full sm:w-1/2 justify-around">
-          <div className="date leading-3">
-            <p className="text-gray-500 9xl:text-3xl">Огноо</p>
-            <p className="font-semibold 9xl:text-3xl leading-5">{data.date}</p>
+          <div className="date">
+            <p className="text-gray-500 9xl:text-3xl leading-3">Огноо</p>
+            <p className="font-semibold 9xl:text-3xl">2022-08-01</p>
           </div>
-          <div className="state mx-3">
-            <p className="text-gray-500">Төлөв</p>
+          <div className="state">
+            <p className="text-gray-500 leading-3">Төлөв</p>
             <p className="font-semibold">Баталгаажсан</p>
           </div>
           </div>
           <div className="flex flex-row w-full sm:w-1/2 justify-around">
-          <div className="orderNumber mx-3">
+          <div className="orderNumber">
             <p className="text-gray-500 leading-3">Захиалгын дугаар</p>
             <p className="font-semibold">{data.orderno}</p>
           </div>
           <div className="amount">
-            <p className="text-gray-500">Дүн</p>
+            <p className="text-gray-500 leading-3">Дүн</p>
             <p className="font-semibold">{data.phonenumber}₮</p>
           </div>
           </div>

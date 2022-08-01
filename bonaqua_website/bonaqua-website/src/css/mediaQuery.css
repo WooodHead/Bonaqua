@@ -101,6 +101,18 @@
     .order2tablenames > * {
       width: 40%;
     }
+    .orderHistoryImg {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .orderHistoryImg img {
+      height: 60%;
+    }
+    .orderHistoryInfo p {
+      margin-bottom: 0.2rem;
+    }
   }
 
   @media (min-width: 640px) and (max-width: 767px) {
