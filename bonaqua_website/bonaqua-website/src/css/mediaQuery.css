@@ -113,6 +113,9 @@
     .orderHistoryInfo p {
       margin-bottom: 0.2rem;
     }
+    .order1Img img {
+      width: 70%;
+    }
   }
 
   @media (min-width: 640px) and (max-width: 767px) {
@@ -260,6 +263,9 @@
     }
     .info {
       width: 100% !important;
+    }
+    .order1Img img {
+      width: 70%;
     }
   }
 
