@@ -15,7 +15,7 @@ import bonaqua900 from '../images/546A4025.png';
 import addButton from '../images/svg/order 1/+.svg';
 import removeButton from '../images/svg/order 1/-.svg';
 import deleteButton from '../images/svg/order 1/x.svg';
-import list from '../images/svg/order 1/Ellipse -1.svg';
+import rightArrow from '../images/svg/rightArrow.svg';
 import { AppContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -326,11 +326,11 @@ export default function Content() {
                 </form>
               </div>
             </div>
-             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  -- </h4> </a>}
-            <div className='phoneBusket mb-3 p-2 flex flex-wrap flex-col sm:flex-row justify-center xl:hidden'>
+             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  <img src={rightArrow} alt="" className='ml-5 w-[3%] hover:w-[4%]'/> </h4> </a>}
+            <div className='phoneBusket mb-3 flex flex-wrap flex-row justify-center xl:hidden'>
         
             {array.map(data =>
-            <div className='flex w-1/2'>
+            <div className='flex w-full sm:w-1/2'>
                   <div className="zahialsanHesegContent mt-3">
 
                     <div className="order1 flex">

@@ -114,7 +114,7 @@ export default function OrderInfo() {
         // }
 
           // window.location.pathname = '/payment';
-          // history.push('/payment');
+          history.push('/payment');
       // }
       // else {
       //   toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
