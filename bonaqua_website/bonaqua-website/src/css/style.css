@@ -944,6 +944,20 @@ a {
     }
 
 
-
+    .ilchleg {
+      border: 1px solid var(--blue-color);
+      border-radius: 0.5rem;
+      padding: 0.3rem;
+    }
+    .ilchleg p {
+      margin-bottom: 0;
+    }
+    .uurag {
+      border: 1px solid var(--blue-color);
+      height: 80%;
+    }
+    .kkal {
+      border-right: 1px solid var(--blue-color);
+    }
 
     
