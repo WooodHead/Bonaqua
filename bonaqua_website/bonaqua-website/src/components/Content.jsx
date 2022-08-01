@@ -326,7 +326,7 @@ export default function Content() {
                 </form>
               </div>
             </div>
-             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  <img src={rightArrow} alt="" className='ml-5 w-[3%] hover:w-[4%]'/> </h4> </a>}
+             {array == '' ? '' : <a href="/order"> <h4 className='flex justify-center text-gray-400 xl:hidden mt-3 hover:text-black'> <img src={sagsicon} alt="" className='w-[5%]'/>  <img src={rightArrow} alt="" className='ml-5 w-[3%] hover:w-[3.2%]'/> </h4> </a>}
             <div className='phoneBusket mb-3 flex flex-wrap flex-row justify-center xl:hidden'>
         
             {array.map(data =>
