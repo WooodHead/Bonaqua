@@ -267,6 +267,9 @@
     .order1Img img {
       width: 70%;
     }
+    .orderHistoryImg img {
+      width: 20%;
+    }
   }
 
   @media (min-width: 1285px) and (max-width: 1440px) {

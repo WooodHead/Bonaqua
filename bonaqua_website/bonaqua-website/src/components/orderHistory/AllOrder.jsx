@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 
 export default function AllOrder() {
   const [data, setData] = useState([]);
+  const [tOrder, settOrder] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
 
   const perPage = 5;
@@ -27,19 +28,21 @@ export default function AllOrder() {
     getData();
   }, [])
 
-  const ordernoarr = [];
+
+  const ordernoNumber = [];
 
   for (let i = 0; i < data.length; i++) {
     if (data[i].phonenumber == dugaarc) {
-      ordernoarr.push({
-        date: data[i].date,
+      ordernoNumber.push({
+        phonenumber: data[i].phonenumber,
         orderno: data[i].orderno,
-        phonenumber: data[i].phonenumber
-      })
+        date: data[i].DDate,
+        totalPrice: data[i].TotalAmount
+      });
     }
   }
 
-  const display = ordernoarr.slice(pagesVisited, pagesVisited + perPage)
+  const display = ordernoNumber.slice(pagesVisited, pagesVisited + perPage)
     .map(data => {
       return (
       <div className="orderHistory flex mb-2">
@@ -51,7 +54,7 @@ export default function AllOrder() {
           <div className="flex flex-row w-full sm:w-1/2 justify-around">
           <div className="date">
             <p className="text-gray-500 9xl:text-3xl leading-3">Огноо</p>
-            <p className="font-semibold 9xl:text-3xl">2022-08-01</p>
+            <p className="font-semibold 9xl:text-3xl">{(data.date).slice(0,10)}</p>
           </div>
           <div className="state">
             <p className="text-gray-500 leading-3">Төлөв</p>
@@ -65,7 +68,7 @@ export default function AllOrder() {
           </div>
           <div className="amount">
             <p className="text-gray-500 leading-3">Дүн</p>
-            <p className="font-semibold">{data.phonenumber}₮</p>
+            <p className="font-semibold">{data.totalPrice}₮</p>
           </div>
           </div>
         </div>
@@ -73,7 +76,7 @@ export default function AllOrder() {
       )
     })
 
-  const pageCount = Math.ceil(ordernoarr.length / perPage);
+  const pageCount = Math.ceil(ordernoNumber.length / perPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected)

@@ -27,13 +27,17 @@ export default function OrderInfo() {
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
   const [data, setData] = useState([]);
-  const { userarray, setRandom, setOrderid, random, pack, size, incase } = useContext(AppContext)
+  const { userarray, setRandom, setOrderid, orderid, random, pack, size, incase } = useContext(AppContext)
   const history = useHistory();
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
 
+  for (let i = 0; i < orderArray.length; i++) {
+    console.log(orderArray[i].article)
+  }
+ 
   async function getUserData() {
 
     // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || doornumber == '' || addinginfo == '') {
@@ -43,7 +47,7 @@ export default function OrderInfo() {
     // else {
     //   var phoneno = /^[7-9]\d{7}$/;
     //   var regName = /^[a-zA-Z ]{2,30}$/;
-      var today = new Date();
+         var today = new Date();
     //   if (number.match(phoneno) && name.match(regName)) {
 
         await fetch('http://localhost:8088/api/bonaqua/addOrder', {
@@ -56,8 +60,7 @@ export default function OrderInfo() {
             description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
                          bair/gudamj: ${apartment}, orts: ${entrance}, ortsnii kod: ${code},
                          haalganii dugaar: ${doornumber}, nemelt: ${add}`].join(","),
-            phone: number,
-            price: sum
+            phone: number
           })
         })
           .then((res) => {
@@ -93,7 +96,7 @@ export default function OrderInfo() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              orderid: random,
+              orderid: orderid,
               productid: orderArray[i].article,
               quantity: orderArray[i].tincase,
               price: orderArray[i].price,
@@ -109,11 +112,6 @@ export default function OrderInfo() {
             })
         }
 
-        // for(var i in orderArray) {
-        //   console.log(orderArray[i].price, orderArray[i].article, orderArray[i].tincase)
-        // }
-
-          // window.location.pathname = '/payment';
           history.push('/payment');
       // }
       // else {

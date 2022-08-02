@@ -126,7 +126,7 @@ exports.paymentOrder = async(req, res) => {
 
 exports.orderHistory = async(req, res) => {
 
-    const bonaqua = await db.sequelize.query(`SELECT * FROM Anungoo_db.dbo.t_BtoCphoneno`, { type: QueryTypes.SELECT });
+    const bonaqua = await db.sequelize.query(`exec Anungoo_db.dbo.SP_BtoC_CREATE_ORDER 'getorder','', '', '', '', '','',''`, { type: QueryTypes.SELECT });
 
     try {
         if(bonaqua != 0) {
