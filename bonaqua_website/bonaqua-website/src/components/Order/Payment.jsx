@@ -43,6 +43,8 @@ export default function Payment() {
     size.push(x.avdar)
   })
 
+  const orderID = sessionStorage.getItem("orderid");
+
   const key = "bsuTPNVvbM#sAI2#";
   var checksum = random + sum + "POST" + "http://localhost:3000/orderHistory";
   var checksum1 = checksum.toString();

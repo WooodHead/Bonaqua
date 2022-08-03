@@ -258,8 +258,8 @@
       flex-direction: column !important;
     }
     .choosing {
-      width: 100% !important;
-      margin-top: 5%;
+      width: 90% !important;
+      margin: 0 auto;
     }
     .info {
       width: 100% !important;

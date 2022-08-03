@@ -4,6 +4,11 @@ import sags from "../../images/svg/order 1/sagsnii medelel.svg";
 import add from '../../images/svg/order 1/nemelt zahialga.svg';
 import bona from '../../images/bona0.5.png';
 import flower from '../../images/svg/order 1/tsetseg jijig.svg';
+import bonaqua05 from '../../images/546A4010.png';
+import bonaqua330 from '../../images/546A4006.png';
+import bonaqua15 from '../../images/546A4015.png';
+import bonaqua45 from '../../images/546A4021.png';
+import bonaqua800 from '../../images/546A4025.png';
 import addButton from '../../images/svg/order 1/+.svg';
 import removeButton from '../../images/svg/order 1/-.svg';
 import deleteButton from '../../images/svg/order 1/x.svg';
@@ -21,10 +26,20 @@ export default function Order() {
   const [show, setShow] = useState(false);
 
   const [render, setRender] = useState(false);
-  const [image, setImage] = useState(bona);
+  const [image, setImage] = useState("");
 
   const { setTotal, value } = useContext(AppContext);
   const history = useHistory();
+
+  const imageArray = [
+    { "img": bonaqua15, "size": "1.5L" },
+    { "img": bonaqua45, "size": "4.5L" },
+    { "img": bonaqua800, "size": "800ml" },
+    { "img": bonaqua05, "size": "500ml" },
+    { "img": bonaqua330, "size": "330ml" },
+    { "img": bonaqua05, "size": "18.9L" },
+    { "img": bonaqua05, "size": "11.3L" },
+  ];
 
   // Баазаас мэдээлэл авах
   useEffect(() => {
