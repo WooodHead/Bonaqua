@@ -799,18 +799,12 @@ a {
       background-color: #3dbee3;
       border-radius: 1rem;
     }
-  
     .bonaquaType {
       width: 0.8rem;
       height: 0.8rem;
       background-color: #8a8888;
-      border-radius: 50%;
-    }
-    .bonaquaType.li-active {
-      width: 0.8rem;
-      height: 0.8rem;
-      background-color: var(--blue-color);
-      border-radius: 50%;
+       border-radius: 50%;
+      margin: 1rem;
     }
     .listCol {
       color: var(--blue-color);
@@ -838,10 +832,6 @@ a {
         display: block;
         width: 4rem;
       } */
-
-    .li-active {
-      color: var(--blue-color);
-    }
 
     input:invalid, select:invalid {
       border: 1px solid #f0baba;

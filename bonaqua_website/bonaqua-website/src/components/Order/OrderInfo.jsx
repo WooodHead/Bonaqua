@@ -34,8 +34,7 @@ export default function OrderInfo() {
   const orderArray = JSON.parse(arrays);
   const sum = sessionStorage.getItem("sum");
 
- 
-  async function getUserData() {
+  function getUserData() {
 
     // if (name == '' || number == '' || district == '' || committee == '' || apartment == '' || doornumber == '' || addinginfo == '') {
     //   toast("Шаардлагатай талбаруудыг бөглөнө үү!");
@@ -47,7 +46,7 @@ export default function OrderInfo() {
          var today = new Date();
     //   if (number.match(phoneno) && name.match(regName)) {
 
-        await fetch('http://localhost:8088/api/bonaqua/addOrder', {
+        fetch('http://localhost:8088/api/bonaqua/addOrder', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -71,46 +70,29 @@ export default function OrderInfo() {
               sessionStorage.setItem("orderid", orderId);
             });
           })
-        userarray.push({
-          date: new Date(),
-          name: name,
-          number: number,
-          district: district,
-          committee: committee,
-          apartment: apartment,
-          entrance: entrance,
-          code: code,
-          doornumber: doornumber,
-          add: add,
-          order: random,
-          priceTotal: sum,
-        })
-        sessionStorage.setItem("userarray", JSON.stringify(userarray));
 
-        console.log(orderid)
-
-            for(var i in orderArray) {
-              fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  orderid: orderid,
-                  productid: orderArray[i].article,
-                  quantity: orderArray[i].tincase,
-                  price: orderArray[i].sprice,
-                  pricedisc: 0
-                })
-              })
-                .then((res) => {
-                  const data = res.json();
-                  data.then(data => {
-                    const value = data[0][""];
-                  })
-                })
-                console.log(orderid, orderArray[i].article, orderArray[i].tincase, orderArray[i].sprice)
-              }
+          //   for(var i in orderArray) {
+          //     fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
+          //       method: "POST",
+          //       headers: {
+          //         "Content-Type": "application/json",
+          //       },
+          //       body: JSON.stringify({
+          //         orderid: orderid,
+          //         productid: orderArray[i].article,
+          //         quantity: orderArray[i].tincase,
+          //         price: orderArray[i].sprice,
+          //         pricedisc: 0
+          //       })
+          //     })
+          //       .then((res) => {
+          //         const data = res.json();
+          //         data.then(data => {
+          //           const value = data[0][""];
+          //         })
+          //       })
+          //       console.log(orderid, orderArray[i].article, orderArray[i].tincase, orderArray[i].sprice)
+          //     }
           
           // history.push('/payment');
 

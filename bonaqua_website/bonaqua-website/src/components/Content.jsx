@@ -28,6 +28,7 @@ export default function Content() {
   const [render, setRender] = useState(false);
   const [capacity, setCapacity] = useState("");
   const [image, setImage] = useState(bonaqua15);
+  const [active, setActive] = useState(false);
   // const [article, setArticle] = useState("");
   const [text, setText] = useState("");
 
@@ -56,24 +57,11 @@ export default function Content() {
     getData();
   }, [render])
 
-  // Link
-  const buttonElements = Array.from(document.querySelectorAll(".bonaquaType"));
-  buttonElements.forEach(buttonElement => {
-    buttonElement.addEventListener('click', () => {
-      const activeElements = Array.from(document.querySelectorAll(".li-active"));
-      activeElements.forEach(activeElement => {
-        activeElement.classList.remove("li-active");
-      });
-      buttonElement.parentElement.classList.add("li-active");
-      // buttonElement.style.backgroundColor = "#3dbee3";
-    });
-  });
 
   var fprice = [];
   var fsize = [];
   var ftotal;
   const fincase = [];
-
 
   data.forEach(x => {
     fprice.push(x.BPrice)
@@ -194,6 +182,15 @@ export default function Content() {
     //   Options();
     // }
 
+    var btns = document.getElementsByClassName("bonaqua");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+      });
+    }
+
   return (
     <div className='mx-auto flex flex-col justify-between'>
       <div className='flex flex-col xl:flex-row contentInfo'>
@@ -203,7 +200,7 @@ export default function Content() {
             <div class="main">
               <ul id='accordion'>
                 {data.map((res, i) => 
-                <div className='' id={`heading${i}`}>
+                <div className='bonaqua' id={`heading${i}`}>
                   <li className='bonaquaType' id={`type${i}`} data-toggle="collapse" data-target={`#list${res.Capacity}`}
                    onClick={() => { 
                     setCapacity(res.Capacity)
@@ -213,9 +210,8 @@ export default function Content() {
                         setText(res.Capacity)
                       }
                     })
-                    document.getElementById(`type${i}`).style.backgroundColor = "#3dbee3";
+                    
                    }}>
-                    {/* <div className='bonaquaType'></div> */}
                   </li>
                   <li id={`list${res.Capacity}`} data-parent="#accordion" aria-labelledby={`heading${i}`} className="9xl:text-6xl collapse listCol">{res.Capacity}</li>
                  </div>
