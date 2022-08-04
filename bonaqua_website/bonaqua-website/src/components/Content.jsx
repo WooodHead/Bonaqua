@@ -170,18 +170,6 @@ export default function Content() {
       setRender(!render)
     }
 
-    // var options = "<input type='text' list='case' id='avdar' className='select border' onChange={setValue} placeholder='Авдарны тоо' defaultValue='1' />"
-    // function Options() {
-    //   for (let i = 1; i <= 10; i++) {
-    //     options += "<option value='" + i + "'>" + i + "</option>";
-    //   }
-    //   document.getElementById('avdar').innerHTML = options;
-    // }
-  
-    // window.onload = (event) => {
-    //   Options();
-    // }
-
     var btns = document.getElementsByClassName("bonaquaType");
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener("click", function() {
@@ -281,18 +269,17 @@ export default function Content() {
                   </select>
 
                   
-                  {/* <datalist id='case'>
+                  <datalist id='case'>
                     {number.map(res =>
                       <option value={res} id='number'>{res}</option>
                     )}
                   </datalist>
-                  <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue={1}/> */}
-                  <select type="text" name="" id="avdar" className='select' >
+                  <input type="text" list="case" id="avdar" className='select' onChange={setValue} placeholder="Авдарны тоо" defaultValue={1}/>
+                  {/* <select type="text" name="" id="avdar" className='select' >
                   {number.map(res =>
                       <option value={res} id='number'>{res}</option>
                     )}
-                  </select>
-
+                  </select> */}
 
                   <div className='selectTotal flex justify-center items-center text-center'>
                     <p className='total text-red-700 pt-4 9xl:text-3xl' id='result'>

@@ -6,16 +6,13 @@ import location from "../../images/svg/order 2/Header-1.svg";
 import sags from "../../images/svg/order 2/Group 550.svg";
 import { AppContext } from "../../App";
 import { Modal, Button } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SlideImage from "../SlideImage";
 import Social from "../Social";
 import { useHistory } from "react-router-dom";
-import $ from 'jquery';
-import QRCode from 'qrcode';
 
 export default function OrderInfo() {
-  const [render, setRender] = useState(false);
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -27,7 +24,7 @@ export default function OrderInfo() {
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
   const [data, setData] = useState([]);
-  const { userarray, setRandom, random, pack, orderid, setOrderid, size, incase } = useContext(AppContext)
+  const { setRandom, random, pack, setOrderid, size, incase } = useContext(AppContext)
   const history = useHistory();
 
   const arrays = sessionStorage.getItem("array");
@@ -74,29 +71,6 @@ export default function OrderInfo() {
             });
           })
 
-            // for(var i in orderArray) {
-            //   fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //       orderid: orderid,
-            //       productid: orderArray[i].article,
-            //       quantity: orderArray[i].tincase,
-            //       price: orderArray[i].sprice,
-            //       pricedisc: 0
-            //     })
-            //   })
-            //     .then((res) => {
-            //       const data = res.json();
-            //       data.then(data => {
-            //         const value = data[0][""];
-            //       })
-            //     })
-            //     console.log(orderid, orderArray[i].article, orderArray[i].tincase, orderArray[i].sprice)
-            //   }
-          
           history.push('/payment');
 
       // }
@@ -280,7 +254,6 @@ export default function OrderInfo() {
                     <label>Захиалгын дугаар</label>
                     {random == '' ? <input type="text" id="ordernumber" disabled="disabled" className="cursor-not-allowed" placeholder="Автоматаар үүснэ" />
                       : <input type="text" id="ordernumber" disabled="disabled" className="randomOrderNumber cursor-not-allowed" placeholder="" />}
-                    {/* <p id="ordernumber" className="randomOrderNumber border w-60 h-10 pt-2"></p> */}
                   </div>
                 </form>
               </div>

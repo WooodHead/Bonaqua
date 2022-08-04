@@ -14,9 +14,8 @@ import QRCode from 'qrcode';
 
 export default function Payment() {
 
-  const { incase, pack, size, access_token, setAccess_Token,
-    invoice_id, setInvoice_id, qr_text, setQR_text, qr_image, setQR_image } = useContext(AppContext)
-  let history = useHistory();
+  const { incase, pack, size, access_token, setAccess_Token, qr_text, setQR_text, qr_image, setQR_image } = useContext(AppContext)
+
   const [render, setRender] = useState(false);
 
   const arrays = sessionStorage.getItem("array");
@@ -26,6 +25,83 @@ export default function Payment() {
   const userarrays = sessionStorage.getItem("userarray");
   const userArray = JSON.parse(userarrays);
   const random = sessionStorage.getItem("random");
+
+  useEffect(() => {
+    var QPay = async () => {
+        fetch('https://api.qpay.mn/v1/auth/token', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Basic TUNTOmFoTlpGT00x"
+        },
+        body: JSON.stringify({
+          "client_id": "qpay_test",
+          "client_secret": "sdZv9k9m",
+          "grant_type": "client",
+          "refresh_token": ""
+        })
+      })
+        .then(res => {
+          const data = res.json()
+          data.then(res => {
+            const token = res.access_token;
+            setAccess_Token(token);
+          })
+        })
+
+      fetch('https://api.qpay.mn/v1/bill/create', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${access_token}`
+        },
+        body: JSON.stringify({
+          "template_id": "TEST_INVOICE",
+          "merchant_id": "TEST_MERCHANT",
+          "branch_id": "1",
+          "pos_id": "1",
+          "receiver": {
+            "id": "CUST_001",
+            "register_no": "ddf",
+            "name": "Central",
+            "email": "info@info.mn",
+            "phone_number": "99888899",
+            "note": "zulaa"
+          },
+          "transactions": [{
+            "description": "qpay",
+            "amount": 10000,
+            "accounts": [{
+              "bank_code": "050000",
+              "name": "zulaa",
+              "number": "5084107767",
+              "currency": "MNT"
+            }]
+          }],
+          "bill_no": random,
+          "date": new Date(),
+          "description": "bonaqua qpay",
+          "amount": sum,
+          "btuk_code": "",
+          "vat_flag": "0"
+        })
+      })
+        .then(res => {
+          const data = res.json()
+          data.then(res => {
+            setQR_text(res.qPay_QRcode); 
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+    QPay();
+  }, [])
+
+  QRCode.toDataURL(qr_text).then((data) => {
+    setQR_image(data);
+  }) 
 
   function CancelOrder() {
     toast("Захиалга цуцлагдлаа!")
@@ -77,172 +153,7 @@ export default function Payment() {
       });
   }
 
-  //   useEffect(() => {
-
-  //   function QPay() {
-  //       fetch('https://merchant.qpay.mn/v2/auth/token', {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "Authorization": "Basic TUNTOmFoTlpGT00x"
-  //         }
-  //       })
-  //         .then(res => {
-  //           const data = res.json()
-  //           data.then(res => {
-  //             const token = res.access_token;
-  //             setAccess_Token(token);
-  //           })
-  //         })
-
-  //       fetch('https://merchant.qpay.mn/v2/invoice', {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "Authorization": `Bearer ${access_token}`
-  //         },
-  //         body: JSON.stringify({
-  //           "invoice_code": "MCS_INVOICE",
-  //           "sender_invoice_no": random,
-  //           "sender_branch_code": "branch",
-  //           "invoice_receiver_code": "terminal",
-  //           "invoice_receiver_data": {
-  //             "register": "2663503",
-  //             "name": "М Си Эс Кока Кола ХХК",
-  //             "email": "solongo.ts@mcscocacola.mn",
-  //             "phone": "88333211"
-  //           },
-  //           "invoice_description": "bonaqua qpay " + random,
-  //           "invoice_due_date": null,
-  //           "allow_partial": false,
-  //           "minimum_amount": null,
-  //           "allow_exceed": false,
-  //           "maximum_amount": null,
-  //           "note": null,
-  //           "lines": [
-  //             {
-  //               "tax_product_code": null,
-  //               "line_description": "Invoice description",
-  //               "line_quantity": "1.00",
-  //               "line_unit_price": sum,
-  //               "note": ""
-  //             }
-  //           ]
-  //         })
-  //       })
-  //         .then(res => {
-  //           const data = res.json()
-  //           data.then(res => {
-  //             setInvoice_id(res.invoice_id);
-  //             setQR_text(res.qr_text);
-  //           })
-  //         })
-  //   }
-  //   QPay();
-  // }, [])
-
-  //   QRCode.toDataURL(qr_text).then((data) => {
-  //     setQR_image(data);
-  //   })
-
-
-
-
-  // fetch('https://122.201.28.34:8080/api/MyCokeGetTokenQPay', {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   }
-  // })
-  // .then(res => {
-  //   const data = res.json();
-  //   data.then(res => {
-  //     const date = new Date().toJSON().slice(0,10);
-  //     if (res.updateddate.slice(0,10) >= date) {
-  //       console.log(date, res.updateddate.slice(0,10))
-  //     }
-  //   })
-  // })
-
-
-
-  useEffect(() => {
-    var QPay = async () => {
-      try {
-        fetch('https://api.qpay.mn/v1/auth/token', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Basic TUNTOmFoTlpGT00x"
-        },
-        body: JSON.stringify({
-          "client_id": "qpay_test",
-          "client_secret": "sdZv9k9m",
-          "grant_type": "client",
-          "refresh_token": ""
-        })
-      })
-        .then(res => {
-          const data = res.json()
-          data.then(res => {
-            const token = res.access_token;
-            setAccess_Token(token);
-          })
-        })
-
-      fetch('https://api.qpay.mn/v1/bill/create', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${access_token}`
-        },
-        body: JSON.stringify({
-          "template_id": "TEST_INVOICE",
-          "merchant_id": "TEST_MERCHANT",
-          "branch_id": "1",
-          "pos_id": "1",
-          "receiver": {
-            "id": "CUST_001",
-            "register_no": "ddf",
-            "name": "Central",
-            "email": "info@info.mn",
-            "phone_number": "99888899",
-            "note": "zulaa"
-          },
-          "transactions": [{
-            "description": "qpay",
-            "amount": 10000,
-            "accounts": [{
-              "bank_code": "050000",
-              "name": "zulaa",
-              "number": "5084107767",
-              "currency": "MNT"
-            }]
-          }],
-          "bill_no": "165465112kjh;0jlklj;kl3212134",
-          "date": new Date(),
-          "description": "bonaqua qpay",
-          "amount": sum,
-          "btuk_code": "",
-          "vat_flag": "0"
-        })
-      })
-        .then(res => {
-          const data = res.json()
-          data.then(res => {
-            setQR_text(res.qPay_QRcode); 
-          })
-        })
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    QPay();
-  }, [])
-
-  QRCode.toDataURL(qr_text).then((data) => {
-    setQR_image(data);
-  }) 
+ 
 
   return (
     <div className="mx-auto flex flex-col justify-between">
