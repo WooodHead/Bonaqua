@@ -158,8 +158,11 @@ async function TokenGet() {
     // if(dateOffset > Date(result.updateddate + 1)) {
     //     TokenUpdate(result.refresh_token, result.updateddate);
     // } else {
-    //     // return;
+    //      return;
     // }
+    setTimeout(() => {
+
+    })
 };
 
 async function TokenUpdate(token, date) {
@@ -173,8 +176,5 @@ async function TokenUpdate(token, date) {
         headers: {
             "Content-Type": "application/json"
         }
-    });
-
-    
-
+    })
 };
