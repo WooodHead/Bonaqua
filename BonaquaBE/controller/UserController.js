@@ -145,3 +145,34 @@ exports.orderHistory = async(req, res) => {
         return;
     };
 };
+
+async function TokenGet() {
+
+    const result = await fetch('https://122.201.28.34:8080/api/MyCokeGetTokenQPay', {
+        method: "POST",
+    }).then(res => res.json());
+
+    const today = new Date();
+    const dateOffset = today.setDate(today.getDate() - 1);
+
+    if(dateOffset > Date(result.updateddate + 1)) {
+        TokenUpdate(result.refresh_token, result.updateddate);
+    } else {
+        return;
+    }
+};
+
+async function TokenUpdate(token, date) {
+
+    await fetch('https://122.201.28.34:8080/api/MyCokeUpdateTokenQPay', {
+        method: "POST",
+        body: {
+            "refresh_token": token,
+            "updateddate": date
+        },
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+};

@@ -14,9 +14,11 @@ import QRCode from 'qrcode';
 
 export default function Payment() {
 
-  const { incase, pack, size, access_token, setAccess_Token, qr_text, setQR_text, qr_image, setQR_image } = useContext(AppContext)
+  const { incase, pack, size, access_token, setAccess_Token, 
+          qr_text, setQR_text } = useContext(AppContext)
 
   const [render, setRender] = useState(false);
+  const [qr_image, setQR_image] = useState("");
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -153,7 +155,21 @@ export default function Payment() {
       });
   }
 
- 
+  fetch('https://122.201.28.34:8080/api/MyCokeGetTokenQPay', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => {
+    const data = res.json();
+    data.then(res => {
+      const date = new Date().toJSON().slice(0,10);
+      if (res.updateddate.slice(0,10) >= date) {
+        console.log(date, res.updateddate.slice(0,10))
+      }
+    })
+  })
 
   return (
     <div className="mx-auto flex flex-col justify-between">

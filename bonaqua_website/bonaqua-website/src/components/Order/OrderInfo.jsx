@@ -24,7 +24,7 @@ export default function OrderInfo() {
   const [doornumber, setDoorNumber] = useState("");
   const [add, setAdd] = useState("");
   const [data, setData] = useState([]);
-  const { setRandom, random, pack, setOrderid, size, incase } = useContext(AppContext)
+  const { setRandom, random, pack, orderid, setOrderid, size, incase } = useContext(AppContext)
   const history = useHistory();
 
   const arrays = sessionStorage.getItem("array");
@@ -72,7 +72,6 @@ export default function OrderInfo() {
           })
 
           history.push('/payment');
-
       // }
       // else {
       //   toast("Та нэр эсвэл утасны дугаараа шалгана уу!");

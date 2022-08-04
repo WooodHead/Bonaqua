@@ -60,7 +60,7 @@ function App() {
               <Route exact path="/" component={Content} />
               <Route path="/order" component={Order} />
               <Route path="/userinfo" component={OrderInfo} />
-              <Route path="/payment" component={Payment} />
+              <Route path="/payment" component={Payment} render = {{render, setRender}}/>
               <Route path="/orderHistory" component={OrderHistory} />
             </Switch>
           </Routes>
