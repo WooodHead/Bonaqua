@@ -56,7 +56,10 @@ export default function OrderInfo() {
             description: [`ner: ${name}, duureg: ${district}, horoo: ${committee}, 
                          bair/gudamj: ${apartment}, orts: ${entrance}, ortsnii kod: ${code},
                          haalganii dugaar: ${doornumber}, nemelt: ${add}`].join(","),
-            phone: number
+            phone: number,
+            array: orderArray,
+            pricedisc: 0,
+        
           })
         })
           .then((res) => {
@@ -71,30 +74,30 @@ export default function OrderInfo() {
             });
           })
 
-          //   for(var i in orderArray) {
-          //     fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
-          //       method: "POST",
-          //       headers: {
-          //         "Content-Type": "application/json",
-          //       },
-          //       body: JSON.stringify({
-          //         orderid: orderid,
-          //         productid: orderArray[i].article,
-          //         quantity: orderArray[i].tincase,
-          //         price: orderArray[i].sprice,
-          //         pricedisc: 0
-          //       })
-          //     })
-          //       .then((res) => {
-          //         const data = res.json();
-          //         data.then(data => {
-          //           const value = data[0][""];
-          //         })
-          //       })
-          //       console.log(orderid, orderArray[i].article, orderArray[i].tincase, orderArray[i].sprice)
-          //     }
+            // for(var i in orderArray) {
+            //   fetch('http://localhost:8088/api/bonaqua/addOrderDetail', {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({
+            //       orderid: orderid,
+            //       productid: orderArray[i].article,
+            //       quantity: orderArray[i].tincase,
+            //       price: orderArray[i].sprice,
+            //       pricedisc: 0
+            //     })
+            //   })
+            //     .then((res) => {
+            //       const data = res.json();
+            //       data.then(data => {
+            //         const value = data[0][""];
+            //       })
+            //     })
+            //     console.log(orderid, orderArray[i].article, orderArray[i].tincase, orderArray[i].sprice)
+            //   }
           
-          // history.push('/payment');
+          history.push('/payment');
 
       // }
       // else {
@@ -248,29 +251,29 @@ export default function OrderInfo() {
                   <div class="group mr-1">
                     <label className="form-label">Утасны дугаар</label>
                     <input type="text" id="number" className="check"
-                      // onChange={(e) => {
-                      //   setNumber(e.target.value);
-                      //   var dugaar = [];
-                      //   data.forEach(x => {
-                      //     dugaar.push(x.phonenumber)
-                      //   })
+                      onChange={(e) => {
+                        setNumber(e.target.value);
+                        var dugaar = [];
+                        data.forEach(x => {
+                          dugaar.push(x.phonenumber)
+                        })
 
-                      //   if (dugaar.includes(e.target.value)) {
-                      //     console.log("yes")
+                        // if (dugaar.includes(e.target.value)) {
+                        //   console.log("yes")
 
-                      //     var proceed = confirm("Та өмнөх захиалгын хаягаа ашиглах уу?");
-                      //     if (proceed) {
-                      //       for (let i = 0; i < data.length; i++) {
-                      //         if (data[i].phonenumber == e.target.value) {
-                      //           document.getElementById("apartment").placeholder = data[i].orderno;
-                      //         }
-                      //       }
-                      //     } else {
-                      //       document.getElementById("apartment").placeholder = ""
-                      //     }
-                      //   }
+                        //   var proceed = confirm("Та өмнөх захиалгын хаягаа ашиглах уу?");
+                        //   if (proceed) {
+                        //     for (let i = 0; i < data.length; i++) {
+                        //       if (data[i].phonenumber == e.target.value) {
+                        //         document.getElementById("apartment").placeholder = data[i].orderno;
+                        //       }
+                        //     }
+                        //   } else {
+                        //     document.getElementById("apartment").placeholder = ""
+                        //   }
+                        // }
 
-                      // }}
+                      }}
                       required="required" />
                   </div>
                   <div class="group">

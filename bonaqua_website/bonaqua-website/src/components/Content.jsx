@@ -182,12 +182,14 @@ export default function Content() {
     //   Options();
     // }
 
-    var btns = document.getElementsByClassName("bonaqua");
+    var btns = document.getElementsByClassName("bonaquaType");
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
+      var current = document.getElementsByClassName("bona-active");
+      if (current.length > 0) { 
+        current[0].className = current[0].className.replace(" bona-active", "");
+      }
+      this.className += " bona-active";
       });
     }
 
@@ -201,7 +203,7 @@ export default function Content() {
               <ul id='accordion'>
                 {data.map((res, i) => 
                 <div className='bonaqua' id={`heading${i}`}>
-                  <li className='bonaquaType' id={`type${i}`} data-toggle="collapse" data-target={`#list${res.Capacity}`}
+                  <li className="bonaquaType" id={`type${i}`} data-toggle="collapse" data-target={`#list${res.Capacity}`}
                    onClick={() => { 
                     setCapacity(res.Capacity)
                     imageArray.map(img => {
@@ -210,15 +212,12 @@ export default function Content() {
                         setText(res.Capacity)
                       }
                     })
-                    
                    }}>
                   </li>
+                  
                   <li id={`list${res.Capacity}`} data-parent="#accordion" aria-labelledby={`heading${i}`} className="9xl:text-6xl collapse listCol">{res.Capacity}</li>
                  </div>
                 )}
-                {/* {data.map((res) => 
-                  <li id="list" className="9xl:text-6xl">{res.Capacity}</li>
-                )} */}
               </ul>
               
             </div>

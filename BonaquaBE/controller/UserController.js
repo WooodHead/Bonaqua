@@ -47,12 +47,21 @@ exports.addOrder = async(req, res) => {
     const date = req.body.date;
     const description = req.body.description;
     const phone = req.body.phone;
+    // const productid = req.body.productid;
+    // const quantity = req.body.quantity;
+    // const price = req.body.price;
+    const pricedisc = req.body.pricedisc;
+    const array = req.body.array;
 
     const order = await db.sequelize.query(`exec Anungoo_db.dbo.SP_BtoC_CREATE_ORDER 'createorder','', '${date}', '${description}', '', '${phone}','',''`, { type: QueryTypes.SELECT });
 
     try {
         if(order != 0) {
             res.status(200).send(order);
+            console.log(order)
+            for(var i in array) {
+                await db.sequelize.query(`exec Anungoo_db.dbo.SP_BtoC_CREATE_ORDER_DETAIL 'createdtl', ${order[0].OrderID}, ${array[i].article}, ${array[i].tincase}, ${array[i].sprice}, ${pricedisc},''`, { type: QueryTypes.SELECT })
+            }
         } else {
             res.status(404).json({ message: "No data to insert." });
             return;
@@ -66,10 +75,6 @@ exports.addOrder = async(req, res) => {
 exports.addOrderDetail = async(req, res) => {
 
     const orderid = req.body.orderid;
-    const productid = req.body.productid;
-    const quantity = req.body.quantity;
-    const price = req.body.price;
-    const pricedisc = req.body.pricedisc;
 
     const order = await db.sequelize.query(`exec Anungoo_db.dbo.SP_BtoC_CREATE_ORDER_DETAIL 'createdtl', ${orderid}, ${productid}, ${quantity}, ${price}, ${pricedisc},''`, { type: QueryTypes.SELECT });
 
