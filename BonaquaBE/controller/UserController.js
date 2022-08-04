@@ -155,11 +155,11 @@ async function TokenGet() {
     const today = new Date();
     const dateOffset = today.setDate(today.getDate() - 1);
 
-    if(dateOffset > Date(result.updateddate + 1)) {
-        TokenUpdate(result.refresh_token, result.updateddate);
-    } else {
-        return;
-    }
+    // if(dateOffset > Date(result.updateddate + 1)) {
+    //     TokenUpdate(result.refresh_token, result.updateddate);
+    // } else {
+    //     // return;
+    // }
 };
 
 async function TokenUpdate(token, date) {
@@ -174,5 +174,7 @@ async function TokenUpdate(token, date) {
             "Content-Type": "application/json"
         }
     });
+
+    
 
 };
