@@ -107,8 +107,6 @@ export default function Payment() {
     setQR_image(data);
   }) 
 
-
-
   fetch(`https://api.qpay.mn/v1/payment/check/${payment_id}`, {
     method: "POST",
     headers: {
@@ -126,9 +124,6 @@ export default function Payment() {
         console.log(res)
       })
     })
-
-
-
 
   function CancelOrder() {
     toast("Захиалга цуцлагдлаа!")
