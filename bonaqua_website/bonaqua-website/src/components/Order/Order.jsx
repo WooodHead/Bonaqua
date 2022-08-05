@@ -159,8 +159,8 @@ export default function Order() {
       setShow(true);
     }
     else {
-      // window.location.pathname = '/userinfo';
-      history.push('/userinfo');
+      window.location.pathname = '/userinfo';
+      // history.push('/userinfo');
     }
   }
 

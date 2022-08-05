@@ -14,12 +14,14 @@ import QRCode from 'qrcode';
 
 export default function Payment() {
 
-  const { incase, pack, size, access_token, setAccess_Token, 
-          qr_text, setQR_text } = useContext(AppContext)
+  const { incase, pack, size, access_token, setAccess_Token,
+    qr_text, setQR_text } = useContext(AppContext)
 
   const [render, setRender] = useState(false);
   const [qr_image, setQR_image] = useState("");
   const [payment_id, setPayment_id] = useState("");
+  const [payment_status, setPayment_status] = useState("");
+  const [refreshToken, setRefreshToken] = useState("");
 
   const arrays = sessionStorage.getItem("array");
   const orderArray = JSON.parse(arrays);
@@ -52,7 +54,7 @@ export default function Payment() {
           })
         })
 
-      fetch('https://api.qpay.mn/v1/bill/create', {
+        fetch('https://api.qpay.mn/v1/bill/create', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -92,38 +94,19 @@ export default function Payment() {
         .then(res => {
           const data = res.json()
           data.then(res => {
-            setQR_text(res.qPay_QRcode); 
+            console.log(res)
+            setQR_text(res.qPay_QRcode);
             setPayment_id(res.payment_id);
           })
-        })
-        .catch(err => {
-          console.log(err)
         })
     }
     QPay();
   }, [])
 
+
   QRCode.toDataURL(qr_text).then((data) => {
     setQR_image(data);
-  }) 
-
-  fetch(`https://api.qpay.mn/v1/payment/check/${payment_id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVyYXRvcl9jb2RlIjoiVEVTVF9NRVJDSEFOVCIsImlkIjoiVEVTVF9NRVJDSEFOVCIsImlhdCI6MTY1ODg5MjAyOCwiZXhwIjoxNjU5NzU2MDI4fQ.0B1FIJu8jVHYRFCZ4Sno9ZppYepOVfCP4IxhLhXDsJY"
-    },
-    body: JSON.stringify({
-      "merchant_id": "TEST_MERCHANT",
-      "bill_no": ""
-    })
   })
-    .then(res => {
-      const data = res.json()
-      data.then(res => {
-        console.log(res)
-      })
-    })
 
   function CancelOrder() {
     toast("Захиалга цуцлагдлаа!")
@@ -172,24 +155,6 @@ export default function Payment() {
         })
       });
   }
-
-
-
-
-
-  // useEffect(() => {
-  //   const result =  fetch('https://122.201.28.34:8080/api/MyCokeGetTokenQPay', {
-  //       method: "POST",
-  //   }).then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
-  //   })
-
-  //   const today = new Date();
-  //   const dateOffset = today.setDate(today.getDate());
-    
-  //   console.log(result)
-  // }, [])
 
   return (
     <div className="mx-auto flex flex-col justify-between">

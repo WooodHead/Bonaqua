@@ -178,3 +178,23 @@ async function TokenUpdate(token, date) {
         }
     })
 };
+
+exports.Payment = async(req, res) => {
+    fetch('https://api.qpay.mn/v1/auth/token', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Basic TUNTOmFoTlpGT00x"
+        },
+        body: JSON.stringify({
+          "client_id": "qpay_test",
+          "client_secret": "sdZv9k9m",
+          "grant_type": "client",
+          "refresh_token": ""
+        })
+      })
+        .then(res => {
+          const data = res.json()
+          res.status(data)
+        })
+}

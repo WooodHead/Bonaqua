@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import './css/style.css';
 import './css/mediaQuery.css';
 import Header from './components/Header';
-import Order from './components/Order';
+import Order from './components/Order/Order';
 import Footer from './components/Footer';
 import { BrowserRouter as Routes, Switch, Route, Router } from 'react-router-dom';
 import OrderInfo from './components/Order/OrderInfo';

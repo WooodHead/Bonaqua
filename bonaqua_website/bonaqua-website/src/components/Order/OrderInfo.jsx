@@ -71,7 +71,8 @@ export default function OrderInfo() {
             });
           })
 
-          history.push('/payment');
+          // history.push('/payment');
+          window.location.pathname = '/payment'
       // }
       // else {
       //   toast("Та нэр эсвэл утасны дугаараа шалгана уу!");
